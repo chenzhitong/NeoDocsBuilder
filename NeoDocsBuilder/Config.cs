@@ -9,36 +9,16 @@ namespace NeoDocsBuilder
     public static class Config
     {
         private static bool? lazyload;
-        private static bool? bootstrap4;
-        private static bool? codePrettify;
         private static string origin;
         private static string destination;
         private static string template;
+        private static JObject folder_json;
         public static bool? Lazyload
         {
             get {
                 if (lazyload == null)
                     Refresh();
                 return lazyload;
-            }
-        }
-        public static bool? Bootstrap4
-        {
-            get
-            {
-                if (bootstrap4 == null)
-                    Refresh();
-                return bootstrap4;
-            }
-        }
-
-        public static bool? CodePrettify
-        {
-            get
-            {
-                if (codePrettify == null)
-                    Refresh();
-                return codePrettify;
             }
         }
         public static string Origin
@@ -68,15 +48,31 @@ namespace NeoDocsBuilder
                 return template;
             }
         }
+        public static JObject FolderJson
+        {
+            get
+            {
+                if (folder_json == null)
+                    Refresh();
+                return folder_json;
+            }
+        }
         private static void Refresh()
         {
             var json = JObject.Parse(File.ReadAllText("config.json"))["ApplicationConfiguration"];
             lazyload = bool.Parse(json["lazyload"].ToString());
-            bootstrap4 = bool.Parse(json["bootstrap4"].ToString());
-            codePrettify = bool.Parse(json["codePrettify"].ToString());
             origin = json["origin"].ToString();
             destination = json["destination"].ToString();
             template = json["template"].ToString();
+            var jsonPath = Path.Combine(origin, "folder.json");
+            if (!File.Exists(jsonPath))
+            {
+                folder_json = null;
+            }
+            else
+            {
+                folder_json = JObject.Parse(File.ReadAllText(jsonPath));
+            }
         }
     }
 }

@@ -17,12 +17,13 @@ namespace NeoDocsBuilder
             {
                 case MarkdownBlockType.Code:
                     var code = block as CodeBlock;
-                    var lang = string.IsNullOrEmpty(code.CodeLanguage) ? "" : $" class='language-{code.CodeLanguage}' lang='{HtmlEncode(code.CodeLanguage)}'";
-                    result += $"\r\n<pre><code{lang}>{HtmlEncode(code.Text)}\r\n</code></pre>";
+                    var lang = string.IsNullOrEmpty(code.CodeLanguage) ? "" : $" class='{code.CodeLanguage.ToHlJs()}' lang='{HtmlEncode(code.CodeLanguage.ToHlJs())}'";
+                    var encode = HtmlEncode(code.Text);
+                    result += $"\r\n<figure class='highlight'>\r\n<pre><code{lang} data-author-content='{encode}'>{encode}\r\n</code></pre>\r\n</figure>";
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
-                    result += $"\r\n<h{header.HeaderLevel}>";
+                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId()}'>";
                     foreach (var headerInline in header.Inlines)
                     {
                         result += headerInline.ToHtml();
@@ -86,7 +87,7 @@ namespace NeoDocsBuilder
                     result += "\r\n</blockquote>";
                     break;
                 case MarkdownBlockType.Table:
-                    result += "\r\n<figure><table>";
+                    result += "\r\n<figure><table class='table table-hover'>";
                     var table = block as TableBlock;
                     for (int i = 0; i < table.Rows.Count; i++)
                     {
@@ -143,7 +144,10 @@ namespace NeoDocsBuilder
                 case MarkdownInlineType.Image:
                     var image = inline as ImageInline;
                     var imageTooltip = string.IsNullOrEmpty(image.Tooltip) ? "" : $" alt='{image.Tooltip}'";
-                    result += $"<img src='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
+                    if(Config.Lazyload == true)
+                        result += $"<img data-original='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
+                    else
+                        result += $"<img src='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
                     break;
                 case MarkdownInlineType.Italic:
                     result += "<em>";
@@ -202,5 +206,24 @@ namespace NeoDocsBuilder
             }
             return result;
         }
+
+        /// <summary>
+        /// https://highlightjs.org/usage/
+        /// </summary>
+        public static string ToHlJs(this string input)
+        {
+            string result;
+            switch (input)
+            {
+                case "c#": result = "csharp"; break;
+                case "c++": result = "cpp"; break;
+                default: result = input.ToLower(); break;
+            }
+            return result;
+        }
+
+        public static string ToAnchorPoint(this string input) => $"#{input.ToId()}";
+
+        public static string ToId(this string input) => $"{input.Trim().Replace(" ", "-")}";
     }
 }

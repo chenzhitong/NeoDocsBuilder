@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Parsers.Markdown;
 using Microsoft.Toolkit.Parsers.Markdown.Blocks;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -10,29 +11,49 @@ namespace NeoDocsBuilder
     {
         static void Main(string[] args)
         {
-            //拷贝 CSS, JS, Lib 等文件夹
             Files.CopyDirectory(Config.Template, Config.Destination);
             Files.CopyDirectoryOnly(Config.Origin, Config.Destination);
             Run(Config.Origin, Config.Destination, Config.Template);
-            Console.ReadLine();
+            BuildCatalog(Config.Destination);
         }
 
+        static string Catalog;
         static void Run(string origin, string destination, string template)
         {
             var files = Directory.GetFiles(origin);
+            Catalog += "\r\n<ul>";
             foreach (var file in files)
             {
                 if (Path.GetExtension(file) != ".md")
                     continue;
-                var filePathWithoutOrigin = string.Join("\\", file.Split("\\").ToArray().Skip(1)).Replace(".md", ".html");
-                var (title, content) = Convert(Parse(file));
-                Build(Path.Combine(destination, filePathWithoutOrigin), content, title, template);
+                var split = file.Split("\\").ToArray();
+                if (split.Length < 2)
+                    throw new Exception();
+                var depth = split.Length - 2;
+                var filePathWithoutOrigin = string.Join("\\", split.Skip(1)).Replace(".md", ".html");
+                var (title, content, sideNav) = Convert(Parse(file));
+                Build(Path.Combine(destination, filePathWithoutOrigin), content, title, sideNav, depth, template);
+                var up = "../../../../../../../../../../";
+                Catalog += $"<li><a href='{up}{filePathWithoutOrigin}'>{title}</a></li>";
             }
             var dirs = Directory.GetDirectories(origin);
             foreach (var dir in dirs)
             {
+                Catalog += "\r\n<li>";
+                var dirName = dir.Split("\\").Reverse().ToList()[0];
+                var newName = Config.FolderJson?[dirName]?.ToString();
+                if (string.IsNullOrEmpty(newName))
+                {
+                    Catalog += $"<span>{dirName}</span>";
+                }
+                else
+                {
+                    Catalog += $"<span>{newName}</span>";
+                }
                 Run(dir, destination, template);
+                Catalog += "\r\n</li>";
             }
+            Catalog += "\r\n</ul>";
         }
         static MarkdownDocument Parse(string name)
         {
@@ -40,33 +61,57 @@ namespace NeoDocsBuilder
             document.Parse(File.ReadAllText(name));
             return document;
         }
-
-        static (string title, string content) Convert(MarkdownDocument document)
+        static (string title, string content, string sideNav) Convert(MarkdownDocument document)
         {
-            var title = string.Empty;
+            var sideNav = string.Empty;
+            string title = null;
             var content = string.Empty;
+            sideNav += "\r\n<ul>";
             foreach (var element in document.Blocks)
             {
                 if (element.Type == MarkdownBlockType.Header)
                 {
-                    var header = element as HeaderBlock;
-                    if (header.HeaderLevel == 1)
-                        title = header.ToString();
+                    var header = (element as HeaderBlock);
+                    if (header.HeaderLevel > 3)
+                        continue;
+                    sideNav += $"<li><a class='side-nav-{header.HeaderLevel}' href='{element.ToString().ToAnchorPoint()}'>{element.ToString().Trim()}</a></li>";
+                    title = title??element.ToString();
                 }
                 content += element.ToHtml();
             }
-            return (title.Trim(), content.Trim());
+            sideNav += "\r\n</ul>";
+            return (title.Trim(), content.Trim(), sideNav.Trim());
         }
 
-        static void Build(string name, string content, string title, string template)
+        static void Build(string name, string content, string title, string sideNav, int depth, string template)
         {
             var path = Path.Combine(name);
+            var depthStr = string.Empty;
+            for (int i = 0; i < depth; i++)
+            {
+                depthStr += "../";
+            }
             using (StreamWriter sw = new StreamWriter(path))
             {
-                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html")).Replace("{title}", title).Replace("{body}", content));
-                Console.WriteLine(name);
+                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html")).Replace("{title}", title).Replace("{sideNav}", sideNav).Replace("{depth}", depthStr).Replace("{body}", content));
+                Console.WriteLine($"build: {name}");
             }
         }
 
+        private static void BuildCatalog(string path)
+        {
+            foreach (var file in Directory.GetFiles(path))
+            {
+                var html = File.ReadAllText(file).Replace("{catalog}", Catalog);
+                using (StreamWriter sw = new StreamWriter(file))
+                {
+                    sw.WriteLine(html);
+                    Console.WriteLine($"catalog: {file}");
+                }
+            }
+            Directory.GetDirectories(path).ToList().ForEach(
+                p => BuildCatalog(p)
+            );
+        }
     }
 }

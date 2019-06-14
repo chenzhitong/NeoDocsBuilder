@@ -20,22 +20,72 @@
     <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="bookmark" />
     <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
-    <link href="css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="https://neo-cdn.azureedge.net/css/vs.css" rel="stylesheet" />
+    <link href="{depth}css/site.css" rel="stylesheet" />
 </head>
 <body>
-    {body}
+    <div class="body-content">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="container-fluid" style="margin-top: 61px">
+            <div class="row d-flex">
+                <div class="col-12 col-md-3 col-lg-2 catalog">
+                    {catalog}
+                </div>
+                <main class="col-12 col-md-9 col-lg-8 py-2 py-md-5 pl-md-5">
+                    {body}
+                </main>
+                <div class="col-12 d-md-none d-lg-block col-lg-2 side-nav">
+                    {sideNav}
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center p-5">
+        <ul>
+            <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+            <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+        </ul>
+        <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+        <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        <img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-logo.svg" alt="NEO Logo" />
+    </footer>
     <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
     <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
     <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
     <script>
-        // $(".dropdown-toggle").hover(function () {
-        //     $(this).next(".dropdown-menu").toggle();
-        // })
-
-        // $('.dropdown-menu').hover(function () {
-        //     $(this).toggle();
-        // });
+        hljs.initHighlightingOnLoad();
         $('[data-original]').lazyload({
             threshold: 200,
             effect: "fadeIn"

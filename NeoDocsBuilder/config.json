@@ -1,8 +1,6 @@
 {
   "ApplicationConfiguration": {
     "lazyload": "true",
-    "bootstrap4": "true",
-    "codePrettify": "true",
     "origin": "origin",
     "template": "template",
     "destination": "wwwroot"
