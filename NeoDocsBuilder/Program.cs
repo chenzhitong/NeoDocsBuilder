@@ -41,14 +41,24 @@ namespace NeoDocsBuilder
             {
                 Catalog += "\r\n<li>";
                 var dirName = dir.Split("\\").Reverse().ToList()[0];
-                var newName = Config.FolderJson?[dirName]?.ToString();
+                var newName = Config.FolderJson["rename"]?[dirName]?.ToString();
+                var isHidden = false;
+                foreach (var item in Config.FolderJson["hidden"])
+                {
+                    if (item.ToString() == dirName)
+                    {
+                        isHidden = true;
+                        break;
+                    }
+                }
+                if (isHidden) continue;
                 if (string.IsNullOrEmpty(newName))
                 {
-                    Catalog += $"<span>{dirName}</span>";
+                    Catalog += $"<span data-attr='+'>{dirName}</span>";
                 }
                 else
                 {
-                    Catalog += $"<span>{newName}</span>";
+                    Catalog += $"<span data-attr='+'>{newName}</span>";
                 }
                 Run(dir, destination, template);
                 Catalog += "\r\n</li>";

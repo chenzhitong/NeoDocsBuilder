@@ -25,7 +25,7 @@
     <link href="{depth}css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="body-content">
+    <div class="body-content body-content px-md-3 px-lg-5">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,13 +57,15 @@
         </nav>
         <div class="container-fluid" style="margin-top: 61px">
             <div class="row d-flex">
-                <div class="col-12 col-md-3 col-lg-2 catalog">
+                <div class="d-none d-md-block  col-md-3 col-lg-2 catalog py-2 py-md-5">
                     {catalog}
                 </div>
                 <main class="col-12 col-md-9 col-lg-8 py-2 py-md-5 pl-md-5">
                     {body}
                 </main>
-                <div class="col-12 d-md-none d-lg-block col-lg-2 side-nav">
+                <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
+                    <div><strong>本文内容</strong></div>
+                    <hr />
                     {sideNav}
                 </div>
             </div>
@@ -89,6 +91,13 @@
         $('[data-original]').lazyload({
             threshold: 200,
             effect: "fadeIn"
+        });
+        $(".catalog ul span").click(function () {
+            if ($(this).attr('data-attr') == "+")
+                $(this).attr('data-attr', "-");
+            else
+                $(this).attr('data-attr', "+");
+            $(this).parent().children("ul").toggle();
         });
     </script>
 </body>
