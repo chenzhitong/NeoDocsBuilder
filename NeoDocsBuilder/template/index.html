@@ -58,7 +58,7 @@
         </nav>
         <div class="container-fluid" style="margin-top: 61px">
             <div class="row d-flex">
-                <div class="d-none d-md-block  col-md-3 col-lg-2 catalog py-2 py-md-5">
+                <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5">
                     {catalog}
                 </div>
                 <main class="col-12 col-md-9 col-lg-8 py-2 py-md-5 pl-md-5">
@@ -94,12 +94,46 @@
             effect: "fadeIn"
         });
         $(".catalog ul span").click(function () {
-            if ($(this).attr('data-attr') == "+")
-                $(this).attr('data-attr', "-");
+            if ($(this).attr('data-icon') == "+")
+                $(this).attr('data-icon', "-");
             else
-                $(this).attr('data-attr', "+");
+                $(this).attr('data-icon', "+");
             $(this).parent().children("ul").toggle();
         });
+        var paths = location.pathname.split('/');
+        for (var i = 1; i < paths.length - 1; i++) {
+            var spans = $(".catalog").find("span");
+            for (var j = 0; j < spans.length; j++) {
+                if ($(spans[j]).attr('data-path') == paths[i]) {
+                    //展开到此目录
+                    $(spans[j]).next().show();
+                    if (i == paths.length - 2) {
+                        var links = $(spans[j]).next().find("a");
+                        for (var j = 0; j < links.length; j++) {
+                            if ($(links[j]).attr('data-path') == paths[i + 1].replace(".html", "")) {
+                                //当前文档高亮显示
+                                $(links[j]).addClass("active");
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+
+        }
+        function highLight(hash) {
+            var links = $(".side-nav a");
+            for (var i = 0; i < links.length; i++) {
+                if ($(links[i]).attr('href') == hash) {
+                    $(links[i]).addClass("active");
+                }
+                else {
+                    $(links[i]).removeClass("active");
+                }
+            }
+        }
+        highLight(decodeURI(location.hash));
     </script>
 </body>
 </html>

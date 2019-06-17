@@ -30,11 +30,11 @@ namespace NeoDocsBuilder
                 if (split.Length < 2)
                     throw new Exception();
                 var depth = split.Length - 2;
-                var filePathWithoutOrigin = string.Join("\\", split.Skip(1)).Replace(".md", ".html");
+                var filePathWithoutOrigin = string.Join("\\", split.Skip(1)).Replace(".md", ".html").Replace("\\","/");
                 var (title, content, sideNav) = Convert(Parse(file));
                 Build(Path.Combine(destination, filePathWithoutOrigin), content, title, sideNav, depth, template);
                 var up = "../../../../../../../../../../";
-                Catalog += $"<li><a href='{up}{filePathWithoutOrigin}'>{title}</a></li>";
+                Catalog += $"<li><a href='{up}{filePathWithoutOrigin}' data-path='{Path.GetFileName(file).Replace(".md", "")}'>{title}</a></li>";
             }
             var dirs = Directory.GetDirectories(origin);
             foreach (var dir in dirs)
@@ -54,11 +54,11 @@ namespace NeoDocsBuilder
                 if (isHidden) continue;
                 if (string.IsNullOrEmpty(newName))
                 {
-                    Catalog += $"<span data-attr='+'>{dirName}</span>";
+                    Catalog += $"<span data-icon='+' data-path='{dirName}'>{dirName}</span>";
                 }
                 else
                 {
-                    Catalog += $"<span data-attr='+'>{newName}</span>";
+                    Catalog += $"<span data-icon='+' data-path='{dirName}'>{newName}</span>";
                 }
                 Run(dir, destination, template);
                 Catalog += "\r\n</li>";
@@ -84,7 +84,9 @@ namespace NeoDocsBuilder
                     var header = (element as HeaderBlock);
                     if (header.HeaderLevel > 3)
                         continue;
-                    sideNav += $"<li><a class='side-nav-{header.HeaderLevel}' href='{element.ToString().ToAnchorPoint()}'>{element.ToString().Trim()}</a></li>";
+                    var str = header.ToString().Trim(' ', '*');
+                    var hash = str.ToAnchorPoint();
+                    sideNav += $"<li><a class='side-nav-{header.HeaderLevel}' onclick='highLight(\"{hash}\")' href='{hash}'>{str}</a></li>";
                     title = title??element.ToString();
                 }
                 content += element.ToHtml();

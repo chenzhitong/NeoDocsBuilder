@@ -5,6 +5,7 @@ using static System.Web.HttpUtility;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace NeoDocsBuilder
 {
@@ -87,7 +88,7 @@ namespace NeoDocsBuilder
                     result += "\r\n</blockquote>";
                     break;
                 case MarkdownBlockType.Table:
-                    result += "\r\n<figure><table class='table table-hover'>";
+                    result += "\r\n<figure><table class='table table-hover table-striped table-bordered'>";
                     var table = block as TableBlock;
                     for (int i = 0; i < table.Rows.Count; i++)
                     {
@@ -133,12 +134,12 @@ namespace NeoDocsBuilder
             {
                 case MarkdownInlineType.Comment: result += inline; break;
                 case MarkdownInlineType.Bold:
-                    result += "<strong>";
+                    result += " <strong>";
                     foreach (var boldInline in (inline as BoldTextInline).Inlines)
                     {
                         result += boldInline.ToHtml();
                     }
-                    result += "</strong>";
+                    result += "</strong> ";
                     break;
                 case MarkdownInlineType.Code: result += $" <code>{(inline as CodeInline).Text}</code> "; break;
                 case MarkdownInlineType.Image:
@@ -195,7 +196,15 @@ namespace NeoDocsBuilder
                 case MarkdownInlineType.TextRun: result += $"{(inline as TextRunInline).ToString().Trim()}"; break;
                 case MarkdownInlineType.RawHyperlink:
                     var hyperLink = inline as HyperlinkInline;
-                    result += $"{hyperLink.Text}";
+                    var imgExName = new string[]{ "jpg", "jpeg", "png", "gif" };
+                    if (imgExName.ToList().Any(p => hyperLink.Text.Contains(p)))
+                    {
+                        result += $" {hyperLink.Text} ";
+                    }
+                    else
+                    {
+                        result += $" <a href='{hyperLink.Text}'>{hyperLink.Text}</a> ";
+                    }
                     break;
 
                 case MarkdownInlineType.RawSubreddit:
@@ -224,6 +233,6 @@ namespace NeoDocsBuilder
 
         public static string ToAnchorPoint(this string input) => $"#{input.ToId()}";
 
-        public static string ToId(this string input) => $"{input.Trim().Replace(" ", "-")}";
+        public static string ToId(this string input) => $"{input.Trim(' ', '*').Replace(" ", "-")}";
     }
 }
