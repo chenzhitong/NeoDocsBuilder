@@ -1,0 +1,34 @@
+﻿
+code {
+    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;
+    color: #E74C3C;
+    background: #fff;
+    font-size: 75%;
+    border-radius: 0;
+    padding: 2px 4px;
+    border: solid 1px #e1e4e5;
+}
+
+button, a {
+    color: #31AA77;
+    cursor: pointer;
+    word-break: break-all;
+    display: inline-block;
+}
+
+    button:hover, button:focus, a:hover, a:focus {
+        color: #31AA77;
+        text-decoration: none;
+    }
+
+    a:active, a:hover {
+        outline: 0;
+    }
+
+pre {
+    margin-bottom: 0;
+}
+
+p {
+    line-height: 1.75;
+}
