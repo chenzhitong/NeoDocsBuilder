@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace NeoDocsBuilder
 {
@@ -36,7 +37,7 @@ namespace NeoDocsBuilder
                     var linkReference = block as LinkReferenceBlock;
                     var url = linkReference.Url ?? "javascript:";
                     var tooltip = string.IsNullOrEmpty(linkReference.Tooltip) ? "" : $" title='{linkReference.Tooltip}'";
-                    result += $"<a href='{url}'{tooltip}>{linkReference}</a>";
+                    result += $"<a href='{url.Replace(".md", ".html")}'{tooltip}>{linkReference}</a>";
                     break;
                 case MarkdownBlockType.List:
                     var list = block as ListBlock;
@@ -162,7 +163,7 @@ namespace NeoDocsBuilder
                     var markdownLink = inline as MarkdownLinkInline;
                     var markdownLinkUrl = markdownLink.Url ?? "javascript:";
                     var markdownLinkTooltip = string.IsNullOrEmpty(markdownLink.Tooltip) ? "" : $" title='{markdownLink.Tooltip}'";
-                    result += $" <a href='{markdownLinkUrl}'{markdownLinkTooltip}>";
+                    result += $" <a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}>";
                     foreach (var linkInline in markdownLink.Inlines)
                     {
                         result += linkInline.ToHtml();
@@ -193,7 +194,14 @@ namespace NeoDocsBuilder
                     }
                     result += "</sup>";
                     break;
-                case MarkdownInlineType.TextRun: result += $"{(inline as TextRunInline).ToString().Trim()}"; break;
+                case MarkdownInlineType.TextRun:
+                    var reg = new Regex("<(p|img|br|b|i|br|a|link)(\\s|>).*>");
+                    var textRun = (inline as TextRunInline).ToString().Trim();
+                    if(reg.IsMatch(textRun))
+                        result += $"{textRun}";
+                    else
+                        result += $" {HtmlEncode(textRun)} ";
+                    break;
                 case MarkdownInlineType.RawHyperlink:
                     var hyperLink = inline as HyperlinkInline;
                     var imgExName = new string[]{ "jpg", "jpeg", "png", "gif" };
@@ -203,7 +211,7 @@ namespace NeoDocsBuilder
                     }
                     else
                     {
-                        result += $" <a href='{hyperLink.Text}'>{hyperLink.Text}</a> ";
+                        result += $" <a href='{hyperLink.Text.Replace(".md", ".html")}'>{hyperLink.Text}</a> ";
                     }
                     break;
 

@@ -8,12 +8,14 @@ namespace NeoDocsBuilder
 {
     public static class Files
     {
-        public static void CopyDirectory(string sourceDirPath, string saveDirPath)
+        public static void CopyDirectory(string sourceDirPath, string saveDirPath, bool includeMarkDown = false)
         {
             if (!Directory.Exists(saveDirPath))
                 Directory.CreateDirectory(saveDirPath);
             Directory.GetFiles(sourceDirPath).ToList().ForEach(
-                p => File.Copy(p, Path.Combine(saveDirPath, Path.GetFileName(p)), true)
+                p => { if (Path.GetExtension(p) != ".md")
+                        File.Copy(p, Path.Combine(saveDirPath, Path.GetFileName(p)), true);
+                }
             );
             Directory.GetDirectories(sourceDirPath).ToList().ForEach(
                 p => CopyDirectory(p, Path.Combine(saveDirPath, Path.GetFileName(p)))

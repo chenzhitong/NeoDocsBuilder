@@ -122,6 +122,8 @@ namespace NeoDocsBuilder
         {
             foreach (var file in Directory.GetFiles(path))
             {
+                if (Path.GetExtension(file) != ".html")
+                    continue;
                 var html = File.ReadAllText(file).Replace("{catalog}", Catalog);
                 using (StreamWriter sw = new StreamWriter(file))
                 {
