@@ -147,9 +147,9 @@ namespace NeoDocsBuilder
                     var image = inline as ImageInline;
                     var imageTooltip = string.IsNullOrEmpty(image.Tooltip) ? "" : $" alt='{image.Tooltip}'";
                     if(Config.Lazyload == true)
-                        result += $"<img data-original='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
+                        result += $"<img class='img-fluid' data-original='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
                     else
-                        result += $"<img src='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
+                        result += $"<img class='img-fluid src='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
                     break;
                 case MarkdownInlineType.Italic:
                     result += "<em>";
