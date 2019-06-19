@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace NeoDocsBuilder
 {
@@ -11,14 +13,20 @@ namespace NeoDocsBuilder
     {
         static void Main(string[] args)
         {
+            var timea = DateTime.Now;
             Files.CopyDirectory(Config.Template, Config.Destination);
             Files.CopyDirectory(Config.Origin, Config.Destination);
             Files.CopyDirectoryOnly(Config.Origin, Config.Destination);
             Run(Config.Origin, Config.Destination, Config.Template);
+            CatalogLinks = new Regex("href='.*?\\.html'").Matches(Catalog);
             BuildCatalog(Config.Destination);
+            var timeb = DateTime.Now;
+            Console.WriteLine($"{(timeb - timea).TotalSeconds}s");
+            Console.ReadLine();
         }
 
         static string Catalog;
+        static MatchCollection CatalogLinks;
         static void Run(string origin, string destination, string template)
         {
             var files = Directory.GetFiles(origin);
@@ -31,11 +39,11 @@ namespace NeoDocsBuilder
                 if (split.Length < 2)
                     throw new Exception();
                 var depth = split.Length - 2;
-                var filePathWithoutOrigin = string.Join("\\", split.Skip(1)).Replace(".md", ".html").Replace("\\","/");
+                var filePathWithoutOrigin = string.Join("\\", split.Skip(1)).Replace(".md", ".html");
+                var destPath = Path.Combine(destination, filePathWithoutOrigin);
                 var (title, content, sideNav) = Convert(Parse(file));
-                Build(Path.Combine(destination, filePathWithoutOrigin), content, title, sideNav, depth, template);
-                var up = "../../../../../../../../../../";
-                Catalog += $"<li><a href='{up}{filePathWithoutOrigin}' data-path='{Path.GetFileName(file).Replace(".md", "")}'>{title}</a></li>";
+                Build(destPath, content, title, sideNav, depth, template);
+                Catalog += $"<li><a href='{destPath.Replace("\\", "/")}' data-path='{Path.GetFileName(file).Replace(".md", "")}'>{title}</a></li>";
             }
             var dirs = Directory.GetDirectories(origin);
             foreach (var dir in dirs)
@@ -117,14 +125,28 @@ namespace NeoDocsBuilder
                 Console.WriteLine($"build: {name}");
             }
         }
-
+        
         private static void BuildCatalog(string path)
         {
             foreach (var file in Directory.GetFiles(path))
             {
                 if (Path.GetExtension(file) != ".html")
                     continue;
-                var html = File.ReadAllText(file).Replace("{catalog}", Catalog);
+
+                var catalogTemp = Catalog;
+                Task.Run(() =>
+                {
+                    foreach (var link in CatalogLinks)
+                    {
+                        var pathHref = (link as Match).Value;
+                        var absolute = pathHref.Substring(6, pathHref.Length - 7);
+                        var relative = Path.GetRelativePath(file, absolute);
+                        if (relative.StartsWith("..\\"))
+                            relative = relative.Remove(0, 3).Replace("\\", "/");
+                        catalogTemp = catalogTemp.Replace(absolute, relative);
+                    }
+                });
+                var html = File.ReadAllText(file).Replace("{catalog}", catalogTemp);
                 using (StreamWriter sw = new StreamWriter(file))
                 {
                     sw.WriteLine(html);
