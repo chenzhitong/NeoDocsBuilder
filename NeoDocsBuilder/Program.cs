@@ -129,17 +129,12 @@ namespace NeoDocsBuilder
         
         private static void BuildCatalog(string path)
         {
-            var tasks = new List<Task>();
-            foreach (var file in Directory.GetFiles(path))
+            Parallel.ForEach(Directory.GetFiles(path), (file) =>
             {
                 if (Path.GetExtension(file) != ".html")
-                    continue;
-                tasks.Add(Task.Factory.StartNew(() =>
-                {
-                    ProcessRelativePath(file, Catalog);
-                }));
-            }
-            Task.WaitAll(tasks.ToArray());
+                    return;
+                ProcessRelativePath(file, Catalog);
+            });
             Directory.GetDirectories(path).ToList().ForEach(
                 p => BuildCatalog(p)
             );
