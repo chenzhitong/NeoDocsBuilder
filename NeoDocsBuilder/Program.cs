@@ -13,15 +13,16 @@ namespace NeoDocsBuilder
     {
         static void Main(string[] args)
         {
-            var timea = DateTime.Now;
+            var time1 = DateTime.Now;
             Files.CopyDirectory(Config.Template, Config.Destination);
             Files.CopyDirectory(Config.Origin, Config.Destination);
             Files.CopyDirectoryOnly(Config.Origin, Config.Destination);
             Run(Config.Origin, Config.Destination, Config.Template);
             CatalogLinks = new Regex("href='.*?\\.html'").Matches(Catalog);
             BuildCatalog(Config.Destination);
-            var timeb = DateTime.Now;
-            Console.WriteLine($"{(timeb - timea).TotalSeconds}s");
+
+            var time2 = DateTime.Now;
+            Console.WriteLine($"{(time2 - time1).TotalSeconds}s");
             Console.ReadLine();
         }
 
@@ -128,34 +129,39 @@ namespace NeoDocsBuilder
         
         private static void BuildCatalog(string path)
         {
+            var tasks = new List<Task>();
             foreach (var file in Directory.GetFiles(path))
             {
                 if (Path.GetExtension(file) != ".html")
                     continue;
-
-                var catalogTemp = Catalog;
-                Task.Run(() =>
+                tasks.Add(Task.Factory.StartNew(() =>
                 {
-                    foreach (var link in CatalogLinks)
-                    {
-                        var pathHref = (link as Match).Value;
-                        var absolute = pathHref.Substring(6, pathHref.Length - 7);
-                        var relative = Path.GetRelativePath(file, absolute);
-                        if (relative.StartsWith("..\\"))
-                            relative = relative.Remove(0, 3).Replace("\\", "/");
-                        catalogTemp = catalogTemp.Replace(absolute, relative);
-                    }
-                });
-                var html = File.ReadAllText(file).Replace("{catalog}", catalogTemp);
-                using (StreamWriter sw = new StreamWriter(file))
-                {
-                    sw.WriteLine(html);
-                    Console.WriteLine($"catalog: {file}");
-                }
+                    ProcessRelativePath(file, Catalog);
+                }));
             }
+            Task.WaitAll(tasks.ToArray());
             Directory.GetDirectories(path).ToList().ForEach(
                 p => BuildCatalog(p)
             );
+        }
+
+        private static void ProcessRelativePath(string file, string catalog)
+        {
+            foreach (var link in CatalogLinks)
+            {
+                var pathHref = (link as Match).Value;
+                var absolute = pathHref.Substring(6, pathHref.Length - 7);
+                var relative = Path.GetRelativePath(file, absolute);
+                if (relative.StartsWith("..\\"))
+                    relative = relative.Remove(0, 3).Replace("\\", "/");
+                catalog = catalog.Replace(absolute, relative);
+            }
+            var html = File.ReadAllText(file).Replace("{catalog}", catalog);
+            using (StreamWriter sw = new StreamWriter(file))
+            {
+                sw.WriteLine(html);
+                Console.WriteLine($"catalog: {file}");
+            }
         }
     }
 }
