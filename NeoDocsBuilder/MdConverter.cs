@@ -37,7 +37,10 @@ namespace NeoDocsBuilder
                     var linkReference = block as LinkReferenceBlock;
                     var url = linkReference.Url ?? "javascript:";
                     var tooltip = string.IsNullOrEmpty(linkReference.Tooltip) ? "" : $" title='{linkReference.Tooltip}'";
-                    result += $"<a href='{url.Replace(".md", ".html")}'{tooltip}>{linkReference}</a>";
+                    if(url.IsExternalLink())
+                        result += $"<a href='{url}' target='_blank'{tooltip}>{linkReference}</a>";
+                    else
+                        result += $"<a href='{url.Replace(".md", ".html")}'{tooltip}>{linkReference}</a>";
                     break;
                 case MarkdownBlockType.List:
                     var list = block as ListBlock;
@@ -163,7 +166,10 @@ namespace NeoDocsBuilder
                     var markdownLink = inline as MarkdownLinkInline;
                     var markdownLinkUrl = markdownLink.Url ?? "javascript:";
                     var markdownLinkTooltip = string.IsNullOrEmpty(markdownLink.Tooltip) ? "" : $" title='{markdownLink.Tooltip}'";
-                    result += $" <a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}>";
+                    if (markdownLinkUrl.IsExternalLink())
+                        result += $"<a href='{markdownLinkUrl}' target='_blank'{markdownLinkTooltip}>";
+                    else
+                        result += $"<a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}>";
                     foreach (var linkInline in markdownLink.Inlines)
                     {
                         result += linkInline.ToHtml();
@@ -211,7 +217,10 @@ namespace NeoDocsBuilder
                     }
                     else
                     {
-                        result += $" <a href='{hyperLink.Text.Replace(".md", ".html")}'>{hyperLink.Text}</a> ";
+                        if (hyperLink.Text.IsExternalLink())
+                            result += $" <a href='{hyperLink.Text}' target='_blank'>{hyperLink.Text}</a> ";
+                        else
+                            result += $" <a href='{hyperLink.Text.Replace(".md", ".html")}'>{hyperLink.Text}</a> ";
                     }
                     break;
 
@@ -242,5 +251,7 @@ namespace NeoDocsBuilder
         public static string ToAnchorPoint(this string input) => $"#{input.ToId()}";
 
         public static string ToId(this string input) => $"{input.Trim(' ', '*').Replace(" ", "-")}";
+
+        public static bool IsExternalLink(this string link) => link.StartsWith("http");
     }
 }
