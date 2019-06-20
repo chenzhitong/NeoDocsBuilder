@@ -28,6 +28,7 @@ namespace NeoDocsBuilder
 
         static string Catalog;
         static MatchCollection CatalogLinks;
+        static List<string> AllFiles = new List<string>();
         static void Run(string origin, string destination, string template)
         {
             var files = Directory.GetFiles(origin);
@@ -129,15 +130,18 @@ namespace NeoDocsBuilder
         
         private static void BuildCatalog(string path)
         {
-            Parallel.ForEach(Directory.GetFiles(path), (file) =>
+            void GetAllFiles(string _path)
+            {
+                Directory.GetFiles(_path).ToList().ForEach(p => AllFiles.Add(p));
+                Directory.GetDirectories(_path).ToList().ForEach(p => GetAllFiles(p));
+            };
+            GetAllFiles(path);
+            Parallel.ForEach(AllFiles, (file) =>
             {
                 if (Path.GetExtension(file) != ".html")
                     return;
                 ProcessRelativePath(file, Catalog);
             });
-            Directory.GetDirectories(path).ToList().ForEach(
-                p => BuildCatalog(p)
-            );
         }
 
         private static void ProcessRelativePath(string file, string catalog)
@@ -149,6 +153,8 @@ namespace NeoDocsBuilder
                 var relative = Path.GetRelativePath(file, absolute);
                 if (relative.StartsWith("..\\"))
                     relative = relative.Remove(0, 3).Replace("\\", "/");
+                if (relative == ".")
+                    relative = Path.GetFileName(file);
                 catalog = catalog.Replace(absolute, relative);
             }
             var html = File.ReadAllText(file).Replace("{catalog}", catalog);
