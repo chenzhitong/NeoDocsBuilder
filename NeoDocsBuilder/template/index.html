@@ -90,10 +90,6 @@
     <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
-        $('[data-original]').lazyload({
-            threshold: 200,
-            effect: "fadeIn"
-        });
         $(".catalog ul span").click(function () {
             if ($(this).attr('data-icon') == "+")
                 $(this).attr('data-icon', "-");
@@ -136,6 +132,11 @@
         }
         highLight(decodeURI(location.hash));
         text_replace(".with-space");
+        
+        $('[data-original]').lazyload({
+            threshold: 200,
+            effect: "fadeIn"
+        });
     </script>
 </body>
 </html>

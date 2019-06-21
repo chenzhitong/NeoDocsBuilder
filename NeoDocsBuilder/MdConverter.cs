@@ -123,8 +123,24 @@ namespace NeoDocsBuilder
                     result += "\r\n</table></figure>";
                     break;
 
-                case MarkdownBlockType.Root: 
                 case MarkdownBlockType.YamlHeader:
+                    var yamlHeader = block as YamlHeaderBlock;
+                    result += "\r\n<figure><table class='table table-hover table-striped table-bordered d-none'>";
+                    result += "\r\n<thead>\r\n<tr>";
+                    foreach (var item in yamlHeader.Children)
+                    {
+                        result += $"<th>{item.Key}</th>";
+                    }
+                    result += "\r\n</tr>\r\n</thead>";
+                    result += "\r\n<tbody>\r\n<tr>";
+                    foreach (var item in yamlHeader.Children)
+                    {
+                        result += $"<td>{item.Value}</td>";
+                    }
+                    result += "\r\n</tr>\r\n</tbody>";
+                    result += "\r\n</table></figure>";
+                    break;
+                case MarkdownBlockType.Root: 
                 case MarkdownBlockType.ListItemBuilder: throw new NotImplementedException();
                 default: break;
             }
@@ -223,14 +239,21 @@ namespace NeoDocsBuilder
                             result += $" <a href='{hyperLink.Text.Replace(".md", ".html")}'>{hyperLink.Text}</a> ";
                     }
                     break;
-
-                case MarkdownInlineType.RawSubreddit:
                 case MarkdownInlineType.Emoji:
+                    var emoji = inline as EmojiInline;
+                    result += emoji.Text;
+                    break;
+                case MarkdownInlineType.RawSubreddit:
                 case MarkdownInlineType.LinkReference:
                     throw new NotImplementedException();
                 default: break;
             }
             return result;
+        }
+
+        public static string ToText(this HeaderBlock header)
+        {
+            return "";
         }
 
         /// <summary>
