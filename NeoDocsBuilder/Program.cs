@@ -29,7 +29,7 @@ namespace NeoDocsBuilder
 
         static string Catalog;
         static MatchCollection CatalogLinks;
-        static List<string> AllFiles = new List<string>();
+        static readonly List<string> AllFiles = new List<string>();
         static void Run(string origin, string destination, string template)
         {
             var files = Directory.GetFiles(origin);
@@ -126,7 +126,7 @@ namespace NeoDocsBuilder
             }
             using (StreamWriter sw = new StreamWriter(path))
             {
-                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html")).Replace("{title}", title).Replace("{sideNav}", sideNav).Replace("{depth}", depthStr).Replace("{body}", content));
+                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html")).Replace("{title}", title).Replace("{sideNav}", sideNav).Replace("{body}", content).Replace("{depth}", depthStr));
                 Console.WriteLine($"build: {name}");
             }
         }

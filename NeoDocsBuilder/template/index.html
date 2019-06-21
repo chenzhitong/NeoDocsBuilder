@@ -61,7 +61,7 @@
                 <div class="d-none d-md-block col-md-3 col-lg-2 catalog py-2 py-md-5">
                     {catalog}
                 </div>
-                <main class="col-12 col-md-9 col-lg-8 py-2 py-md-5 pl-md-5 with-space">
+                <main class="col-12 col-md-9 col-lg-8 py-2 py-md-5 pl-md-5">
                     {body}
                 </main>
                 <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
@@ -88,7 +88,9 @@
     <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
     <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
     <script>
+        text_replace(".with-space");
         hljs.initHighlightingOnLoad();
         $(".catalog ul span").click(function () {
             if ($(this).attr('data-icon') == "+")
@@ -131,12 +133,19 @@
             }
         }
         highLight(decodeURI(location.hash));
-        text_replace(".with-space");
-        
+
         $('[data-original]').lazyload({
             threshold: 200,
             effect: "fadeIn"
         });
+        var clipboard = new ClipboardJS('.btn');
+        clipboard.on('success', function (e) {
+            alert("Copied!");
+        });
+        clipboard.on('error', function (e) {
+            alert("Error!");
+        });
+        $('[data-toggle="tooltip"]').tooltip();
     </script>
 </body>
 </html>

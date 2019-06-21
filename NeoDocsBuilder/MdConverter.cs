@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace NeoDocsBuilder
 {
@@ -21,16 +22,26 @@ namespace NeoDocsBuilder
                     var code = block as CodeBlock;
                     var lang = string.IsNullOrEmpty(code.CodeLanguage) ? "" : $" class='{code.CodeLanguage.ToHlJs()}' lang='{HtmlEncode(code.CodeLanguage.ToHlJs())}'";
                     var encode = HtmlEncode(code.Text);
-                    result += $"\r\n<figure class='highlight'>\r\n<pre><code{lang} data-author-content='{encode}'>{encode}\r\n</code></pre>\r\n</figure>";
+                    result += $"\r\n<figure class='highlight'>\r\n<button class='btn clippy' data-clipboard-demo data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{encode}'><img width='13' src='{{depth}}/img/clippy.svg' alt='Copy to clipboard'></button><pre><code{lang}>{encode}\r\n</code></pre>\r\n</figure>";
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
-                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId()}'>";
+                    var headerHtml = string.Empty;
+                    result += $"\r\n<h{header.HeaderLevel} class='with-space' id='{{0}}'>";
+                    headerHtml += $"\r\n<h{header.HeaderLevel}>";
                     foreach (var headerInline in header.Inlines)
                     {
-                        result += headerInline.ToHtml();
+                        var innerHtml = headerInline.ToHtml();
+                        result += innerHtml;
+                        headerHtml += innerHtml;
                     }
                     result += $"</h{header.HeaderLevel}>";
+                    headerHtml += $"</h{header.HeaderLevel}>";
+
+                    XmlDocument xml = new XmlDocument();
+                    xml.LoadXml(headerHtml);
+                    result = string.Format(result, xml.InnerText.ToId());
+
                     break;
                 case MarkdownBlockType.HorizontalRule: result += "\r\n<hr />"; break;
                 case MarkdownBlockType.LinkReference:
@@ -38,15 +49,15 @@ namespace NeoDocsBuilder
                     var url = linkReference.Url ?? "javascript:";
                     var tooltip = string.IsNullOrEmpty(linkReference.Tooltip) ? "" : $" title='{linkReference.Tooltip}'";
                     if(url.IsExternalLink())
-                        result += $"<a href='{url}' target='_blank'{tooltip}>{linkReference}</a>";
+                        result += $"<a class='with-space' href='{url}' target='_blank'{tooltip}>{linkReference}</a>";
                     else
-                        result += $"<a href='{url.Replace(".md", ".html")}'{tooltip}>{linkReference}</a>";
+                        result += $"<a class='with-space' href='{url.Replace(".md", ".html")}'{tooltip}>{linkReference}</a>";
                     break;
                 case MarkdownBlockType.List:
                     var list = block as ListBlock;
                     if (list.Style == ListStyle.Bulleted)
                     {
-                        result += "\r\n<ul>";
+                        result += "\r\n<ul class='with-space'>";
                         foreach (var li in list.Items)
                         {
                             result += $"\r\n<li>";
@@ -75,7 +86,7 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownBlockType.Paragraph:
                     if (parent != "li")
-                        result += "\r\n<p>";
+                        result += "\r\n<p class='with-space'>";
                     foreach (var inline in (block as ParagraphBlock).Inlines)
                     {
                         result += inline.ToHtml();
@@ -84,7 +95,7 @@ namespace NeoDocsBuilder
                         result += "</p>";
                     break;
                 case MarkdownBlockType.Quote:
-                    result += "\r\n<blockquote>";
+                    result += "\r\n<blockquote class='with-space'>";
                     foreach (var quoteBlock in (block as QuoteBlock).Blocks)
                     {
                         result += quoteBlock.ToHtml();
@@ -92,7 +103,7 @@ namespace NeoDocsBuilder
                     result += "\r\n</blockquote>";
                     break;
                 case MarkdownBlockType.Table:
-                    result += "\r\n<figure><table class='table table-hover table-striped table-bordered'>";
+                    result += "\r\n<figure class='with-space'><table class='table table-hover table-striped table-bordered'>";
                     var table = block as TableBlock;
                     for (int i = 0; i < table.Rows.Count; i++)
                     {
@@ -251,11 +262,6 @@ namespace NeoDocsBuilder
             return result;
         }
 
-        public static string ToText(this HeaderBlock header)
-        {
-            return "";
-        }
-
         /// <summary>
         /// https://highlightjs.org/usage/
         /// </summary>
@@ -273,7 +279,7 @@ namespace NeoDocsBuilder
 
         public static string ToAnchorPoint(this string input) => $"#{input.ToId()}";
 
-        public static string ToId(this string input) => $"{input.Trim(' ', '*').Replace(" ", "-")}";
+        public static string ToId(this string input) => $"{input.Trim(' ', '*').Replace(" ", "")}";
 
         public static bool IsExternalLink(this string link) => link.StartsWith("http");
     }

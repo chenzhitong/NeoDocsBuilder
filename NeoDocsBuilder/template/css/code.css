@@ -32,6 +32,14 @@ pre {
 p {
     line-height: 1.75;
 }
+.highlight {
+    position: relative;
+}
+.clippy {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.2rem;
+}
 h1:before, h2:before, h3:before, h4:before {
     content: '';
     display: block;
