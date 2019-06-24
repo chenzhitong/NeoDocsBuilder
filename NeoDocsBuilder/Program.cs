@@ -126,7 +126,7 @@ namespace NeoDocsBuilder
             }
             using (StreamWriter sw = new StreamWriter(path))
             {
-                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html")).Replace("{title}", title).Replace("{sideNav}", sideNav).Replace("{body}", content).Replace("{depth}", depthStr));
+                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html")).Replace("{title}", title).Replace("{sideNav}", sideNav).Replace("{body}", content).Replace("{depth}", depthStr).Replace("{img_depth}", depthStr == "" ? "." : depthStr));
                 Console.WriteLine($"build: {name}");
             }
         }
