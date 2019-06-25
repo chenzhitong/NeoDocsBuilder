@@ -309,7 +309,7 @@ namespace NeoDocsBuilder
 
         public static string ToAnchorPoint(this string input) => $"#{input.ToId()}";
 
-        public static string ToId(this string input) => $"{input.Trim(' ', '*').Replace(" ", "")}";
+        public static string ToId(this string input) => input.Sha256().TrimStart('1', '2', '3', '4', '5', '6', '7', '8', '9', '0').Substring(0, 8);
 
         public static bool IsExternalLink(this string link) => link.StartsWith("http");
 

@@ -107,10 +107,15 @@
         $(link).addClass("active");
         $(link).parents().show();
         
-        highLight(decodeURI(location.hash));
-        function highLight(hash) {
+        highLightHash(decodeURI(location.hash));
+        function highLightHash(hash) {
             $(".side-nav a").removeClass("active");
             $(".side-nav [href='" + hash + "']").addClass("active");       
+        }
+        function highLightObj(obj)
+        {
+            $(".side-nav a").removeClass("active");
+            $(obj).addClass("active");
         }
 
         $('[data-original]').lazyload({
