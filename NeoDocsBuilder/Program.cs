@@ -118,13 +118,16 @@ namespace NeoDocsBuilder
                     title = title ?? headerText;
                     var hash = headerText.ToAnchorPoint();
                     var hidden = header.HeaderLevel == 1 ? " d-none" : "";
-                    sideNav += $"<a class='ml-{header.HeaderLevel - 2}{hidden} my-1 nav-link' href='{hash}' onclick='highLight(\"{hash}\")'>{headerText}</a>";
+                    sideNav += $"\r\n<a class='ml-{header.HeaderLevel - 2}{hidden} my-1 nav-link' href='{hash}' onclick='highLight(\"{hash}\")'>{headerText}</a>";
                     
                     lastHeaderLevel = header.HeaderLevel;
                 }
                 content += element.ToHtml();
             }
-            sideNav += "\r\n</nav>";
+            for (int i = 0; i < lastHeaderLevel - 0; i++)
+            {
+                sideNav += "\r\n</nav>";
+            }
             return (title.Trim(), content.Trim(), sideNav.Trim());
         }
 

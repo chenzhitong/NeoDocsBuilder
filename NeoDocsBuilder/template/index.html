@@ -106,19 +106,12 @@
         var link = $(".catalog").find("[data-path='" + path + "']")[0];
         $(link).addClass("active");
         $(link).parents().show();
-
-        function highLight(hash) {
-            var links = $(".side-nav a");
-            for (var i = 0; i < links.length; i++) {
-                if ($(links[i]).attr('href') == hash) {
-                    $(links[i]).addClass("active");
-                }
-                else {
-                    $(links[i]).removeClass("active");
-                }
-            }
-        }
+        
         highLight(decodeURI(location.hash));
+        function highLight(hash) {
+            $(".side-nav a").removeClass("active");
+            $(".side-nav [href='" + hash + "']").addClass("active");       
+        }
 
         $('[data-original]').lazyload({
             threshold: 200,
@@ -130,7 +123,9 @@
             $(t.trigger).attr("title", "Copied!").tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle");
         });
         clipboard.on("error", function (t) {
-            var e = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-"; var n = "Press " + e + "C to copy"; i(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle")
+            var e = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-";
+            var n = "Press " + e + "C to copy";
+            $(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle")
         });
 
         $('[data-toggle="tooltip"]').tooltip();

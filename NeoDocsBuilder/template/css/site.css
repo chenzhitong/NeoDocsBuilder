@@ -99,7 +99,6 @@ nav .logo {
 
     .catalog a:hover, .catalog a.active, .catalog span:hover, .side-nav a:hover, .side-nav a.active {
         font-size: 1rem;
-        font-weight: bold;
         color: #31AA77;
         background-color: #f0f0f0;
     }

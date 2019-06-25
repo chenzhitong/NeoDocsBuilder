@@ -8,6 +8,7 @@ using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml;
+using System.Security.Cryptography;
 
 namespace NeoDocsBuilder
 {
@@ -311,5 +312,16 @@ namespace NeoDocsBuilder
         public static string ToId(this string input) => $"{input.Trim(' ', '*').Replace(" ", "")}";
 
         public static bool IsExternalLink(this string link) => link.StartsWith("http");
+
+        public static string Sha256(this string text)
+        {
+            byte[] hash = new SHA256Managed().ComputeHash(Encoding.Unicode.GetBytes(text));
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
+        }
     }
 }
