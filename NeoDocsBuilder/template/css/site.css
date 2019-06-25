@@ -34,10 +34,8 @@ nav .logo {
     }
 
 .highlight {
-    padding: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    background-color: #f6f8fa;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 

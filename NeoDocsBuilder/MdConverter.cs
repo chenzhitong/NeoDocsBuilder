@@ -22,7 +22,7 @@ namespace NeoDocsBuilder
                     var code = block as CodeBlock;
                     var lang = string.IsNullOrEmpty(code.CodeLanguage) ? "" : $" class='{code.CodeLanguage.ToHlJs()}' lang='{HtmlEncode(code.CodeLanguage.ToHlJs())}'";
                     var encode = HtmlEncode(code.Text);
-                    result += $"\r\n<figure class='highlight'>\r\n<button class='btn clippy' data-clipboard-demo data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{encode}'><img width='13' src='{{img_depth}}/img/clippy.svg' alt='Copy to clipboard'></button><pre><code{lang}>{encode}\r\n</code></pre>\r\n</figure>";
+                    result += $"\r\n<figure class='highlight'>\r\n<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{encode}'>Copy</button><pre><code{lang}>{encode}\r\n</code></pre>\r\n</figure>";
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
@@ -95,10 +95,39 @@ namespace NeoDocsBuilder
                         result += "</p>";
                     break;
                 case MarkdownBlockType.Quote:
-                    result += "\r\n<blockquote class='with-space'>";
-                    foreach (var quoteBlock in (block as QuoteBlock).Blocks)
+                    var blockQuote = block as QuoteBlock;
+                    for (int i = 0; i < blockQuote.Blocks.Count; i++)
                     {
-                        result += quoteBlock.ToHtml();
+                        if (i == 0)
+                        {
+                            var style = string.Empty;
+                            var type = blockQuote.Blocks[0].ToString().ToUpper().Trim();
+                            switch (type)
+                            {
+                                case "[!NOTE]":
+                                case "[!TIP]":
+                                    style = " bd-callout-info"; break;
+                                case "[!WARNING]":
+                                    style = " bd-callout-warning"; break;
+                                case "[!IMPORTANT]":
+                                case "[!CAUTION]":
+                                    style = " bd-callout-danger"; break;
+                                default: style = ""; break;
+                            }
+                            if (!string.IsNullOrEmpty(style))
+                            {
+                                result += $"\r\n<blockquote class='bd-callout{style} with-space'>";
+                            }
+                            else
+                            {
+                                result += $"\r\n<blockquote class='bd-callout with-space'>";
+                                result += blockQuote.Blocks[i].ToHtml();
+                            }
+                        }
+                        else
+                        {
+                            result += blockQuote.Blocks[i].ToHtml();
+                        }
                     }
                     result += "\r\n</blockquote>";
                     break;

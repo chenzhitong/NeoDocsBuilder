@@ -35,10 +35,10 @@ p {
 .highlight {
     position: relative;
 }
-.clippy {
+.btn-clipboard {
     position: absolute;
-    right: 1.5rem;
-    top: 1.2rem;
+    right: 1rem;
+    top: 1rem;
 }
 h1:before, h2:before, h3:before, h4:before {
     content: '';
@@ -48,3 +48,56 @@ h1:before, h2:before, h3:before, h4:before {
     height: 57px;
     margin-top: -57px;
 }
+
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #eee;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+}
+    .bd-callout p:last-child {
+        margin-bottom: 0;
+    }
+    .bd-callout code {
+        border-radius: .25rem;
+    }
+.bd-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bd-callout-info {
+    border-left-color: #5bc0de;
+}
+.bd-callout-danger {
+    border-left-color: #d9534f;
+}
+.bd-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bd-callout-info h4 {
+    color: #5bc0de;
+}
+.bd-callout-danger h4 {
+    color: #d9534f;
+}
+.bd-callout dl, .bd-callout ol, .bd-callout ul {
+    margin-bottom: 0;
+}
+.btn-clipboard {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    z-index: 10;
+    display: block;
+    padding: .25rem .5rem;
+    font-size: 75%;
+    color: #818a91;
+    background-color: transparent;
+    border: 0;
+    border-radius: .25rem;
+}
+    .btn-clipboard:hover {
+        color: #fff;
+        background-color: #027de7;
+    }

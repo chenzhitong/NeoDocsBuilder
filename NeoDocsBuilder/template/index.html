@@ -94,7 +94,7 @@
     <script>
         text_replace(".with-space");
         hljs.initHighlightingOnLoad();
-                $(".catalog ul span").click(function () {
+        $(".catalog ul span").click(function () {
             if ($(this).attr('data-icon') == "+")
                 $(this).attr('data-icon', "-");
             else
@@ -124,13 +124,15 @@
             threshold: 200,
             effect: "fadeIn"
         });
-        var clipboard = new ClipboardJS('.btn');
-        clipboard.on('success', function (e) {
-            alert("Copied!");
+
+        var clipboard = new ClipboardJS('.btn-clipboard');
+        clipboard.on('success', function (t) {
+            $(t.trigger).attr("title", "Copied!").tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle");
         });
-        clipboard.on('error', function (e) {
-            alert("Error!");
+        clipboard.on("error", function (t) {
+            var e = /Mac/i.test(navigator.userAgent) ? "⌘" : "Ctrl-"; var n = "Press " + e + "C to copy"; i(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle")
         });
+
         $('[data-toggle="tooltip"]').tooltip();
     </script>
 </body>
