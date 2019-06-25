@@ -24,7 +24,7 @@ namespace NeoDocsBuilder
 
             var time2 = DateTime.Now;
             Console.WriteLine($"{(time2 - time1).TotalSeconds}s");
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
         static string Catalog;
@@ -46,7 +46,7 @@ namespace NeoDocsBuilder
                 var destPath = Path.Combine(destination, filePathWithoutOrigin);
                 var (title, content, sideNav) = Convert(Parse(file));
                 Build(destPath, content, title, sideNav, depth, template);
-                Catalog += $"<li><a href='{destPath.Replace("\\", "/")}' data-path='{Path.GetFileName(file).Replace(".md", "")}'>{title}</a></li>";
+                Catalog += $"<li><a href='{destPath.Replace("\\", "/")}' data-path='{filePathWithoutOrigin.Replace("\\", "/").Replace(".md", "")}'>{title}</a></li>";
             }
             var dirs = Directory.GetDirectories(origin);
             foreach (var dir in dirs)
@@ -68,16 +68,16 @@ namespace NeoDocsBuilder
                     if (isHidden) continue;
                     if (string.IsNullOrEmpty(newName))
                     {
-                        Catalog += $"<span data-icon='+' data-path='{dirName}'>{dirName}</span>";
+                        Catalog += $"<span data-icon='+'>{dirName}</span>";
                     }
                     else
                     {
-                        Catalog += $"<span data-icon='+' data-path='{dirName}'>{newName}</span>";
+                        Catalog += $"<span data-icon='+'>{newName}</span>";
                     }
                 }
                 else
                 {
-                    Catalog += $"<span data-icon='+' data-path='{dirName}'>{dirName}</span>";
+                    Catalog += $"<span data-icon='+'>{dirName}</span>";
                 }
                 Run(dir, destination, template);
                 Catalog += "\r\n</li>";
@@ -95,7 +95,8 @@ namespace NeoDocsBuilder
             var sideNav = string.Empty;
             string title = null;
             var content = string.Empty;
-            sideNav += "\r\n<ul>";
+
+            var lastHeaderLevel = 0;
             foreach (var element in document.Blocks)
             {
                 if (element.Type == MarkdownBlockType.Header)
@@ -103,16 +104,27 @@ namespace NeoDocsBuilder
                     var header = (element as HeaderBlock);
                     if (header.HeaderLevel > 3)
                         continue;
+                    for (int i = 0; i < header.HeaderLevel - lastHeaderLevel; i++)
+                    {
+                        sideNav += "\r\n<nav class='nav nav-pills flex-column'>";
+                    }
+                    for (int i = 0; i < lastHeaderLevel - header.HeaderLevel; i++)
+                    {
+                        sideNav += "\r\n</nav>";
+                    }
                     XmlDocument xml = new XmlDocument();
                     xml.LoadXml(header.ToHtml());
                     var headerText = xml.InnerText;
                     title = title ?? headerText;
                     var hash = headerText.ToAnchorPoint();
-                    sideNav += $"<li><a class='side-nav-{header.HeaderLevel}' onclick='highLight(\"{hash}\")' href='{hash}'>{headerText}</a></li>";
+                    var hidden = header.HeaderLevel == 1 ? " d-none" : "";
+                    sideNav += $"<a class='ml-{header.HeaderLevel - 2}{hidden} my-1 nav-link' href='{hash}' onclick='highLight(\"{hash}\")'>{headerText}</a>";
+                    
+                    lastHeaderLevel = header.HeaderLevel;
                 }
                 content += element.ToHtml();
             }
-            sideNav += "\r\n</ul>";
+            sideNav += "\r\n</nav>";
             return (title.Trim(), content.Trim(), sideNav.Trim());
         }
 

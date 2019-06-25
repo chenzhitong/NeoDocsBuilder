@@ -25,7 +25,7 @@
     <link href="{depth}css/site.css" rel="stylesheet" />
     <link href="{depth}css/code.css" rel="stylesheet" />
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbar-sidenav">
     <div class="body-content body-content px-md-3 px-lg-5">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
@@ -67,7 +67,9 @@
                 <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
                     <div><strong>本文内容</strong></div>
                     <hr />
-                    {sideNav}
+                    <div id="navbar-sidenav">
+                        {sideNav}
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,35 +94,19 @@
     <script>
         text_replace(".with-space");
         hljs.initHighlightingOnLoad();
-        $(".catalog ul span").click(function () {
+                $(".catalog ul span").click(function () {
             if ($(this).attr('data-icon') == "+")
                 $(this).attr('data-icon', "-");
             else
                 $(this).attr('data-icon', "+");
             $(this).parent().children("ul").toggle();
         });
-        var paths = location.pathname.split('/');
-        for (var i = 1; i < paths.length - 1; i++) {
-            var spans = $(".catalog").find("span");
-            for (var j = 0; j < spans.length; j++) {
-                if ($(spans[j]).attr('data-path') == paths[i]) {
-                    //展开到此目录
-                    $(spans[j]).next().show();
-                    if (i == paths.length - 2) {
-                        var links = $(spans[j]).next().find("a");
-                        for (var j = 0; j < links.length; j++) {
-                            if ($(links[j]).attr('data-path') == paths[i + 1].replace(".html", "")) {
-                                //当前文档高亮显示
-                                $(links[j]).addClass("active");
-                                break;
-                            }
-                        }
-                    }
-                    break;
-                }
-            }
 
-        }
+        var path = location.pathname.substr(1);
+        var link = $(".catalog").find("[data-path='" + path + "']")[0];
+        $(link).addClass("active");
+        $(link).parents().show();
+
         function highLight(hash) {
             var links = $(".side-nav a");
             for (var i = 0; i < links.length; i++) {
