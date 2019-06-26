@@ -33,7 +33,7 @@ namespace NeoDocsBuilder
         static void Run(string origin, string destination, string template)
         {
             var files = Directory.GetFiles(origin);
-            Catalog += "\r\n<ul>";
+            Catalog += "\r\n<nav class='nav nav-pills flex-column ml-2'>";
             foreach (var file in files)
             {
                 if (Path.GetExtension(file) != ".md")
@@ -46,43 +46,25 @@ namespace NeoDocsBuilder
                 var destPath = Path.Combine(destination, filePathWithoutOrigin);
                 var (title, content, sideNav) = Convert(Parse(file));
                 Build(destPath, content, title, sideNav, depth, template);
-                Catalog += $"<li><a href='{destPath.Replace("\\", "/")}' data-path='{filePathWithoutOrigin.Replace("\\", "/").Replace(".md", "")}'>{title}</a></li>";
+                Catalog += $"<a class='ml-0 my-1 nav-link' href='{destPath.Replace("\\", "/")}' data-path='{filePathWithoutOrigin.Replace("\\", "/").Replace(".md", "")}'>{title}</a>";
             }
             var dirs = Directory.GetDirectories(origin);
             foreach (var dir in dirs)
             {
-                Catalog += "\r\n<li>";
                 var dirName = dir.Split("\\").Reverse().ToList()[0];
                 if (Config.FolderJson != null)
                 {
                     var newName = Config.FolderJson["rename"][dirName]?.ToString();
-                    var isHidden = false;
-                    foreach (var item in Config.FolderJson["hidden"])
-                    {
-                        if (item.ToString() == dirName)
-                        {
-                            isHidden = true;
-                            break;
-                        }
-                    }
-                    if (isHidden) continue;
-                    if (string.IsNullOrEmpty(newName))
-                    {
-                        Catalog += $"<span data-icon='+'>{dirName}</span>";
-                    }
-                    else
-                    {
-                        Catalog += $"<span data-icon='+'>{newName}</span>";
-                    }
+                    if(Config.FolderJson["hidden"].Any(p => p.ToString() == dirName)) continue;
+                    Catalog += $"<span class='ml-0 my-1 nav-link' data-icon='+'>{(string.IsNullOrEmpty(newName) ? dirName : newName)}</span>";
                 }
                 else
                 {
-                    Catalog += $"<span data-icon='+'>{dirName}</span>";
+                    Catalog += $"<span class='ml-0 my-1 nav-link' data-icon='+'>{dirName}</span>";
                 }
                 Run(dir, destination, template);
-                Catalog += "\r\n</li>";
             }
-            Catalog += "\r\n</ul>";
+            Catalog += "\r\n</nav>";
         }
         static MarkdownDocument Parse(string name)
         {

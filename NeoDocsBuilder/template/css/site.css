@@ -46,60 +46,26 @@ nav .logo {
     height: calc(100vh - 57px);
     top: 57px;
 }
-
-    .side-nav ul {
-        list-style: none;
-        padding: 0;
-    }
-
-.catalog > ul ul {
+.catalog > nav nav {
     display: none;
 }
 
-.catalog span {
-    cursor: pointer;
-}
-
-.catalog ul {
-    list-style: none;
-}
-
-.catalog > ul {
-    padding: 0;
-}
-
-    .catalog > ul ul {
-        padding-left: 1em;
-    }
-
-.catalog li, .side-nav li {
-    list-style: none;
-}
-
 .catalog a, .catalog span {
-    display: block;
-    text-decoration: none;
-    font-size: 1rem;
+    cursor: pointer;
     padding: 2px 5px;
-    border-radius: 3px;
     color: #333;
-    background-color: #fff;
 }
 
 .side-nav a {
     display: block;
-    text-decoration: none;
-    font-size: 1rem;
     padding-top: 2px;
     padding-bottom: 2px;
-    border-radius: 3px;
     color: #333;
-    background-color: #fff;
 }
 
     .catalog a:hover, .catalog a.active, .catalog span:hover, .side-nav a:hover, .side-nav a.active {
         font-size: 1rem;
-        color: #31AA77;
+        color: #007bff;
         background-color: #f0f0f0;
     }
 

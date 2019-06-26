@@ -1,5 +1,5 @@
 ﻿
-code {
+/*code {
     font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;
     color: #E74C3C;
     background: #fff;
@@ -24,7 +24,7 @@ button, a {
     a:active, a:hover {
         outline: 0;
     }
-
+    */
 pre {
     margin-bottom: 0;
 }
