@@ -46,7 +46,9 @@ namespace NeoDocsBuilder
                 var filePathWithoutOrigin = string.Join("\\", split.Skip(1)).Replace(".md", ".html");
                 var destPath = Path.Combine(destination, filePathWithoutOrigin);
                 var (title, content, sideNav) = Convert(Parse(file));
-                Build(destPath, content, title, sideNav, depth, template);
+                //根据二级标题自动折叠
+                var collapse = Config.FolderJson != null && Config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(string.Join("\\", split.Skip(1)), StringComparison.OrdinalIgnoreCase));
+                Build(destPath, content, title, sideNav, depth, template, collapse);
                 Catalog += $"<a class='ml-0 my-1 nav-link' href='{destPath.Replace("\\", "/")}' data-path='{filePathWithoutOrigin.Replace("\\", "/").Replace(".md", "")}'>{title}</a>";
             }
             var dirs = Directory.GetDirectories(origin);
@@ -113,7 +115,7 @@ namespace NeoDocsBuilder
             return (title.Trim(), content.Trim(), sideNav.Trim());
         }
 
-        static void Build(string name, string content, string title, string sideNav, int depth, string template)
+        static void Build(string name, string content, string title, string sideNav, int depth, string template, bool collapse)
         {
             var path = Path.Combine(name);
             var depthStr = string.Empty;
@@ -123,7 +125,12 @@ namespace NeoDocsBuilder
             }
             using (StreamWriter sw = new StreamWriter(path))
             {
-                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html")).Replace("{title}", title).Replace("{sideNav}", sideNav).Replace("{body}", content).Replace("{depth}", depthStr));
+                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html"))
+                    .Replace("{title}", title).
+                    Replace("{sideNav}", sideNav)
+                    .Replace("{body}", content)
+                    .Replace("{depth}", depthStr)
+                    .Replace("{collapse}", collapse.ToString()));
                 Console.WriteLine($"build: {name}");
             }
         }

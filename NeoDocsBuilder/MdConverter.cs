@@ -67,10 +67,7 @@ namespace NeoDocsBuilder
                 case MarkdownBlockType.Paragraph:
                     if (parent != "li")
                         result += "\r\n<p class='with-space'>";
-                    foreach (var inline in (block as ParagraphBlock).Inlines)
-                    {
-                        result += inline.ToHtml();
-                    }
+                    (block as ParagraphBlock).Inlines.ToList().ForEach(p => result += p.ToHtml());
                     if (parent != "li")
                         result += "</p>";
                     break;
@@ -130,10 +127,7 @@ namespace NeoDocsBuilder
                                 style = align == ColumnAlignment.Unspecified ? "" : $" style='text-align:{align.ToString().ToLower()};'";
                             }
                             result += i == 0 ? $"<th{style}>" : $"<td{style}>";
-                            foreach (var tdInline in td.Inlines)
-                            {
-                                result += tdInline.ToHtml();
-                            }
+                            td.Inlines.ToList().ForEach(p => result += p.ToHtml());
                             result += i == 0 ? "</th>" : "</td>";
                         }
                         result += "</tr>";
@@ -147,16 +141,10 @@ namespace NeoDocsBuilder
                     var yamlHeader = block as YamlHeaderBlock;
                     result += "\r\n<figure><table class='table table-hover table-striped table-bordered d-none'>";
                     result += "\r\n<thead>\r\n<tr>";
-                    foreach (var item in yamlHeader.Children)
-                    {
-                        result += $"<th>{item.Key}</th>";
-                    }
+                    yamlHeader.Children.ToList().ForEach(p => result += $"<th>{p.Key}</th>");
                     result += "\r\n</tr>\r\n</thead>";
                     result += "\r\n<tbody>\r\n<tr>";
-                    foreach (var item in yamlHeader.Children)
-                    {
-                        result += $"<td>{item.Value}</td>";
-                    }
+                    yamlHeader.Children.ToList().ForEach(p => result += $"<td>{p.Value}</td>");
                     result += "\r\n</tr>\r\n</tbody>";
                     result += "\r\n</table></figure>";
                     break;
@@ -175,10 +163,7 @@ namespace NeoDocsBuilder
                 case MarkdownInlineType.Comment: result += inline; break;
                 case MarkdownInlineType.Bold:
                     result += " <strong>";
-                    foreach (var boldInline in (inline as BoldTextInline).Inlines)
-                    {
-                        result += boldInline.ToHtml();
-                    }
+                    (inline as BoldTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += "</strong> ";
                     break;
                 case MarkdownInlineType.Code: result += $" <code>{(inline as CodeInline).Text}</code> "; break;
@@ -192,10 +177,7 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownInlineType.Italic:
                     result += "<em>";
-                    foreach (var italicInline in (inline as ItalicTextInline).Inlines)
-                    {
-                        result += italicInline.ToHtml();
-                    }
+                    (inline as ItalicTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += "</em>";
                     break;
                 case MarkdownInlineType.MarkdownLink:
@@ -206,34 +188,22 @@ namespace NeoDocsBuilder
                         result += $"<a href='{markdownLinkUrl}' target='_blank'{markdownLinkTooltip}>";
                     else
                         result += $"<a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}>";
-                    foreach (var linkInline in markdownLink.Inlines)
-                    {
-                        result += linkInline.ToHtml();
-                    }
+                    markdownLink.Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += "</a> ";
                     break;
                 case MarkdownInlineType.Strikethrough:
                     result += "<del>";
-                    foreach (var strikethroughTextInline in (inline as StrikethroughTextInline).Inlines)
-                    {
-                        result += strikethroughTextInline.ToHtml();
-                    }
+                    (inline as StrikethroughTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += "</del>";
                     break;
                 case MarkdownInlineType.Subscript:
                     result += "<sub>";
-                    foreach (var subscriptTextInline in (inline as SubscriptTextInline).Inlines)
-                    {
-                        result += subscriptTextInline.ToHtml();
-                    }
+                    (inline as SubscriptTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += "</sub>";
                     break;
                 case MarkdownInlineType.Superscript:
                     result += "<sup>";
-                    foreach (var superscriptTextInline in (inline as SuperscriptTextInline).Inlines)
-                    {
-                        result += superscriptTextInline.ToHtml();
-                    }
+                    (inline as SuperscriptTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += "</sup>";
                     break;
                 case MarkdownInlineType.TextRun:
@@ -294,12 +264,8 @@ namespace NeoDocsBuilder
 
         public static string Sha256(this string text)
         {
-            byte[] hash = new SHA256Managed().ComputeHash(Encoding.Unicode.GetBytes(text));
             string hashString = string.Empty;
-            foreach (byte x in hash)
-            {
-                hashString += String.Format("{0:x2}", x);
-            }
+            new SHA256Managed().ComputeHash(Encoding.Unicode.GetBytes(text)).ToList().ForEach(p => hashString += String.Format("{0:x2}", p));
             return hashString;
         }
     }
