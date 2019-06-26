@@ -27,22 +27,9 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
-                    var headerHtml = string.Empty;
-                    result += $"\r\n<h{header.HeaderLevel} class='with-space' id='{{0}}'>";
-                    headerHtml += $"\r\n<h{header.HeaderLevel}>";
-                    foreach (var headerInline in header.Inlines)
-                    {
-                        var innerHtml = headerInline.ToHtml();
-                        result += innerHtml;
-                        headerHtml += innerHtml;
-                    }
-                    result += $"</h{header.HeaderLevel}>";
-                    headerHtml += $"</h{header.HeaderLevel}>";
-
-                    XmlDocument xml = new XmlDocument();
-                    xml.LoadXml(headerHtml);
-                    result = string.Format(result, xml.InnerText.ToId());
-
+                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId()}'><span class='with-space'>";
+                    header.Inlines.ToList().ForEach(p => result += p.ToHtml());
+                    result += $"</span><a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint()}' aria-label='Anchor' data-anchorjs-icon='#'></a></h{header.HeaderLevel}>";
                     break;
                 case MarkdownBlockType.HorizontalRule: result += "\r\n<hr />"; break;
                 case MarkdownBlockType.LinkReference:
@@ -59,29 +46,21 @@ namespace NeoDocsBuilder
                     if (list.Style == ListStyle.Bulleted)
                     {
                         result += "\r\n<ul class='with-space'>";
-                        foreach (var li in list.Items)
-                        {
+                        list.Items.ToList().ForEach(l => {
                             result += $"\r\n<li>";
-                            foreach (var liBlock in li.Blocks)
-                            {
-                                result += liBlock.ToHtml("li");
-                            }
+                            l.Blocks.ToList().ForEach(p => result += p.ToHtml("li"));
                             result += $"</li>";
-                        }
+                        });
                         result += "\r\n</ul>";
                     }
                     if (list.Style == ListStyle.Numbered)
                     {
                         result += "\r\n<ol>";
-                        foreach (var li in list.Items)
-                        {
+                        list.Items.ToList().ForEach(l => {
                             result += $"\r\n<li>";
-                            foreach (var liBlock in li.Blocks)
-                            {
-                                result += liBlock.ToHtml("li");
-                            }
+                            l.Blocks.ToList().ForEach(p => result += p.ToHtml("li"));
                             result += $"</li>";
-                        }
+                        });
                         result += "\r\n</ol>";
                     }
                     break;
@@ -101,8 +80,8 @@ namespace NeoDocsBuilder
                     {
                         if (i == 0)
                         {
-                            var style = string.Empty;
                             var type = blockQuote.Blocks[0].ToString().ToUpper().Trim();
+                            string style;
                             switch (type)
                             {
                                 case "[!NOTE]":

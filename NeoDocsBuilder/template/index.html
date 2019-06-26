@@ -102,7 +102,7 @@
             $(this).next("nav").toggle();
         });
 
-        var link = $(".catalog").find("[data-path='" + location.pathname.substr(1) + "']")[0];
+        var link = $(".catalog").find("[data-path='" + decodeURI(location.pathname).substr(1) + "']")[0];
         $(link).addClass("active");
         $(link).parents().show();
         $(link).parents().prev().attr('data-icon', "-");

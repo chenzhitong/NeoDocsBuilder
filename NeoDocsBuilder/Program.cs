@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Web.HttpUtility;
 using System.Xml;
 
 namespace NeoDocsBuilder
@@ -98,9 +99,8 @@ namespace NeoDocsBuilder
                     xml.LoadXml(header.ToHtml());
                     var headerText = xml.InnerText;
                     title = title ?? headerText;
-                    var hash = headerText.ToAnchorPoint();
                     var hidden = header.HeaderLevel == 1 ? " d-none" : "";
-                    sideNav += $"\r\n<a class='ml-{header.HeaderLevel - 2}{hidden} my-1 nav-link' href='{hash}' onclick='highLightObj(this)'>{headerText}</a>";
+                    sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{hidden} my-1 nav-link' href='{header.ToString().ToAnchorPoint()}' onclick='highLightObj(this)'>{headerText}</a>";
                     
                     lastHeaderLevel = header.HeaderLevel;
                 }
