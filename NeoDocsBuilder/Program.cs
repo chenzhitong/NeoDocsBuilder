@@ -45,9 +45,9 @@ namespace NeoDocsBuilder
                 var depth = split.Length - 2;
                 var filePathWithoutOrigin = string.Join("\\", split.Skip(1)).Replace(".md", ".html");
                 var destPath = Path.Combine(destination, filePathWithoutOrigin);
-                var (title, content, sideNav) = Convert(Parse(file));
                 //根据二级标题自动折叠
                 var collapse = Config.FolderJson != null && Config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(string.Join("\\", split.Skip(1)), StringComparison.OrdinalIgnoreCase));
+                var (title, content, sideNav) = Convert(Parse(file), collapse);
                 Build(destPath, content, title, sideNav, depth, template, collapse);
                 Catalog += $"<a class='ml-0 my-1 nav-link' href='{destPath.Replace("\\", "/")}' data-path='{filePathWithoutOrigin.Replace("\\", "/").Replace(".md", "")}'>{title}</a>";
             }
@@ -75,18 +75,22 @@ namespace NeoDocsBuilder
             document.Parse(File.ReadAllText(name));
             return document;
         }
-        static (string title, string content, string sideNav) Convert(MarkdownDocument document)
+        static (string title, string content, string sideNav) Convert(MarkdownDocument document, bool collapse)
         {
+            //文章内的导航
             var sideNav = string.Empty;
+            //文章标题（首个标题的文本）
             string title = null;
+            //文章正文
             var content = string.Empty;
+            bool startCollapse = false;
 
             var lastHeaderLevel = 0;
             foreach (var element in document.Blocks)
             {
                 if (element.Type == MarkdownBlockType.Header)
                 {
-                    var header = (element as HeaderBlock);
+                    var header = element as HeaderBlock;
                     if (header.HeaderLevel > 3)
                         continue;
                     for (int i = 0; i < header.HeaderLevel - lastHeaderLevel; i++)
@@ -103,10 +107,27 @@ namespace NeoDocsBuilder
                     title = title ?? headerText;
                     var hidden = header.HeaderLevel == 1 ? " d-none" : "";
                     sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{hidden} my-1 nav-link' href='{header.ToString().ToAnchorPoint()}' onclick='highLightObj(this)'>{headerText}</a>";
-                    
+
                     lastHeaderLevel = header.HeaderLevel;
                 }
-                content += element.ToHtml();
+                //① 如果 collapse 为 true，则在 h2 下面的所有内容用 <div></div> 包裹起来
+                if (collapse && (element as HeaderBlock)?.HeaderLevel == 2 && startCollapse)
+                {
+                    content += "</div>";
+                    startCollapse = false;
+                }
+                content += element.ToHtml(collapse ? "collapse" : "");
+                //② 如果 collapse 为 true，则在 h2 下面的所有内容用 <div></div> 包裹起来
+                if (collapse && (element as HeaderBlock)?.HeaderLevel == 2 && !startCollapse)
+                {
+                    content += "\r\n<div class='div-collapse p-2'>";
+                    startCollapse = true;
+                }
+            }
+            //③ 如果 collapse 为 true，则在 h2 下面的所有内容用 <div></div> 包裹起来
+            if (collapse && startCollapse)
+            {
+                content += "</div>";
             }
             for (int i = 0; i < lastHeaderLevel - 0; i++)
             {
@@ -130,7 +151,7 @@ namespace NeoDocsBuilder
                     Replace("{sideNav}", sideNav)
                     .Replace("{body}", content)
                     .Replace("{depth}", depthStr)
-                    .Replace("{collapse}", collapse.ToString()));
+                    .Replace("_collapse", collapse.ToString().ToLower()));
                 Console.WriteLine($"build: {name}");
             }
         }
@@ -155,6 +176,7 @@ namespace NeoDocsBuilder
         {
             foreach (var link in CatalogLinks)
             {
+                if (link == null) continue;
                 var pathHref = (link as Match).Value;
                 var absolute = pathHref.Substring(6, pathHref.Length - 7);
                 var relative = Path.GetRelativePath(file, absolute);

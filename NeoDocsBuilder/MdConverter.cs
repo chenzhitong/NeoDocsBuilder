@@ -14,7 +14,7 @@ namespace NeoDocsBuilder
 {
     public static class MdConverter
     {
-        public static string ToHtml(this MarkdownBlock block, string parent = null)
+        public static string ToHtml(this MarkdownBlock block, string args = null)
         {
             var result = string.Empty;
             switch (block.Type)
@@ -27,7 +27,8 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
-                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId()}'><span class='with-space'>";
+                    var _class = args == "collapse" && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
+                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId()}'{_class}><span class='with-space'>";
                     header.Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += $"</span><a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint()}' aria-label='Anchor' data-anchorjs-icon='#'></a></h{header.HeaderLevel}>";
                     break;
@@ -65,10 +66,10 @@ namespace NeoDocsBuilder
                     }
                     break;
                 case MarkdownBlockType.Paragraph:
-                    if (parent != "li")
+                    if (args != "li")
                         result += "\r\n<p class='with-space'>";
                     (block as ParagraphBlock).Inlines.ToList().ForEach(p => result += p.ToHtml());
-                    if (parent != "li")
+                    if (args != "li")
                         result += "</p>";
                     break;
                 case MarkdownBlockType.Quote:

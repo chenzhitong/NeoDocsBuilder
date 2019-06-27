@@ -132,6 +132,11 @@
             var n = "Press " + e + "C to copy";
             $(t.trigger).attr("title", n).tooltip("_fixTitle").tooltip("show").attr("title", "Copy to clipboard").tooltip("_fixTitle")
         });
+        if (_collapse) {
+            $("h2").click(function (e) {
+                $(e.target).parent("h2").next().toggle("fast");
+            });
+        }
 
         $('[data-toggle="tooltip"]').tooltip();
     </script>
