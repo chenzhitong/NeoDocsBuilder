@@ -110,7 +110,8 @@
         highLightHash(decodeURI(location.hash));
         function highLightHash(hash) {
             $(".side-nav a").removeClass("active");
-            $(".side-nav [href='" + hash + "']").addClass("active");       
+            $(".side-nav [href='" + hash + "']").addClass("active");
+            $(hash).next().show();
         }
         function highLightObj(obj)
         {
@@ -134,6 +135,7 @@
         });
         if (_collapse) {
             $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parent("h2").next()).hide("fast");
                 $(e.target).parent("h2").next().toggle("fast");
             });
         }

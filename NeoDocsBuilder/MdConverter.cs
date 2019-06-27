@@ -28,9 +28,9 @@ namespace NeoDocsBuilder
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
                     var _class = args == "collapse" && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
-                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId()}'{_class}><span class='with-space'>";
+                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId()}'{_class}><span class='with-space bd-content-title'>";
                     header.Inlines.ToList().ForEach(p => result += p.ToHtml());
-                    result += $"</span><a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint()}' aria-label='Anchor' data-anchorjs-icon='#'></a></h{header.HeaderLevel}>";
+                    result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint()}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
                     break;
                 case MarkdownBlockType.HorizontalRule: result += "\r\n<hr />"; break;
                 case MarkdownBlockType.LinkReference:

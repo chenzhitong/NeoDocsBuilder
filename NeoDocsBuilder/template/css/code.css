@@ -48,6 +48,10 @@ p {
     background-color: #f8f9fa;
     margin-bottom: 1em;
 }
+.bd-content-title {
+    display: block;
+    pointer-events: auto;
+}
 
 .h2-collapse {
     cursor: pointer;
@@ -55,11 +59,11 @@ p {
     font-size: 1rem;
 }
 
-    .h2-collapse:hover {
+    .h2-collapse span:first-child:hover {
         color: #007bff;
     }
 
-    .h2-collapse::before {
+    .h2-collapse span:first-child::before {
         content: "Q:";
         margin-right: .5em;
         display: inline;
@@ -69,10 +73,11 @@ p {
 h1:before, h2:before, h3:before, h4:before {
     content: '';
     display: block;
-    position: relative;
-    width: 0;
     height: 57px;
     margin-top: -57px;
+}
+h1, h2, h3, h4 {
+    pointer-events: none;
 }
 
 .bd-callout {
