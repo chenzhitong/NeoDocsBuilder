@@ -208,9 +208,9 @@ namespace NeoDocsBuilder
                     result += "</sup>";
                     break;
                 case MarkdownInlineType.TextRun:
-                    var reg = new Regex("<(p|img|br|b|i|br|a|link)(\\s|>).*>");
-                    var textRun = (inline as TextRunInline).ToString().Trim();
-                    if(reg.IsMatch(textRun))
+                    var reg = new Regex("<(p|img|br|b|i|br|a|link)\\s*/?>");
+                    var textRun = (inline as TextRunInline).ToString().Trim().Replace("&#124;", "|");
+                    if (reg.IsMatch(textRun))
                         result += $"{textRun}";
                     else
                         result += $" {HtmlEncode(textRun)} ";

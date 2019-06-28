@@ -73,7 +73,7 @@ namespace NeoDocsBuilder
         static MarkdownDocument Parse(string name)
         {
             MarkdownDocument document = new MarkdownDocument();
-            document.Parse(File.ReadAllText(name));
+            document.Parse(File.ReadAllText(name).Replace("\\|", "&#124;"));
             return document;
         }
         static (string title, string content, string sideNav) Convert(MarkdownDocument document, bool collapse)
