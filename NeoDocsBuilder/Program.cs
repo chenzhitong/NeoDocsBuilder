@@ -15,23 +15,33 @@ namespace NeoDocsBuilder
     {
         static void Main(string[] args)
         {
-            var time1 = DateTime.Now;
-            Files.CopyDirectory(Config.Template, Config.Destination);
-            Files.CopyDirectory(Config.Origin, Config.Destination);
-            Files.CopyDirectoryOnly(Config.Origin, Config.Destination);
-            Run(Config.Origin, Config.Destination, Config.Template);
-            CatalogLinks = new Regex("href='.*?\\.html'").Matches(Catalog);
-            BuildCatalog(Config.Destination);
-
-            var time2 = DateTime.Now;
-            Console.WriteLine($"{(time2 - time1).TotalSeconds}s");
+            if (args != null && args.Length > 1 && !string.IsNullOrEmpty(args[0]))
+            {
+                Config.ConfigFile = args[0];
+            }
+            else
+            {
+                Config.Refresh();
+            }
+            foreach (var item in Config.ConfigList)
+            {
+                Catalog = string.Empty;
+                AllFiles.Clear();
+                Files.CopyDirectory(item.Template, item.Destination);
+                Files.CopyDirectory(item.Origin, item.Destination);
+                Files.CopyDirectoryOnly(item.Origin, item.Destination);
+                Run(item.Origin, item.Destination, item);
+                CatalogLinks = new Regex("href='.*?\\.html'").Matches(Catalog);
+                BuildCatalog(item.Destination);
+            }
+            
             //Console.ReadLine();
         }
 
         static string Catalog;
         static MatchCollection CatalogLinks;
         static readonly List<string> AllFiles = new List<string>();
-        static void Run(string origin, string destination, string template)
+        static void Run(string origin, string destination, ConfigItem config)
         {
             var files = Directory.GetFiles(origin);
             Catalog += "\r\n<nav class='nav nav-pills flex-column ml-2'>";
@@ -39,34 +49,31 @@ namespace NeoDocsBuilder
             {
                 if (Path.GetExtension(file) != ".md")
                     continue;
-                var split = file.Split("\\").ToArray();
-                if (split.Length < 2)
-                    throw new Exception();
-                var depth = split.Length - 2;
-                var filePathWithoutOrigin = string.Join("\\", split.Skip(1)).Replace(".md", ".html");
-                var destPath = Path.Combine(destination, filePathWithoutOrigin);
+                var filePathWithoutOrigin = Path.GetRelativePath(config.Origin, file).Replace(".md", ".html");
+                var depth = filePathWithoutOrigin.Split("\\").Length - 1;
+                var destPath = Path.Combine(config.Destination, filePathWithoutOrigin);
                 //根据二级标题自动折叠
-                var collapse = Config.FolderJson != null && Config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(string.Join("\\", split.Skip(1)), StringComparison.OrdinalIgnoreCase));
+                var collapse = config.FolderJson != null && config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(Path.GetRelativePath(config.Origin, file), StringComparison.OrdinalIgnoreCase));
 
                 var (title, content, sideNav) = Convert(Parse(file), collapse);
-                Build(destPath, content, title, sideNav, depth, template, collapse);
+                Build(destPath, content, title, sideNav, depth, config.Template, collapse);
                 Catalog += $"<a class='ml-0 my-1 nav-link' href='{destPath.Replace("\\", "/")}' data-path='{filePathWithoutOrigin.Replace("\\", "/").Replace(".md", "")}'>{title}</a>";
             }
             var dirs = Directory.GetDirectories(origin);
             foreach (var dir in dirs)
             {
                 var dirName = dir.Split("\\").Reverse().ToList()[0];
-                if (Config.FolderJson != null)
+                if (config.FolderJson != null)
                 {
-                    var newName = Config.FolderJson["rename"][dirName]?.ToString();
-                    if(Config.FolderJson["hidden"].Any(p => p.ToString() == dirName)) continue;
+                    var newName = config.FolderJson["rename"][dirName]?.ToString();
+                    if(config.FolderJson["hidden"].Any(p => p.ToString() == dirName)) continue;
                     Catalog += $"<span class='ml-0 my-1 nav-link' data-icon='+'>{(string.IsNullOrEmpty(newName) ? dirName : newName)}</span>";
                 }
                 else
                 {
                     Catalog += $"<span class='ml-0 my-1 nav-link' data-icon='+'>{dirName}</span>";
                 }
-                Run(dir, destination, template);
+                Run(dir, destination, config);
             }
             Catalog += "\r\n</nav>";
         }
@@ -134,7 +141,7 @@ namespace NeoDocsBuilder
             {
                 sideNav += "\r\n</nav>";
             }
-            return (title.Trim(), content.Trim(), sideNav.Trim());
+            return (title?.Trim(), content?.Trim(), sideNav?.Trim());
         }
 
         static void Build(string name, string content, string title, string sideNav, int depth, string template, bool collapse)

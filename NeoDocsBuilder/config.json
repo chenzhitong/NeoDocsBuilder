@@ -1,8 +1,14 @@
 {
-  "ApplicationConfiguration": {
-    "lazyload": "true",
-    "origin": "origin",
-    "template": "template",
-    "destination": "wwwroot"
-  }
+  "ApplicationConfiguration": [
+    {
+      "origin": "origin\\zh-cn",
+      "template": "template",
+      "destination": "wwwroot\\zh-cn"
+    },
+    {
+      "origin": "origin\\en-us",
+      "template": "template",
+      "destination": "wwwroot\\en-us"
+    }
+  ]
 }
