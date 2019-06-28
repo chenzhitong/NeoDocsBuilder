@@ -26,15 +26,15 @@
     <link href="{depth}css/code.css" rel="stylesheet" />
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
-    <div class="body-content body-content px-md-3 px-lg-5">
+    <div class="body-content">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
+            <a class="navbar-brand" href="~"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto d-none">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
                     </li>
@@ -50,7 +50,7 @@
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0 d-none">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -135,8 +135,8 @@
         });
         if (_collapse) {
             $("h2").click(function (e) {
-                $(".div-collapse").not($(e.target).parent("h2").next()).hide("fast");
-                $(e.target).parent("h2").next().toggle("fast");
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
             });
         }
 

@@ -21,8 +21,8 @@ nav .logo {
     border-right: 1px solid rgba(0,0,0,.1);
     overflow: auto;
     position: sticky;
-    height: calc(100vh - 57px);
-    top: 57px;
+    height: calc(100vh - 4rem);
+    top: 4rem;
 }
 
     .catalog span::before {
@@ -43,8 +43,8 @@ nav .logo {
     border-left: 1px solid rgba(0,0,0,.1);
     overflow: auto;
     position: sticky;
-    height: calc(100vh - 57px);
-    top: 57px;
+    height: calc(100vh - 4rem);
+    top: 4rem;
 }
 .catalog > nav nav {
     display: none;
@@ -52,14 +52,14 @@ nav .logo {
 
 .catalog a, .catalog span {
     cursor: pointer;
-    padding: 2px 5px;
+    padding: .15em .3em;
     color: #333;
 }
 
 .side-nav a {
     display: block;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: .15em;
+    padding-bottom: .15em;
     color: #333;
 }
 

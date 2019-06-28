@@ -47,6 +47,7 @@ namespace NeoDocsBuilder
                 var destPath = Path.Combine(destination, filePathWithoutOrigin);
                 //根据二级标题自动折叠
                 var collapse = Config.FolderJson != null && Config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(string.Join("\\", split.Skip(1)), StringComparison.OrdinalIgnoreCase));
+
                 var (title, content, sideNav) = Convert(Parse(file), collapse);
                 Build(destPath, content, title, sideNav, depth, template, collapse);
                 Catalog += $"<a class='ml-0 my-1 nav-link' href='{destPath.Replace("\\", "/")}' data-path='{filePathWithoutOrigin.Replace("\\", "/").Replace(".md", "")}'>{title}</a>";
@@ -120,7 +121,7 @@ namespace NeoDocsBuilder
                 //② 如果 collapse 为 true，则在 h2 下面的所有内容用 <div></div> 包裹起来
                 if (collapse && (element as HeaderBlock)?.HeaderLevel == 2 && !startCollapse)
                 {
-                    content += "\r\n<div class='div-collapse p-2'>";
+                    content += "\r\n<div class='div-collapse p-2 px-4'>";
                     startCollapse = true;
                 }
             }

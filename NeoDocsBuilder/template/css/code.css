@@ -1,4 +1,7 @@
-﻿.hljs {
+﻿main {
+    letter-spacing: .06em;
+}
+.hljs {
     background: #f8f9fa;
 }
 
@@ -23,13 +26,18 @@
         padding: 1.5rem;
     }
 }
+h1 {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: .8rem;
+    margin-bottom: 1.2rem;
+}
 
 pre {
     margin-bottom: 0;
 }
 
-p {
-    line-height: 1.75;
+p, li {
+    line-height: 2;
 }
 
 .highlight {
@@ -48,6 +56,10 @@ p {
     background-color: #f8f9fa;
     margin-bottom: 1em;
 }
+    .div-collapse p:last-child {
+        margin-bottom: 0;
+    }
+
 .bd-content-title {
     display: block;
     pointer-events: auto;
@@ -70,13 +82,14 @@ p {
         font-size: 1rem;
     }
 
-h1:before, h2:before, h3:before, h4:before {
+h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
     content: '';
     display: block;
-    height: 57px;
-    margin-top: -57px;
+    height: 4rem;
+    margin-top: -4rem;
 }
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
+    line-height: 2;
     pointer-events: none;
 }
 
