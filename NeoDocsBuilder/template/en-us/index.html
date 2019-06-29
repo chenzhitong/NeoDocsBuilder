@@ -34,19 +34,19 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto d-none">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="https://neo.org">Official website</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
+                            Language
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="javascript:" onclick="language('en-us')">English</a>
+                            <a class="dropdown-item" href="javascript:" onclick="language('zh-cn')">中文</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Other Language</a>
                         </div>
                     </li>
                 </ul>
@@ -65,7 +65,7 @@
                     {body}
                 </main>
                 <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
-                    <div><strong>本文内容</strong></div>
+                    <div><strong>In this article</strong></div>
                     <hr />
                     <div id="navbar-sidenav">
                         {sideNav}
@@ -102,22 +102,24 @@
             $(this).next("nav").toggle();
         });
 
-        var link = $(".catalog").find("[data-path='" + decodeURI(location.pathname).substr(1) + "']")[0];
+        var pathName = decodeURI(location.pathname);
+        pathName = pathName.replace(/\w{2}-\w{2}\//, "").replace(".html", "");
+        var link = $(".catalog").find("[data-path='" + pathName.substr(1) + "']")[0];
         $(link).addClass("active");
         $(link).parents().show();
         $(link).parents().prev().attr('data-icon', "-");
-        
+
         highLightHash(decodeURI(location.hash));
         function highLightHash(hash) {
             $(".side-nav a").removeClass("active");
             $(".side-nav [href='" + hash + "']").addClass("active");
             $(hash).next().show();
         }
-        function highLightObj(obj)
-        {
+        $(".side-nav a").click(function (e) {
             $(".side-nav a").removeClass("active");
-            $(obj).addClass("active");
-        }
+            $(e.target).addClass("active");
+        })
+
 
         $('[data-original]').lazyload({
             threshold: 200,
@@ -139,8 +141,23 @@
                 $(e.target).parents("h2").next().toggle("fast");
             });
         }
-
+        function language(lang) {
+            var rgExp = /\w{2}-\w{2}/;
+            if (location.href.search(rgExp) >= 0)
+                location.href = location.href.replace(rgExp, lang.match(rgExp)[0]);
+            else
+                location.href = lang;
+        }
         $('[data-toggle="tooltip"]').tooltip();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130525731-2');
     </script>
 </body>
 </html>

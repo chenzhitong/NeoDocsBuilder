@@ -9,14 +9,14 @@ namespace NeoDocsBuilder
     public static class Config
     {
         public static readonly List<ConfigItem> ConfigList = new List<ConfigItem>();
-        private static string _configFile = "config.json";
+        private static string _configFile;
         public static string ConfigFile
         {
             get { return _configFile; }
             set { _configFile = value; Refresh(); }
         }
 
-        public static void Refresh()
+         static void Refresh()
         {
             var json = JObject.Parse(File.ReadAllText(ConfigFile))["ApplicationConfiguration"];
             ConfigList.Clear();

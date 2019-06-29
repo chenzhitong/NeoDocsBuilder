@@ -14,6 +14,11 @@ namespace NeoDocsBuilder
 {
     public static class MdConverter
     {
+        /// <summary>
+        /// 将块级元素转了 HTML
+        /// </summary>
+        /// <param name="block">MarkDown 块级元素</param>
+        /// <returns>HTML</returns>
         public static string ToHtml(this MarkdownBlock block, string args = null)
         {
             var result = string.Empty;
@@ -150,12 +155,19 @@ namespace NeoDocsBuilder
                     result += "\r\n</table></figure>";
                     break;
                 case MarkdownBlockType.Root: 
-                case MarkdownBlockType.ListItemBuilder: throw new NotImplementedException();
+                case MarkdownBlockType.ListItemBuilder:
+                    //这两个是啥?
+                    throw new NotImplementedException();
                 default: break;
             }
             return result;
         }
 
+        /// <summary>
+        /// 将行级元素转了 HTML
+        /// </summary>
+        /// <param name="block">MarkDown 行级元素</param>
+        /// <returns>HTML</returns>
         public static string ToHtml(this MarkdownInline inline)
         {
             var result = string.Empty;
@@ -171,7 +183,7 @@ namespace NeoDocsBuilder
                 case MarkdownInlineType.Image:
                     var image = inline as ImageInline;
                     var imageTooltip = string.IsNullOrEmpty(image.Tooltip) ? "" : $" alt='{image.Tooltip}'";
-                    result += $"<img class='img-fluid' data-original='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
+                    result += $"<img class='d-inline-block img-fluid' data-original='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
                     break;
                 case MarkdownInlineType.Italic:
                     result += "<em>";
@@ -235,6 +247,7 @@ namespace NeoDocsBuilder
                     result += (inline as LinkAnchorInline).Raw;
                     break;
                 case MarkdownInlineType.RawSubreddit:
+                    //这是啥?
                     throw new NotImplementedException();
                 default: break;
             }
