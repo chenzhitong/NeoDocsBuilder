@@ -1,6 +1,6 @@
 # NeoDocsBuilder 
 
-NeoDocsBuilder —— 一个超牛逼的 NEO 文档编译、生成工具
+NeoDocsBuilder —— 一个超牛逼的 MarkDown 转网站的工具，包括解析、编译、样式处理以及高度定制化功能
 
 | 周期 | 功能                     | 状态     | 说明                                                         | 开源库                                 |
 | ---- | ------------------------ | -------- | ------------------------------------------------------------ | -------------------------------------- |
@@ -19,7 +19,7 @@ NeoDocsBuilder —— 一个超牛逼的 NEO 文档编译、生成工具
 | 1    | 懒加载                   | 已完成   | 对图片进行懒加载                                             | jquey.lazyload                         |
 | 1    | 代码高亮                 | 已完成   | 对代码进行高亮显示                                           | highlight.js  Visual Studio-like style |
 | 1    | 针对标题进行折叠展开     | 已完成   | 适用于 FAQ 之类的大量需要折叠的内容                          |                                        |
-| 1    | 多语言切换               | 未完成   | 网站多语言切换以及内容的多语言切换                           |                                        |
+| 1    | 多语言切换               | 已完成   | 网站多语言切换以及内容的多语言切换                           |                                        |
 | 1    | 标题搜索                 | 未完成   | 对文档标题进行搜索（前端）                                   |                                        |
 | 2    | 全局搜索                 | 未完成   | 对网站内容进行全局搜索（后端）                               |                                        |
 | 2    | 代码片段复制             | 已完成   | 一键复制文档中的代码片断                                     | clipboard.js                           |
@@ -28,13 +28,25 @@ NeoDocsBuilder —— 一个超牛逼的 NEO 文档编译、生成工具
 | 2    | 多主题切换               | 未完成   | 支持自定义主题，GitHub 样式、夜间主题                        |                                        |
 | 3    | 反馈建议                 | 未完成   | 支持文档的打分和反馈（以及时知道对开发者是否有帮助）         |                                        |
 
- 
+## 运行
+
+安装 [.NET Core Runtime](https://dotnet.microsoft.com/download)
+
+然后进入程序目录，启动命令行，运行
+
+```powershell
+dotnet NeoDocsBuilder.dll
+```
+
+或
+
+```powershell
+dotnet NeoDocsBuilder.dll config.json
+```
 
 ## 配置文件说明
 
 **config.json** 
-
-lazyload：是否开启懒加载
 
 origin：存储 MarkDown 文件的文件夹，作为编译的输入
 
@@ -45,7 +57,6 @@ destination：存储编译结果的文件夹，作为编译的输出
 ```json
 {
   "ApplicationConfiguration": {
-    "lazyload": "true",
     "origin": "origin",
     "template": "template",
     "destination": "wwwroot"
@@ -53,7 +64,56 @@ destination：存储编译结果的文件夹，作为编译的输出
 }
 ```
 
+也可以这么写，以支持多语言：
+
+```json
+{
+  "ApplicationConfiguration": [
+    {
+      "origin": "origin\\zh-cn",
+      "template": "template\\zh-cn",
+      "destination": "wwwroot\\zh-cn"
+    },
+    {
+      "origin": "origin\\en-us",
+      "template": "template\\en-us",
+      "destination": "wwwroot\\en-us"
+    }
+  ]
+}
+```
+
+如果支持多语言的话，可以在 wwwroot 目录添加以下文件，从而进行自动跳转。
+
+index.html
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="">
+    <meta name="generator" content="NeoDocsBuilder">
+</head>
+
+<body>
+    <script>
+        var lang = (navigator.language || navigator.browserLanguage).toLowerCase();
+        if (lang != 'zh-cn') JsSrc = 'en-us';
+        location.href = lang + "/index.html";
+    </script>
+</body>
+
+</html>
+```
+
 **folder.json**
+
+如果配置该文件，请将其放在 config.json 中配置的 origin 文件夹中，如上述例子中的 `origin\zh-cn`
 
 rename：表示文件夹名和生成的目录结构中的的对应关系。
 
@@ -72,7 +132,8 @@ collapse：生成文档内容时，对二级标题下的所有内容进行折叠
     "exchange": "交易所对接指南"
   },
   "hidden": [
-    "assets"
+    "assets",
+    ".vs"
   ],
   "collapse":[
     "faq.md"

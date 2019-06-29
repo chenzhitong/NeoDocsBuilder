@@ -2,12 +2,12 @@
   "ApplicationConfiguration": [
     {
       "origin": "origin\\zh-cn",
-      "template": "template",
+      "template": "template\\zh-cn",
       "destination": "wwwroot\\zh-cn"
     },
     {
       "origin": "origin\\en-us",
-      "template": "template",
+      "template": "template\\en-us",
       "destination": "wwwroot\\en-us"
     }
   ]

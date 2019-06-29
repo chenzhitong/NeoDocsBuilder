@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Web.HttpUtility;
 using System.Xml;
+using System.Threading;
 
 namespace NeoDocsBuilder
 {
@@ -17,6 +18,7 @@ namespace NeoDocsBuilder
         {
             try
             {
+                var t1 = DateTime.Now;
                 //设置配置文件
                 Config.ConfigFile = args.Length > 1 ? args[0] : "config.json";
 
@@ -34,6 +36,9 @@ namespace NeoDocsBuilder
                     //处理所有文件后，为这些文件添加相对目录
                     BuildCatalog(item.Destination);
                 }
+                var t2 = DateTime.Now;
+                Console.WriteLine($"Finish: {(int)(t2 - t1).TotalSeconds}s");
+                Thread.Sleep(1000);
             }
             catch (Exception e)
             {
