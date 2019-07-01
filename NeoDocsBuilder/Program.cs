@@ -86,7 +86,8 @@ namespace NeoDocsBuilder
                 var (title, content, sideNav) = Convert(file, collapse);
                 //生成后的文件路径
                 var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html"));
-                Build(newFile, content, title, sideNav, relativeToOrigin.Split("\\").Length - 1, config.Template, collapse);
+                var git = Path.Combine(config.Git, relativeToOrigin);
+                Build(newFile, content, title, sideNav, git, relativeToOrigin.Split("\\").Length - 1, config.Template, collapse);
                 Catalog += $"<a class='ml-0 my-1 nav-link' href='{newFile.Replace("\\", "/")}' data-path='{relativeToOrigin.Replace("\\", "/").Replace(".md", "")}'>{title}</a>";
             }
             foreach (var dir in Directory.GetDirectories(directorie))
@@ -126,10 +127,9 @@ namespace NeoDocsBuilder
             var lastHeaderLevel = 0;
             foreach (var element in document.Blocks)
             {
-                if (element.Type == MarkdownBlockType.Header)
+                if (element.Type == MarkdownBlockType.Header && (element as HeaderBlock).HeaderLevel <= 3)
                 {
                     var header = element as HeaderBlock;
-                    if (header.HeaderLevel > 3) continue;
                     for (int i = 0; i < header.HeaderLevel - lastHeaderLevel; i++)
                     {
                         sideNav += "\r\n<nav class='nav nav-pills flex-column'>";
@@ -188,7 +188,7 @@ namespace NeoDocsBuilder
         /// <param name="depth">该文件相对于根目录（Origin）的层级深度</param>
         /// <param name="template">HTML 模板的文件名</param>
         /// <param name="collapse">是否对内容进行折叠</param>
-        static void Build(string path, string content, string title, string sideNav, int depth, string template, bool collapse)
+        static void Build(string path, string content, string title, string sideNav, string git, int depth, string template, bool collapse)
         {
             var depthStr = string.Empty;
             for (int i = 0; i < depth; i++)
@@ -198,8 +198,9 @@ namespace NeoDocsBuilder
             using (StreamWriter sw = new StreamWriter(path))
             {
                 sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html"))
-                    .Replace("{title}", title).
-                    Replace("{sideNav}", sideNav)
+                    .Replace("{title}", title)
+                    .Replace("{git}", git)
+                    .Replace("{sideNav}", sideNav)
                     .Replace("{body}", content)
                     .Replace("{depth}", depthStr)
                     .Replace("_collapse", collapse.ToString().ToLower()));

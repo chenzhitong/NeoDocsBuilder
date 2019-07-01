@@ -56,14 +56,18 @@ nav .logo {
     color: #333;
 }
 
-.side-nav a {
+.side-nav a:not(.contribution-link) {
     display: block;
     padding-top: .15em;
     padding-bottom: .15em;
     color: #333;
 }
 
-    .catalog a:hover, .catalog a.active, .catalog span:hover, .side-nav a:hover, .side-nav a.active {
+    .catalog a:hover,
+    .catalog a.active,
+    .catalog span:hover,
+    .side-nav a:not(.contribution-link):hover,
+    .side-nav a:not(.contribution-link).active {
         font-size: 1rem;
         color: #007bff;
         background-color: #f0f0f0;
