@@ -46,6 +46,11 @@ nav .logo {
     height: calc(100vh - 4rem);
     top: 4rem;
 }
+.catalog.show {
+    display: block !important;
+    position: static;
+    height: auto;
+}
 .catalog > nav nav {
     display: none;
 }

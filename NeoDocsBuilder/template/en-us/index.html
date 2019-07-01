@@ -62,6 +62,7 @@
                     {catalog}
                 </div>
                 <main class="col-12 col-md-9 col-lg-8 py-2 py-md-5 pl-md-5">
+                    <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
                     {body}
                 </main>
                 <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
@@ -149,7 +150,13 @@
             else
                 location.href = lang;
         }
-        $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
+        function showCatalog() {
+        if ($('.catalog').hasClass('show'))
+            $('.catalog').removeClass('show');
+        else
+            $('.catalog').addClass('show');
+    }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
