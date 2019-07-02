@@ -32,10 +32,10 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
-                    var _class = args.StartsWith("collapse") && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
-                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId(args.Replace("collapse", ""))}'{_class}><span class='with-space bd-content-title'>";
+                    var _class = !string.IsNullOrEmpty(args) && args.StartsWith("collapse") && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
+                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId(args?.Replace("collapse", ""))}'{_class}><span class='with-space bd-content-title'>";
                     header.Inlines.ToList().ForEach(p => result += p.ToHtml());
-                    result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint(args.Replace("collapse", ""))}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
+                    result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint(args?.Replace("collapse", ""))}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
                     break;
                 case MarkdownBlockType.HorizontalRule: result += "\r\n<hr />"; break;
                 case MarkdownBlockType.LinkReference:
@@ -88,11 +88,13 @@ namespace NeoDocsBuilder
                             switch (type)
                             {
                                 case "[!NOTE]":
+                                case "[!INFO]":
                                 case "[!TIP]":
                                     style = " bd-callout-info"; break;
                                 case "[!WARNING]":
                                     style = " bd-callout-warning"; break;
                                 case "[!IMPORTANT]":
+                                case "[!DANGER]":
                                 case "[!CAUTION]":
                                     style = " bd-callout-danger"; break;
                                 default: style = ""; break;

@@ -16,36 +16,27 @@ namespace NeoDocsBuilder
     {
         static void Main(string[] args)
         {
-            try
-            {
-                var t1 = DateTime.Now;
-                //设置配置文件
-                Config.ConfigFile = args.Length > 1 ? args[0] : "config.json";
+            var t1 = DateTime.Now;
+            //设置配置文件
+            Config.ConfigFile = args.Length > 1 ? args[0] : "config.json";
 
-                foreach (var item in Config.ConfigList)
-                {
-                    Clear();
-                    //复制模板到输出目录，包括 CSS、JS、字体、图片等，不包含 MarkDown 文件
-                    Files.CopyDirectory(item.Template, item.Destination);
-                    //复制源文件夹中的资源文件到输出目录，包括图片等，不包含 MarkDown 文件
-                    Files.CopyDirectory(item.Origin, item.Destination);
-                    //按照原文件夹的层级目录，在输出文件夹中创建相同的文件夹
-                    Files.CopyDirectoryOnly(item.Origin, item.Destination);
-                    //对 MarkDown 文件夹进行解析、编译以及样式处理
-                    Run(item.Origin, item);
-                    //处理所有文件后，为这些文件添加相对目录
-                    BuildCatalog(item.Destination);
-                }
-                var t2 = DateTime.Now;
-                Console.WriteLine($"Finish: {(int)(t2 - t1).TotalSeconds}s");
-                Thread.Sleep(1000);
-            }
-            catch (Exception e)
+            foreach (var item in Config.ConfigList)
             {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-                Console.ReadLine();
+                Clear();
+                //复制模板到输出目录，包括 CSS、JS、字体、图片等，不包含 MarkDown 文件
+                Files.CopyDirectory(item.Template, item.Destination);
+                //复制源文件夹中的资源文件到输出目录，包括图片等，不包含 MarkDown 文件
+                Files.CopyDirectory(item.Origin, item.Destination);
+                //按照原文件夹的层级目录，在输出文件夹中创建相同的文件夹
+                Files.CopyDirectoryOnly(item.Origin, item.Destination);
+                //对 MarkDown 文件夹进行解析、编译以及样式处理
+                Run(item.Origin, item);
+                //处理所有文件后，为这些文件添加相对目录
+                BuildCatalog(item.Destination);
             }
+            var t2 = DateTime.Now;
+            Console.WriteLine($"Finish: {(int)(t2 - t1).TotalSeconds}s");
+            Thread.Sleep(1000);
         }
 
         /// <summary>

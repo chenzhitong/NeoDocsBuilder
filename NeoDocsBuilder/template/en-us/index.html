@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="https://neo.org">Official website</a>
+                        <a class="nav-link" href="https://neo.org" target="_blank">Official website</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,7 +47,7 @@
                             <a class="dropdown-item" href="javascript:" onclick="language('en-us')">English</a>
                             <a class="dropdown-item" href="javascript:" onclick="language('zh-cn')">中文</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Other Language</a>
+                            <a class="dropdown-item" href="{depth}language.html">Other Language</a>
                         </div>
                     </li>
                 </ul>
@@ -157,6 +157,9 @@
         else
             $('.catalog').addClass('show');
     }
+    $(".bd-callout-info h4").prepend("<i class='fas fa-info-circle'></i>");
+    $(".bd-callout-warning h4").prepend("<i class='fas fa-exclamation-circle'></i>");
+    $(".bd-callout-danger h4").prepend("<i class='fas fa-exclamation-triangle'></i>");
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
