@@ -101,7 +101,7 @@
                 $(this).removeClass('expand');
             else
                 $(this).addClass('expand');
-            $(this).next("nav").toggle();
+            $(this).next("nav").toggle("fast");
         });
         var pathName = decodeURI(location.pathname);
         pathName = pathName.replace(/\w{2}-\w{2}\//, "").replace(".html", "");

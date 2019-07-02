@@ -32,10 +32,10 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
-                    var _class = args == "collapse" && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
-                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId()}'{_class}><span class='with-space bd-content-title'>";
+                    var _class = args.StartsWith("collapse") && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
+                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId(args.Replace("collapse", ""))}'{_class}><span class='with-space bd-content-title'>";
                     header.Inlines.ToList().ForEach(p => result += p.ToHtml());
-                    result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint()}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
+                    result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint(args.Replace("collapse", ""))}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
                     break;
                 case MarkdownBlockType.HorizontalRule: result += "\r\n<hr />"; break;
                 case MarkdownBlockType.LinkReference:
@@ -269,9 +269,9 @@ namespace NeoDocsBuilder
             return result;
         }
 
-        public static string ToAnchorPoint(this string input) => $"#{input.ToId()}";
+        public static string ToAnchorPoint(this string input, string nacl = null) => $"#{input.ToId(nacl)}";
 
-        public static string ToId(this string input) => input.Sha256().TrimStart('1', '2', '3', '4', '5', '6', '7', '8', '9', '0').Substring(0, 8);
+        public static string ToId(this string input, string nacl = null) => $"{input.Trim()}{nacl}".Sha256().TrimStart('1', '2', '3', '4', '5', '6', '7', '8', '9', '0').Substring(0, 8);
 
         public static bool IsExternalLink(this string link) => link.StartsWith("http");
 

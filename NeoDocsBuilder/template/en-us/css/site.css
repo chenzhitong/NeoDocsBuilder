@@ -47,6 +47,10 @@ nav .logo {
     top: 4rem;
 }
 
+    .side-nav nav {
+        width: 100%;
+    }
+
 .catalog.show {
     display: block !important;
     position: static;
@@ -54,7 +58,7 @@ nav .logo {
 }
 
 .catalog i {
-    transition: all .5s;
+    transition: all .3s;
     margin-right: .3rem;
     margin-left: -.6rem;
 }
@@ -91,6 +95,11 @@ nav .logo {
     padding-bottom: .15em;
     color: #333;
     font-size: .9rem;
+    border-radius: 0;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
 }
 
     .catalog a:hover,

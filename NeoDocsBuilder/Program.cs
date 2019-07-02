@@ -125,8 +125,10 @@ namespace NeoDocsBuilder
             bool startCollapse = false;
 
             var lastHeaderLevel = 0;
-            foreach (var element in document.Blocks)
+            for (int index = 0; index < document.Blocks.Count; index++)
             {
+                var element = document.Blocks[index];
+                var html = element.ToHtml(collapse ? $"collapse{index.ToString()}" : index.ToString());
                 if (element.Type == MarkdownBlockType.Header && (element as HeaderBlock).HeaderLevel <= 3)
                 {
                     var header = element as HeaderBlock;
@@ -139,10 +141,10 @@ namespace NeoDocsBuilder
                         sideNav += "\r\n</nav>";
                     }
                     XmlDocument xml = new XmlDocument();
-                    xml.LoadXml(header.ToHtml());
+                    xml.LoadXml(html);
                     var headerText = xml.InnerText;
                     title = title ?? headerText;
-                    sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{(header.HeaderLevel == 1 ? " d-none" : "")} my-1 nav-link' href='{header.ToString().ToAnchorPoint()}'>{headerText}</a>";
+                    sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{(header.HeaderLevel == 1 ? " d-none" : "")} my-1 nav-link' href='{header.ToString().ToAnchorPoint(index.ToString())}'>{headerText}</a>";
 
                     lastHeaderLevel = header.HeaderLevel;
                 }
@@ -155,7 +157,7 @@ namespace NeoDocsBuilder
                 }
                 #endregion
 
-                content += element.ToHtml(collapse ? "collapse" : "");
+                content += html;
 
                 #region collapse
                 if (collapse && (element as HeaderBlock)?.HeaderLevel == 2 && !startCollapse)
