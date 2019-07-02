@@ -53,13 +53,23 @@ nav .logo {
     height: auto;
 }
 
+.catalog i {
+    transition: all .5s;
+    margin-right: .3rem;
+    margin-left: -.6rem;
+}
+
+.catalog .expand i {
+    transform: rotate(90deg);
+}
+
 .catalog > nav nav {
     display: none;
 }
 
 .catalog a, .catalog span {
     cursor: pointer;
-    padding: .15em .3em;
+    padding: .2em 1em;
     color: #333;
 }
 
@@ -71,6 +81,7 @@ nav .logo {
 .side-nav-text {
     border-bottom: 1px solid #f0f0f0;
     padding-bottom: 1rem;
+    margin-bottom: 1rem;
     font-weight: bold;
 }
 

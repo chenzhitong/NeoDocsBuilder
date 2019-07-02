@@ -22,6 +22,7 @@
     <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <link href="https://neo-cdn.azureedge.net/css/vs.css" rel="stylesheet" />
+    <link href="{depth}lib/font-awesome/css/all.min.css" rel="stylesheet" />
     <link href="{depth}css/site.css" rel="stylesheet" />
     <link href="{depth}css/code.css" rel="stylesheet" />
 </head>
@@ -96,10 +97,10 @@
         text_replace(".with-space");
         hljs.initHighlightingOnLoad();
         $(".catalog nav span").click(function () {
-            if ($(this).attr('data-icon') == "+")
-                $(this).attr('data-icon', "-");
+            if ($(this).hasClass('expand'))
+                $(this).removeClass('expand');
             else
-                $(this).attr('data-icon', "+");
+                $(this).addClass('expand');
             $(this).next("nav").toggle();
         });
         var pathName = decodeURI(location.pathname);
@@ -108,7 +109,7 @@
 
         $(link).addClass("active");
         $(link).parents().show();
-        $(link).parents().prev().attr('data-icon', "-");
+        $(link).parents().prev().addClass('expand');
 
         highLightHash(decodeURI(location.hash));
         function highLightHash(hash) {

@@ -5,12 +5,6 @@
       "template": "template\\zh-cn",
       "destination": "wwwroot\\zh-cn",
       "git": "https://github.com/neo-project/docs/blob/master/zh-cn/"
-    },
-    {
-      "origin": "origin\\en-us",
-      "template": "template\\en-us",
-      "destination": "wwwroot\\en-us",
-      "git": "https://github.com/neo-project/docs/blob/master/en-us/"
     }
   ]
 }

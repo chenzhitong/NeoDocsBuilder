@@ -76,7 +76,7 @@ namespace NeoDocsBuilder
         /// <param name="config">配置文件</param>
         static void Run(string directorie, ConfigItem config)
         {
-            Catalog += "\r\n<nav class='nav nav-pills flex-column ml-2'>";
+            Catalog += "\r\n<nav class='nav nav-pills flex-column ml-3'>";
             foreach (var file in Directory.GetFiles(directorie))
             {
                 if (Path.GetExtension(file) != ".md") continue;
@@ -99,7 +99,7 @@ namespace NeoDocsBuilder
                     if(config.FolderJson["rename"] != null)
                         dirName = config.FolderJson["rename"][dirName]?.ToString() ?? dirName;
                 }
-                Catalog += $"<span class='ml-0 my-1 nav-link' data-icon='+'>{dirName}</span>";
+                Catalog += $"<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>{ dirName}</span>";
 
                 Run(dir, config);
             }
