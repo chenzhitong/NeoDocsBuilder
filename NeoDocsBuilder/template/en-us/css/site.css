@@ -1,6 +1,7 @@
 html {
     font-size: 87.5%;
 }
+
 html, body {
     width: 100%;
     height: 100%;
@@ -40,17 +41,18 @@ nav .logo {
 }
 
 .side-nav {
-    border-left: 1px solid rgba(0,0,0,.1);
     overflow: auto;
     position: sticky;
     height: calc(100vh - 4rem);
     top: 4rem;
 }
+
 .catalog.show {
     display: block !important;
     position: static;
     height: auto;
 }
+
 .catalog > nav nav {
     display: none;
 }
@@ -61,22 +63,40 @@ nav .logo {
     color: #333;
 }
 
+.contribution-link {
+    margin-top: .85rem;
+    margin-bottom: 1rem;
+}
+
+.side-nav-text {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1rem;
+    font-weight: bold;
+}
+
 .side-nav a:not(.contribution-link) {
     display: block;
     padding-top: .15em;
     padding-bottom: .15em;
     color: #333;
+    font-size: .9rem;
 }
 
     .catalog a:hover,
     .catalog a.active,
     .catalog span:hover,
-    .side-nav a:not(.contribution-link):hover,
-    .side-nav a:not(.contribution-link).active {
-        font-size: 1rem;
+    .side-nav a:not(.contribution-link):hover {
         color: #007bff;
         background-color: #f0f0f0;
     }
+
+.side-nav .nav-pills .nav-link.active, .side-nav .nav-pills .show > .nav-link {
+    color: #333;
+    background-color: #f0f0f0;
+    border-radius: 0;
+    border-left: 0.2rem solid #007bff;
+    padding-left: 0.8rem;
+}
 
 footer {
     height: 20rem;

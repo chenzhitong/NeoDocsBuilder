@@ -66,9 +66,8 @@
                     {body}
                 </main>
                 <div class="d-none d-lg-block col-lg-2 side-nav py-2 py-md-5">
-                    <a href="{git}" class="contribution-link d-block mt-2 mb-3">Improve this Doc</a>
-                    <div><strong>In this article</strong></div>
-                    <hr />
+                    <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
+                    <div class="side-nav-text">In this article</div>
                     <div id="navbar-sidenav">
                         {sideNav}
                     </div>
@@ -144,9 +143,9 @@
             });
         }
         function language(lang) {
-            var rgExp = /\w{2}-\w{2}/;
+            var rgExp = /\/\w{2}-\w{2}\//;
             if (location.href.search(rgExp) >= 0)
-                location.href = location.href.replace(rgExp, lang.match(rgExp)[0]);
+                location.href = location.href.replace(rgExp, `/${lang}/`);
             else
                 location.href = lang;
         }

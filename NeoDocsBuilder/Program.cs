@@ -43,7 +43,7 @@ namespace NeoDocsBuilder
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                e.StackTrace.ToList().ForEach(p => Console.WriteLine(p));
+                Console.WriteLine(e.StackTrace);
                 Console.ReadLine();
             }
         }

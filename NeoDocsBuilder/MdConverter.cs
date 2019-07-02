@@ -179,7 +179,7 @@ namespace NeoDocsBuilder
                     (inline as BoldTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += "</strong> ";
                     break;
-                case MarkdownInlineType.Code: result += $" <code>{(inline as CodeInline).Text}</code> "; break;
+                case MarkdownInlineType.Code: result += $" <code>{HtmlEncode((inline as CodeInline).Text)}</code> "; break;
                 case MarkdownInlineType.Image:
                     var image = inline as ImageInline;
                     var imageTooltip = string.IsNullOrEmpty(image.Tooltip) ? "" : $" alt='{image.Tooltip}'";
