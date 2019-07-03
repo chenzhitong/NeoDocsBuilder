@@ -177,7 +177,7 @@ namespace NeoDocsBuilder
             {
                 case MarkdownInlineType.Comment: result += inline; break;
                 case MarkdownInlineType.Bold:
-                    result += " <strong>";
+                    result += "<strong>";
                     (inline as BoldTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
                     result += "</strong> ";
                     break;
@@ -222,23 +222,23 @@ namespace NeoDocsBuilder
                     var reg = new Regex("<(p|img|br|b|i|br|a|link)\\s*.*?/?>", RegexOptions.IgnoreCase);
                     var textRun = (inline as TextRunInline).ToString().Trim().Replace("&#124;", "|");
                     if (reg.IsMatch(textRun))
-                        result += $"{textRun}";
+                        result += textRun;
                     else
-                        result += $" {HtmlEncode(textRun)} ";
+                        result += $"{HtmlEncode(textRun)}";
                     break;
                 case MarkdownInlineType.RawHyperlink:
                     var hyperLink = inline as HyperlinkInline;
                     var imgExName = new string[]{ "jpg", "jpeg", "png", "gif" };
                     if (imgExName.ToList().Any(p => hyperLink.Text.Contains(p)))
                     {
-                        result += $" {hyperLink.Text} ";
+                        result += hyperLink.Text;
                     }
                     else
                     {
                         if (hyperLink.Text.IsExternalLink())
-                            result += $" <a href='{hyperLink.Text}' target='_blank'>{hyperLink.Text}</a> ";
+                            result += $"<a href='{hyperLink.Text}' target='_blank'>{hyperLink.Text}</a>";
                         else
-                            result += $" <a href='{hyperLink.Text.Replace(".md", ".html")}'>{hyperLink.Text}</a> ";
+                            result += $"<a href='{hyperLink.Text.Replace(".md", ".html")}'>{hyperLink.Text}</a>";
                     }
                     break;
                 case MarkdownInlineType.Emoji:

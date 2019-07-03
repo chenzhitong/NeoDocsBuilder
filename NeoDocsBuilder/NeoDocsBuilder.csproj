@@ -23,10 +23,10 @@
     <None Update="template\css\vs.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\en-us\css\code.css">
+    <None Update="template\en-us\css\code.less">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\en-us\css\site.css">
+    <None Update="template\en-us\css\site.less">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="template\en-us\css\vs.css">
@@ -146,10 +146,10 @@
     <None Update="template\lib\text-autospace\text-autospace.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\css\code.css">
+    <None Update="template\zh-cn\css\code.less">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\css\site.css">
+    <None Update="template\zh-cn\css\site.less">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="template\zh-cn\css\vs.css">
