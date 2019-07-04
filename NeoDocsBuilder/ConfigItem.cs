@@ -12,6 +12,7 @@ namespace NeoDocsBuilder
         public string Destination;
         public string Template;
         public string Git;
+        public string WebRoot;
         public JObject FolderJson;
         public ConfigItem(JToken json)
         {
@@ -19,6 +20,7 @@ namespace NeoDocsBuilder
             Destination = json["destination"].ToString();
             Template = json["template"].ToString();
             Git = json["git"].ToString();
+            WebRoot = json["webRoot"].ToString();
             var jsonPath = Path.Combine(Origin, "folder.json");
             if (!File.Exists(jsonPath))
             {

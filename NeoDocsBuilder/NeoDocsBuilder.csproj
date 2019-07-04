@@ -23,100 +23,13 @@
     <None Update="template\css\vs.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\en-us\css\code.less">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\css\site.less">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\css\vs.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\index.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\animate.css\animate.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\animate.css\animate.min.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\bootstrap\css\bootstrap.min.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\bootstrap\css\bootstrap.min.css.map">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\bootstrap\js\bootstrap.min.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\css\all.min.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\jquery\jquery.min.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\popper.js\popper.min.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\prettify\css\prettify.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\prettify\js\prettify.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\text-autospace\text-autospace.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-brands-400.eot">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-brands-400.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-brands-400.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-brands-400.woff">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-brands-400.woff2">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-regular-400.eot">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-regular-400.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-regular-400.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-regular-400.woff">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-regular-400.woff2">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-solid-900.eot">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-solid-900.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-solid-900.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-solid-900.woff">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="template\en-us\lib\font-awesome\webfonts\fa-solid-900.woff2">
+    <None Update="template\template.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="template\img\clippy.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\index.html">
+    <None Update="template\template.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="template\lib\animate.css\animate.css">
@@ -146,96 +59,97 @@
     <None Update="template\lib\text-autospace\text-autospace.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\css\code.less">
+    <None Update="template\css\code.less">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\css\site.less">
+    <None Update="template\css\site.less">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\css\vs.css">
+    <None Update="template\css\vs.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\index.html">
+    <None Update="template\lib\animate.css\animate.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\animate.css\animate.css">
+    <None Update="template\lib\animate.css\animate.min.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\animate.css\animate.min.css">
+    <None Update="template\lib\bootstrap\css\bootstrap.min.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\bootstrap\css\bootstrap.min.css">
+    <None Update="template\lib\bootstrap\css\bootstrap.min.css.map">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\bootstrap\css\bootstrap.min.css.map">
+    <None Update="template\lib\bootstrap\js\bootstrap.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\bootstrap\js\bootstrap.min.js">
+    <None Update="template\lib\font-awesome\css\all.min.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\css\all.min.css">
+    <None Update="template\lib\font-awesome\webfonts\fa-brands-400.eot">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-brands-400.eot">
+    <None Update="template\lib\font-awesome\webfonts\fa-brands-400.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-brands-400.svg">
+    <None Update="template\lib\font-awesome\webfonts\fa-brands-400.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-brands-400.ttf">
+    <None Update="template\lib\font-awesome\webfonts\fa-brands-400.woff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-brands-400.woff">
+    <None Update="template\lib\font-awesome\webfonts\fa-brands-400.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-brands-400.woff2">
+    <None Update="template\lib\font-awesome\webfonts\fa-regular-400.eot">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-regular-400.eot">
+    <None Update="template\lib\font-awesome\webfonts\fa-regular-400.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-regular-400.svg">
+    <None Update="template\lib\font-awesome\webfonts\fa-regular-400.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-regular-400.ttf">
+    <None Update="template\lib\font-awesome\webfonts\fa-regular-400.woff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-regular-400.woff">
+    <None Update="template\lib\font-awesome\webfonts\fa-regular-400.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-regular-400.woff2">
+    <None Update="template\lib\font-awesome\webfonts\fa-solid-900.eot">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-solid-900.eot">
+    <None Update="template\lib\font-awesome\webfonts\fa-solid-900.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-solid-900.svg">
+    <None Update="template\lib\font-awesome\webfonts\fa-solid-900.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-solid-900.ttf">
+    <None Update="template\lib\font-awesome\webfonts\fa-solid-900.woff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-solid-900.woff">
+    <None Update="template\lib\font-awesome\webfonts\fa-solid-900.woff2">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\font-awesome\webfonts\fa-solid-900.woff2">
+    <None Update="template\lib\jquery\jquery.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\jquery\jquery.min.js">
+    <None Update="template\lib\popper.js\popper.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\popper.js\popper.min.js">
+    <None Update="template\lib\prettify\css\prettify.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\prettify\css\prettify.css">
+    <None Update="template\lib\prettify\js\prettify.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\prettify\js\prettify.js">
+    <None Update="template\lib\text-autospace\text-autospace.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="template\zh-cn\lib\text-autospace\text-autospace.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="template\en-us\" />
   </ItemGroup>
 
 </Project>

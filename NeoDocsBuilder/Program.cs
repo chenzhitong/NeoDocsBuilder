@@ -23,8 +23,8 @@ namespace NeoDocsBuilder
             foreach (var item in Config.ConfigList)
             {
                 Clear();
-                //复制模板到输出目录，包括 CSS、JS、字体、图片等，不包含 MarkDown 文件
-                Files.CopyDirectory(item.Template, item.Destination);
+                //复制模板到网站根目录，包括 CSS、JS、字体、图片等，不包含 MarkDown 文件
+                Files.CopyDirectory(item.Template, item.WebRoot);
                 //复制源文件夹中的资源文件到输出目录，包括图片等，不包含 MarkDown 文件
                 Files.CopyDirectory(item.Origin, item.Destination);
                 //按照原文件夹的层级目录，在输出文件夹中创建相同的文件夹
@@ -86,8 +86,8 @@ namespace NeoDocsBuilder
                 var dirName = dir.Split("\\").Reverse().ToList()[0];
                 if (config.FolderJson != null)
                 {
-                    if(config.FolderJson["hidden"].Any(p => p.ToString() == dirName)) continue;
-                    if(config.FolderJson["rename"] != null)
+                    if (config.FolderJson["hidden"].Any(p => p.ToString() == dirName)) continue;
+                    if (config.FolderJson["rename"] != null)
                         dirName = config.FolderJson["rename"][dirName]?.ToString() ?? dirName;
                 }
                 Catalog += $"<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>{ dirName}</span>";
@@ -190,7 +190,7 @@ namespace NeoDocsBuilder
             }
             using (StreamWriter sw = new StreamWriter(path))
             {
-                sw.WriteLine(File.ReadAllText(Path.Combine(template, "index.html"))
+                sw.WriteLine(File.ReadAllText(Path.Combine(template, "template.html"))
                     .Replace("{title}", title)
                     .Replace("{git}", git)
                     .Replace("{sideNav}", sideNav)
@@ -200,7 +200,7 @@ namespace NeoDocsBuilder
                 Console.WriteLine($"build: {path}");
             }
         }
-        
+
         private static void BuildCatalog(string path)
         {
             void GetAllFiles(string _path)

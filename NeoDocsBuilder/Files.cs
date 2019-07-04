@@ -13,7 +13,7 @@ namespace NeoDocsBuilder
             if (!Directory.Exists(saveDirPath))
                 Directory.CreateDirectory(saveDirPath);
             Directory.GetFiles(sourceDirPath).ToList().ForEach(
-                p => { if (Path.GetExtension(p) != ".md")
+                p => { if (Path.GetExtension(p) != ".md" && Path.GetFileName(p) != "folder.json")
                         File.Copy(p, Path.Combine(saveDirPath, Path.GetFileName(p)), true);
                 }
             );
