@@ -44,6 +44,7 @@ $(function () {
 //语言切换
 function language(lang) {
     var rgExp = /\/\w{2}-\w{2}\//;
+    localStorage.setItem("lang", lang);
     if (location.href.search(rgExp) >= 0) {
         location.href = location.href.replace(rgExp, `/${lang}/`);
     }

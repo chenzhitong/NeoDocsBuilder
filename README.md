@@ -53,13 +53,16 @@ template：存储网站模板的文件夹，作为编译时候的模板
 
 destination：存储编译结果的文件夹，作为编译的输出
 
+webRoot：网站根据目录，程序会将 template 中的内容（如 CSS，JS）复制到网站根目录
+
 ```json
 {
   "ApplicationConfiguration": [
     {
       "origin": "origin\\zh-cn",
-      "template": "template\\zh-cn",
+      "template": "template",
       "destination": "wwwroot\\zh-cn",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/zh-cn/"
     }
   ]
@@ -73,35 +76,39 @@ destination：存储编译结果的文件夹，作为编译的输出
   "ApplicationConfiguration": [
     {
       "origin": "docs\\zh-cn",
-      "template": "template\\zh-cn",
+      "template": "template",
       "destination": "wwwroot\\docs\\zh-cn",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/docs/zh-cn/"
     },
     {
       "origin": "docs\\en-us",
-      "template": "template\\en-us",
+      "template": "template",
       "destination": "wwwroot\\docs\\en-us",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/docs/en-us/"
     },
     {
       "origin": "faq\\zh-cn",
-      "template": "template\\zh-cn",
+      "template": "template",
       "destination": "wwwroot\\faq\\zh-cn",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/faq/zh-cn/"
     },
     {
       "origin": "faq\\en-us",
-      "template": "template\\en-us",
+      "template": "template",
       "destination": "wwwroot\\faq\\en-us",
+      "webRoot": "wwwroot",
       "git": "https://github.com/neo-project/docs/blob/master/faq/en-us/"
     }
   ]
 }
 ```
 
-如果支持多语言的话，可以在 wwwroot 目录添加以下文件，从而进行自动跳转。
+如果支持多语言的话，可以在 `wwwroot` 目录添加以下文件，从而进行自动跳转，也可以将该文件复制到 `template` 中，每次编译后自动复制到网站根目录。
 
-index.html
+**index.html**
 
 ```html
 <!DOCTYPE html>
@@ -118,9 +125,10 @@ index.html
 
 <body>
     <script>
-        var lang = (navigator.language || navigator.browserLanguage).toLowerCase();
-        if (lang != 'zh-cn') JsSrc = 'en-us';
-        location.href = lang + "/index.html";
+        var savelang = localStorage.getItem("lang");
+        var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
+        if (lang != 'zh-cn') lang = 'en-us';
+        location.href = "/docs/" + lang + "/index.html"; //此处要根据网站目录结构进行修改
     </script>
 </body>
 
@@ -137,7 +145,7 @@ hidden：生成目录结构时需要隐藏的文件夹，一般是保存图片�
 
 collapse：生成文档内容时，对二级标题下的所有内容进行折叠，单击二级标题时展开内容，适用于大量需要折叠的内容，如 FAQ。
 
-默认的目录顺序按照文件名和文件夹名排序，如果修改顺序可以通过修改文件夹名来实现，如 `1_folder`，或 `a_folder`。
+默认的目录顺序按照文件名和文件夹名排序，如果修改顺序可以通过修改文件夹名来实现，如 `1_folder`，或 `a_folder`，当然如果修改了文件夹名，会导致链接更改。
 
 ```json
 {
