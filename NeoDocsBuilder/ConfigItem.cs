@@ -11,6 +11,7 @@ namespace NeoDocsBuilder
         public string Origin;
         public string Destination;
         public string Template;
+        public string Catalog;
         public string Git;
         public string WebRoot;
         public JObject FolderJson;
@@ -19,6 +20,7 @@ namespace NeoDocsBuilder
             Origin = json["origin"].ToString();
             Destination = json["destination"].ToString();
             Template = json["template"].ToString();
+            Catalog = json["catalog"].ToString();
             Git = json["git"].ToString();
             WebRoot = json["webRoot"].ToString();
             var jsonPath = Path.Combine(Origin, "folder.json");

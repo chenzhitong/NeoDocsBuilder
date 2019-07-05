@@ -280,7 +280,7 @@ namespace NeoDocsBuilder
         public static string Sha256(this string text)
         {
             string hashString = string.Empty;
-            new SHA256Managed().ComputeHash(Encoding.Unicode.GetBytes(text)).ToList().ForEach(p => hashString += String.Format("{0:x2}", p));
+            new SHA256Managed().ComputeHash(Encoding.Unicode.GetBytes(text)).ToList().ForEach(p => hashString += string.Format("{0:x2}", p));
             return hashString;
         }
     }

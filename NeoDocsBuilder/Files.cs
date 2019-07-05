@@ -12,22 +12,15 @@ namespace NeoDocsBuilder
         {
             if (!Directory.Exists(saveDirPath))
                 Directory.CreateDirectory(saveDirPath);
-            Directory.GetFiles(sourceDirPath).ToList().ForEach(
-                p => { if (Path.GetExtension(p) != ".md" && Path.GetFileName(p) != "folder.json")
-                        File.Copy(p, Path.Combine(saveDirPath, Path.GetFileName(p)), true);
-                }
+            Directory.GetFiles(sourceDirPath).ToList().ForEach(p =>
+            {
+                var extension = Path.GetExtension(p);
+                if (extension != ".md" && extension != ".json" && extension != ".yml")
+                    File.Copy(p, Path.Combine(saveDirPath, Path.GetFileName(p)), true);
+            }
             );
             Directory.GetDirectories(sourceDirPath).ToList().ForEach(
                 p => CopyDirectory(p, Path.Combine(saveDirPath, Path.GetFileName(p)))
-            );
-        }
-
-        public static void CopyDirectoryOnly(string sourceDirPath, string saveDirPath)
-        {
-            if (!Directory.Exists(saveDirPath))
-                Directory.CreateDirectory(saveDirPath);
-            Directory.GetDirectories(sourceDirPath).ToList().ForEach(
-                p => CopyDirectoryOnly(p, Path.Combine(saveDirPath, Path.GetFileName(p)))
             );
         }
     }

@@ -15,8 +15,7 @@ $(function () {
 //根据网址自动展开到对应目录
 $(function () {
     var pathName = decodeURI(location.pathname);
-    pathName = pathName.replace(/.*?\/\w{2}-\w{2}\//, "").replace(".html", "");
-    var link = $(".catalog").find("[data-path='" + pathName + "']")[0];
+    var link = $(".catalog").find("[href='" + pathName + "']")[0];
     $(link).addClass("active");
     $(link).parents().show();
     $(link).parents().prev().addClass('expand');
