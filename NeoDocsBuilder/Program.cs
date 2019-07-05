@@ -227,6 +227,9 @@ namespace NeoDocsBuilder
         /// <param name="catalog">目录（HTML）</param>
         private static void ProcessRelativePath(string file, string catalog)
         {
+            var html = File.ReadAllText(file);
+            if (!html.Contains("{catalog}"))
+                return;
             foreach (var link in CatalogLinks)
             {
                 if (link == null) continue;
@@ -239,7 +242,7 @@ namespace NeoDocsBuilder
                     relative = Path.GetFileName(file);
                 catalog = catalog.Replace(absolute, relative);
             }
-            var html = File.ReadAllText(file).Replace("{catalog}", catalog);
+            html = File.ReadAllText(file).Replace("{catalog}", catalog);
             using (StreamWriter sw = new StreamWriter(file))
             {
                 sw.WriteLine(html);
