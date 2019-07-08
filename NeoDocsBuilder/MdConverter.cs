@@ -1,14 +1,12 @@
 ﻿using Microsoft.Toolkit.Parsers.Markdown;
 using Microsoft.Toolkit.Parsers.Markdown.Blocks;
 using Microsoft.Toolkit.Parsers.Markdown.Inlines;
-using static System.Web.HttpUtility;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Xml;
 using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
+using static System.Web.HttpUtility;
 
 namespace NeoDocsBuilder
 {

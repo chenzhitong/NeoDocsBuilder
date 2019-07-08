@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace NeoDocsBuilder
 {
     public static class Files
     {
-        public static void CopyDirectory(string sourceDirPath, string saveDirPath, bool includeMarkDown = false)
+        public static void CopyDirectory(string sourceDirPath, string saveDirPath)
         {
             if (!Directory.Exists(saveDirPath))
                 Directory.CreateDirectory(saveDirPath);
