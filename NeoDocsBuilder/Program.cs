@@ -30,13 +30,19 @@ namespace NeoDocsBuilder
                 Files.CopyDirectory(item.Origin, item.Destination); //复制源文件夹中的资源文件到输出目录，包括图片等，不包含 .md .json .yml
 
                 Console.WriteLine("Build catalog……");
-                var catalog = File.ReadAllLines(item.Catalog).ToHtml();
+                var catalog = File.ReadAllLines(item.Catalog).ToHtml(item.WebRoot);
 
                 BuildMarkDown(catalog, item); //对 MarkDown 文件夹进行解析、编译以及样式处理
             }
             var t2 = DateTime.Now;
             Console.WriteLine($"Finish: {(int)(t2 - t1).TotalSeconds}s");
-            Thread.Sleep(1000);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Error Link: {MdConverter.errorLinkCount}/{MdConverter.linkCount}");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
 
         static readonly List<string> AllMdFiles = new List<string>();
@@ -91,7 +97,7 @@ namespace NeoDocsBuilder
             for (int index = 0; index < document.Blocks.Count; index++)
             {
                 var element = document.Blocks[index];
-                var html = element.ToHtml(collapse ? $"collapse{index.ToString()}" : index.ToString());
+                var html = element.ToHtml(file, collapse ? $"collapse{index.ToString()}" : index.ToString());
                 if (element.Type == MarkdownBlockType.Header && (element as HeaderBlock).HeaderLevel <= 3)
                 {
                     var header = element as HeaderBlock;

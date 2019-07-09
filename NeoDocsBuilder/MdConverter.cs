@@ -2,6 +2,7 @@
 using Microsoft.Toolkit.Parsers.Markdown.Blocks;
 using Microsoft.Toolkit.Parsers.Markdown.Inlines;
 using System;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,7 +18,7 @@ namespace NeoDocsBuilder
         /// </summary>
         /// <param name="block">MarkDown 块级元素</param>
         /// <returns>HTML</returns>
-        public static string ToHtml(this MarkdownBlock block, string args = null)
+        public static string ToHtml(this MarkdownBlock block, string file, string args = null)
         {
             var result = string.Empty;
             switch (block.Type)
@@ -32,7 +33,7 @@ namespace NeoDocsBuilder
                     var header = block as HeaderBlock;
                     var _class = !string.IsNullOrEmpty(args) && args.StartsWith("collapse") && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
                     result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId(args?.Replace("collapse", ""))}'{_class}><span class='with-space bd-content-title'>";
-                    header.Inlines.ToList().ForEach(p => result += p.ToHtml());
+                    header.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint(args?.Replace("collapse", ""))}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
                     break;
                 case MarkdownBlockType.HorizontalRule: result += "\r\n<hr />"; break;
@@ -41,9 +42,10 @@ namespace NeoDocsBuilder
                     var url = linkReference.Url ?? "javascript:";
                     var tooltip = string.IsNullOrEmpty(linkReference.Tooltip) ? "" : $" title='{linkReference.Tooltip}'";
                     if(url.IsExternalLink())
-                        result += $"<a class='with-space' href='{url}' target='_blank'{tooltip}>{linkReference}</a>";
+                        result += $" <a class='with-space' href='{url}' target='_blank'{tooltip}>{linkReference}</a> ";
                     else
-                        result += $"<a class='with-space' href='{url.Replace(".md", ".html")}'{tooltip}>{linkReference}</a>";
+                        result += $" <a class='with-space' href='{url.Replace(".md", ".html")}'{tooltip}>{linkReference}</a> ";
+                    LinkCheck(file, url);
                     break;
                 case MarkdownBlockType.List:
                     var list = block as ListBlock;
@@ -52,7 +54,7 @@ namespace NeoDocsBuilder
                         result += "\r\n<ul class='with-space'>";
                         list.Items.ToList().ForEach(l => {
                             result += $"\r\n<li>";
-                            l.Blocks.ToList().ForEach(p => result += p.ToHtml("li"));
+                            l.Blocks.ToList().ForEach(p => result += p.ToHtml(file, "li"));
                             result += $"</li>";
                         });
                         result += "\r\n</ul>";
@@ -62,7 +64,7 @@ namespace NeoDocsBuilder
                         result += "\r\n<ol>";
                         list.Items.ToList().ForEach(l => {
                             result += $"\r\n<li>";
-                            l.Blocks.ToList().ForEach(p => result += p.ToHtml("li"));
+                            l.Blocks.ToList().ForEach(p => result += p.ToHtml(file, "li"));
                             result += $"</li>";
                         });
                         result += "\r\n</ol>";
@@ -71,7 +73,7 @@ namespace NeoDocsBuilder
                 case MarkdownBlockType.Paragraph:
                     if (args != "li")
                         result += "\r\n<p class='with-space'>";
-                    (block as ParagraphBlock).Inlines.ToList().ForEach(p => result += p.ToHtml());
+                    (block as ParagraphBlock).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     if (args != "li")
                         result += "</p>";
                     break;
@@ -104,12 +106,12 @@ namespace NeoDocsBuilder
                             else
                             {
                                 result += $"\r\n<blockquote class='bd-callout with-space'>";
-                                result += blockQuote.Blocks[i].ToHtml();
+                                result += blockQuote.Blocks[i].ToHtml(file);
                             }
                         }
                         else
                         {
-                            result += blockQuote.Blocks[i].ToHtml();
+                            result += blockQuote.Blocks[i].ToHtml(file);
                         }
                     }
                     result += "\r\n</blockquote>";
@@ -133,7 +135,7 @@ namespace NeoDocsBuilder
                                 style = align == ColumnAlignment.Unspecified ? "" : $" style='text-align:{align.ToString().ToLower()};'";
                             }
                             result += i == 0 ? $"<th{style}>" : $"<td{style}>";
-                            td.Inlines.ToList().ForEach(p => result += p.ToHtml());
+                            td.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                             result += i == 0 ? "</th>" : "</td>";
                         }
                         result += "</tr>";
@@ -168,15 +170,15 @@ namespace NeoDocsBuilder
         /// </summary>
         /// <param name="block">MarkDown 行级元素</param>
         /// <returns>HTML</returns>
-        public static string ToHtml(this MarkdownInline inline)
+        public static string ToHtml(this MarkdownInline inline, string file)
         {
             var result = string.Empty;
             switch (inline.Type)
             {
                 case MarkdownInlineType.Comment: result += inline; break;
                 case MarkdownInlineType.Bold:
-                    result += "<strong>";
-                    (inline as BoldTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
+                    result += " <strong>";
+                    (inline as BoldTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += "</strong> ";
                     break;
                 case MarkdownInlineType.Code: result += $" <code>{HtmlEncode((inline as CodeInline).Text)}</code> "; break;
@@ -187,7 +189,7 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownInlineType.Italic:
                     result += "<em>";
-                    (inline as ItalicTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
+                    (inline as ItalicTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += "</em>";
                     break;
                 case MarkdownInlineType.MarkdownLink:
@@ -195,25 +197,26 @@ namespace NeoDocsBuilder
                     var markdownLinkUrl = markdownLink.Url ?? "javascript:";
                     var markdownLinkTooltip = string.IsNullOrEmpty(markdownLink.Tooltip) ? "" : $" title='{markdownLink.Tooltip}'";
                     if (markdownLinkUrl.IsExternalLink())
-                        result += $"<a href='{markdownLinkUrl}' target='_blank'{markdownLinkTooltip}>";
+                        result += $" <a href='{markdownLinkUrl}' target='_blank'{markdownLinkTooltip}> ";
                     else
-                        result += $"<a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}>";
-                    markdownLink.Inlines.ToList().ForEach(p => result += p.ToHtml());
+                        result += $" <a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}> ";
+                    LinkCheck(file, markdownLinkUrl);
+                    markdownLink.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += "</a> ";
                     break;
                 case MarkdownInlineType.Strikethrough:
                     result += "<del>";
-                    (inline as StrikethroughTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
+                    (inline as StrikethroughTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += "</del>";
                     break;
                 case MarkdownInlineType.Subscript:
                     result += "<sub>";
-                    (inline as SubscriptTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
+                    (inline as SubscriptTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += "</sub>";
                     break;
                 case MarkdownInlineType.Superscript:
                     result += "<sup>";
-                    (inline as SuperscriptTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml());
+                    (inline as SuperscriptTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += "</sup>";
                     break;
                 case MarkdownInlineType.TextRun:
@@ -234,9 +237,12 @@ namespace NeoDocsBuilder
                     else
                     {
                         if (hyperLink.Text.IsExternalLink())
-                            result += $"<a href='{hyperLink.Text}' target='_blank'>{hyperLink.Text}</a>";
+                            result += $" <a href='{hyperLink.Text}' target='_blank'>{hyperLink.Text}</a> ";
                         else
-                            result += $"<a href='{hyperLink.Text.Replace(".md", ".html")}'>{hyperLink.Text}</a>";
+                        {
+                            result += $" <a href='{hyperLink.Text.Replace(".md", ".html")}'>{hyperLink.Text}</a> ";
+                            LinkCheck(file, hyperLink.Text);
+                        }
                     }
                     break;
                 case MarkdownInlineType.Emoji:
@@ -280,6 +286,30 @@ namespace NeoDocsBuilder
             string hashString = string.Empty;
             new SHA256Managed().ComputeHash(Encoding.Unicode.GetBytes(text)).ToList().ForEach(p => hashString += string.Format("{0:x2}", p));
             return hashString;
+        }
+        public static int linkCount = 0;
+        public static int errorLinkCount = 0;
+        public static void LinkCheck(string pathBase, string link)
+        {
+            var fullPath = Path.GetFullPath(pathBase);
+            var newLink = string.Empty;
+            if (link.StartsWith("."))
+                newLink = "../" + link;
+            var fullLink = Path.GetFullPath(newLink, fullPath);
+            if (Path.GetExtension(fullLink) != ".md") return;
+            linkCount++;
+            if (File.Exists(fullLink))
+            {
+                return;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"File: {pathBase}\r\nLink: {link}");
+                Console.ForegroundColor = ConsoleColor.White;
+                errorLinkCount++;
+                return;
+            }
         }
     }
 }

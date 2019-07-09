@@ -1,8 +1,10 @@
-﻿namespace NeoDocsBuilder
+﻿using System.IO;
+
+namespace NeoDocsBuilder
 {
     public static class YmlConverter
     {
-        public static string ToHtml(this string[] yml)
+        public static string ToHtml(this string[] yml, string pathBase)
         {
             var nav = "\r\n<nav class='nav nav-pills flex-column ml-3'>";
             var navend = "\r\n</nav>";
@@ -11,7 +13,6 @@
             var lastDepth = 0;
             foreach (var line in yml)
             {
-                
                 var splitLine = line.Trim().Split(":");
                 switch (splitLine[0])
                 {
@@ -35,6 +36,7 @@
                         break;
                     case "href":
                         a.Href = splitLine[1].Trim();
+                        MdConverter.LinkCheck(pathBase, a.Href);
                         break;
                 }
                 
