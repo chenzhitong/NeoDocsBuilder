@@ -30,15 +30,18 @@ namespace NeoDocsBuilder
                 Files.CopyDirectory(item.Origin, item.Destination); //复制源文件夹中的资源文件到输出目录，包括图片等，不包含 .md .json .yml
 
                 Console.WriteLine("Build catalog……");
-                var catalog = File.ReadAllLines(item.Catalog).ToHtml(item.WebRoot);
-
+                var catalog = File.ReadAllLines(item.Catalog).ToHtml(Path.GetFullPath(Config.ConfigFile).Replace(Config.ConfigFile, ""));
                 BuildMarkDown(catalog, item); //对 MarkDown 文件夹进行解析、编译以及样式处理
             }
             var t2 = DateTime.Now;
             Console.WriteLine($"Finish: {(int)(t2 - t1).TotalSeconds}s");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Error Link: {MdConverter.errorLinkCount}/{MdConverter.linkCount}");
+            Console.WriteLine($"Content Error Link: {MdConverter.errorLinkCount}/{MdConverter.linkCount}");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Catalog Error Link: {YmlConverter.errorLinkCount}/{YmlConverter.linkCount}");
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("Press any key to continue...");

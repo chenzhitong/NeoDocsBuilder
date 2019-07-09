@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace NeoDocsBuilder
 {
@@ -36,7 +37,7 @@ namespace NeoDocsBuilder
                         break;
                     case "href":
                         a.Href = splitLine[1].Trim();
-                        MdConverter.LinkCheck(pathBase, a.Href);
+                        LinkCheck(pathBase, a.Href);
                         break;
                 }
                 
@@ -63,6 +64,26 @@ namespace NeoDocsBuilder
                     break;
             }
             return sum / 2;
+        }
+        public static int linkCount = 0;
+        public static int errorLinkCount = 0;
+        private static void LinkCheck(string pathBase, string link)
+        {
+            var fullLink = $"{pathBase}{link.TrimStart('/').Replace("/", "\\")}";
+            if (Path.GetExtension(fullLink) != ".md") return;
+            linkCount++;
+            if (File.Exists(fullLink))
+            {
+                return;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"File: {pathBase}\r\nLink: {link}");
+                Console.ForegroundColor = ConsoleColor.White;
+                errorLinkCount++;
+                return;
+            }
         }
     }
 }

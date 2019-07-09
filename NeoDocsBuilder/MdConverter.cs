@@ -289,7 +289,7 @@ namespace NeoDocsBuilder
         }
         public static int linkCount = 0;
         public static int errorLinkCount = 0;
-        public static void LinkCheck(string pathBase, string link)
+        private static void LinkCheck(string pathBase, string link)
         {
             var fullPath = Path.GetFullPath(pathBase);
             var newLink = string.Empty;
