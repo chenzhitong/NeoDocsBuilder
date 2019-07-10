@@ -71,11 +71,9 @@ namespace NeoDocsBuilder
                     }
                     break;
                 case MarkdownBlockType.Paragraph:
-                    if (args != "li")
-                        result += "\r\n<p class='with-space'>";
+                    result += "\r\n<p class='with-space'>";
                     (block as ParagraphBlock).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
-                    if (args != "li")
-                        result += "</p>";
+                    result += "</p>";
                     break;
                 case MarkdownBlockType.Quote:
                     var blockQuote = block as QuoteBlock;
