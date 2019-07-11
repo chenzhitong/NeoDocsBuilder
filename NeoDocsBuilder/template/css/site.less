@@ -33,8 +33,13 @@ nav .logo {
     position: sticky;
     height: 100%;
     top: 4rem;
-    .nav-pills .nav-link{
+
+    .nav-pills .nav-link {
         border-radius: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     span::before {
@@ -115,6 +120,10 @@ nav .logo {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .side-nav a:not(.contribution-link) {
