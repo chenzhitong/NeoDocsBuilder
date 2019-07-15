@@ -287,6 +287,7 @@ namespace NeoDocsBuilder
         }
         public static int linkCount = 0;
         public static int errorLinkCount = 0;
+        public static StringBuilder errorLog = new StringBuilder();
         private static void LinkCheck(string pathBase, string link)
         {
             var fullPath = Path.GetFullPath(pathBase);
@@ -302,9 +303,7 @@ namespace NeoDocsBuilder
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"File: {pathBase}\r\nLink: {link}");
-                Console.ForegroundColor = ConsoleColor.White;
+                errorLog.Append($"\r\nError link: {pathBase} ({link})");
                 errorLinkCount++;
                 return;
             }

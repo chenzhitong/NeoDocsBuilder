@@ -1,12 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace NeoDocsBuilder
 {
     public static class YmlConverter
     {
-        public static string ToHtml(this string[] yml, string pathBase)
+        public static string ToHtml(string file, string pathBase)
         {
+            var yml = File.ReadAllLines(file);
             var nav = "\r\n<nav class='nav nav-pills flex-column ml-3'>";
             var navend = "\r\n</nav>";
             var catalog = nav;
@@ -37,7 +39,7 @@ namespace NeoDocsBuilder
                         break;
                     case "href":
                         a.Href = splitLine[1].Trim();
-                        LinkCheck(pathBase, a.Href);
+                        LinkCheck(file, pathBase, a.Href);
                         break;
                 }
                 
@@ -67,7 +69,8 @@ namespace NeoDocsBuilder
         }
         public static int linkCount = 0;
         public static int errorLinkCount = 0;
-        private static void LinkCheck(string pathBase, string link)
+        public static StringBuilder errorLog = new StringBuilder();
+        private static void LinkCheck(string file, string pathBase, string link)
         {
             var fullLink = $"{pathBase}{link.TrimStart('/').Replace("/", "\\")}";
             if (Path.GetExtension(fullLink) != ".md") return;
@@ -78,9 +81,7 @@ namespace NeoDocsBuilder
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"File: {pathBase}\r\nLink: {link}");
-                Console.ForegroundColor = ConsoleColor.White;
+                errorLog.Append($"\r\nError link: {file} ({link})");
                 errorLinkCount++;
                 return;
             }
