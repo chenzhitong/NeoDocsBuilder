@@ -15,11 +15,15 @@ $(function () {
 //根据网址自动展开到对应目录
 var cachedOnload = window.onload;
 window.onload = function () {
-    cachedOnload();
+    if (cachedOnload) {
+        cachedOnload();
+    }
     var pathName = decodeURI(location.pathname);
     var link = $(".catalog").find("[href='" + pathName + "']")[0];
     $(link).addClass("active");
-    $(link).parents("nav").show("fast");
+    setTimeout(function () { //为 less 编译预留时间
+        $(link).parents("nav").show("fast");
+    }, 200);
     $(link).parents().prev().addClass('expand');
     //导航栏高亮
     var href = pathName.split('/')[1];
@@ -79,8 +83,7 @@ gtag('js', new Date());
 gtag('config', 'UA-130525731-2');
 
 //滚动到底部显示页脚
-function showFooter()
-{
+function showFooter() {
     if ($(document).height() - ($(window).scrollTop() + $(window).height()) < 1) {
         $("footer").attr("style", "display:flex");
     }
@@ -88,5 +91,5 @@ function showFooter()
         $("footer").attr("style", "display:none");
     }
 }
-setTimeout(showFooter,1000);
+setTimeout(showFooter, 1000);
 $(window).scroll(showFooter);
