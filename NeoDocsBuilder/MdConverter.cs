@@ -291,10 +291,9 @@ namespace NeoDocsBuilder
         private static void LinkCheck(string pathBase, string link)
         {
             var fullPath = Path.GetFullPath(pathBase);
-            var newLink = string.Empty;
-            if (link.StartsWith("."))
-                newLink = "../" + link;
-            var fullLink = Path.GetFullPath(newLink, fullPath);
+            if (!link.StartsWith("/"))
+                link = "../" + link;
+            var fullLink = Path.GetFullPath(link, fullPath);
             if (Path.GetExtension(fullLink) != ".md") return;
             linkCount++;
             if (File.Exists(fullLink))
