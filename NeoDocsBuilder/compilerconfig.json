@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "template/css/code.css",
+    "inputFile": "template/css/code.less"
+  },
+  {
+    "outputFile": "template/css/site.css",
+    "inputFile": "template/css/site.less"
+  }
+]

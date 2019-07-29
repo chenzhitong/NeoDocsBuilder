@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "template/css/vs.min.css",
+    "inputFiles": [
+      "template/css/vs.css"
+    ]
+  }
+]
