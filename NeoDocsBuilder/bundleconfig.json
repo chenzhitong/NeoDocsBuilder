@@ -4,5 +4,11 @@
     "inputFiles": [
       "template/css/vs.css"
     ]
+  },
+  {
+    "outputFileName": "template/js/site.min.js",
+    "inputFiles": [
+      "template/js/site.js"
+    ]
   }
 ]

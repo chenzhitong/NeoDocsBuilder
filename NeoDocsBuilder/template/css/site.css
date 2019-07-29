@@ -29,7 +29,8 @@ nav .logo {
   width: 20%;
   height: calc(100vh - 4rem);
   top: 4rem;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 @media only screen and (max-width: 992px) {
   .catalog {
