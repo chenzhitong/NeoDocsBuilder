@@ -72,6 +72,9 @@ nav .logo {
   padding: 0.2em 1em;
   color: #333;
 }
+.catalog > nav {
+  margin-bottom: 3rem;
+}
 .catalog > nav nav {
   display: none;
   overflow: hidden;
@@ -112,6 +115,9 @@ main {
   right: 0;
   overflow-x: hidden;
   overflow-y: auto;
+}
+.side-nav > div {
+  margin-bottom: 3rem;
 }
 .side-nav .nav-pills .nav-link.active,
 .side-nav .nav-pills .show > .nav-link {
