@@ -29,6 +29,9 @@ nav .logo {
 footer > div {
   background-color: #f8f9fa;
 }
+.navbar-toggler i {
+  color: rgba(0, 0, 0, 0.5);
+}
 .navbar-nav .nav-link {
   color: rgba(0, 0, 0, 0.5);
 }
@@ -514,6 +517,9 @@ h6:before {
 .theme-dark .navbar,
 .theme-dark footer > div {
   background-color: #232323;
+}
+.theme-dark .navbar-toggler i {
+  color: rgba(255, 255, 255, 0.5);
 }
 .theme-dark .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.5);
