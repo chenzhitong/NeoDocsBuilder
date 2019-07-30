@@ -7,21 +7,21 @@ $(function () {
     $(".catalog nav span").click(function () {
         var currentExpand = $(this).hasClass('expand');
         //折叠所有旁系目录
-        $(".catalog nav nav").hide();
+        $(".catalog nav nav").not($(this).parents("nav")).not($(this).children("nav")).not($(this).next("nav")).hide();
         $(".catalog nav span").removeClass('expand');
         //展开所有父目录
         $(this).parents("nav").prev().addClass('expand');
-        $(this).parents("nav").show();
+        $(this).parents("nav").show("fast");
         //折叠所有子目录
         $(this).children("nav").prev().removeClass('expand');
-        $(this).children("nav").hide();
+        $(this).children("nav").hide("fast");
         //展开或折叠当前目录
         if (currentExpand) {
             $(this).removeClass('expand');
-            $(this).next("nav").hide();
+            $(this).next("nav").hide("fast");
         } else {
             $(this).addClass('expand');
-            $(this).next("nav").show();
+            $(this).next("nav").show("fast");
         }
     });
 });
