@@ -48,9 +48,18 @@ nav .logo {
 }
 .navbar, footer > div {
     background-color: @light-nav-bg;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-.navbar-toggler i {
-    color: @light-nav-text;
+.navbar-toggler, .navbar-toggler:focus, .navbar-toggler:active{
+    outline: none;
+    border-color: @light-table-border;
+
+    i {
+        color: @light-nav-text;
+    }
 }
 .navbar-nav {
     .nav-link {
@@ -76,6 +85,10 @@ nav .logo {
     top: 4rem;
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     @media only screen and (max-width: 992px) {
         width: 25%;
@@ -91,10 +104,6 @@ nav .logo {
 
     .nav-pills .nav-link {
         border-radius: 0;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
         width: 100%;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -170,13 +179,16 @@ main {
     right: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     & > div {
         margin-bottom: 3rem;
     }
 
-    .nav-pills .nav-link.active,
-    .nav-pills .show > .nav-link {
+    .nav-pills .nav-link.active {
         border-radius: 0;
         padding-left: 0.8rem;
         color: @light-text;
@@ -197,10 +209,6 @@ main {
         padding-bottom: 1rem;
         margin-bottom: 1rem;
         font-weight: bold;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
         border-bottom: 1px solid @light-catalog-hover;
     }
 
@@ -331,12 +339,6 @@ p, li {
     line-height: 2;
 }
 
-.btn-clipboard {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-}
-
 .div-collapse {
     display: none;
     border-radius: .25rem;
@@ -457,7 +459,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
 }
 
-.btn-clipboard {
+.btn-clipboard, .btn-clipboard:focus {
     position: absolute;
     top: .5rem;
     right: .5rem;
@@ -468,6 +470,11 @@ h1, h2, h3, h4, h5, h6 {
     color: #818a91;
     background-color: transparent;
     border: 0;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     &:hover {
         color: #fff;
@@ -485,7 +492,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .anchorjs-link {
     font-weight: 400;
-    color: rgba(0,123,123,.5);
+    color: fade(@light-link, 20%);
     transition: color .15s ease-in-out,opacity .15s ease-in-out;
     opacity: 0;
     -webkit-font-smoothing: antialiased;

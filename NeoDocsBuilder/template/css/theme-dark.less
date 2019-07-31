@@ -27,8 +27,13 @@
         background-color: @dark-nav-bg;
     }
 
-    .navbar-toggler i {
-        color: @dark-nav-text;
+    .navbar-toggler, .navbar-toggler:focus, .navbar-toggler:active {
+        outline: none;
+        border-color: @dark-table-border;
+
+        i {
+            color: @dark-nav-text;
+        }
     }
 
     .navbar-nav {
@@ -53,17 +58,11 @@
     }
 
     .side-nav {
-        .nav-pills .nav-link.active,
-        .nav-pills .show > .nav-link {
+        .nav-pills .nav-link.active {
             color: @dark-text;
             background-color: @dark-catalog-hover;
             border-left: 0.2rem solid @dark-link;
         }
-    }
-
-    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-        color: #fff;
-        background-color: @dark-link;
     }
 
     .side-nav-text {
@@ -167,6 +166,8 @@
     }
 
     .anchorjs-link {
+        color: fade(@dark-link, 20%);
+
         &:hover {
             color: @dark-link-hover;
         }
