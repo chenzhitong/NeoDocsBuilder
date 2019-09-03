@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 
 namespace NeoDocsBuilder
@@ -13,7 +14,14 @@ namespace NeoDocsBuilder
             {
                 var extension = Path.GetExtension(p);
                 if (extension != ".md" && extension != ".json" && extension != ".yml")
-                    File.Copy(p, Path.Combine(saveDirPath, Path.GetFileName(p)), true);
+                    try
+                    {
+                        File.Copy(p, Path.Combine(saveDirPath, Path.GetFileName(p)), true);
+                    }
+                    catch (System.Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
             }
             );
             Directory.GetDirectories(sourceDirPath).ToList().ForEach(

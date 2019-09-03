@@ -51,8 +51,16 @@ namespace NeoDocsBuilder
             }
             Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
+            try
+            {
+                File.WriteAllText("log.txt", $"{DateTime.Now}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            //Console.WriteLine("Press any key to continue...");
+            //Console.ReadKey();
         }
 
         static readonly List<string> AllMdFiles = new List<string>();
@@ -173,16 +181,23 @@ namespace NeoDocsBuilder
         /// <param name="collapse">是否对内容进行折叠</param>
         static void Build(string path, string catalog, string content, string title, string sideNav, string git, string template, bool collapse)
         {
-            using (StreamWriter sw = new StreamWriter(path))
+            try
             {
-                sw.WriteLine(File.ReadAllText(Path.Combine(template, "template.html"))
-                    .Replace("{title}", title)
-                    .Replace("{git}", git)
-                    .Replace("{sideNav}", sideNav)
-                    .Replace("{body}", content)
-                    .Replace("{catalog}", catalog)
-                    .Replace("_collapse", collapse.ToString().ToLower()));
-                Console.WriteLine($"build: {path}");
+                using (StreamWriter sw = new StreamWriter(path))
+                {
+                    sw.WriteLine(File.ReadAllText(Path.Combine(template, "template.html"))
+                        .Replace("{title}", title)
+                        .Replace("{git}", git)
+                        .Replace("{sideNav}", sideNav)
+                        .Replace("{body}", content)
+                        .Replace("{catalog}", catalog)
+                        .Replace("_collapse", collapse.ToString().ToLower()));
+                    Console.WriteLine($"build: {path}");
+                }
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
