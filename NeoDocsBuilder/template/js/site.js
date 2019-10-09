@@ -97,12 +97,6 @@ $(function () {
     $(".bd-callout-danger h4").prepend("<i class='fas fa-exclamation-triangle'></i>");
 });
 
-//Google Analyse
-window.dataLayer = window.dataLayer || [];
-function gtag() { dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', 'UA-130525731-2');
-
 //滚动到底部显示页脚
 function showFooter()
 {
@@ -127,3 +121,9 @@ function turnOff() {
         localStorage.setItem("theme", "light");
     }
 }
+
+//Google Analyse
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'UA-130525731-2');

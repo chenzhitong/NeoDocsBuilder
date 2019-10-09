@@ -1,4 +1,4 @@
-﻿@light-link: #31AA77;
+﻿@light-link: #00af92;
 @light-link-hover: darken(@light-link, 20%);
 @light-text: #333;
 @light-background: #fff;
@@ -43,8 +43,13 @@ a {
     color: @light-text;
     background-color: rgba(0,0,0,.075);
 }
-nav .logo {
-    width: 5.7rem;
+nav {
+    .logo, .logo-dark {
+        width: 5.7rem;
+    }
+}
+nav .logo-dark{
+    display: none;
 }
 .navbar, footer > div {
     background-color: @light-nav-bg;
@@ -64,9 +69,11 @@ nav .logo {
 .navbar-nav {
     .nav-link {
         color: @light-nav-text;
+        padding-left: 1em !important;
+        padding-right: 1em !important;
     }
 
-    nav-link.disabled {
+    .nav-link.disabled {
         color: @light-nav-text-disabled;
     }
 
@@ -385,8 +392,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.25rem;
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;
-    border-left-width: .25rem;
-    border-left: 1px solid @light-table-border;
+    border-left: .25rem solid @light-table-border;
 
     h4 .anchorjs-link {
         display: none;

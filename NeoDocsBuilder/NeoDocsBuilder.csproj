@@ -23,6 +23,12 @@
     <None Update="template\css\site.min.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="template\img\logo-dark.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="template\img\logo.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="template\js\site.js">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>

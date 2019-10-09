@@ -1,4 +1,4 @@
-﻿@dark-link: #02e49b;
+﻿@dark-link: #00e599;
 @dark-link-hover: lighten(@dark-link, 20%);
 @dark-text: #dcdcdc;
 @dark-background: #1E1E1E;
@@ -23,6 +23,14 @@
         background-color: @dark-background;
     }
 
+    nav .logo {
+        display: none;
+    }
+
+    nav .logo-dark {
+        display: block;
+    }
+
     .navbar, footer > div {
         background-color: @dark-nav-bg;
     }
@@ -41,7 +49,7 @@
             color: @dark-nav-text;
         }
 
-        nav-link.disabled {
+        .nav-link.disabled {
             color: @dark-nav-text-disabled;
         }
 
