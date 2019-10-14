@@ -38,7 +38,10 @@ namespace NeoDocsBuilder
                         a.Name = splitLine[1].Trim();
                         break;
                     case "href":
-                        a.Href = splitLine[1].Trim();
+                        if(splitLine[1].Trim().StartsWith("http") && !string.IsNullOrEmpty(splitLine[2]))
+                            a.Href =$"{splitLine[1].Trim()}:{splitLine[2].Trim()}";
+                        else
+                            a.Href = splitLine[1].Trim();
                         LinkCheck(file, pathBase, a.Href);
                         break;
                 }
