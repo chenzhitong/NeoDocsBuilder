@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Validation of blocks</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Introduction to NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/1-Introduction_to_NEO.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>Cryptography, Blockchain, and Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.html'>NEO Fundamentals</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Wallet</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/1-Introduction_to_wallets.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>Keys and Addresses</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.html'>Private key encryption and Wallet files</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/4-UTXO_and_account_models.html'>The UTXO and Account models</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Transactions</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/1-Introduction_to_transactions.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.html'>Structure of NEO transactions</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/3-NEO_transaction_types.html'>NEO transaction types</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/4-NEO_transaction_fees.html'>Transaction fees</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blocks</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/2-Structure_of_a_block.html'>Structure of a Block</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/3-Block_creation_broadcasting.html'>Block Creation and Broadcasting</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/4-Block_validation_processing.html'>Block Validation and Processing</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.html'>NEO Network and Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Persistence</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/1-persistence.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/2-levelDB_data_structure.html'>Developing a NEO Ping using Golang</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/1-Introduction_to_consensus.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW and PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/3-PBFT_and_DBFT.html'>pBFT and dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>dBFT Consensus Examples and Scenarios</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_smart_contract.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_privateChain.html'>Setting up a Private Chain</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_set_up.html'>Setting up Development Enviroment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_compile.html'>Contract Invoking and Deployment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Smart_Contract_basics.html'>Smart Contract Basics</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Make your NEP-5 Token</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_nep5.html'>Introduction to NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Implementation_of_NEP5.html'>Implementation of NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Give_an_ITO.html'>ITO(Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/UTXO.html'>UTXO basics</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.html'>What is CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.html'>Global asset and NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/3_utxo_model.html'>UTXO model</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/4_trigger.html'>Trigger</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.html'>Mint and Refund</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.html'>Signature and Verification</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/7_invocation.html'>Transaction Invocation</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Write NEO smart contract with Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part1_setup.html'>Installing and Setting up the Environment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part2_neopy.html'>Wallet Operations and Smart Contracts</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='c089c654'><span class='with-space bd-content-title'>Validation of blocks<a class='anchorjs-link ' href='#c089c654' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>As with transactions, blocks are validated by every node on the network. The goal for this validation is that every block can independently be validated on any node, and is not depending on any external characteristics.</p>
+<h2 id='e7432dfa'><span class='with-space bd-content-title'>Invocation and Verification Script<a class='anchorjs-link ' href='#e7432dfa' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Every full node on the network receives the full NEO blockchain from its peers, and will independently validate every block it receives to ensure that the block received was not sent by a malicious or faulty node. This way, the nodes are not required to trust any other node, creating a secure and trustless system. For every block received, the node will validate all individual transactions in that block by means of using the Verification Script to validate the Invocation Script. This Invocation Script can be seen as the key to unlock the UTXO, proving that it has the right to spend it, and passing the Verification Script as a tool for every node to validate this. For more information on transaction validation, have a look at <a href='../3-transactions/1-Introduction_to_transactions.html'> Transactions</a> .</p>
+<p class='with-space'>Apart from the Invocation Script and Validation Script on each individual transaction, every block itself also contains an Invocation Script and Validation Script. The Validation Script is sometimes referred to as the<em>Witness</em>as well.</p>
+<p class='with-space'>When we look at the block with height 3,649,960, which was introduced in <a href='2-Structure_of_a_block.html'> Structure of transactions on the NEO blockchain</a> , we can identify these 2 scripts in the field &quot;script.&quot; It is repeated below for convenience:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&quot;script&quot;: {
+    &quot;invocation&quot;: &quot;4013a82dff8a58ff750703cc32852899124917ded6bd7a7d66bf31d693890488717ab4ee258c0806286d3c2d49da4f9f52d1c6a20843ab5a9a0b4e867ed3d4c5644087875bbc17e8300bb2ee82b3623833be4693fe378cde10e380ce64fe4f1cdba6acb70b6d9d3c52efaa776a6c8a5f91cf3a48b6df79edeae1cd26259b00add96640a1053731b59c6687965e942600301b68f79252e9aa08047115e649930df679d853438bc95c88c9cfa7aa9737d51f82d25dde5b5435cd8266a132a726d7d01f294043df832e612d220c3ce639cbca4ab18f9ce21dfd8718340dae4ca49fd239a4ee06d294e9d583bc4e0da5cccb5eb0f35e7b836d7c633b1e9ca20c0c0af429644740c352f2425c56001a292cc28cba9e736913f9c116580796efacda4270ac104659173ee1bc4bed706c0f3ea90c9b8201653abe74a30e627c443855af6c08c90acb&quot;,
+    &quot;verification&quot;: &quot;5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae&quot;
+}'>Copy</button><pre><code>&quot;script&quot;: {
+    &quot;invocation&quot;: &quot;4013a82dff8a58ff750703cc32852899124917ded6bd7a7d66bf31d693890488717ab4ee258c0806286d3c2d49da4f9f52d1c6a20843ab5a9a0b4e867ed3d4c5644087875bbc17e8300bb2ee82b3623833be4693fe378cde10e380ce64fe4f1cdba6acb70b6d9d3c52efaa776a6c8a5f91cf3a48b6df79edeae1cd26259b00add96640a1053731b59c6687965e942600301b68f79252e9aa08047115e649930df679d853438bc95c88c9cfa7aa9737d51f82d25dde5b5435cd8266a132a726d7d01f294043df832e612d220c3ce639cbca4ab18f9ce21dfd8718340dae4ca49fd239a4ee06d294e9d583bc4e0da5cccb5eb0f35e7b836d7c633b1e9ca20c0c0af429644740c352f2425c56001a292cc28cba9e736913f9c116580796efacda4270ac104659173ee1bc4bed706c0f3ea90c9b8201653abe74a30e627c443855af6c08c90acb&quot;,
+    &quot;verification&quot;: &quot;5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae&quot;
+}
+</code></pre>
+</figure>
+<p class='with-space'>Now this might seem some totally random cryptic code. However, there&#39;s a method to this madness. Let us dig in.</p>
+<h2 id='e439ea8b'><span class='with-space bd-content-title'>Opcodes<a class='anchorjs-link ' href='#e439ea8b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The OpCodes for NEO can be found <a href='https://github.com/neo-project/neo-vm/blob/master/src/neo-vm/OpCode.cs' target='_blank'> here</a> . When validating a block, these OpCodes tell the NeoVM how to proceed. Let&#39;s start by looking at the verification string. As this is a HEX representation of the byte code, we take it byte per byte. The way it works is that you interpret every OpCode and push it onto the execution stack, one at a time. This stack eventually gets executed by the NeoVM to validate the block.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae'>Copy</button><pre><code>5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae
+</code></pre>
+</figure>
+<ol>
+<li>
+<p class='with-space'>We start with the first byte: <code>0x55</code> . According to our table of OpCodes, we find:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='/// &lt;summary&gt; 
+/// The number 5 is pushed onto the stack. 
+/// &lt;/summary&gt; 
+PUSH5 = 0x55 '>Copy</button><pre><code>/// &lt;summary&gt; 
+/// The number 5 is pushed onto the stack. 
+/// &lt;/summary&gt; 
+PUSH5 = 0x55 
+</code></pre>
+</figure>
+<p class='with-space'>So we push the number 5 onto our stack.</p></li>
+<li>
+<p class='with-space'>Next up: <code>0x21</code> . This will make us take the next 33 bytes and push them onto the stack.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='/// &lt;summary&gt; 
+/// Push 33 bytes on the evaluation stack. 
+/// &lt;/summary&gt; 
+PUSHBYTES33 = 0x21 '>Copy</button><pre><code>/// &lt;summary&gt; 
+/// Push 33 bytes on the evaluation stack. 
+/// &lt;/summary&gt; 
+PUSHBYTES33 = 0x21 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>The next 33 bytes are pushed to the stack:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d '>Copy</button><pre><code>024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>After these 33 bytes, we again see an OpCode <code>0x21</code> (...6662d4a59ad548df0e7d <strong>21</strong> 025bdf3f...). This again means to take the next 33 bytes and push them on the stack. We have a total of 7 occurrences of OpCode <code>0x21</code> , and thus 7 times 33 bytes that are pushed onto the stack.</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Adding a total of 7 occurrences of 33 bytes to the stack</th></tr></thead>
+<tbody><tr><td>0x024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d</td></tr><tr><td>0x025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b64</td></tr><tr><td>0x035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a3</td></tr><tr><td>0x03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c</td></tr><tr><td>0x03b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a</td></tr><tr><td>0x02ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba554</td></tr><tr><td>0x02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093</td></tr>
+</tbody>
+</table></figure></li>
+<li>
+<p class='with-space'>We&#39;re almost there! Now we only have the last 2 bytes left. The next one is <code>0x57</code> . So we push the number 7 on the stack.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='/// &lt;summary&gt; 
+/// The number 7 is pushed onto the stack. 
+/// &lt;/summary&gt; 
+PUSH7 = 0x57 '>Copy</button><pre><code>/// &lt;summary&gt; 
+/// The number 7 is pushed onto the stack. 
+/// &lt;/summary&gt; 
+PUSH7 = 0x57 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>The last byte to parse is <code>0xae</code> . Let&#39;s look this up one last time:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='/// &lt;summary&gt; 
+/// A set of n public keys (an array or value n followed by n pubkeys) is validated against a set of m signatures (an array or value m followed by m signatures). Verify transaction as multisig and a boolean output is put on top of the main stack. 
+/// &lt;/summary&gt; 
+CHECKMULTISIG = 0xAE '>Copy</button><pre><code>/// &lt;summary&gt; 
+/// A set of n public keys (an array or value n followed by n pubkeys) is validated against a set of m signatures (an array or value m followed by m signatures). Verify transaction as multisig and a boolean output is put on top of the main stack. 
+/// &lt;/summary&gt; 
+CHECKMULTISIG = 0xAE 
+</code></pre>
+</figure>
+<p class='with-space'>So the final stack will look like this:</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Full stack of the Verification Script</th></tr></thead>
+<tbody><tr><td>5</td></tr><tr><td>0x024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d</td></tr><tr><td>0x025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b64</td></tr><tr><td>0x035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a3</td></tr><tr><td>0x03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c</td></tr><tr><td>0x03b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a</td></tr><tr><td>0x02ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba554</td></tr><tr><td>0x02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093</td></tr><tr><td>7</td></tr><tr><td>CHECKMULTISIG</td></tr>
+</tbody>
+</table></figure>
+<p class='with-space'>When we apply the same process to decode the bytecode of the Invocation Script, we come up with 5 HEX strings, each 64 bytes.</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Full stack of the Invocation Script</th></tr></thead>
+<tbody><tr><td>0x13a82dff8a58ff750703cc32852899124917ded6bd7a7d66bf31d693890488717ab4ee258c0806286d3c2d49da4f9f52d1c6a20843ab5a9a0b4e867ed3d4c564</td></tr><tr><td>0x87875bbc17e8300bb2ee82b3623833be4693fe378cde10e380ce64fe4f1cdba6acb70b6d9d3c52efaa776a6c8a5f91cf3a48b6df79edeae1cd26259b00add966</td></tr><tr><td>0xa1053731b59c6687965e942600301b68f79252e9aa08047115e649930df679d853438bc95c88c9cfa7aa9737d51f82d25dde5b5435cd8266a132a726d7d01f29</td></tr><tr><td>0x43df832e612d220c3ce639cbca4ab18f9ce21dfd8718340dae4ca49fd239a4ee06d294e9d583bc4e0da5cccb5eb0f35e7b836d7c633b1e9ca20c0c0af4296447</td></tr><tr><td>0xc352f2425c56001a292cc28cba9e736913f9c116580796efacda4270ac104659173ee1bc4bed706c0f3ea90c9b8201653abe74a30e627c443855af6c08c90acb</td></tr>
+</tbody>
+</table></figure></li>
+</ol>
+<h2 id='f3a784f4'><span class='with-space bd-content-title'>Interpretation<a class='anchorjs-link ' href='#f3a784f4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>We&#39;ve done it! Now we know what&#39;s inside both the Invocation and Verification Scripts, let&#39;s look at what they mean. The goal of these scripts is to allow any node to validate that the block was actually created and agreed upon by the consensus nodes. To do this, the consensus nodes sign the block with their private key. From the moment we have 5 of the 7 consensus nodes that signed the same block, we achieve consensus and the block is valid. These 5 signatures are the ones included in the Invocation Script.</p>
+<p class='with-space'>Now all we need to be able to do, is to validate that these 5 signatures are actually valid in order to validate the block. For that, the block contains the Verification Script. This way, the block tells every node how to validate it. The node that validates the block thus executes the Verification Script, and if this script passes, then the block is marked as valid.</p>
+<p class='with-space'>We already found the meaning of the Verification Script. What happens is that the 7 public keys of the consensus nodes that were involved in creating this specific block are used. The way this is done is with a concept similar to a multisig transaction, which is then applied on a block. The last OpCode <code>CHECKMULTISIG</code> is the one that gives meaning to everything that came before. The syntax is interpreted as a 5-out-of-7 multisig, and the 7 33-byte strings on the stack are therefore interpreted as the public keys of these 7 nodes.</p>
+<p class='with-space'>A block is then considered valid if the 5 signatures in the Invocation Script can be verified using 5 out of the 7 provided public keys in the Verification Script.</p>
+<h2 id='e6650d9e'><span class='with-space bd-content-title'>What&#39;s next?<a class='anchorjs-link ' href='#e6650d9e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='../5-network/1-Introduction_to_the_NEO_network_protocol.html'> NEO Protocol and Networking</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/en-us/4-blocks\4-Block_validation_processing.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#c089c654'>Validation of blocks</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#e7432dfa'>Invocation and Verification Script</a>
+<a class='ml-0 my-1 nav-link' href='#e439ea8b'>Opcodes</a>
+<a class='ml-0 my-1 nav-link' href='#f3a784f4'>Interpretation</a>
+<a class='ml-0 my-1 nav-link' href='#e6650d9e'>What's next?</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

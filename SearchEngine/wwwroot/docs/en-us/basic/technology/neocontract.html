@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>NeoContract White Paper</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/index.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Introduction</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/whitepaper.html'>NEO Whitepaper</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Technology</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/dbft.html'>Consensus Mechanism</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Node</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/introduction.html'>Introduction</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/install.html'>Installing the Client</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/transc.html'>Transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/asset.html'>Registering and Distributing Assets</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/sc.html'>Interacting with Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/vote.html'>Election and Voting</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/other.html'>Other Features</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/publish.html'>Publishing from Source</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/setup.html'>Installation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/seedlist.html'>SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/cli.html'>Command Line</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/syncblocks.html'>Synchronizing the blockchain faster</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/testnet.html'>Main Net and Test Net</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Setting up Private Chain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/solo.html'>Solo Mode</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain.html'>Multiple Nodes (virtual machines)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain2.html'>Multiple Nodes (local host)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Getting Started (C#)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/introduction.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/prerequisites.html'>Before You Begin</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/enviroment.html'>Setting up local network</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/develop.html'>Compiling a Contract Sample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/deploy.html'>Deploying and Invoking the Contract</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Development Environment</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-mac.html'>Using C# on macOS</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-ubuntu.html'>Using C# on ubuntu</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-java.html'>Using Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-python.html'>Using Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Writing smart contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/basics.html'>Basics</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/limitation.html'>Limitations</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Deploying and Invoking Smart Contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/deploy.html'>Deploying Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/invoke.html'>Invoking Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/Parameter.html'>Parameters and Return Values</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/test.html'>Testing</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/migrate.html'>Contract Migration and Destruction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/fees.html'>Fees</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Contract Samples</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Domain.html'>Domain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/verify.html'>Verification Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Lock2.html'>Lock Contract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Tools Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Main Concepts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blockchain Models</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/token_model.html'>Tokens</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/account_asset.html'>Account and Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/validator.html'>Validator</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/charging_model.html'>Charging Model</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/wallets.html'>Wallet</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_algorithm.html'>Consensus Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_protocol.html'>Consensus Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/vote_validator.html'>Vote</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Cryptography</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encode_algorithm.html'>Encode Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/hash_algorithm.html'>Hash Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encryption_algorithm.html'>Encryption Algorithm</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/neo_cli_structure.html'>NEO-CLI Structure</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/introduction.html'>About NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/conversion.html'>Data Conversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/tx.html'>Transaction Construction</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/endian.html'>Big and Little Endian Usage</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Advanced Topics</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/neo_vm.html'>NeoVM Instructions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/network-protocol.html'>Network Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/tx_execution.html'>Transaction Process</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/merkle_tree.html'>Merkel Tree</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Document for Exchange Developers</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/general.html'>Overview</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/deploynode.html'>Deploying NEO nodes</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/client.html'>Using NEO-CLI</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/transaction.html'>Dealing with assets transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/gas.html'>Distributing GAS to users</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/changelog.html'>Changelog</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api.html'>API Reference</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='https'>SDK API (C#)</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='f84d2ca1'><span class='with-space bd-content-title'>NeoContract White Paper<a class='anchorjs-link ' href='#f84d2ca1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='c39ebf29'><span class='with-space bd-content-title'>Preface<a class='anchorjs-link ' href='#c39ebf29' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Smart contracts refer to any computer program which can automatically execute the terms of its preprogrammed contract. The idea of smart contract was first proposed by the cryptographer Nick Szabo in 1994, making it as old as the Internet itself. Due to the lack of a reliable execution environment, smart contracts have not been widely used.</p>
+<p class='with-space'>In 2008, a man under the name of Satoshi Nakamoto released Bitcoin, and outlined the foundational concepts of a blockchain. Within the Bitcoin blockchain, Nakamoto uses a set of scripting languages to help users gain more flexibility in controlling their personal accounts and the transfer process, which eventually became the embryonic form of a chain-based, smart contract system.</p>
+<p class='with-space'>In 2014, a teenager called Vitalik Buterin released Ethereum, which provides a chain-based, Turing-complete, smart contract system that can be used to create a variety of decentralized blockchain applications.</p>
+<p class='with-space'>NEO blockchain is a digital asset and application platform, which provides a new smart contract system, NeoContract. At the core of the NEO platform, the network provides multiples functions such as digital asset capabilities, NeoAsset, and digital identity, NeoID, allowing users to easily engage in digital businesses, and are no longer limited to just the issuance of native tokens on the blockchain.</p>
+<h2 id='ddcec3bd'><span class='with-space bd-content-title'>Features<a class='anchorjs-link ' href='#ddcec3bd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='cb7be332'><span class='with-space bd-content-title'>Certainty<a class='anchorjs-link ' href='#cb7be332' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>If a program is running on different computers, or at different times on the same computer, the behavior of the program is deterministic if the same input is guaranteed to produce the same output.</p>
+<p class='with-space'>Blockchain is a multi-party storage, and computational method, where the data within this distributed system is the result of reliable calculations, that cannot be tampered with. Smart contracts operate within the multi-node, distributed blockchain network. If a smart contract is non-deterministic, the results of different nodes may be inconsistent. As a result, consensus between the nodes cannot be reached, and the network becomes stagnant. Therefore, in the design of a smart contract system, there is a need to rule out any factors which may lead to non-deterministic behavior.</p>
+<h4 id='e25ac411'><span class='with-space bd-content-title'>Time<a class='anchorjs-link ' href='#e25ac411' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>Obtaining system-time is a very common system function, that may be heavily applied in certain time-sensitive contract procedures. However, obtaining system-time is a non-deterministic system function, and it is difficult to obtain a unified, precise time in a distributed system, as the results of different nodes will be inconsistent. NeoContract provides a block-based system-call that treats the entire blockchain, as a timestamp server, and obtains the timestamp whenever a new block is generated. On average, NEO network generates a new block every 15 seconds, so the contract runs at approximately the same time as the latest block-time, plus-minus 15 seconds.</p>
+<h4 id='a6572007'><span class='with-space bd-content-title'>Randomness<a class='anchorjs-link ' href='#a6572007' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>Many smart contract programs, such as gambling contracts and small games, use random number functions. However, random number functions are a typical non-deterministic function, and each system-call will obtain different results. In a distributed system, there are many ways to solve this problem: Firstly, the same random seed can be used for all nodes, so that the return sequence of the entire random function is deterministic, but this method exposes the entire random result in advance, greatly reducing the practical value of the random number. Another possible solution, is to let all nodes communicate in a collaborative way to generate random numbers. This can be achieved by using cryptographic techniques to produce a fair random number, but the disadvantage lies in the very poor performance, and need for additional communication overhead. A centralized random number provider can be used to generate random numbers which guarantees consistency and performance, but the drawback of this approach is obvious; Users will have to unconditionally trust the centralized number provider.</p>
+<p class='with-space'>There are two ways to generate a random number in NEO:</p>
+<ol>
+<li>
+<p class='with-space'>When each block is generated, the consensus node will reach a consensus on a random number, and fill it into the Nonce field of the new block. The contract program can easily obtain the random number of any block, by referencing the Nonce field</p></li>
+<li>
+<p class='with-space'>The contract program can use the hash value of the block as a random number generator, because the block hash value has certain inherent randomness. This method can be used to obtain a weak random number</p></li>
+</ol>
+<h4 id='a7c9ebf1'><span class='with-space bd-content-title'>Data Source<a class='anchorjs-link ' href='#a7c9ebf1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>If a program obtains data at run-time, it might become a non-deterministic program if the data source provides non-deterministic data. For example, using different search engines to obtain the top 10 search results for a particular keyword, may yield different results, in various sort orders, if different IP addresses are used.</p>
+<p class='with-space'>For smart contracts, NEO provides two types of deterministic data sources:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <strong>Blockchain Ledger</strong> </p>
+<p class='with-space'>The contract procedure can access all data on the entire chain through interoperable services, including complete blocks and transactions, and each of their fields. The data on the blocks are deterministic and consistent, so they can be securely accessed by smart contracts.</p></li>
+<li>
+<p class='with-space'> <strong>Contract Storage Space</strong> </p>
+<p class='with-space'>Each contract deployed on the NEO network, has a private storage area that can only be accessed by the contract itself. NEO consensus mechanism ensures consistency of the storage status, of each node in the network.</p></li>
+</ul>
+<p class='with-space'>For situations where access to non-blockchain data is required, NEO does not provide a direct way to interact with these data. Non-blockchain data will have to be transferred to the NEO blockchain using transactions, and subsequently translated into the either of the aforementioned data sources, in order to become accessible by the smart contracts.</p>
+<h4 id='d8f2269b'><span class='with-space bd-content-title'>Contract Call<a class='anchorjs-link ' href='#d8f2269b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>Smart contracts in NeoContract can call each other, but not be recursively called. Recursion can be achieved within the contract, but it cannot cross the boundaries of the current contract. In addition, the call relationship between contracts must be static: The target cannot be specified at runtime. This allows the behavior of the program to be fully determined before execution, and its call relationship to be fully defined before it can run. Based on this, multiple contracts can be dynamically partitioned to achieve parallel execution.</p>
+<h3 id='b3a46cd1'><span class='with-space bd-content-title'>High Performance<a class='anchorjs-link ' href='#b3a46cd1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The execution environment of a smart contract plays an integral role in its performance. When we analyze the performance of any execution environment, there are main two indicators which are critical:</p>
+<ol>
+<li>
+<p class='with-space'>Execution speed of the instruction</p></li>
+<li>
+<p class='with-space'>Startup speed of the execution environment itself</p></li>
+</ol>
+<p class='with-space'>For smart contracts, the execution environment is often more important than the speed of execution of the instruction. Smart contracts are more involved in IO operation of the logic, to determine the instructions, where the implementation of these instructions can easily be optimized. Every time the smart contract is called, it must start up a new virtual machine / container. Therefore, the execution speed of the environment itself (starting a virtual machine / container) has greater impact on the performance of the smart contract system.</p>
+<p class='with-space'>NEO uses a lightweight NeoVM (NEO Virtual Machine) as its smart contract execution environment, which has a very fast start up and takes up very little resources, perfect for short programs like smart contracts. Using the compilation and caching of hotspot smart contracts with JIT (real-time compiler) can significantly improve the efficiency of virtual machines.</p>
+<h3 id='dc1f0d8c'><span class='with-space bd-content-title'>Scalability<a class='anchorjs-link ' href='#dc1f0d8c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='b3176293'><span class='with-space bd-content-title'>High concurrency and dynamic partitioning<a class='anchorjs-link ' href='#b3176293' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>When discussing the scalability of a system, it involves two main areas: Vertical scaling and horizontal scaling. Vertical scaling refers to the optimization of the processing workflow, allowing the system to take full advantage of existing equipment capacity. With this approach, limits of the system are easily reached, as series-based processing capacity is based on the hardware limit of a single device. When we need to scale the system, is there a way to transform the series system into a parallel system? Theoretically, we will only need to increase the number of devices, and we will be able to achieve almost unlimited scalability. Could we possibly achieve unlimited scaling in distributed blockchain networks? In other words, can the blockchain execute programs in parallel?</p>
+<p class='with-space'>The blockchain is a distributed ledger, that records a variety of state data and the rules governing the changes in state of these data. Smart contracts are used as carriers, to record these rules. Blockchains can process programs in parallel, only if, multiple smart contracts can be executed concurrently and in a non-sequential manner. Basically, if contracts do not interact with each other, or if the contract does not modify the same state data, at the same time, their execution is non-sequential and can be executed concurrently. Otherwise, it can only execute in series, following a sequential order, and the network is unable to scale horizontally.</p>
+<p class='with-space'>Based on the analysis above, we can easily design &quot;unlimited scaling&quot; in smart contract systems. All we must do is to set up simple rules:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <strong>A smart contract can only modify the state record of the contract that it belongs to</strong> </p></li>
+<li>
+<p class='with-space'> <strong>In the same transaction batch (block), a contract can only be running once</strong> </p></li>
+</ul>
+<p class='with-space'>As a result, all the smart contracts can be processed in parallel as sequential order is irrelevant to the result. However, if a &quot;smart contract can only modify the state record of the contract that it belongs to&quot;, it implies that the contract cannot call each other. Each contract, is an isolated island; if &quot;In the same transaction batch (block), a contract can only be running once&quot;, this implies that a digital asset issued with a smart contract, can only handle one transaction per block. This is a world of difference with the original design goals of &quot;smart&quot; contracts, which cease to be &quot;smart&quot;. After all, our design goals include both mutual call between contracts, and multiple execution of the same call, in the same block.</p>
+<p class='with-space'>Fortunately, smart contracts in NEO have a static call relationship, and the call target cannot be specified at run time. This allows the behavior of the program to be fully determined before execution, and its call relationship to be fully defined before it can run. We require that each contract explicitly indicate the contracts which are likely to be invoked, so that the operating environment can calculate the complete call tree before running the contract procedure, and partition execution of the contracts, based on the call tree. Contracts that may modify the same state record, are executed in a sequential manner within the same partition, whereby different partitions can then be executed in parallel.</p>
+<h4 id='f0faedc6'><span class='with-space bd-content-title'>Low coupling<a class='anchorjs-link ' href='#f0faedc6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>Coupling is a measure of the dependency between two or more entities. NeoContract system uses a low-coupling design, which is executed in the NEOVM, and communicates with the non-blockchain data through the interoperable service layer. As a result, most upgrades to smart contract functions can be achieved by increasing the API of interoperable services.</p>
+<h2 id='fa84f68e'><span class='with-space bd-content-title'>Contract Use<a class='anchorjs-link ' href='#fa84f68e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='e43d999b'><span class='with-space bd-content-title'>Verification Contract<a class='anchorjs-link ' href='#e43d999b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Unlike the public-key account system used in Bitcoin, NEO&#39;s account system uses the contract account system. Each account in the NEO corresponds to a verification contract, and the hash value of the verification contract, is the account address; The program logic of the verification contract controls the ownership of the account. When transferring from an account, you firstly need to execute the verification contract for that account. A validation contract can accept a set of parameters (usually a digital signature or other criteria), and return a boolean value after verification, indicating the success of the verification to the system.</p>
+<p class='with-space'>The user can deploy the verification contract to the blockchain beforehand, or publish the contract content directly in the transaction during the transfer process.</p>
+<h3 id='a7924571'><span class='with-space bd-content-title'>Application Contract<a class='anchorjs-link ' href='#a7924571' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The application contract is triggered by a special transaction, which can access and modify the global state of the system, and the private state of the contract (storage area) at run time. For example, you can create a global digital asset in a contract, vote, save data, and even dynamically create a new contract, when the contract is running.</p>
+<p class='with-space'>The execution of the application contract requires charging by instruction. When the transaction fee is consumed, the contract will fail and stop execution, and all state changes will be rolled back. The success of the contract does not affect the validity of the transaction.</p>
+<h3 id='e0d578bb'><span class='with-space bd-content-title'>Function Contract<a class='anchorjs-link ' href='#e0d578bb' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The function contract is used to provide some public or commonly used functions, which can be called by other contracts. The smart contract code can be reused, so that developers are able to write increasingly complex business logic. Each function contract, when deployed, can choose to have a private storage area that is either read or written to data in a future contract, achieving state persistence.</p>
+<p class='with-space'>The function contract must be pre-deployed to the chain to be invoked, and removed from the chain by a &quot;self-destructing&quot; system function, which will no longer be used and its private storage will be destroyed. The old contract data can be automatically migrated to another subcontract before it is destroyed, using contract migration tools.</p>
+<h2 id='e9c502c7'><span class='with-space bd-content-title'>Virtual Machine<a class='anchorjs-link ' href='#e9c502c7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='d30c6742'><span class='with-space bd-content-title'>Virtual Hardware<a class='anchorjs-link ' href='#d30c6742' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEOVM provides a virtual hardware layer, to support the execution of smart contracts, including:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <strong>CPU</strong> </p>
+<p class='with-space'>CPU is responsible for reading and sequentially order the execution of instructions in the contract, according to the function of the instruction flow control, arithmetic operations, logic operations. The future of the CPU function can be extended, with the introduction of JIT (real-time compiler) function, thereby enhancing the efficiency instruction execution.</p></li>
+<li>
+<p class='with-space'> <strong>Call Stack</strong> </p>
+<p class='with-space'>The call stack is used to hold the context information of the program execution at each function call, so that it can continue to execute in the current context after the function has finished executing and returning.</p></li>
+<li>
+<p class='with-space'> <strong>Calculate Stack</strong> </p>
+<p class='with-space'>All NEOVM run-time data are stored in the calculation stack, when after the implementation of different instructions, the stack will be calculated on the corresponding data elements of the operation. For example, when additional instructions are executed, the two operations participating in the addition are ejected from the calculation stack, and the result of the addition is pushed to the top of the stack. Function call parameters must also be calculated from right to left, according to the order of the stack. After the function is successfully executed, the top of the stack fetch-function returns the value.</p></li>
+<li>
+<p class='with-space'> <strong>Spare Stack</strong> </p>
+<p class='with-space'>When you need to schedule or rearrange elements in the stack, you can temporarily store the elements in the spare stack and retrieve them in the future.</p></li>
+</ul>
+<h3 id='a3df70d6'><span class='with-space bd-content-title'>Instruction Set<a class='anchorjs-link ' href='#a3df70d6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEOVM provides a set of simple, and practical instructions for building smart contract programs. According to functions, the main categories are as follows:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Constant instruction</p></li>
+<li>
+<p class='with-space'>Process control instruction</p></li>
+<li>
+<p class='with-space'>Stack operation instruction</p></li>
+<li>
+<p class='with-space'>String instruction</p></li>
+<li>
+<p class='with-space'>Logic instruction</p></li>
+<li>
+<p class='with-space'>Arithmetic operation instruction</p></li>
+<li>
+<p class='with-space'>Cryptographic instruction</p></li>
+<li>
+<p class='with-space'>Data operation instruction</p></li>
+</ul>
+<p class='with-space'>It is worth noting that the NeoVM instruction set provides a series of cryptographic instructions, such as ECDSA, SHA and other algorithms to optimize the implementation efficiency of cryptographic algorithms in smart contracts. In addition, data manipulation instructions directly support arrays and complex data structures.</p>
+<h3 id='a1695183'><span class='with-space bd-content-title'>Interoperable Service Layer<a class='anchorjs-link ' href='#a1695183' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The virtual machine where smart contract executes is a sandbox environment, that requires an interoperable service layer, in times when it needs to access data outside of the sandbox or to keep the run-time data persistent. Within the interoperable service layer, NEO contract can open a series of system function and services with the smart contract program, and these contracts can be called and accessed, like ordinary functions. All system functions are being conducted concurrently, so there is no need to worry about scalability.</p>
+<h3 id='dffc2456'><span class='with-space bd-content-title'>Debugging Function<a class='anchorjs-link ' href='#dffc2456' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Often, the development of smart contracts is very difficult, due to the lack of good debugging and testing methods. NeoVM provides program debugging support at the virtual machine level, where you can set the breakpoint on the contract code, or single-step, single-process execution. Thanks to the low coupling design between the virtual machine and the blockchain, it is easy to integrate NeoVM directly with various IDEs, to provide a test environment that is consistent with the final production environment.</p>
+<h2 id='a5763cb5'><span class='with-space bd-content-title'>High-level Languages<a class='anchorjs-link ' href='#a5763cb5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='b0af2103'><span class='with-space bd-content-title'>C#, VB.Net, F<a class='anchorjs-link ' href='#b0af2103' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Developers can use NeoContract for almost any high-level language they are good at. The first batch of supported languages ​​are C #, VB.Net, F #, etc. We provide compilers and plug-ins for these languages, ​​allowing compilation of these high-level language into the instruction set, supported by NeoVM. As the compiler focus on MSIL (Microsoft intermediate language) during compilation, so theoretically, any .NET language can be translated into MSIL language, and become directly supported.</p>
+<p class='with-space'>A huge number of developers are proficient in these languages, and the above languages have very strongly integrated development environments. Developers can develop, generate, test and debug, all within Visual Studio, where they are able to take full advantage of the smart contract development templates we provide, to gain a head start.</p>
+<h3 id='eedf045b'><span class='with-space bd-content-title'>Java, Kotlin<a class='anchorjs-link ' href='#eedf045b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Java and Kotlin ​​forms the second batch of supported languages, where we provide compilers and IDE plugins for these languages, ​​to help developers use the JVM-based language to develop NEO&#39;s Smart Contract applications.</p>
+<p class='with-space'>Java is widely used, and Kotlin has recently become the official Google recommended, Android-development language. We believe that supporting these languages will help drastically increase the number of NEO smart contract developers.</p>
+<h3 id='f0f7146c'><span class='with-space bd-content-title'>Other Languages<a class='anchorjs-link ' href='#f0f7146c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Afterwards, NeoContract will add support for other high-level languages, based on the degree of difficulty, in the complier development process. Some of the languages that may be supported, include:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>C, C++, GO</p></li>
+<li>
+<p class='with-space'>Python, JavaScript</p></li>
+</ul>
+<p class='with-space'>In the future, we will continue to add more high-level language support. Our goal is to see more than 90% of NEO developers developing with NeoContract, without needing to learn a new language, and even possibly transfer existing business system code directly onto the blockchain.</p>
+<h2 id='f9a764d1'><span class='with-space bd-content-title'>Service<a class='anchorjs-link ' href='#f9a764d1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='c340cff7'><span class='with-space bd-content-title'>Blockchain Ledger<a class='anchorjs-link ' href='#c340cff7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEO Smart Contracts can obtain complete block data for the NEO blockchain, including complete blocks and transactions, and each of their fields, at runtime, through the system functions provided by the interoperable service. Specifically, you can query these data:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Height of the blockchain</p></li>
+<li>
+<p class='with-space'>Block head, current block</p></li>
+<li>
+<p class='with-space'>Transactions</p></li>
+<li>
+<p class='with-space'>Type of transaction, attributes, input, output, etc.</p></li>
+</ul>
+<p class='with-space'>Through these data, you can develop some interesting applications, such as automatic payouts, smart contracts based upon proof of workload.</p>
+<h3 id='b268c292'><span class='with-space bd-content-title'>Digital Assets<a class='anchorjs-link ' href='#b268c292' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Through the interoperable services provided by the digital asset interface, smart contracts not only can query the NEO blockchain on properties and statistics of various digital assets, but also, create new digital assets during its run-time. Digital assets created by smart contracts can be issued, transferred, traded outside of the contract. They are the same as original assets on NEO, and can be managed with any NEO-compatible, wallet software. This specific interface includes:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Asset attribute inquiry</p></li>
+<li>
+<p class='with-space'>Asset statistics query</p></li>
+<li>
+<p class='with-space'>Asset life cycle management: create, modify, destroy, etc.</p></li>
+<li>
+<p class='with-space'>Asset management: multi-language name, total change, precision change, changes in the administrator</p></li>
+</ul>
+<h3 id='f391f5b0'><span class='with-space bd-content-title'>Persistence<a class='anchorjs-link ' href='#f391f5b0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Each smart contract program deployed on the NEO blockchain, will have a private storage area that can only be read and written by the contract itself. Smart contracts have full operational permissions on the data in its own store: can be read, written, modified, deleted. The data is stored in the form of key-value pairs and provides these interfaces:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Traverse all the records stored</p></li>
+<li>
+<p class='with-space'>Return to a specific record according to the specified key</p></li>
+<li>
+<p class='with-space'>Modify or write new records according to the specified key</p></li>
+<li>
+<p class='with-space'>Delete the record according to the specified key</p></li>
+</ul>
+<p class='with-space'>In general, a contract can only read and write data from its own store, with one exception: when a contract is invoked, the invoked contract can access the caller&#39;s store through a cross-domain request, provided that the caller provides authorization. In addition, for a sub-contract that is dynamically created at the time of contract execution, the parent contract gets instant access to its store.</p>
+<p class='with-space'>Cross-domain requests enable NeoContract to implement rich library capabilities, that provide highly scalable data management capabilities for the callers.</p>
+<h2 id='d111680e'><span class='with-space bd-content-title'>Fees<a class='anchorjs-link ' href='#d111680e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='a5aaf93f'><span class='with-space bd-content-title'>Deployment Fee<a class='anchorjs-link ' href='#a5aaf93f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEO&#39;s distributed architecture provides high redundancy of storage capacity, and the use of this capacity is not free. Deploying a smart contract on the NEO network requires a fee, which currently oscillates between 100 and 1000GAS depending on the capabilities required by the contract. This fee is collected by the system and recorded as a system gain. Future fees will be adjusted according to the actual operating cost in the system. The smart contract deployed on the blockchain can be used multiple times, until the contract is destroyed by the deployer.</p>
+<h3 id='a296905f'><span class='with-space bd-content-title'>Implementation Fee<a class='anchorjs-link ' href='#a296905f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEO provides a credible execution environment for smart contracts, and the execution of contracts requires the consumption of computing resources for each node, therefore users are required to pay for the execution of smart contracts. The fee is determined by the computational resources consumed with each execution, and the unit price is also in GAS. If the implementation of the smart contract fails due to lack of GAS, the cost of consumption will not be returned, and this prevents malicious attacks on the network power consumption.</p>
+<p class='with-space'>For most simple contracts, they can be executed for free, so long as the execution costs remain under 10 GAS, thus greatly reducing costs for the user.</p>
+<h2 id='bd9d5095'><span class='with-space bd-content-title'>Application Scenarios<a class='anchorjs-link ' href='#bd9d5095' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='e3d92199'><span class='with-space bd-content-title'>Superconducting Transactions<a class='anchorjs-link ' href='#e3d92199' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Digital assets on the blockchain inherently require some form of liquidity and usually point-to-point transactions cannot provide it sufficiently.  Therefore, there is a need for exchanges to provide users with trading services. Digital asset exchanges can be broadly divided into two categories:</p>
+<ol>
+<li>
+<p class='with-space'> <strong>Central exchanges:</strong> where the user needs to deposit the digital assets with the exchange, and subsequent place pending orders for trading, on the website</p></li>
+<li>
+<p class='with-space'> <strong>Decentralized exchanges:</strong> where its trading system is built into the blockchain, and the system provides the matching services.</p></li>
+</ol>
+<p class='with-space'>Centralized exchanges can provide very high performance and diversified services, but need to have a strong credit guarantee, otherwise there will be moral hazards; such as misappropriation of user funds, fraud, etc. Comparatively, decentralized exchange has no moral hazard, but the user experience is poor, and there is greater performance bottleneck. Is there a way to combine both solutions and achieve the best of both worlds?</p>
+<p class='with-space'>Superconducting transactions is a mechanism that can do this; Users do not need to deposit assets, where they are able to use their own assets on the blockchain in trading. Transaction settlement complete on the blockchain, but the process of matching orders occurs off-chain, by a central exchange that provides matching services. Since the matching is conducted off-chain, its efficiency is like centralized exchanges, but the assets remain under the control of the user. Exchanges uses the user&#39;s trading intent to carry out matching services, with no moral hazards involved, such as misappropriation of user funds, fraud, etc.</p>
+<p class='with-space'>At present, within the NEO community, development of smart contracts to achieve blockchain superconducting transactions has emerged, such as OTCGO.</p>
+<h3 id='df80f298'><span class='with-space bd-content-title'>Cross-chain Interoperability<a class='anchorjs-link ' href='#df80f298' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>In the foreseeable future, there will be many public chains and thousands of alliance chains or private chains in existence worldwide. These isolated blockchain systems are islands of value and information, which are not interoperable with each other. Through the cross-chain interoperability mechanism, numerous isolated blockchains can be linked, so that the values in different blockchains can be exchanged with each other, to achieve the true value of the Internet.</p>
+<p class='with-space'>NeoContract provides support for the implementation of cross-chain interoperability, ensuring consistency within cross-chain asset exchange, cross-chain distributed transactions, and execution of smart contracts on different blockchains.</p>
+<h3 id='c1fc2d8d'><span class='with-space bd-content-title'>Oracle Machines<a class='anchorjs-link ' href='#c1fc2d8d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The concept of oracles in folktale lies in the ability of a certain supernatural entity that can answer a particular set of questions. In the blockchain, oracle machines open the door to the outside world for smart contracts, making it possible for smart contracts to use real-world information as a condition for contract execution.</p>
+<p class='with-space'>NeoContract does not provide the ability to directly access external data, such as access to resources on the Internet, because this will introduce non-deterministic behavior, resulting in inconsistencies between nodes during contract execution. Implementing the oracle machine in NeoContract requires that external data be sent to the blockchain by a trusted third party, integrating these data feeds as part of the blockchain ledger, thereby eliminating non-determinism.</p>
+<p class='with-space'>The credible third party mentioned above, may be a person or institution that is co-trusted by both parties in the contract, or a decentralized data provider that is guaranteed by economic incentives. In this manner, NeoContract can be used in the implementation of such Oracle machines.</p>
+<h3 id='aecc2b43'><span class='with-space bd-content-title'>Ethereum DAPP<a class='anchorjs-link ' href='#aecc2b43' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Bitcoin created the era of blockchains and electronic cash, and Ethereum created the era of smart contracts. Ethereum, the pioneers of smart contract on the blockchain, has made great contributions to the design idea, economic model and technological realization of a smart contract system. At the same time, the Ethereum platform has seen many DAPPs (distributed applications), where functionalities including: gambling agreements, digital assets, electronic gold, gaming platform, medical insurance, marriage platform, with widespread use over many industries. In theory, all of these DAPPs can be easily transplanted onto the NeoContract platform, as a NEO application.</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/en-us/basic\technology\neocontract.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#f84d2ca1'>NeoContract White Paper</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#c39ebf29'>Preface</a>
+<a class='ml-0 my-1 nav-link' href='#ddcec3bd'>Features</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#cb7be332'>Certainty</a>
+<a class='ml-2 my-1 nav-link' href='#b3a46cd1'>High Performance</a>
+<a class='ml-2 my-1 nav-link' href='#dc1f0d8c'>Scalability</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#fa84f68e'>Contract Use</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#e43d999b'>Verification Contract</a>
+<a class='ml-2 my-1 nav-link' href='#a7924571'>Application Contract</a>
+<a class='ml-2 my-1 nav-link' href='#e0d578bb'>Function Contract</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#e9c502c7'>Virtual Machine</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#d30c6742'>Virtual Hardware</a>
+<a class='ml-2 my-1 nav-link' href='#a3df70d6'>Instruction Set</a>
+<a class='ml-2 my-1 nav-link' href='#a1695183'>Interoperable Service Layer</a>
+<a class='ml-2 my-1 nav-link' href='#dffc2456'>Debugging Function</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#a5763cb5'>High-level Languages</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b0af2103'>C#, VB.Net, F</a>
+<a class='ml-2 my-1 nav-link' href='#eedf045b'>Java, Kotlin</a>
+<a class='ml-2 my-1 nav-link' href='#f0f7146c'>Other Languages</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#f9a764d1'>Service</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#c340cff7'>Blockchain Ledger</a>
+<a class='ml-2 my-1 nav-link' href='#b268c292'>Digital Assets</a>
+<a class='ml-2 my-1 nav-link' href='#f391f5b0'>Persistence</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#d111680e'>Fees</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#a5aaf93f'>Deployment Fee</a>
+<a class='ml-2 my-1 nav-link' href='#a296905f'>Implementation Fee</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#bd9d5095'>Application Scenarios</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#e3d92199'>Superconducting Transactions</a>
+<a class='ml-2 my-1 nav-link' href='#df80f298'>Cross-chain Interoperability</a>
+<a class='ml-2 my-1 nav-link' href='#c1fc2d8d'>Oracle Machines</a>
+<a class='ml-2 my-1 nav-link' href='#aecc2b43'>Ethereum DAPP</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

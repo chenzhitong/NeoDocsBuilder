@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Deploying NEO Nodes on Server</title>
+    <meta name="twitter:title" content="NEO 技术文档" />
+    <meta name="twitter:description" content="NEO 技术文档" />
+    <meta name="twitter:image" content="https://neo-cdn.azureedge.net/images/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="apple-touch-icon">
+    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="shortcut icon">
+    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="icon">
+    <link type="image/x-icon" href="https://neo-cdn.azureedge.net/images/favicon.png" rel="bookmark" />
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org"><img class="logo" src="https://neo-cdn.azureedge.net/images/neo-logo/NEO-smart-economy-logo.svg" alt="NEO Logo" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:" onclick="language('en-us')">English</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/index.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Introduction</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/whitepaper.html'>NEO Whitepaper</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Technology</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/dbft.html'>Consensus Whitepaper</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Node</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/introduction.html'>Introduction</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/install.html'>Installing the Client</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/transc.html'>Transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/asset.html'>Registering and Distributing Assets</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/sc.html'>Interacting with Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/vote.html'>Election and Voting</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/other.html'>Other Features</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/publish.html'>Publishing from Source</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/setup.html'>Installation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/seedlist.html'>SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/cli.html'>Command Line</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/testnet.html'>Main Net & Test Net</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Setting up Private Chain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/solo.html'>Solo Mode</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain.html'>Multiple Nodes (virtual machines)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain2.html'>Multiple Nodes (local host)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Getting Started (C#)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/introduction.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/prerequisites.html'>Before You Begin</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/enviroment.html'>Setting up local network</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/develop.html'>Compiling a Contract Sample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/deploy.html'>Deploying and Invoking the Contract</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Development Environment</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-mac.html'>Using C# on macOS</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-ubuntu.html'>Using C# on ubuntu</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-java.html'>Using Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-python.html'>Using Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Writing smart contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/basics.html'>Basics</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/limitation.html'>Limitations</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Deploying and Invoking Smart Contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/deploy-invoke.html'>Deploying and Invoking Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/Parameter.html'>Parameters and Return Values</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/test.html'>Testing</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/migrate.html'>Contract Migration and Destruction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/fees.html'>Fees</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Contract Samples</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Domain.html'>Domain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/verify.html'>Verification Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Lock2.html'>Lock Contract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Tools Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Main Concepts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blockchain Models</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/token_model.html'>Tokens</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/account_asset.html'>Account and Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/validator.html'>Validator</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/charging_model.html'>Charging Model</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/wallets.html'>Wallet</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/readme.html'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_algorithm.html'>Consensus Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_protocol.html'>Consensus Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/vote_validator.html'>Vote</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Cryptography</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encode_algorithm.html'>Encode Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/hash_algorithm.html'>Hash Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encryption_algorithm.html'>Encryption Algorithm</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/neo_cli_structure.html'>NEO-CLI Structure</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/introduction.html'>About NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/common.html'>Common Uses</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/tx.html'>Transaction Construction</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Advanced Topics</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/neo_vm.html'>NeoVM Instructions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/network-protocol.html'>Network Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/tx_execution.html'>Transaction Process</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/merkle_tree.html'>Merkel Tree</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/bloom_filter.html'>Bloom Filter</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Document for Exchange Developers</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/general.html'>Overview</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.2</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.2/deploynode.html'>Deploying NEO nodes</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.2/client.html'>Using NEO-CLI</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.2/transaction.html'>Dealing with assets transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.2/gas.html'>Distribute GAS to uses</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/changelog.html'>Changelog</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api.html'>API Reference</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.2</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invoke.html'>invoke</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='e7d20186'><span class='with-space bd-content-title'>Deploying NEO Nodes on Server<a class='anchorjs-link ' href='#e7d20186' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='c3cd6734'><span class='with-space bd-content-title'>Install NEO client<a class='anchorjs-link ' href='#c3cd6734' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<ol>
+<li>
+<p class='with-space'>Install <a href='https://www.microsoft.com/net/download/core#/runtime' target='_blank'> .NET Core Runtime</a> on the server, 2.0 and the later version.</p></li>
+<li>
+<p class='with-space'>From GitHub, download the <a href='https://github.com/neo-project/neo-cli/releases' target='_blank'> NEO-CLI</a> program and enable the NEO node.</p></li>
+</ol>
+<h2 id='b01ea4fa'><span class='with-space bd-content-title'>Install plugins<a class='anchorjs-link ' href='#b01ea4fa' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Since NEO-CLI 2.9.0 some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. For more information, refer to <a href='../../node/cli/setup.html'> Installing plugins</a> .</p>
+<p class='with-space'>Exchanges need to install the following plugins to get the complete functionality of transaction log API and automatic synchronization with the offline package:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <a href='https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ApplicationLogs.zip' target='_blank'> ApplicationLogs</a> </p></li>
+<li>
+<p class='with-space'> <a href='https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/ImportBlocks.zip' target='_blank'> ImportBlocks</a> </p></li>
+<li>
+<p class='with-space'> <a href='https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcWallet.zip' target='_blank'> RpcWallet</a> </p></li>
+<li>
+<p class='with-space'> <a href='https://github.com/neo-project/neo-plugins/releases/download/v2.10.0/SimplePolicy.zip' target='_blank'> SimplePolicy</a> </p></li>
+<li>
+<p class='with-space'> <a href='https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcSystemAssetTracker.zip' target='_blank'> RpcSystemAssetTracker</a> (Recommended)</p></li>
+<li>
+<p class='with-space'> <a href='https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/CoreMetrics.zip' target='_blank'> CoreMetrics</a> (Recommended)</p></li>
+<li>
+<p class='with-space'> <a href='https://github.com/neo-project/neo-plugins/tree/master/RpcNep5Tracker' target='_blank'> RpcNep5Tracker</a> (Recommended)</p></li>
+</ul>
+<p class='with-space'>Create a new Plugins folder (The first letter is capitalized) under the NEO-CLI root directory and copy the unzipped plugins into it.</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='../../assets/PluginsForExchange.png' alt='PluginsForExchange.png' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>For NEO-CLI 2.9.4 and later, you can install plugins using CLI commands：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='install ImportBlocks
+install ApplicationLogs
+install RpcWallet
+install SimplePolicy
+install RpcSystemAssetTracker
+install CoreMetrics
+install RpcNep5Tracker '>Copy</button><pre><code>install ImportBlocks
+install ApplicationLogs
+install RpcWallet
+install SimplePolicy
+install RpcSystemAssetTracker
+install CoreMetrics
+install RpcNep5Tracker 
+</code></pre>
+</figure>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>A set of wallet-related RPC API have been moved to the plugin RpcWallet since NEO-CLI 2.10.2. Ensure you have installed the plugin before you invoke these APIs.</p></li>
+<li>
+<p class='with-space'>You must install the ApplicationLogs plug-in before synchronizing the NEO client, otherwise the log in the blocks synchronized before will be lost.</p></li>
+</ul>
+</blockquote>
+<h2 id='e6954f42'><span class='with-space bd-content-title'>Configuring config.json<a class='anchorjs-link ' href='#e6954f42' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Before running NEO-CLI, you need to configure the following parameters in the config.json file:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>BindAddress: It defaults to local 127.0.0.1. You can set it to the ipv4 address of the specified NIC to allow RPC invoking. If no object is specified, it can be set to 0.0.0.0.</p></li>
+<li>
+<p class='with-space'>UnlockWallet: Optional. You can enable automatic binding and opening of the wallet. The following is an configuration example, where <code>Path</code> is the wallet path, <code>Password</code> is the wallet password, and <code>IsActive</code> is set to <code>true</code> to allow the wallet to be opened automatically.</p></li>
+</ul>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text=' {
+  &quot;ApplicationConfiguration&quot;: {
+    &quot;Paths&quot;: {
+      &quot;Chain&quot;: &quot;Chain_{0}&quot;,
+      &quot;Index&quot;: &quot;Index_{0}&quot;
+    },
+    &quot;P2P&quot;: {
+      &quot;Port&quot;: 10333,
+      &quot;WsPort&quot;: 10334
+    },
+    &quot;RPC&quot;: {
+      &quot;Port&quot;: 10332,
+      &quot;SslCert&quot;: &quot;&quot;,
+      &quot;SslCertPassword&quot;: &quot;&quot;
+    },
+    &quot;UnlockWallet&quot;: {
+      &quot;Path&quot;: &quot;&quot;,
+      &quot;Password&quot;: &quot;&quot;,
+      &quot;StartConsensus&quot;: false,
+      &quot;IsActive&quot;: false
+    },
+     &quot;PluginURL&quot;: &quot;https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip&quot;
+  } 
+}'>Copy</button><pre><code> {
+  &quot;ApplicationConfiguration&quot;: {
+    &quot;Paths&quot;: {
+      &quot;Chain&quot;: &quot;Chain_{0}&quot;,
+      &quot;Index&quot;: &quot;Index_{0}&quot;
+    },
+    &quot;P2P&quot;: {
+      &quot;Port&quot;: 10333,
+      &quot;WsPort&quot;: 10334
+    },
+    &quot;RPC&quot;: {
+      &quot;Port&quot;: 10332,
+      &quot;SslCert&quot;: &quot;&quot;,
+      &quot;SslCertPassword&quot;: &quot;&quot;
+    },
+    &quot;UnlockWallet&quot;: {
+      &quot;Path&quot;: &quot;&quot;,
+      &quot;Password&quot;: &quot;&quot;,
+      &quot;StartConsensus&quot;: false,
+      &quot;IsActive&quot;: false
+    },
+     &quot;PluginURL&quot;: &quot;https://github.com/neo-project/neo-plugins/releases/download/v{1}/{0}.zip&quot;
+  } 
+}
+</code></pre>
+</figure>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<p class='with-space'>If you want to enable automatic opening of a wallet, specify the parameter &quot;Path&quot; and &quot;Password&quot; with the corresponding wallet information, and set &quot;IsActive&quot; to true. But be cautious before you do that, make sure your firewall is open and safe as Password specified in the file is in clear text.</p>
+</blockquote>
+<p class='with-space'>For more information, refer to <a href='../../node/cli/setup.html'> Installation and deployment of NEO node</a> .</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/en-us/exchange\2.10.2\deploynode.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#e7d20186'>Deploying NEO Nodes on Server</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#c3cd6734'>Install NEO client</a>
+<a class='ml-0 my-1 nav-link' href='#b01ea4fa'>Install plugins</a>
+<a class='ml-0 my-1 nav-link' href='#e6954f42'>Configuring config.json</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

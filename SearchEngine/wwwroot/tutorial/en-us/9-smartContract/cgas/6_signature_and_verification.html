@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Signature and verification</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Introduction to NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/1-Introduction_to_NEO.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>Cryptography, Blockchain, and Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.html'>NEO Fundamentals</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Wallet</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/1-Introduction_to_wallets.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>Keys and Addresses</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.html'>Private key encryption and Wallet files</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/4-UTXO_and_account_models.html'>The UTXO and Account models</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Transactions</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/1-Introduction_to_transactions.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.html'>Structure of NEO transactions</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/3-NEO_transaction_types.html'>NEO transaction types</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/4-NEO_transaction_fees.html'>Transaction fees</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blocks</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/2-Structure_of_a_block.html'>Structure of a Block</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/3-Block_creation_broadcasting.html'>Block Creation and Broadcasting</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/4-Block_validation_processing.html'>Block Validation and Processing</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.html'>NEO Network and Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Persistence</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/1-persistence.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/2-levelDB_data_structure.html'>Developing a NEO Ping using Golang</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/1-Introduction_to_consensus.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW and PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/3-PBFT_and_DBFT.html'>pBFT and dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>dBFT Consensus Examples and Scenarios</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_smart_contract.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_privateChain.html'>Setting up a Private Chain</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_set_up.html'>Setting up Development Enviroment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_compile.html'>Contract Invoking and Deployment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Smart_Contract_basics.html'>Smart Contract Basics</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Make your NEP-5 Token</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_nep5.html'>Introduction to NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Implementation_of_NEP5.html'>Implementation of NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Give_an_ITO.html'>ITO(Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/UTXO.html'>UTXO basics</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.html'>What is CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.html'>Global asset and NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/3_utxo_model.html'>UTXO model</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/4_trigger.html'>Trigger</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.html'>Mint and Refund</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.html'>Signature and Verification</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/7_invocation.html'>Transaction Invocation</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Write NEO smart contract with Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part1_setup.html'>Installing and Setting up the Environment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part2_neopy.html'>Wallet Operations and Smart Contracts</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='e24a094b'><span class='with-space bd-content-title'>Signature and verification<a class='anchorjs-link ' href='#e24a094b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>The process of CGAS execution can be roughly divided into two steps. The first step is to execute the verification scripts in the transaction, namely the Verification trigger. If the verification fails, the transaction will not be confirmed. This step is performed by all nodes that receive the transaction before the block is generated.</p>
+<p class='with-space'>The second step is to execute the smart contract, namely the Application trigger. This step is performed by all nodes that synchronize blocks after synchronization.</p>
+<p class='with-space'>The relevant script in the first step is called Witness, which contains validation script and invocation script. When NeoVM is running, the verification script is the code executed by the smart contract, of which the parameters in included in the invocation script, usually the signature.</p>
+<p class='with-space'>Multiple sets of invocation and validation scripts can be included in Witness. Refer to <a href='https://github.com/neo-ngd/CGAS-Contract' target='_blank'> CGAS GitHub</a> for details.</p>
+<p class='with-space'>The following is an example of the transaction for the first step of the refund.</p>
+<p class='with-space'>Transaction structure for the first step of the refund:</p>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Type: InvocationTransaction</p></li>
+<li>
+<p class='with-space'>Input: transfer from the contract address of CGAS</p></li>
+<li>
+<p class='with-space'>Output: transfer to the contract address of CGAS (same as input)</p></li>
+<li>
+<p class='with-space'>Script: invoke the refund method, setting the parameter to the refunder&#39;s Script Hash</p></li>
+<li>
+<p class='with-space'>Scripts: need two witnesses: 1、 witness of CGAS contract ; 2、witness of the user（additional witness）</p></li>
+</ul>
+</blockquote>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: 1,
+    &quot;result&quot;: {
+        &quot;txid&quot;: &quot;0x306daa4ab2b2ef73ff4fd8f9121fc926f5e21653080602b6841ad3f17f80777c&quot;,
+        &quot;size&quot;: 7205,
+        &quot;type&quot;: &quot;InvocationTransaction&quot;,
+        &quot;version&quot;: 0,
+        &quot;attributes&quot;: [
+            {
+                &quot;usage&quot;: &quot;Script&quot;,
+                &quot;data&quot;: &quot;e8e3ce08268d16d867101feaf8c0ea130a923aba&quot;
+            }
+        ],
+        &quot;vin&quot;: [
+            {
+                &quot;txid&quot;: &quot;0x48bd784d0ed6000cba64d0e303117e4c10081e3268afcf3b07e8b353a7594772&quot;,
+                &quot;vout&quot;: 0
+            }
+        ],
+        &quot;vout&quot;: [
+            {
+                &quot;n&quot;: 0,
+                &quot;asset&quot;: &quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+                &quot;value&quot;: &quot;5&quot;,
+                &quot;address&quot;: &quot;AScKxyXmNtEnTLTvbVhNQyTJmgytxhwSnM&quot;
+            },
+            {
+                &quot;n&quot;: 1,
+                &quot;asset&quot;: &quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+                &quot;value&quot;: &quot;5&quot;,
+                &quot;address&quot;: &quot;AScKxyXmNtEnTLTvbVhNQyTJmgytxhwSnM&quot;
+            }
+        ],
+        &quot;sys_fee&quot;: &quot;0&quot;,
+        &quot;net_fee&quot;: &quot;0&quot;,
+        &quot;scripts&quot;: [
+            {
+                &quot;invocation&quot;: &quot;520131&quot;,
+                &quot;verification&quot;: &quot;&quot;
+            },
+            {
+                &quot;invocation&quot;: &quot;404c53a9ca937470df9dcbbb71cf00e2b4d75761e4667ccfd820e40829887c4444c7911ed509e564b2bac30e41c92c43f7df2dd2a25ea1c8e2bc10aec3d3208251&quot;,
+                &quot;verification&quot;: &quot;21037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630dac&quot;
+            }
+        ],
+        &quot;script&quot;: &quot;14e8e3ce08268d16d867101feaf8c0ea130a923aba51c106726566756e646776db3192722022eb7841038246dc8fa636dcf274f1&quot;,
+        &quot;gas&quot;: &quot;0&quot;,
+        &quot;blockhash&quot;: &quot;0xd04d56259a6c92e290ab009e2062fbd078c3c371036d74dd745b379a4d55a899&quot;,
+        &quot;confirmations&quot;: 14,
+        &quot;blocktime&quot;: 1536907058
+    }
+}'>Copy</button><pre><code class='csharp' lang='csharp'>{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: 1,
+    &quot;result&quot;: {
+        &quot;txid&quot;: &quot;0x306daa4ab2b2ef73ff4fd8f9121fc926f5e21653080602b6841ad3f17f80777c&quot;,
+        &quot;size&quot;: 7205,
+        &quot;type&quot;: &quot;InvocationTransaction&quot;,
+        &quot;version&quot;: 0,
+        &quot;attributes&quot;: [
+            {
+                &quot;usage&quot;: &quot;Script&quot;,
+                &quot;data&quot;: &quot;e8e3ce08268d16d867101feaf8c0ea130a923aba&quot;
+            }
+        ],
+        &quot;vin&quot;: [
+            {
+                &quot;txid&quot;: &quot;0x48bd784d0ed6000cba64d0e303117e4c10081e3268afcf3b07e8b353a7594772&quot;,
+                &quot;vout&quot;: 0
+            }
+        ],
+        &quot;vout&quot;: [
+            {
+                &quot;n&quot;: 0,
+                &quot;asset&quot;: &quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+                &quot;value&quot;: &quot;5&quot;,
+                &quot;address&quot;: &quot;AScKxyXmNtEnTLTvbVhNQyTJmgytxhwSnM&quot;
+            },
+            {
+                &quot;n&quot;: 1,
+                &quot;asset&quot;: &quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+                &quot;value&quot;: &quot;5&quot;,
+                &quot;address&quot;: &quot;AScKxyXmNtEnTLTvbVhNQyTJmgytxhwSnM&quot;
+            }
+        ],
+        &quot;sys_fee&quot;: &quot;0&quot;,
+        &quot;net_fee&quot;: &quot;0&quot;,
+        &quot;scripts&quot;: [
+            {
+                &quot;invocation&quot;: &quot;520131&quot;,
+                &quot;verification&quot;: &quot;&quot;
+            },
+            {
+                &quot;invocation&quot;: &quot;404c53a9ca937470df9dcbbb71cf00e2b4d75761e4667ccfd820e40829887c4444c7911ed509e564b2bac30e41c92c43f7df2dd2a25ea1c8e2bc10aec3d3208251&quot;,
+                &quot;verification&quot;: &quot;21037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630dac&quot;
+            }
+        ],
+        &quot;script&quot;: &quot;14e8e3ce08268d16d867101feaf8c0ea130a923aba51c106726566756e646776db3192722022eb7841038246dc8fa636dcf274f1&quot;,
+        &quot;gas&quot;: &quot;0&quot;,
+        &quot;blockhash&quot;: &quot;0xd04d56259a6c92e290ab009e2062fbd078c3c371036d74dd745b379a4d55a899&quot;,
+        &quot;confirmations&quot;: 14,
+        &quot;blocktime&quot;: 1536907058
+    }
+}
+</code></pre>
+</figure>
+<h2 id='a0713671'><span class='with-space bd-content-title'>CheckWitness() and additional witness<a class='anchorjs-link ' href='#a0713671' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Note that there are attributes in this transaction, since CheckWitness() exists in the smart contract code. For the permission verification of the current contract, it’s not necessary to add a script to the transaction attribute. This is limited to the signature verified not the contract itself. For example, in the first step of the refund, the user is passed in via the parameter from, and its script hash is not equal to the CGAS script hash. In this case, the script hash of from needs to be added as an additional witness to the transaction attributes.</p>
+<p class='with-space'>Also, the verification can be omitted (as the first verification script in the example above), if so, the node will automatically add this part by the script hash on the chain. This requires knowing the full script hashes and the order of the items in witness. Currently items in witness are sorted in ascending order of script hash.</p>
+<p class='with-space'>In this way, since the system knows the full script hashes (script hashes of the current contract plus the script hashes listed in the transaction attributes) and positions all the invocation and validation scripts, as well as the matching order of these invocation and verification scripts to the script hash, then it can execute the code.</p>
+<h2 id='f62ff0b4'><span class='with-space bd-content-title'>OpCode script<a class='anchorjs-link ' href='#f62ff0b4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>After finishing talking about the CheckWitness() and transaction attributes, let&#39;s take a look at the first set of invocation scripts. The example above is 520131. What does this mean? First put 52 into the invocation stack, then put 01, and then put 31.</p>
+<p class='with-space'>Interpret the code according to the comments in <a href='https://github.com/neo-project/neo-vm/blob/master/src/neo-vm/OpCode.cs' target='_blank'> OpCode</a> when fetching data, so 52 means to Push 2.</p>
+<p class='with-space'>0x01 means the following is an array with the length 1 (0x01 corresponds to decimal 1), and the next 1 byte is the data, not the instruction.</p>
+<p class='with-space'>0x31 corresponds to the character ‘1’ in the ASCII code.</p>
+<p class='with-space'>So the first parameter is the digit 2 and the second parameter is the string &quot;1&quot;.</p>
+<p class='with-space'>Push these two parameters into the invocation stack. Read the data according to the order of the stack, the first popped parameter is the string &quot;1&quot;, and then is the digit 2.</p>
+<p class='with-space'> <strong>Example 1</strong> </p>
+<p class='with-space'>With the above example, let&#39;s look at the second set of invocation scripts:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='404c53a9ca937470df9dcbbb71cf00e2b4d75761e4667ccfd820e40829887c4444c7911ed509e564b2bac30e41c92c43f7df2dd2a25ea1c8e2bc10aec3d3208251'>Copy</button><pre><code>404c53a9ca937470df9dcbbb71cf00e2b4d75761e4667ccfd820e40829887c4444c7911ed509e564b2bac30e41c92c43f7df2dd2a25ea1c8e2bc10aec3d3208251
+</code></pre>
+</figure>
+<p class='with-space'>0x40 corresponds to decimal 64, the next 64 bits is a byte array (actually a signature).</p>
+<p class='with-space'> <strong>Example 2</strong> </p>
+<p class='with-space'>Take a look at the second set of verification scripts:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='21037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630dac'>Copy</button><pre><code>21037ebe29fff57d8c177870e9d9eecb046b27fc290ccbac88a0e3da8bac5daa630dac
+</code></pre>
+</figure>
+<p class='with-space'>0x21 corresponds to decimal 33, the next 33 bits is a byte array (actually a public key), and the last 0xac means CHECKSIG, which means verifying the signature, and that’s it.</p>
+<h2 id='b363b99d'><span class='with-space bd-content-title'>Next Step<a class='anchorjs-link ' href='#b363b99d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Now let us know how to <a href='7_invocation.html'> invoke this CGAS contract</a> </p>
+<p class='with-space'>To learn the function of mint token and refund, click <a href='5_minttokens_and_refund.html'> here</a> .</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/en-us/9-smartContract\cgas\6_signature_and_verification.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#e24a094b'>Signature and verification</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#a0713671'>CheckWitness() and additional witness</a>
+<a class='ml-0 my-1 nav-link' href='#f62ff0b4'>OpCode script</a>
+<a class='ml-0 my-1 nav-link' href='#b363b99d'>Next Step</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

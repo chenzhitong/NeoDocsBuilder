@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>了解钱包</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/1-Introduction_to_NEO.html'>简介</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>密码学、区块链和智能合约</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/3-Fundamentals_of_NEO.html'>基础知识</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>钱包</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/1-Introduction_to_wallets.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>私钥和地址生成</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/3-Key_encryption_and_contract_accounts.html'>私钥与合约账户</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/4-UTXO_and_account_models.html'>UTXO 与账户模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/1-Introduction_to_transactions.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/2-Structure_of_NEO_transactions.html'>交易结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/3-NEO_transaction_types.html'>交易类型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/4-NEO_transaction_fees.html'>交易手续费</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/2-Structure_of_a_block.html'>区块结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/3-Block_creation_broadcasting.html'>区块创建与广播</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/4-Block_validation_processing.html'>区块验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/1-Introduction_to_the_NEO_network_protocol.html'>协议和网络</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>持久性</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/1-persistence.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/2-levelDB_data_structure.html'>LevelDB 数据结构</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/1-Introduction_to_consensus.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW 与 PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/3-PBFT_and_DBFT.html'>pBFT 与 dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>共识示例与场景</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_smart_contract.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_privateChain.html'>搭建私链</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_set_up.html'>搭建开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_compile.html'>编译、调用与部署</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Smart_Contract_basics.html'>智能合约基础</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>创建 NEP-5 合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_nep5.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Implementation_of_NEP5.html'>实现 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Give_an_ITO.html'>ITO</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/UTXO.html'>UTXO 基础</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/1_what_is_cgas.html'>什么是 CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/2_global_asset_and_nep5.html'>全局资产与 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/3_utxo_model.html'>UTXO 模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/4_trigger.html'>触发器</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/5_minttokens_and_refund.html'>铸币与退款</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/6_signature_and_verification.html'>签名与验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/7_invocation.html'>交易调用</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/neo_python_quickstart_cn.html'>NEO Python 快速入门</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='ab63887e'><span class='with-space bd-content-title'>了解钱包<a class='anchorjs-link ' href='#ab63887e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>在与 NEO 或其他区块链交互前，用户必须在他们的本地机器上创建一个唯一的用户“钱包”，从而在网络上发起交易。 这与当前中心化的应用程序不同，中心化程序要求用户必须创建账户，且所创建的账户存储在中心化的服务器上并由服务提供商管理。 虽然钱包可以用来存取 NEO、GAS 和基于 NEO 的其他代币，但“钱包”这个名称实际上是取得不太恰当的。 钱包的核心功能应该是加密公钥/私钥对，用于对 NEO 网络上出现的数据库交易进行签名和验证。</p>
+<p class='with-space'>首先让我们来想想看用户是如何在传统的中心化数据库上执行写操作的，并将这种操作与用户在 NEO 区块链上执行的写操作进行比较。 这应该有助于消除你认为代币是存储在钱包中，而不是存储在区块链上的这种误解。</p>
+<h2 id='fd7b4d47'><span class='with-space bd-content-title'>中心化数据库<a class='anchorjs-link ' href='#fd7b4d47' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>在客户端/服务器架构体系中，用户首先会使用身份凭证（如电子邮件/密码组合）来创建一个账户， 然后这些凭证会存储在服务数据库中。 当用户登录到服务系统时，他们会在本地收到一个会话令牌，持有该令牌可以对服务数据库执行写操作。</p>
+<p class='with-space'>因此，如果这个中心化的应用程序是银行服务，那么“资金”就会存储在银行的服务器上，你可以通过向银行提供有效凭证来执行转账操作。</p>
+<h3 id='eb1de770'><span class='with-space bd-content-title'>优点<a class='anchorjs-link ' href='#eb1de770' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>如果用户丢失了凭证信息，服务提供商可以进行恢复</p></li>
+<li>
+<p class='with-space'>电子邮件/密码是一种标准的用户体验模式，几乎所有的互联网用户都习惯这种操作</p></li>
+</ul>
+<h3 id='c73c5b6f'><span class='with-space bd-content-title'>缺点<a class='anchorjs-link ' href='#c73c5b6f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>将所有用户的凭证都存储在中心化服务器中，这非常容易遭受到黑客攻击</p></li>
+<li>
+<p class='with-space'>需要为每个服务生成一组单独的凭证</p></li>
+</ul>
+<p class='with-space'>但最为重要的是，正如这句常出现在加密货币社区的话所说的：</p>
+<p class='with-space'>“不是你的密钥，就不是你的代币”</p>
+<p class='with-space'>传统客户端/服务器体系结构的本质意味着终端用户对服务器端数据库中存储的数据几乎没有什么控制权。 虽然在金融应用程序中这点尤为突出，但对于一般的用户数据而言也是一样的。</p>
+<h2 id='f1e440e3'><span class='with-space bd-content-title'>NEO 区块链<a class='anchorjs-link ' href='#f1e440e3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>对此我们来比较下用户是如何在NEO区块链上执行写操作的。用户首先会生成公钥/私钥对。所生成的密钥对会存储在用户的本地机器上，比如专用硬件模块或客户端的其他位置。远程服务器永远不可能获取到这些密钥对信息。当用户想要在NEO区块链（数据库）上执行写操作时，他们会在本地生成交易用于执行相关操作。例如，用户可能想给朋友转账1 NEO。然后，他们使用自己的加密签名对该交易进行签名，签名是通过公钥对生成的。</p>
+<p class='with-space'>之后会对该交易进行验证，验证通过后向网络进行广播并最终完成写操作。我们可以看到，由于加密签名只能由用户自己生成，因此没有其他实体可以在没有显式授权的情况下，代表用户对远程数据库执行写操作。</p>
+<h3 id='e69a289d'><span class='with-space bd-content-title'>优点<a class='anchorjs-link ' href='#e69a289d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>对黑客而言没有可攻击的中心目标，这免去了服务提供商的许多责任</p></li>
+<li>
+<p class='with-space'>可以在各种服务提供商之间共享用户的公开身份</p></li>
+<li>
+<p class='with-space'>你的密钥，就是你的代币</p></li>
+</ul>
+<h3 id='a94c5a59'><span class='with-space bd-content-title'>缺点<a class='anchorjs-link ' href='#a94c5a59' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>如果用户丢了凭证，就不可恢复</p></li>
+<li>
+<p class='with-space'>对于没有使用过此类系统的用户而言，这是一种新的用户体验模式</p></li>
+</ul>
+<p class='with-space'>总而言之，对钱包更准确地描述应该是利用公钥/私钥对在分布式数据库（区块链）上执行写操作。与典型的客户端/服务器认证体系结构相比，它具有优点也有缺点，但整体上而言，我们相信该系统提供的安全性和用户自主权可以给用户带来更强大的用户体验。</p>
+<p class='with-space'>下一节，我们会了解一些 NEO 密钥架构设计的相关细节。</p>
+<h2 id='d731195d'><span class='with-space bd-content-title'>阅读下节<a class='anchorjs-link ' href='#d731195d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='2-Key_derivation_and_address_generation_on_NEO.html'> 私钥与地址生成</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/zh-cn/2-wallet\1-Introduction_to_wallets.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#ab63887e'>了解钱包</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#fd7b4d47'>中心化数据库</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#eb1de770'>优点</a>
+<a class='ml-2 my-1 nav-link' href='#c73c5b6f'>缺点</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#f1e440e3'>NEO 区块链</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#e69a289d'>优点</a>
+<a class='ml-2 my-1 nav-link' href='#a94c5a59'>缺点</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#d731195d'>阅读下节</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

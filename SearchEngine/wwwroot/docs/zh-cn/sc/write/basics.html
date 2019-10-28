@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>合约开发基础</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/index.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/whitepaper.html'>NEO 白皮书</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 技术</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/dbft.html'>共识机制</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 节点</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/introduction.html'>节点介绍</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/install.html'>下载客户端</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/wallet.html'>钱包</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/transc.html'>交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/asset.html'>注册与分发资产</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/sc.html'>与智能合约交互</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/vote.html'>选举与投票</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/other.html'>其它功能</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/publish.html'>发布</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/setup.html'>安装</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/seedlist.html'>节点列表</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/cli.html'>命令参考</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/overview.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/install.html'>安装 （Ubuntu/OSX）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/installwin.html'>安装 （Windows）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/seedlist.html'>NEO-Python SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/basic.html'>基本用法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/prompt.html'>Prompt</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/syncblocks.html'>快速同步区块</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/testnet.html'>主网与测试网</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>搭建私有链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/solo.html'>单节点模式</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/private-chain.html'>使用虚拟机搭建</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/private-chain2.html'>在本地主机搭建</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>快速入门（C#）</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/introduction.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/prerequisites.html'>准备工作</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/enviroment.html'>搭建网络环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/develop.html'>开发示例合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/deploy.html'>部署并调用合约</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发环境</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-csharp-mac.html'>macOS + C#</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-csharp-ubuntu.html'>ubuntu + C#</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-java.html'>Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-python.html'>Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>合约编写</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/basics.html'>合约编写基础</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/limitation.html'>编写限制</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>部署和调用</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/deploy.html'>部署合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/invoke.html'>调用合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/Parameter.html'>参数和返回值</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/test.html'>测试</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/migrate.html'>合约迁移</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/fees.html'>手续费</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>合约示例</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/Domain.html'>Domain（域名系统）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/verify.html'>鉴权合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/Lock2.html'>锁仓合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO工具开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>基本概念</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块模型</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/block.html'>区块</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/token_model.html'>通证</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/account_asset.html'>账户与资产</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/validator.html'>验证人</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/charging_model.html'>收费模型</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/transaction.html'>交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/wallets.html'>钱包</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/consensus_algorithm.html'>共识算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/consensus_protocol.html'>共识协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/vote_validator.html'>投票</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>密码学</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.html'>编码算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.html'>哈希算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.html'>加密算法</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/neo_cli_structure.html'>NEO-CLI 结构</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/introduction.html'>关于 NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/conversion.html'>数据类型转换</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/account.html'>账户</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/wallet.html'>钱包</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/tx.html'>交易</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/endian.html'>大小端序的使用</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>进阶知识</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/neo_vm.html'>NeoVM 指令集</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/network-protocol.html'>网络协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/tx_execution.html'>交易流程</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/merkle_tree.html'>梅克尔树</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/general.html'>概述</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/deploynode.html'>部署 NEO 节点</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/client.html'>使用 NEO-CLI 客户端</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/transaction.html'>处理资产交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/gas.html'>给用户分发 GAS</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/changelog.html'>更新记录</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api.html'>API 参考</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API 参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>框架</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net 框架</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='https'>SDK API (C#)</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='fd8b8276'><span class='with-space bd-content-title'>合约开发基础<a class='anchorjs-link ' href='#fd8b8276' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>本文将介绍开发智能合约的一些基础知识。</p>
+<p class='with-space'>我们来看一下这个基础的hello world合约：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+using System;
+
+namespace Helloworld
+{
+    public class Contract1 : SmartContract
+    {
+        private const string test_str = &quot;Hello World&quot;;
+        public static String Main(string operation, object[] args)
+        {
+            Storage.Put(&quot;Hello&quot;, &quot;World&quot;);
+            return test_str;
+        }
+    }
+}'>Copy</button><pre><code>using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+using System;
+
+namespace Helloworld
+{
+    public class Contract1 : SmartContract
+    {
+        private const string test_str = &quot;Hello World&quot;;
+        public static String Main(string operation, object[] args)
+        {
+            Storage.Put(&quot;Hello&quot;, &quot;World&quot;);
+            return test_str;
+        }
+    }
+}
+</code></pre>
+</figure>
+<h2 id='bb63e2f3'><span class='with-space bd-content-title'>合约结构<a class='anchorjs-link ' href='#bb63e2f3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>每个智能合约都继承了NEO框架中的 <code>SmartContract</code> 基类，并实现了一些基本的方法。</p>
+<p class='with-space'>命名空间 <code>NEO</code> 是NEO区块链所提供的API，它提供了访问区块链数据和操作持久存储的方法。这些API分为两类:</p>
+<ol>
+<li>
+<p class='with-space'>区块链分类账本。合约可以通过interops层访问整个区块链上的所有数据，包括完整的区块和交易数据，以及它们的所有字段。</p></li>
+<li>
+<p class='with-space'>持久化存储。部署在NEO上的每个应用程序合约都有一个只能由合约自身访问的存储空间。所提供的这些方法可以用来访问合约中的数据。</p></li>
+</ol>
+<h2 id='c5f803d9'><span class='with-space bd-content-title'>合约属性<a class='anchorjs-link ' href='#c5f803d9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>在合约类中，使用 <code>static readonly</code> 或 <code>const</code> 定义的合约属性是常量属性且值不能更改。例如，如果想要定义合约的所属者或在以后的资产转账中使用的因数时，我们可以这样定义这些常量:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='// 代表该合约的所属者，表示为固定的地址。通常是合约的创建者
+public static readonly byte[] Owner = &quot;ATrzHaicmhRj15C3Vv6e6gLfLqhSD2PtTr&quot;.ToScriptHash();
+
+// 一个常量
+private const ulong factor = 100000000;'>Copy</button><pre><code>// 代表该合约的所属者，表示为固定的地址。通常是合约的创建者
+public static readonly byte[] Owner = &quot;ATrzHaicmhRj15C3Vv6e6gLfLqhSD2PtTr&quot;.ToScriptHash();
+
+// 一个常量
+private const ulong factor = 100000000;
+</code></pre>
+</figure>
+<p class='with-space'>在合约属性中定义的这些属性通常是一些常量，可以在智能合约方法的内部使用，当智能合约在任意实例上运行时，这些属性的值都保持不变。</p>
+<p class='with-space'>此外，开发人员可以在合约中定义静态方法并返回一个常量，该常量可以将方法暴露在合约之外，让终端用户在查询智能合约时可以通过调用该方法来获取这个固定常量。例如，创建自己的token时，你需要定义一个名称，这样每个使用你的合约的人都可以调用这个方法来检查这个名称。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public  static  string  Name() =&gt;  &quot;name of the token&quot;;'>Copy</button><pre><code>public  static  string  Name() =&gt;  &quot;name of the token&quot;;
+</code></pre>
+</figure>
+<h2 id='a88f67d8'><span class='with-space bd-content-title'>存储属性<a class='anchorjs-link ' href='#a88f67d8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>在开发智能合约时，必须将应用程序的数据存储在区块链上。当创建一个智能合约或者交易使用这个合约时，合约的代码需要读写它的存储空间。存储在智能合约存储区中的所有数据在智能合约的调用期间会自动持久化。区块链中的全节点会存储链上每一个智能合约的状态。</p>
+<p class='with-space'>NEO提供了基于键值对的数据访问接口。可以使用键从智能合约中读取、删除数据或将数据记录写入到智能合约中。此外，智能合约可以检索并将它们的存储上下文发送给其他合约，从而委托其他合约管理它们的存储区域。在C#开发中，智能合约可以使用 <code>Storage</code> 类来读写持久性存储区。 <code>Storage</code> 类是一个静态类，不需要构造函数。 <code>Storage</code> 类的方法可以查看 <a href='../../reference/scapi/fw/dotnet/neo/Storage.html'> API 参考文档</a> 。</p>
+<p class='with-space'>例如，如果你想将token的总供应量存储到存储区:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='// 键是 totalSupply ，值是100000000
+Storage.Put(Storage.CurrentContext, &quot;totalSupply&quot;, 100000000);'>Copy</button><pre><code>// 键是 totalSupply ，值是100000000
+Storage.Put(Storage.CurrentContext, &quot;totalSupply&quot;, 100000000);
+</code></pre>
+</figure>
+<p class='with-space'>这里 <code>CurrentContext</code> 返回当前存储上下文。获取存储上下文之后，对象可以作为参数传给其他合约(作为一种授权方式)，从而允许其他合约在当前合约的持久存储区上执行读/写操作。</p>
+<p class='with-space'>对于基本类型的存储 <code>Storage</code> 类非常的有效，而对于结构化数据，你可以使用 <code>StorageMap</code> 来存储，这个类可以在智能合约存储中将整个容器存储在一个键中。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='// 获取storageMap中的总供应量。这个键名称为“contract”的Map可以用来表示整个容器
+StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
+return contract.Get(&quot;totalSupply&quot;).AsBigInteger();'>Copy</button><pre><code>// 获取storageMap中的总供应量。这个键名称为“contract”的Map可以用来表示整个容器
+StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
+return contract.Get(&quot;totalSupply&quot;).AsBigInteger();
+</code></pre>
+</figure>
+<h2 id='f3000088'><span class='with-space bd-content-title'>数据类型<a class='anchorjs-link ' href='#f3000088' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>由于NeoVM和Dotnet IL之间的差异，当使用C#开发智能合约时并不能使用C#的全部特性。</p>
+<p class='with-space'>由于NeoVM更紧凑，我们只能将有限的C# / dotnet特性编译到AVM文件中。</p>
+<p class='with-space'>NeoVM提供了以下的基本类型:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <code>ByteArray</code> </p></li>
+<li>
+<p class='with-space'> <code>Integer</code> </p></li>
+<li>
+<p class='with-space'> <code>Boolean</code> </p></li>
+<li>
+<p class='with-space'> <code>Array</code> </p></li>
+<li>
+<p class='with-space'> <code>Struct</code> </p></li>
+<li>
+<p class='with-space'> <code>Map</code> </p></li>
+<li>
+<p class='with-space'> <code>Interface</code> </p></li>
+</ul>
+<p class='with-space'>AVM代码可直接生成的基本类型只有:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <code>ByteArray</code> （ByteArray 可用来表示Integer和 Boolean两种基本类型）</p></li>
+<li>
+<p class='with-space'> <code>Array</code> </p></li>
+<li>
+<p class='with-space'> <code>Struct</code> </p></li>
+<li>
+<p class='with-space'> <code>Map</code> </p></li>
+</ul>
+<p class='with-space'>C#的基本类型是:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <code>Int8 int16 int32 int64 uint8 uint16 uint32 uint64</code> </p></li>
+<li>
+<p class='with-space'> <code>float double</code> </p></li>
+<li>
+<p class='with-space'> <code>Boolean</code> </p></li>
+<li>
+<p class='with-space'> <code>Char String</code> </p></li>
+</ul>
+<h2 id='e0b82776'><span class='with-space bd-content-title'>第一个智能合约<a class='anchorjs-link ' href='#e0b82776' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>分析完之前那个基本的hello world合约后，我们来分析一下这个具有真实意义的智能合约。这里我们提供了一个非常简单的DNS系统，它是用C#编写的。DNS的主要功能是为用户存储域名。除了事件外，它包含了上面所说的所有概念。我们可以研究一下这个合约，学习如何开发一个基本的智能合约。源代码在这里:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+namespace Neo.SmartContract
+{
+    public class Domain : SmartContract
+    {
+        public static object Main(string operation, params object[] args)
+        {
+            if (Runtime.Trigger == TriggerType.Application){
+                    switch (operation){
+                        case &quot;query&quot;:
+                            return Query((string)args[0]);
+                        case &quot;register&quot;:
+                            return Register((string)args[0], (byte[])args[1]);
+                        case &quot;delete&quot;:
+                            return Delete((string)args[0]);
+                        default:
+                            return false;
+                    }
+            }
+        }
+
+        private static byte[] Query(string domain)
+        {
+            return Storage.Get(Storage.CurrentContext, domain);
+        }
+
+
+        private static bool Register(string domain, byte[] owner)
+        {
+            // 检查合约的调用者是否是合约的所属者
+            if (!Runtime.CheckWitness(owner)) return false;
+            byte[] value = Storage.Get(Storage.CurrentContext, domain);
+            if (value != null) return false;
+            Storage.Put(Storage.CurrentContext, domain, owner);
+            return true;
+        }
+
+        private static bool Delete(string domain)
+        {
+            // 待完成的其他代码
+        }
+    }
+}'>Copy</button><pre><code>using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Services.Neo;
+namespace Neo.SmartContract
+{
+    public class Domain : SmartContract
+    {
+        public static object Main(string operation, params object[] args)
+        {
+            if (Runtime.Trigger == TriggerType.Application){
+                    switch (operation){
+                        case &quot;query&quot;:
+                            return Query((string)args[0]);
+                        case &quot;register&quot;:
+                            return Register((string)args[0], (byte[])args[1]);
+                        case &quot;delete&quot;:
+                            return Delete((string)args[0]);
+                        default:
+                            return false;
+                    }
+            }
+        }
+
+        private static byte[] Query(string domain)
+        {
+            return Storage.Get(Storage.CurrentContext, domain);
+        }
+
+
+        private static bool Register(string domain, byte[] owner)
+        {
+            // 检查合约的调用者是否是合约的所属者
+            if (!Runtime.CheckWitness(owner)) return false;
+            byte[] value = Storage.Get(Storage.CurrentContext, domain);
+            if (value != null) return false;
+            Storage.Put(Storage.CurrentContext, domain, owner);
+            return true;
+        }
+
+        private static bool Delete(string domain)
+        {
+            // 待完成的其他代码
+        }
+    }
+}
+</code></pre>
+</figure>
+<p class='with-space'>我们来逐步地看看这个合约。</p>
+<h2 id='c53fc651'><span class='with-space bd-content-title'>Main 方法<a class='anchorjs-link ' href='#c53fc651' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>理论上来说，智能合约可以有任意的入口函数，但是我们建议使用main函数作为智能合约的入口点，从而能够能更容易地进行方法调用。在main函数中，用户可以根据不同的入口点调用其他的函数。通常在main方法中，开发人员必须处理 <code>触发器</code> 逻辑。</p>
+<h3 id='f30a8ed4'><span class='with-space bd-content-title'>触发器<a class='anchorjs-link ' href='#f30a8ed4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>智能合约触发器是触发智能合约执行逻辑的机制。在NEO智能合约中引入了四个触发器,最常用的是 <code>Verification</code> 触发器和 <code>Application</code> 触发器。</p>
+<h3 id='ac8a81dc'><span class='with-space bd-content-title'>Verification 触发器<a class='anchorjs-link ' href='#ac8a81dc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Verification触发器作为验证函数来调用合约，该函数可以接受多个参数，并且返回一个有效的布尔值，从而表明交易或区块的有效性。</p>
+<p class='with-space'>当将资产从账户A转移到账户B时，会触发Verification合约。所有接收到交易的节点(包括普通节点和异常的共识节点) 会对账户A的合约进行验证。如果返回值为true，则表示转账交易已经成功。如果返回false，则表示转账失败。</p>
+<p class='with-space'>因此，Verification触发器可以用来判断是否需要将交易转发到网络的其余部分。如果返回 <code>false</code> ，则意味着交易不会记录在区块链中，并且交易失败。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static bool Main(byte[] signature)
+{
+    if (Runtime.Trigger == TriggerType.Verification)
+    {
+        if (/*condition A*/)
+                return true;
+            else
+                return false;
+    }  
+}'>Copy</button><pre><code>public static bool Main(byte[] signature)
+{
+    if (Runtime.Trigger == TriggerType.Verification)
+    {
+        if (/*condition A*/)
+                return true;
+            else
+                return false;
+    }  
+}
+</code></pre>
+</figure>
+<h3 id='d18a2565'><span class='with-space bd-content-title'>Application 触发器<a class='anchorjs-link ' href='#d18a2565' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Application触发器作为验证函数来调用合约, 该函数可以接受多个参数、更改区块链状态并返回任何类型的值。</p>
+<p class='with-space'>与由转账交易触发的 Verification 触发器不同，Application触发器是由特殊交易 <code>InvocationTransaction</code> 触发的。如果应用程序(Web/App)调用一个智能合约，就会构造一个 <code>InvocationTransaction</code> ，然后在procaAn应用程序触发器中进行签名和广播，将合约作为验证函数调用。在 <code>InvocationTransaction</code> 交易被确认后，共识节点就会执行智能合约。公共节点在转发交易时不会执行智能合约。</p>
+<p class='with-space'>由于应用程序合约是在 <code>InvocationTransaction</code> 被确认后执行的，所以无论应用程序合约的执行是否成功，该交易都将记录在区块链中。</p>
+<p class='with-space'>InvocationTransaction 的成功与否和智能合约执行的成功或失败没有必然联系。</p>
+<p class='with-space'>通常在智能合约中， verification 触发器和 application 触发器都是可以捕获到的，开发人员必须对这些触发器进行处理。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static Object Main(string operation, params object[] args)
+{
+    if (Runtime.Trigger == TriggerType.Verification)
+    {
+        if (/*Condition A*/)
+                return true;
+            else
+                return false;
+    }  
+    if (Runtime.Trigger == TriggerType.Application)
+    {
+        if (operation == &quot;FunctionA&quot;) return FunctionA(args);
+    }  
+}
+
+// 有一个智能合约的入口点，并从Main方法中重定向
+public static bool FunctionA(params object[] args)
+{
+    // 其他代码  
+}'>Copy</button><pre><code>public static Object Main(string operation, params object[] args)
+{
+    if (Runtime.Trigger == TriggerType.Verification)
+    {
+        if (/*Condition A*/)
+                return true;
+            else
+                return false;
+    }  
+    if (Runtime.Trigger == TriggerType.Application)
+    {
+        if (operation == &quot;FunctionA&quot;) return FunctionA(args);
+    }  
+}
+
+// 有一个智能合约的入口点，并从Main方法中重定向
+public static bool FunctionA(params object[] args)
+{
+    // 其他代码  
+}
+</code></pre>
+</figure>
+<p class='with-space'>在我们的 <code>DNS智能合约</code> 中，第一个方法是 <code>Main</code> 方法，它是智能合约的主要入口点。Main 方法将第一个参数解析为操作参数，剩下的为其他参数。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static object Main(string operation, params object[] args){
+    if (Runtime.Trigger == TriggerType.Application){
+        switch (operation){
+        case &quot;query&quot;:
+                 return Query((string)args[0]);
+        case &quot;register&quot;:
+                return Register((string)args[0], (byte[])args[1]);
+        case &quot;delete&quot;:
+                return Delete((string)args[0]);re
+        default:
+                return false;
+        }
+    }
+}'>Copy</button><pre><code>public static object Main(string operation, params object[] args){
+    if (Runtime.Trigger == TriggerType.Application){
+        switch (operation){
+        case &quot;query&quot;:
+                 return Query((string)args[0]);
+        case &quot;register&quot;:
+                return Register((string)args[0], (byte[])args[1]);
+        case &quot;delete&quot;:
+                return Delete((string)args[0]);re
+        default:
+                return false;
+        }
+    }
+}
+</code></pre>
+</figure>
+<p class='with-space'>在 Main 方法中，我们首先使用触发器来判断用户是否使用 <code>invocationTransaction</code> 来调用智能合约，这个交易表示用户在调用智能合约程序。这里，由于它是一个没有资产转账的普通类型的智能合约，因此只考虑Application触发器。在判断语句中，方法将根据操作类型重定向至其他函数。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='if (Runtime.Trigger == TriggerType.Application)'>Copy</button><pre><code>if (Runtime.Trigger == TriggerType.Application)
+</code></pre>
+</figure>
+<p class='with-space'>现在我们可以看看每个具体的函数中执行了什么操作。第一个是 Query 方法，它用来查询域名地址的所属者。这里我们使用 <code>Storage.Get</code> 方法，第一个参数是 context，这里我们传入 CurrentContext。第二个参数是存储的键值对的键。这里我们使用域名作为参数。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='private static byte[] Query(string domain){
+    return Storage.Get(Storage.CurrentContext, domain);
+}'>Copy</button><pre><code>private static byte[] Query(string domain){
+    return Storage.Get(Storage.CurrentContext, domain);
+}
+</code></pre>
+</figure>
+<h2 id='aa0c7ed7'><span class='with-space bd-content-title'>CheckWitness<a class='anchorjs-link ' href='#aa0c7ed7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>在许多情况下(如果不是所有情况)，你可能希望对调用合约代码的地址进行验证。</p>
+<p class='with-space'> <code>Runtime.CheckWitness</code> 方法接受一个参数，该参数表示你想要验证的调用合约代码的地址。更准确地来说，它验证调用合约的交易/区块是否已验证了所需的脚本散列。</p>
+<p class='with-space'>通常，这个方法用于检查指定的地址是否是合约调用者，然后可以使用该地址进行存储更改或一些其他操作。</p>
+<p class='with-space'>在我们的 <code>DNS智能合约</code> 中， <code>Register</code> 方法首先检查调用合约的人是否是域名的所属者。这里我们使用 <code>Runtime.CheckWitness</code> 方法。然后我们首先试着去获取域名的所属者，看看该域名是否已经存在于存储区。如果没有，我们可以使用 <code>Storage.Put</code> 方法来存储域名-&gt; 所属者的键值对。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='private static bool Register(string domain, byte[] owner){
+     if (!Runtime.CheckWitness(owner))
+        return false;
+     byte[] value = Storage.Get(Storage.CurrentContext, domain);
+     if (value != null)
+        return false;
+     Storage.Put(Storage.CurrentContext, domain, owner);
+     return true;
+ }'>Copy</button><pre><code>private static bool Register(string domain, byte[] owner){
+     if (!Runtime.CheckWitness(owner))
+        return false;
+     byte[] value = Storage.Get(Storage.CurrentContext, domain);
+     if (value != null)
+        return false;
+     Storage.Put(Storage.CurrentContext, domain, owner);
+     return true;
+ }
+</code></pre>
+</figure>
+<p class='with-space'>与 <code>Register</code> 方法类似， <code>Delete</code> 方法首先检查域名所属者是否存在，如果存在，再判断调用合约的是否是该域名的所属者，如果是，则使用 <code>Storage.Delete</code> 方法来删除该键值对。关于这个方法，本节最后留有一个问题。</p>
+<h2 id='defba9a0'><span class='with-space bd-content-title'>事件<a class='anchorjs-link ' href='#defba9a0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>在智能合约中，事件是区块链与应用程序前端(或后端)进行通信的一种方式，后者可以“监听”某些事件，并在事件发生时做一些操作。你可以使用这个机制来更新外部数据库、做一些分析或更新 UI。在某些特定的合约标准中，它定义了一些应该发布的事件。本节没有涉及到这方面的相关内容，但是它对于其他智能合约而言确实非常有用。例如，在 NEP-5Token 标准中，事件 <code>转账</code> 应该在用户调用转账方法时触发。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='//当对NEP-5资产进行转账时调用
+public static event transfer(byte[] from, byte[] to, BigInteger amount)'>Copy</button><pre><code>//当对NEP-5资产进行转账时调用
+public static event transfer(byte[] from, byte[] to, BigInteger amount)
+</code></pre>
+</figure>
+<h2 id='f69eae74'><span class='with-space bd-content-title'>Assignment<a class='anchorjs-link ' href='#f69eae74' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>在上面的 <code>DNS</code> 智能合约中，有一个 <code>delete</code> 方法。其基本思想是首先检查域名所属者，如果存在并且与合约的调用者相同，则使用 <code>Storage.Delete</code> 方法来删除相应的键值对。请实现这个功能。</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/zh-cn/sc\write\basics.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#fd8b8276'>合约开发基础</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#bb63e2f3'>合约结构</a>
+<a class='ml-0 my-1 nav-link' href='#c5f803d9'>合约属性</a>
+<a class='ml-0 my-1 nav-link' href='#a88f67d8'>存储属性</a>
+<a class='ml-0 my-1 nav-link' href='#f3000088'>数据类型</a>
+<a class='ml-0 my-1 nav-link' href='#e0b82776'>第一个智能合约</a>
+<a class='ml-0 my-1 nav-link' href='#c53fc651'>Main 方法</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f30a8ed4'>触发器</a>
+<a class='ml-2 my-1 nav-link' href='#ac8a81dc'>Verification 触发器</a>
+<a class='ml-2 my-1 nav-link' href='#d18a2565'>Application 触发器</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#aa0c7ed7'>CheckWitness</a>
+<a class='ml-0 my-1 nav-link' href='#defba9a0'>事件</a>
+<a class='ml-0 my-1 nav-link' href='#f69eae74'>Assignment</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

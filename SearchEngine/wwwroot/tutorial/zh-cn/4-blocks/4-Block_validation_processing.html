@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>区块验证</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/1-Introduction_to_NEO.html'>简介</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>密码学、区块链和智能合约</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/3-Fundamentals_of_NEO.html'>基础知识</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>钱包</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/1-Introduction_to_wallets.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>私钥和地址生成</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/3-Key_encryption_and_contract_accounts.html'>私钥与合约账户</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/4-UTXO_and_account_models.html'>UTXO 与账户模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/1-Introduction_to_transactions.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/2-Structure_of_NEO_transactions.html'>交易结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/3-NEO_transaction_types.html'>交易类型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/4-NEO_transaction_fees.html'>交易手续费</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/2-Structure_of_a_block.html'>区块结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/3-Block_creation_broadcasting.html'>区块创建与广播</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/4-Block_validation_processing.html'>区块验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/1-Introduction_to_the_NEO_network_protocol.html'>协议和网络</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>持久性</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/1-persistence.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/2-levelDB_data_structure.html'>LevelDB 数据结构</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/1-Introduction_to_consensus.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW 与 PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/3-PBFT_and_DBFT.html'>pBFT 与 dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>共识示例与场景</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_smart_contract.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_privateChain.html'>搭建私链</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_set_up.html'>搭建开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_compile.html'>编译、调用与部署</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Smart_Contract_basics.html'>智能合约基础</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>创建 NEP-5 合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_nep5.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Implementation_of_NEP5.html'>实现 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Give_an_ITO.html'>ITO</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/UTXO.html'>UTXO 基础</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/1_what_is_cgas.html'>什么是 CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/2_global_asset_and_nep5.html'>全局资产与 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/3_utxo_model.html'>UTXO 模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/4_trigger.html'>触发器</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/5_minttokens_and_refund.html'>铸币与退款</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/6_signature_and_verification.html'>签名与验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/7_invocation.html'>交易调用</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/neo_python_quickstart_cn.html'>NEO Python 快速入门</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='c5d014c0'><span class='with-space bd-content-title'>区块验证<a class='anchorjs-link ' href='#c5d014c0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>与交易一样，网络中的节点也会对区块执行验证操作。验证要实现的是每个区块都可以在任意节点上独立地进行验证，且不依赖于任何外部特征。</p>
+<h2 id='eeca3f95'><span class='with-space bd-content-title'>调用脚本和验证脚本<a class='anchorjs-link ' href='#eeca3f95' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>网络上的每个全节点都从其他节点那里接收完整的NEO区块链数据。对于接收到的每个区块，都会独立地执行验证，以确保接收到的区块不是由恶意节点或故障节点发送的。这样节点就不必信任其他的节点，从而创建了一个安全且去信任的系统。对于收到的每个区块，节点会通过使用验证脚本中的公钥来验证调用脚本中签名的方式，对区块中的所有交易进行验证。可以将这个调用脚本视为能解锁UTXO的密钥，证明该脚本有权限花费这个UTXO，同时将验证脚本作为工具传递给每个节点进行验证。有关交易验证的更多信息，请查看 <a href='../3-transactions/1-Introduction_to_transactions.html'> 交易</a> 。</p>
+<p class='with-space'>除了交易内的调用脚本和验证脚本之外，区块本身也包含有一个调用脚本和验证脚本。验证脚本有时也被称为<em>见证人</em>。</p>
+<p class='with-space'>当查看 <a href='../4-blocks/2-Structure_of_a_block.html'> 区块结构</a> 中所介绍的高度为3,649,960的区块时，我们可以在其 <code>script</code> 字段中看到这两个脚本。为方便起见，我们把这部分信息提取出来了：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='&quot;script&quot;: {
+    &quot;invocation&quot;: &quot;4013a82dff8a58ff750703cc32852899124917ded6bd7a7d66bf31d693890488717ab4ee258c0806286d3c2d49da4f9f52d1c6a20843ab5a9a0b4e867ed3d4c5644087875bbc17e8300bb2ee82b3623833be4693fe378cde10e380ce64fe4f1cdba6acb70b6d9d3c52efaa776a6c8a5f91cf3a48b6df79edeae1cd26259b00add96640a1053731b59c6687965e942600301b68f79252e9aa08047115e649930df679d853438bc95c88c9cfa7aa9737d51f82d25dde5b5435cd8266a132a726d7d01f294043df832e612d220c3ce639cbca4ab18f9ce21dfd8718340dae4ca49fd239a4ee06d294e9d583bc4e0da5cccb5eb0f35e7b836d7c633b1e9ca20c0c0af429644740c352f2425c56001a292cc28cba9e736913f9c116580796efacda4270ac104659173ee1bc4bed706c0f3ea90c9b8201653abe74a30e627c443855af6c08c90acb&quot;,
+    &quot;verification&quot;: &quot;5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae&quot;
+}'>Copy</button><pre><code>&quot;script&quot;: {
+    &quot;invocation&quot;: &quot;4013a82dff8a58ff750703cc32852899124917ded6bd7a7d66bf31d693890488717ab4ee258c0806286d3c2d49da4f9f52d1c6a20843ab5a9a0b4e867ed3d4c5644087875bbc17e8300bb2ee82b3623833be4693fe378cde10e380ce64fe4f1cdba6acb70b6d9d3c52efaa776a6c8a5f91cf3a48b6df79edeae1cd26259b00add96640a1053731b59c6687965e942600301b68f79252e9aa08047115e649930df679d853438bc95c88c9cfa7aa9737d51f82d25dde5b5435cd8266a132a726d7d01f294043df832e612d220c3ce639cbca4ab18f9ce21dfd8718340dae4ca49fd239a4ee06d294e9d583bc4e0da5cccb5eb0f35e7b836d7c633b1e9ca20c0c0af429644740c352f2425c56001a292cc28cba9e736913f9c116580796efacda4270ac104659173ee1bc4bed706c0f3ea90c9b8201653abe74a30e627c443855af6c08c90acb&quot;,
+    &quot;verification&quot;: &quot;5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae&quot;
+}
+</code></pre>
+</figure>
+<p class='with-space'>这看起来似乎是一些完全随机的神秘代码。 然而，这种神秘其实是有理可循的。 让我们再深入挖掘下。</p>
+<h2 id='da2ffe76'><span class='with-space bd-content-title'>操作码<a class='anchorjs-link ' href='#da2ffe76' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>可以点击 <a href='https://github.com/neo-project/neo-vm/blob/master/src/neo-vm/OpCode.cs' target='_blank'> 此处</a> 查看NEO的操作码。 验证区块时，这些操作码会告诉NeoVM如何执行操作。 我们来看看这个验证字符串。 由于这是以16进制表示的字节码，我们一字节一字节的来分析。它的工作方式是解释每个操作码并将其推送到执行栈，一次一个操作码。 最后由NeoVM来执行该堆栈以便对区块进行验证。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae'>Copy</button><pre><code>5521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b6421035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a32103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae
+</code></pre>
+</figure>
+<ol>
+<li>
+<p class='with-space'>我们从第一个字节开始： <code>0x55</code> 。 根据OpCodes表可知：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='/// &lt;summary&gt; 
+/// 数字5被推送至堆栈 
+/// &lt;/ summary &gt; 
+PUSH5 = 0x55 '>Copy</button><pre><code>/// &lt;summary&gt; 
+/// 数字5被推送至堆栈 
+/// &lt;/ summary &gt; 
+PUSH5 = 0x55 
+</code></pre>
+</figure>
+<p class='with-space'>因此将数字5加入至堆栈</p></li>
+<li>
+<p class='with-space'>接下来： <code>0x21</code> 。 获取接下来的33个字节并推送至堆栈。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='/// &lt;summary&gt; 
+/// 将33个字节推送至计算栈 
+/// &lt;/summary&gt; 
+PUSHBYTES33 = 0x21 '>Copy</button><pre><code>/// &lt;summary&gt; 
+/// 将33个字节推送至计算栈 
+/// &lt;/summary&gt; 
+PUSHBYTES33 = 0x21 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>接下来的33个字节被推送到堆栈：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d '>Copy</button><pre><code>024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>在这33个字节之后，再次遇到了操作码 <code>0x21</code> （... 6662d4a59ad548df0e7d <strong>21</strong> 025bdf3f ...）。 这又意味着将接下来的33个字节推入堆栈。操作码 <code>0x21</code> 总共出现了7次，因此执行7次将33字节推入堆栈的操作。</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>一共执行7次将33字节添加到堆栈的操作</th></tr></thead>
+<tbody><tr><td>0x024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d</td></tr><tr><td>0x025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b64</td></tr><tr><td>0x035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a3</td></tr><tr><td>0x03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c</td></tr><tr><td>0x03b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a</td></tr><tr><td>0x02ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba554</td></tr><tr><td>0x02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093</td></tr>
+</tbody>
+</table></figure></li>
+<li>
+<p class='with-space'>快成功了！ 现在只剩下最后2个字节了。 下一个是 <code>0x57</code> 。 所以向堆栈加入数字7。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='/// &lt;summary&gt; 
+/// 数字7被推送至堆栈 
+/// &lt;/summary&gt; 
+PUSH7 = 0x57 '>Copy</button><pre><code>/// &lt;summary&gt; 
+/// 数字7被推送至堆栈 
+/// &lt;/summary&gt; 
+PUSH7 = 0x57 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>要解析的最后一个字节是 <code>0xae</code> 。 查看这个字节码可知：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='/// &lt;summary&gt; 
+/// 根据一组m个签名（一个数组或值m后跟着m个签名）验证一组n个公钥（一个数组或值n后跟着n个公钥）。 使用多方签名的方式对交易进行验证，并将布尔输出值加入至主堆栈的顶部。 
+/// &lt;/summary&gt; 
+CHECKMULTISIG = 0xAE '>Copy</button><pre><code>/// &lt;summary&gt; 
+/// 根据一组m个签名（一个数组或值m后跟着m个签名）验证一组n个公钥（一个数组或值n后跟着n个公钥）。 使用多方签名的方式对交易进行验证，并将布尔输出值加入至主堆栈的顶部。 
+/// &lt;/summary&gt; 
+CHECKMULTISIG = 0xAE 
+</code></pre>
+</figure>
+<p class='with-space'>因此最终的堆栈是这样的：</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>验证脚本的完整堆栈</th></tr></thead>
+<tbody><tr><td>5</td></tr><tr><td>0x024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d</td></tr><tr><td>0x025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b64</td></tr><tr><td>0x035e819642a8915a2572f972ddbdbe3042ae6437349295edce9bdc3b8884bbf9a3</td></tr><tr><td>0x03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c</td></tr><tr><td>0x03b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a</td></tr><tr><td>0x02ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba554</td></tr><tr><td>0x02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093</td></tr><tr><td>7</td></tr><tr><td>CHECKMULTISIG</td></tr>
+</tbody>
+</table></figure>
+<p class='with-space'>当我们按照相同的过程来解码调用脚本的字节码时，我们提出了5个16进制字符串，每个64字节长。</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>调用脚本的完整堆栈</th></tr></thead>
+<tbody><tr><td>0x13a82dff8a58ff750703cc32852899124917ded6bd7a7d66bf31d693890488717ab4ee258c0806286d3c2d49da4f9f52d1c6a20843ab5a9a0b4e867ed3d4c564</td></tr><tr><td>0x87875bbc17e8300bb2ee82b3623833be4693fe378cde10e380ce64fe4f1cdba6acb70b6d9d3c52efaa776a6c8a5f91cf3a48b6df79edeae1cd26259b00add966</td></tr><tr><td>0xa1053731b59c6687965e942600301b68f79252e9aa08047115e649930df679d853438bc95c88c9cfa7aa9737d51f82d25dde5b5435cd8266a132a726d7d01f29</td></tr><tr><td>0x43df832e612d220c3ce639cbca4ab18f9ce21dfd8718340dae4ca49fd239a4ee06d294e9d583bc4e0da5cccb5eb0f35e7b836d7c633b1e9ca20c0c0af4296447</td></tr><tr><td>0xc352f2425c56001a292cc28cba9e736913f9c116580796efacda4270ac104659173ee1bc4bed706c0f3ea90c9b8201653abe74a30e627c443855af6c08c90acb</td></tr>
+</tbody>
+</table></figure></li>
+</ol>
+<h2 id='c38b255a'><span class='with-space bd-content-title'>解释<a class='anchorjs-link ' href='#c38b255a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>我们做到了！我们已经解析了调用脚本和验证脚本中的内容，现在让我们来看看其中所代表的含义。这些脚本的目的是允许任意节点都能验证该区块是由共识节点创建并达成共识的。为此，共识节点会使用自己的私钥对区块进行签名。当7个共识节点中有5个对同一区块签名的话，就表示节点达成了共识且该区块是有效的。这5个签名包含在调用脚本中。</p>
+<p class='with-space'>现在我们需要做的就是验证这5个签名的有效性，以便对这个区块进行验证。为此，区块内会包含有验证脚本。通过这种方式，区块就可以告知每个节点如何执行验证操作。验证区块的节点会执行验证脚本，如果脚本验证通过，则表明该区块是有效的。</p>
+<p class='with-space'>我们已经了解了验证脚本的含义。其中使用到了创建该区块所涉及到的7个共识节点的公钥。这种方式是使用了类似于多方签名交易的概念，并将这个应用于区块中。最后一个操作码 <code>CHECKMULTISIG</code> 表明了前面这些字节数据的意义。语法解释为七分之五的多方签名，因此堆栈上的7个33字节长的字符串会被解释为这7个节点的公钥。</p>
+<p class='with-space'>如果使用验证脚本中七分之五的公钥对调用脚本中5个签名的验证执行通过的话，则认为区块是有效的。</p>
+<h2 id='be467e51'><span class='with-space bd-content-title'>阅读下节<a class='anchorjs-link ' href='#be467e51' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='../5-network/1-Introduction_to_the_NEO_network_protocol'> NEO 协议和网络</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/zh-cn/4-blocks\4-Block_validation_processing.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#c5d014c0'>区块验证</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#eeca3f95'>调用脚本和验证脚本</a>
+<a class='ml-0 my-1 nav-link' href='#da2ffe76'>操作码</a>
+<a class='ml-0 my-1 nav-link' href='#c38b255a'>解释</a>
+<a class='ml-0 my-1 nav-link' href='#be467e51'>阅读下节</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

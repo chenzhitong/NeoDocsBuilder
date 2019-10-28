@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Give an ITO (Initial Token Offering)</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Introduction to NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/1-Introduction_to_NEO.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>Cryptography, Blockchain, and Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.html'>NEO Fundamentals</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Wallet</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/1-Introduction_to_wallets.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>Keys and Addresses</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.html'>Private key encryption and Wallet files</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/4-UTXO_and_account_models.html'>The UTXO and Account models</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Transactions</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/1-Introduction_to_transactions.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.html'>Structure of NEO transactions</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/3-NEO_transaction_types.html'>NEO transaction types</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/4-NEO_transaction_fees.html'>Transaction fees</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blocks</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/2-Structure_of_a_block.html'>Structure of a Block</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/3-Block_creation_broadcasting.html'>Block Creation and Broadcasting</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/4-Block_validation_processing.html'>Block Validation and Processing</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.html'>NEO Network and Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Persistence</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/1-persistence.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/2-levelDB_data_structure.html'>Developing a NEO Ping using Golang</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/1-Introduction_to_consensus.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW and PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/3-PBFT_and_DBFT.html'>pBFT and dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>dBFT Consensus Examples and Scenarios</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_smart_contract.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_privateChain.html'>Setting up a Private Chain</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_set_up.html'>Setting up Development Enviroment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_compile.html'>Contract Invoking and Deployment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Smart_Contract_basics.html'>Smart Contract Basics</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Make your NEP-5 Token</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_nep5.html'>Introduction to NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Implementation_of_NEP5.html'>Implementation of NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Give_an_ITO.html'>ITO(Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/UTXO.html'>UTXO basics</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.html'>What is CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.html'>Global asset and NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/3_utxo_model.html'>UTXO model</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/4_trigger.html'>Trigger</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.html'>Mint and Refund</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.html'>Signature and Verification</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/7_invocation.html'>Transaction Invocation</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Write NEO smart contract with Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part1_setup.html'>Installing and Setting up the Environment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part2_neopy.html'>Wallet Operations and Smart Contracts</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <figure><table class='table table-hover d-none'>
+<thead>
+<tr><th>layout</th><th>lang</th><th>lang-ref</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>post</td><td>en</td><td>Give_an_ITO</td>
+</tr>
+</tbody>
+</table></figure>
+<h1 id='e4039e5c'><span class='with-space bd-content-title'>Give an ITO (Initial Token Offering)<a class='anchorjs-link ' href='#e4039e5c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<blockquote class='bd-callout with-space'>
+<p class='with-space'> <strong>Objective</strong> :  Learn the general idea of NEP5</p>
+<p class='with-space'> <strong>Main points</strong> :</p>
+<ol>
+<li>
+<p class='with-space'>What is ITO (Initial Token Offering)</p></li>
+<li>
+<p class='with-space'>Implementation of MintToken function</p></li>
+</ol>
+</blockquote>
+<h2 id='ee84a5b4'><span class='with-space bd-content-title'>What is ITO (Initial Token Offering)<a class='anchorjs-link ' href='#ee84a5b4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>We already know what is a <code>NEP-5</code> token how to <a href='What_is_nep5.html'> implement</a> your NEP-5 token. The NEP-5 token is used as an asset which can used to transfer between users. However, only issue such a <code>NEP-5</code> token is not profitable for issuer because you have to link this asset to outside world manually. In NEO, there is a way for your to trade between <code>NEP-5</code> token  and global asset such as NEO.</p>
+<p class='with-space'>ITO stands for Initial Token Offering. With this process, you can digitize or tokenize your asset and make it publicly available through the internet. This means you can start a business, company or project with any asset value. Via ITO, you generate digital coins or tokens which represent your asset. Consecutively, you can electronically transfer these coins or tokens.</p>
+<p class='with-space'>The ITO standard in NEO is based on the NEP-5 which we implemented before. In addition to those methods and properties already defined in the NEP-5, in the ITO, there are several new emthods and property should add in.</p>
+<h2 id='c3b69ded'><span class='with-space bd-content-title'>Timestamp<a class='anchorjs-link ' href='#c3b69ded' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>It is worth noting that every ITO has limited amount of time and number of tokens. Therefore, in the ITO contract, we should define the start time of ITO and the finish time of ITO. Besides this period, the ITO can not be invoked successfully. <code>`csharp //start time of ito. Which is Monday, August 14, 2017 4:00:00 PM private const int ico_start_time = 1502726400; //end time of ito. Which is : Monday, August 28, 2017 4:00:00 PM private const int ico_end_time = 1503936000;</code> `</p>
+<p class='with-space'>Inside the contract , we add a <code>CurrentSwapRate</code> rate function. The function judge if the current block time is inside the predefined ITO period. In side the function, it get the block time from the <code>Blockchain.GetHeader</code> and the <code>BlockChain.GetHeight</code> API. Those API can query the information of the block and header directly. More API can be found <a href='https://docs.neo.org/en-us/sc/reference/api/neo.html' target='_blank'> here</a> .</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='// The function CurrentSwapRate() returns the current exchange rate
+// between ico tokens and neo during the token swap period
+private static ulong CurrentSwapRate()
+{
+    // factor is detemined by the decimal, which is a constant. The raate means 1 NEO =&gt; 1000 NEP5
+    const ulong basic_rate = 1000 * factor;
+    const int ico_duration = ico_end_time - ico_start_time;
+    BigInteger total_supply = Storage.Get(Storage.CurrentContext, &quot;totalSupply&quot;).AsBigInteger();
+    if (total_supply &gt;= total_amount) return 0;
+    uint now = Blockchain.GetHeader(Blockchain.GetHeight()).Timestamp;
+    int time = (int)now - ico_start_time;
+    if (time &lt; 0){
+        return 0;
+    } else if (time &gt; ico_duration){
+        return 0;
+    } else{
+        return basic_rate;
+    }
+}'>Copy</button><pre><code class='csharp' lang='csharp'>// The function CurrentSwapRate() returns the current exchange rate
+// between ico tokens and neo during the token swap period
+private static ulong CurrentSwapRate()
+{
+    // factor is detemined by the decimal, which is a constant. The raate means 1 NEO =&gt; 1000 NEP5
+    const ulong basic_rate = 1000 * factor;
+    const int ico_duration = ico_end_time - ico_start_time;
+    BigInteger total_supply = Storage.Get(Storage.CurrentContext, &quot;totalSupply&quot;).AsBigInteger();
+    if (total_supply &gt;= total_amount) return 0;
+    uint now = Blockchain.GetHeader(Blockchain.GetHeight()).Timestamp;
+    int time = (int)now - ico_start_time;
+    if (time &lt; 0){
+        return 0;
+    } else if (time &gt; ico_duration){
+        return 0;
+    } else{
+        return basic_rate;
+    }
+}
+</code></pre>
+</figure>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<p class='with-space'>In this code snippet of <code>CurrentSwapRate</code> , only the basic rate is retured, however, in the real life ITO, due to the different time period, the program can return different swap rate.</p>
+</blockquote>
+<h2 id='f6fac736'><span class='with-space bd-content-title'>MintToken<a class='anchorjs-link ' href='#f6fac736' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The <code>MintToken</code> method is the most important method in the ITO contract (which also has more things to learn). Think of the idea that project is published and offer its tokens as a share of that project. What customer can to is donate NEO on the hand to that project and get it&#39;s <code>NEP-5token</code> as a share of that project. This process we call it <code>MintToken</code> </p>
+<p class='with-space'>Now let us implement the <code>MintToken</code> function. Firstly, in the <code>MintToken</code> method, we have to fetch the <code>Transaction</code> object first, which is the script container for this smart contract.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Transaction tx = (Transaction)ExecutionEngine.ScriptContainer;'>Copy</button><pre><code class='csharp' lang='csharp'>Transaction tx = (Transaction)ExecutionEngine.ScriptContainer;
+</code></pre>
+</figure>
+<p class='with-space'>Next, we have to get the <code>references</code> of this transaction. Here, a reference stands for the corresponding output for the inputs of the transaction. After get the references，we’re verifying that the output that is sent to the contract address (this.address) is NEO. After confirm this, we can get the corresponding <code>sender</code> address through the <code>ScriptHash</code> of this <code>TransactionOutput</code> object. We can learn more about <code>reference</code> , <code>inputs</code> and <code>outputs</code> in the <a href='UTXO.html'> UTXO</a> .</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='TransactionOutput reference = tx.GetReferences()[0];
+// check whether asset is neo
+if (reference.AssetId != neo_asset_id) return false;
+byte[] sender = reference.ScriptHash;'>Copy</button><pre><code class='csharp' lang='csharp'>TransactionOutput reference = tx.GetReferences()[0];
+// check whether asset is neo
+if (reference.AssetId != neo_asset_id) return false;
+byte[] sender = reference.ScriptHash;
+</code></pre>
+</figure>
+<p class='with-space'>Now we have to collect the total amount of NEO from the outputs of the transactionOutput.  The <code>outputs</code> here is every output of the current transaction. In this kind of <code>MintToken</code> method of ITO contract, usually we only aaccpt one global asset such as <code>NEO</code> . Therefore, in the for loop that checks for only NEO assets, sum the amount by <code>output.Value</code> .</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='TransactionOutput[] outputs = tx.GetOutputs();
+byte[] receiver = ExecutionEngine.ExecutingScriptHash;
+ulong value = 0;
+// get the total amount of Neo
+// 获取转入智能合约地址的Neo总量
+foreach (TransactionOutput output in outputs){
+    if (output.ScriptHash == receiver){
+       if (output.AssetId != neo_asset_id) {
+          return false;
+        }
+        value += (ulong)output.Value;
+    }
+}'>Copy</button><pre><code class='csharp' lang='csharp'>TransactionOutput[] outputs = tx.GetOutputs();
+byte[] receiver = ExecutionEngine.ExecutingScriptHash;
+ulong value = 0;
+// get the total amount of Neo
+// 获取转入智能合约地址的Neo总量
+foreach (TransactionOutput output in outputs){
+    if (output.ScriptHash == receiver){
+       if (output.AssetId != neo_asset_id) {
+          return false;
+        }
+        value += (ulong)output.Value;
+    }
+}
+</code></pre>
+</figure>
+<p class='with-space'>if the swap_rate is equal to 0, it means the ITO has been finished or the ITO amount has exceed the total supply of token. That will lead to the failure of the crowdfunding and trigger the <code>Refund</code> event.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='// crowdfunding failure
+if (swap_rate == 0){
+    Refund(sender, value);
+    return false;
+}'>Copy</button><pre><code class='csharp' lang='csharp'>// crowdfunding failure
+if (swap_rate == 0){
+    Refund(sender, value);
+    return false;
+}
+</code></pre>
+</figure>
+<p class='with-space'>After successfully handle statements all above, the mint process can be finished. First get the token which exchanged by the global asset. After that, update the balance and the totoalSupply respectively. Finally, fire the Transferred event and returne true.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='// crowdfunding success
+ulong token = value * swap_rate / 100000000;
+BigInteger balance = Storage.Get(Storage.CurrentContext, sender).AsBigInteger();
+Storage.Put(Storage.CurrentContext, sender, token + balance);
+BigInteger totalSupply = Storage.Get(Storage.CurrentContext, &quot;totalSupply&quot;).AsBigInteger();
+Storage.Put(Storage.CurrentContext, &quot;totalSupply&quot;, token + totalSupply);
+Transferred(null, sender, token);
+return true;'>Copy</button><pre><code class='csharp' lang='csharp'>// crowdfunding success
+ulong token = value * swap_rate / 100000000;
+BigInteger balance = Storage.Get(Storage.CurrentContext, sender).AsBigInteger();
+Storage.Put(Storage.CurrentContext, sender, token + balance);
+BigInteger totalSupply = Storage.Get(Storage.CurrentContext, &quot;totalSupply&quot;).AsBigInteger();
+Storage.Put(Storage.CurrentContext, &quot;totalSupply&quot;, token + totalSupply);
+Transferred(null, sender, token);
+return true;
+</code></pre>
+</figure>
+<h2 id='a65bf5b8'><span class='with-space bd-content-title'>Next Step<a class='anchorjs-link ' href='#a65bf5b8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Now you have successfully make your first ITO and familiar with the most ideas of smart contract, the next one will be more difficult contract <a href='cgas/1_what_is_cgas.html'> which is CGAS</a> .</p>
+<p class='with-space'>If you want to know how to implement the NEP5, click <a href='Implementation_of_NEP5.html'> here</a> .</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/en-us/9-smartContract\Give_an_ITO.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#e4039e5c'>Give an ITO (Initial Token Offering)</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#ee84a5b4'>What is ITO (Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='#c3b69ded'>Timestamp</a>
+<a class='ml-0 my-1 nav-link' href='#f6fac736'>MintToken</a>
+<a class='ml-0 my-1 nav-link' href='#a65bf5b8'>Next Step</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

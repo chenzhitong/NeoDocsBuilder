@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Triggers</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Introduction to NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/1-Introduction_to_NEO.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>Cryptography, Blockchain, and Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.html'>NEO Fundamentals</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Wallet</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/1-Introduction_to_wallets.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>Keys and Addresses</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.html'>Private key encryption and Wallet files</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/4-UTXO_and_account_models.html'>The UTXO and Account models</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Transactions</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/1-Introduction_to_transactions.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.html'>Structure of NEO transactions</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/3-NEO_transaction_types.html'>NEO transaction types</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/4-NEO_transaction_fees.html'>Transaction fees</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blocks</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/2-Structure_of_a_block.html'>Structure of a Block</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/3-Block_creation_broadcasting.html'>Block Creation and Broadcasting</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/4-Block_validation_processing.html'>Block Validation and Processing</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.html'>NEO Network and Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Persistence</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/1-persistence.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/2-levelDB_data_structure.html'>Developing a NEO Ping using Golang</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/1-Introduction_to_consensus.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW and PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/3-PBFT_and_DBFT.html'>pBFT and dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>dBFT Consensus Examples and Scenarios</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_smart_contract.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_privateChain.html'>Setting up a Private Chain</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_set_up.html'>Setting up Development Enviroment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_compile.html'>Contract Invoking and Deployment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Smart_Contract_basics.html'>Smart Contract Basics</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Make your NEP-5 Token</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_nep5.html'>Introduction to NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Implementation_of_NEP5.html'>Implementation of NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Give_an_ITO.html'>ITO(Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/UTXO.html'>UTXO basics</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.html'>What is CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.html'>Global asset and NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/3_utxo_model.html'>UTXO model</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/4_trigger.html'>Trigger</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.html'>Mint and Refund</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.html'>Signature and Verification</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/7_invocation.html'>Transaction Invocation</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Write NEO smart contract with Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part1_setup.html'>Installing and Setting up the Environment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part2_neopy.html'>Wallet Operations and Smart Contracts</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='b35110fe'><span class='with-space bd-content-title'>Triggers<a class='anchorjs-link ' href='#b35110fe' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='c7d3cff2'><span class='with-space bd-content-title'>The trigger part of Verification<a class='anchorjs-link ' href='#c7d3cff2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>This part of the code is executed in the first two steps of refund. If the execution is successful, the transaction is confirmed; otherwise it will not be confirmed.</p>
+<p class='with-space'>The execution logic is:</p>
+<p class='with-space'>Get all inputs and outputs of the current transaction, and analyze the inputs to determine whether input marked as refund is included. If so, it is considered that the the user is preforming the second step for refund, while if not, the user should be in the first step for refund.</p>
+<p class='with-space'>The logic for the second refund step is simple. Only those marked as refund can take away the token.</p>
+<p class='with-space'>The logic for the first step also is not complicated, and the amount in the CGAS contract will not be reduced after the transaction.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='var tx = ExecutionEngine.ScriptContainer as Transaction;
+var inputs = tx.GetInputs();
+var outputs = tx.GetOutputs();'>Copy</button><pre><code class='csharp' lang='csharp'>var tx = ExecutionEngine.ScriptContainer as Transaction;
+var inputs = tx.GetInputs();
+var outputs = tx.GetOutputs();
+</code></pre>
+</figure>
+<p class='with-space'>This code section is to get the transaction invoked by the smart contract, so as to get the transaction inputs and outputs, in preparation for subsequent judgment.</p>
+<p class='with-space'>So how to determine whether there exists input marked as refund in the inputs?</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='foreach (var input in inputs)
+{
+    if (input.PrevIndex == 0)//If UTXO n is 0, it is possible to be a marker UTXO
+    {
+        StorageMap refund = Storage.CurrentContext.CreateMap(nameof(refund));
+        var refundMan = refund.Get(input.PrevHash);
+        //If the input that is marked for refund
+        if (refundMan.Length &gt; 0)
+        {
+            //Only one input and one output is allowed in refund
+            if (inputs.Length != 1 || outputs.Length != 1)
+                return false;
+            return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();
+        }
+    }
+}'>Copy</button><pre><code class='csharp' lang='csharp'>foreach (var input in inputs)
+{
+    if (input.PrevIndex == 0)//If UTXO n is 0, it is possible to be a marker UTXO
+    {
+        StorageMap refund = Storage.CurrentContext.CreateMap(nameof(refund));
+        var refundMan = refund.Get(input.PrevHash);
+        //If the input that is marked for refund
+        if (refundMan.Length &gt; 0)
+        {
+            //Only one input and one output is allowed in refund
+            if (inputs.Length != 1 || outputs.Length != 1)
+                return false;
+            return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();
+        }
+    }
+}
+</code></pre>
+</figure>
+<p class='with-space'>First, we proceeded to traverse all the transaction inputs. In the first step of refund operation, it is stipulated that the transaction output with index 0 is marked when user preform refund. So here the prevIndex of UTXO is checked. If it is 0, it may be the marked UTXO, and then go the next step. The next step is to read the UTXO prevHash from the store, if the return is not empty, it&#39;s the UTXO marked as refund.</p>
+<p class='with-space'>Q: Since the prevHash read from the store is the final criterion, what is the judge of prevIndex for?</p>
+<p class='with-space'>A: the operation of storage area will cost more fees, so we take the two-level judgment. First, the low-fee judgment is performed, and then we conduct the high-fee judgment.</p>
+<h3 id='b0a81ac1'><span class='with-space bd-content-title'> <strong>The code for the second step of refund</strong> <a class='anchorjs-link ' href='#b0a81ac1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The user should be able to withdraw the respectively amount of the token when value can be read from the storage area, but cannot withdraw the rest of the token in CGAS. Therefore, the number of inputs and outputs is limited here; only one input and one output are allowed in the refund operation.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='if (inputs.Length != 1 || outputs.Length != 1)
+    return false;
+return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();'>Copy</button><pre><code class='csharp' lang='csharp'>if (inputs.Length != 1 || outputs.Length != 1)
+    return false;
+return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();
+</code></pre>
+</figure>
+<p class='with-space'>The last line means that only the owner of the UTXO, who marks it as refund, is allowed to withdraw the token. However, if only one input and one output are allowed, there should be a potential Bug, that is, if you intend to pay the fee, you can only pay it by reducing the amount of outputs, but not by adding inputs. In other words, users cannot add a UTXO with GAS as an additional fee.</p>
+<p class='with-space'>How to improve?</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='var references = tx.GetReferences();
+for (int i = 1; i &lt; references.Length; i++)
+{
+    if (references[i].ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        return false;
+}
+return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();'>Copy</button><pre><code class='csharp' lang='csharp'>var references = tx.GetReferences();
+for (int i = 1; i &lt; references.Length; i++)
+{
+    if (references[i].ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        return false;
+}
+return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();
+</code></pre>
+</figure>
+<p class='with-space'>Just like the above code, only the first UTXO in inputs can be taken from CGAS, and the rest cannot be withdrawn from CGAS. As with the code, it forms a convention that the UTXO to be taken must be used only as the first input. If the user’s additional fee is used as the first input, and the UTXO to be taken as the second input, then it will not perform successfully.</p>
+<p class='with-space'>Of course, the following improvement is also feasible:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='var references = tx.GetReferences();
+int count = 0;
+for (int i = 1; i &lt; references.Length; i++)
+{
+    if (references[i].ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        count++;
+}
+if(count &gt; 1)
+    return false;
+return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();'>Copy</button><pre><code class='csharp' lang='csharp'>var references = tx.GetReferences();
+int count = 0;
+for (int i = 1; i &lt; references.Length; i++)
+{
+    if (references[i].ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        count++;
+}
+if(count &gt; 1)
+    return false;
+return outputs[0].ScriptHash.AsBigInteger() == refundMan.AsBigInteger();
+</code></pre>
+</figure>
+<p class='with-space'>This removes the restriction that the UTXO to be taken must be used as the first input, but the additional code also cost more fees. It&#39;s all about finding a balance between fees and user experience.</p>
+<p class='with-space'>Only one input and one output are allowed</p>
+<h3 id='a33d0649'><span class='with-space bd-content-title'> <strong>Code for the first step of refund</strong> <a class='anchorjs-link ' href='#a33d0649' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>When no refund is detected in all inputs, the user is considered to be performing the first step of refund.</p>
+<p class='with-space'>Unlike the second step, the first refund step is an InvocationTransaction which is divided into two steps. The first step is performed through Verification trigger, which allows a transfer from CGAS address to CGAS address. It requires that the amount of the CGAS address should not be less after the transfer. Moreover, we could not use UTXO marked as refund when transferring assets. The second step is performed through the Application trigger, which is executed after the transaction is confirmed. The Verification trigger section is included here.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='var currentHash = ExecutionEngine.ExecutingScriptHash;
+
+BigInteger inputAmount = 0;
+foreach (var refe in tx.GetReferences())
+{
+    if (refe.AssetId.AsBigInteger() != AssetId.AsBigInteger())
+        return false;
+    if (refe.ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        inputAmount += refe.Value;
+}
+
+BigInteger outputAmount = 0;
+foreach (var output in outputs)
+{
+    if (output.ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        outputAmount += output.Value;
+}
+
+return outputAmount == inputAmount;'>Copy</button><pre><code class='csharp' lang='csharp'>var currentHash = ExecutionEngine.ExecutingScriptHash;
+
+BigInteger inputAmount = 0;
+foreach (var refe in tx.GetReferences())
+{
+    if (refe.AssetId.AsBigInteger() != AssetId.AsBigInteger())
+        return false;
+    if (refe.ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        inputAmount += refe.Value;
+}
+
+BigInteger outputAmount = 0;
+foreach (var output in outputs)
+{
+    if (output.ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        outputAmount += output.Value;
+}
+
+return outputAmount == inputAmount;
+</code></pre>
+</figure>
+<p class='with-space'>The code logic should be simple. First, inputs should not include non-GAS assets, then inputs from the CGAS addresses are summed, and outputs transferred to the CGAS addresses are summed as well. Finally, compare whether the sum of inputs and outpus is equal.</p>
+<p class='with-space'>Additional fees are allowed for the code in CGAS, but when it comes to CNEO, as it cannot contain non-NEO assets, it&#39;s not allowed to add fees. This is already a Bug, but it has little impact at present. How to improve?</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='BigInteger inputAmount = 0;
+foreach (var refe in tx.GetReferences())
+{
+    if (refe.AssetId.AsBigInteger() == AssetId.AsBigInteger() &amp;&amp; refe.ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        inputAmount += refe.Value;
+}
+
+BigInteger outputAmount = 0;
+foreach (var output in outputs)
+{
+    if (output.AssetId.AsBigInteger() == AssetId.AsBigInteger() &amp;&amp; output.ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        outputAmount += output.Value;
+}
+return outputAmount == inputAmount;'>Copy</button><pre><code class='csharp' lang='csharp'>BigInteger inputAmount = 0;
+foreach (var refe in tx.GetReferences())
+{
+    if (refe.AssetId.AsBigInteger() == AssetId.AsBigInteger() &amp;&amp; refe.ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        inputAmount += refe.Value;
+}
+
+BigInteger outputAmount = 0;
+foreach (var output in outputs)
+{
+    if (output.AssetId.AsBigInteger() == AssetId.AsBigInteger() &amp;&amp; output.ScriptHash.AsBigInteger() == currentHash.AsBigInteger())
+        outputAmount += output.Value;
+}
+return outputAmount == inputAmount;
+</code></pre>
+</figure>
+<p class='with-space'>The above code first removes the restriction that does not allow other assets to be included, and then determines whether the amount of specified assets from the contract address in the transaction inputs is equal to the amount of specified assets to the contract address in the transaction outputs. This prevents the loss of the assets specified in the contract.</p>
+<p class='with-space'>In the judgment, it is necessary to judge not only the amount of assets, but also the type of assets; otherwise the following attacks may occur:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Transaction inputs                      Transaction outputs
+
+CGAS  100 GAS                CGAS  100 Token1
+User1 100 Token1             User1 100 GAS  '>Copy</button><pre><code>Transaction inputs                      Transaction outputs
+
+CGAS  100 GAS                CGAS  100 Token1
+User1 100 Token1             User1 100 GAS  
+</code></pre>
+</figure>
+<p class='with-space'>Where User1 is the user&#39;s address and Token1 is some other worthless global asset.</p>
+<p class='with-space'>The security of smart contracts is no less than the security of financial softwares, which needs to be considered very comprehensively when writing to avoid vulnerability.</p>
+<h2 id='a2293468'><span class='with-space bd-content-title'>The trigger part of Application<a class='anchorjs-link ' href='#a2293468' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>This part is very simple. It is the standard smart contract format, that is, executing different methods according to the type of the method.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='if (Runtime.Trigger == TriggerType.Application)
+{
+    var callscript = ExecutionEngine.CallingScriptHash;
+
+    if (method == &quot;balanceOf&quot;) return BalanceOf((byte[])args[0]);
+
+    if (method == &quot;decimals&quot;) return Decimals();
+
+    if (method == &quot;getRefundTarget&quot;) return GetRefundTarget((byte[])args[0]);
+
+    if (method == &quot;getTxInfo&quot;) return GetTxInfo((byte[])args[0]);
+
+    if (method == &quot;mintTokens&quot;) return MintTokens();
+
+    if (method == &quot;name&quot;) return Name();
+
+    if (method == &quot;refund&quot;) return Refund((byte[])args[0]);
+
+    if (method == &quot;symbol&quot;) return Symbol();
+
+    if (method == &quot;supportedStandards&quot;) return SupportedStandards();
+
+    if (method == &quot;totalSupply&quot;) return TotalSupply();
+
+    if (method == &quot;transfer&quot;) return Transfer((byte[])args[0], (byte[])args[1], (BigInteger)args[2], callscript);
+}'>Copy</button><pre><code class='csharp' lang='csharp'>if (Runtime.Trigger == TriggerType.Application)
+{
+    var callscript = ExecutionEngine.CallingScriptHash;
+
+    if (method == &quot;balanceOf&quot;) return BalanceOf((byte[])args[0]);
+
+    if (method == &quot;decimals&quot;) return Decimals();
+
+    if (method == &quot;getRefundTarget&quot;) return GetRefundTarget((byte[])args[0]);
+
+    if (method == &quot;getTxInfo&quot;) return GetTxInfo((byte[])args[0]);
+
+    if (method == &quot;mintTokens&quot;) return MintTokens();
+
+    if (method == &quot;name&quot;) return Name();
+
+    if (method == &quot;refund&quot;) return Refund((byte[])args[0]);
+
+    if (method == &quot;symbol&quot;) return Symbol();
+
+    if (method == &quot;supportedStandards&quot;) return SupportedStandards();
+
+    if (method == &quot;totalSupply&quot;) return TotalSupply();
+
+    if (method == &quot;transfer&quot;) return Transfer((byte[])args[0], (byte[])args[1], (BigInteger)args[2], callscript);
+}
+</code></pre>
+</figure>
+<p class='with-space'>Remarkably, the ExecutionEngine.CallingScriptHash method means to obtain the upper level of the contract invocation chain, which is the contract invoking CGAS. This method needs to be executed in the first place. If it is executed in the Transfer method, the obtained value may not be the scriptHash of the upper level of the invocation chain.</p>
+<h2 id='b4e00638'><span class='with-space bd-content-title'>The trigger part of VerificationR<a class='anchorjs-link ' href='#b4e00638' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='if (Runtime.Trigger == TriggerType.VerificationR) //Backward compatibility, refusing to accept other assets
+{
+    var currentHash = ExecutionEngine.ExecutingScriptHash;
+    var tx = ExecutionEngine.ScriptContainer as Transaction;
+    foreach (var output in tx.GetOutputs())
+    {
+        if (output.ScriptHash == currentHash &amp;&amp; output.AssetId.AsBigInteger() != AssetId.AsBigInteger())
+            return false;
+    }
+    return true;
+}'>Copy</button><pre><code class='csharp' lang='csharp'>if (Runtime.Trigger == TriggerType.VerificationR) //Backward compatibility, refusing to accept other assets
+{
+    var currentHash = ExecutionEngine.ExecutingScriptHash;
+    var tx = ExecutionEngine.ScriptContainer as Transaction;
+    foreach (var output in tx.GetOutputs())
+    {
+        if (output.ScriptHash == currentHash &amp;&amp; output.AssetId.AsBigInteger() != AssetId.AsBigInteger())
+            return false;
+    }
+    return true;
+}
+</code></pre>
+</figure>
+<p class='with-space'>This trigger has not been implemented yet, which is backward compatible with NEP-7. If the node supports NEP-7, it will verify when the transfer is received by CGAS. Return false if the transfer is refused, true otherwise. What can result in the transfer being refused? In case the user transfers some strange assets, as if the user mistakenly transfers other assets to the CGAS address, he cannot withdraw them, so this code is limited. However, NEP-7 is not currently supported on the main network, so it does not work for the time being.</p>
+<h2 id='e83821a2'><span class='with-space bd-content-title'>Next Step<a class='anchorjs-link ' href='#e83821a2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Now let us move to function of <a href='5_minttokens_and_refund.html'> mint token and refund</a> .</p>
+<p class='with-space'>If you want to know how is UTXO model working in the CGAS, click <a href='3_utxo_model.html'> here</a> .</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/en-us/9-smartContract\cgas\4_trigger.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#b35110fe'>Triggers</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#c7d3cff2'>The trigger part of Verification</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b0a81ac1'>The code for the second step of refund</a>
+<a class='ml-2 my-1 nav-link' href='#a33d0649'>Code for the first step of refund</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#a2293468'>The trigger part of Application</a>
+<a class='ml-0 my-1 nav-link' href='#b4e00638'>The trigger part of VerificationR</a>
+<a class='ml-0 my-1 nav-link' href='#e83821a2'>Next Step</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

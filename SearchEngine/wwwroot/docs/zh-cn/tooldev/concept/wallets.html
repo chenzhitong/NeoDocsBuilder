@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>钱包</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/index.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/whitepaper.html'>NEO 白皮书</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 技术</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/dbft.html'>共识机制</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 节点</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/introduction.html'>节点介绍</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/install.html'>下载客户端</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/wallet.html'>钱包</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/transc.html'>交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/asset.html'>注册与分发资产</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/sc.html'>与智能合约交互</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/vote.html'>选举与投票</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/other.html'>其它功能</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/publish.html'>发布</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/setup.html'>安装</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/seedlist.html'>节点列表</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/cli.html'>命令参考</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/overview.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/install.html'>安装 （Ubuntu/OSX）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/installwin.html'>安装 （Windows）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/seedlist.html'>NEO-Python SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/basic.html'>基本用法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/prompt.html'>Prompt</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/syncblocks.html'>快速同步区块</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/testnet.html'>主网与测试网</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>搭建私有链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/solo.html'>单节点模式</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/private-chain.html'>使用虚拟机搭建</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/private-chain2.html'>在本地主机搭建</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>快速入门（C#）</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/introduction.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/prerequisites.html'>准备工作</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/enviroment.html'>搭建网络环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/develop.html'>开发示例合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/deploy.html'>部署并调用合约</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发环境</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-csharp-mac.html'>macOS + C#</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-csharp-ubuntu.html'>ubuntu + C#</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-java.html'>Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-python.html'>Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>合约编写</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/basics.html'>合约编写基础</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/limitation.html'>编写限制</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>部署和调用</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/deploy.html'>部署合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/invoke.html'>调用合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/Parameter.html'>参数和返回值</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/test.html'>测试</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/migrate.html'>合约迁移</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/fees.html'>手续费</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>合约示例</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/Domain.html'>Domain（域名系统）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/verify.html'>鉴权合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/Lock2.html'>锁仓合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO工具开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>基本概念</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块模型</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/block.html'>区块</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/token_model.html'>通证</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/account_asset.html'>账户与资产</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/validator.html'>验证人</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/charging_model.html'>收费模型</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/transaction.html'>交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/wallets.html'>钱包</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/consensus_algorithm.html'>共识算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/consensus_protocol.html'>共识协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/vote_validator.html'>投票</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>密码学</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.html'>编码算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.html'>哈希算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.html'>加密算法</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/neo_cli_structure.html'>NEO-CLI 结构</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/introduction.html'>关于 NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/conversion.html'>数据类型转换</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/account.html'>账户</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/wallet.html'>钱包</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/tx.html'>交易</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/endian.html'>大小端序的使用</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>进阶知识</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/neo_vm.html'>NeoVM 指令集</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/network-protocol.html'>网络协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/tx_execution.html'>交易流程</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/merkle_tree.html'>梅克尔树</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/general.html'>概述</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/deploynode.html'>部署 NEO 节点</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/client.html'>使用 NEO-CLI 客户端</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/transaction.html'>处理资产交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/gas.html'>给用户分发 GAS</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/changelog.html'>更新记录</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api.html'>API 参考</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API 参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>框架</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net 框架</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='https'>SDK API (C#)</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='bf384d6d'><span class='with-space bd-content-title'>钱包<a class='anchorjs-link ' href='#bf384d6d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>钱包是NEO的基础组件，是用户接入NEO网络的载体，负责完成与之相关一系列的工作和任务。</p>
+<p class='with-space'>NEO的钱包可以自行设计和修改，但需要满足一定的规则。</p>
+<h2 id='cdbc3905'><span class='with-space bd-content-title'>格式<a class='anchorjs-link ' href='#cdbc3905' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='be882b36'><span class='with-space bd-content-title'>私钥<a class='anchorjs-link ' href='#be882b36' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>私钥是一个随机生成的位于1和n之间的任何数字（n是⼀个常数，略小于2的256次方），一般用一个256bit(32字节)数表示。</p>
+<p class='with-space'>在NEO中私钥主要采用两种编码格式：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>hexstring 格式</p>
+<p class='with-space'>hexstring 格式是将byte[]数据使用16进制字符表示的字符串。</p></li>
+<li>
+<p class='with-space'>wif 格式</p>
+<p class='with-space'>wif 格式是在原有32字节数据前后添加前缀0x80和后缀0x01,并做Base58Check编码的字符串</p></li>
+</ul>
+<p class='with-space'> <a href='../images/wallets/privateKey-wif.png'> <img class='d-inline-block img-fluid' data-original='../images/wallets/privateKey-wif.png' alt='Base58Check编解码' referrerPolicy='no-referrer' /></a> </p>
+<p class='with-space'>Example:</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>格式</th><th>数值</th></tr></thead>
+<tbody><tr><td>byte[]</td><td>[0xc7,0x13,0x4d,0x6f,0xd8,0xe7,0x3d,0x81,0x9e,0x82,0x75,<br>0x5c,0x64,0xc9,0x37,0x88,0xd8,0xdb,0x09,0x61,0x92,0x9e,<br>0x02,0x5a,0x53,0x36,0x3c,0x4c,0xc0,0x2a,0x69,0x62]</td></tr><tr><td>hexstring</td><td>c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962</td></tr><tr><td>wif</td><td>L3tgppXLgdaeqSGSFw1Go3skBiy8vQAM7YMXvTHsKQtE16PBncSU</td></tr>
+</tbody>
+</table></figure>
+<h3 id='a7ffb9d5'><span class='with-space bd-content-title'>公钥<a class='anchorjs-link ' href='#a7ffb9d5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>公钥是通过ECC算法将私钥运算得到的一个点（X, Y）。该点的X、Y坐标都可以用32字节数据表示。NEO与比特币稍有不同，NEO选取了secp256r1曲线作为其ECC算法的参数。在NEO中公钥有两种编码格式：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>非压缩型公钥</p>
+<p class='with-space'>0x04 + X坐标（32字节）+ Y坐标（32字节）</p></li>
+<li>
+<p class='with-space'>压缩型公钥</p>
+<p class='with-space'>0x02 + X坐标（32字节）或者 0x03 + X坐标（32字节）</p></li>
+</ul>
+<p class='with-space'>Example:</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>格式</th><th style='text-align:center;'>数值</th></tr></thead>
+<tbody><tr><td>私钥</td><td style='text-align:center;'>c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962</td></tr><tr><td>公钥（压缩型）</td><td style='text-align:center;'>035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a</td></tr><tr><td>公钥（非压缩型）</td><td style='text-align:center;'>045a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74<br>faab3a2b61a35dfabcb79ac492a2a88588d2f2e73f045cd8af58059282e09d693dc340e113f</td></tr>
+</tbody>
+</table></figure>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<p class='with-space'>上面的公钥（非压缩型）因为太长而成为多行，实际数据是连接的。</p>
+</blockquote>
+<h3 id='c378e87a'><span class='with-space bd-content-title'>地址<a class='anchorjs-link ' href='#c378e87a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>地址是由公钥经过一系列转换得到的一串由数字和字母构成的字符串。在neo中，公钥到地址的转换步骤如下：</p>
+<ol>
+<li>
+<p class='with-space'>构建地址脚本合约，脚本合约格式：</p>
+<p class='with-space'> <code>0x21</code> (1字节,代表 <code>OptCode.PUSHBYTES21</code> 指令) + 压缩型公钥(33字节) + <code>0xac</code> （1字节,代表 <code>OptCode.CHECKSIG</code> 指令)</p></li>
+<li>
+<p class='with-space'>计算地址脚本合约哈希 (20字节，由地址脚本合约先做一次SHA256再做一次RIPEMD160得到)</p></li>
+<li>
+<p class='with-space'>在地址脚本合约哈希前添加版本号（目前neo所使用的协议版本是23所以对应字节为 <code>0x17</code> ）</p></li>
+<li>
+<p class='with-space'>对字节数据做Base58Check编码</p></li>
+</ol>
+<p class='with-space'>示例：</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>格式</th><th style='text-align:center;'>数值</th></tr></thead>
+<tbody><tr><td>私钥</td><td style='text-align:center;'>c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962</td></tr><tr><td>压缩型公钥</td><td style='text-align:center;'>035a928f201639204e06b4368b1a93365462a8ebbff0b8818151b74faab3a2b61a</td></tr><tr><td>地址</td><td style='text-align:center;'>AXaXZjZGA3qhQRTCsyG5uFKr9HeShgVhTF</td></tr>
+</tbody>
+</table></figure>
+<h3 id='db55e53b'><span class='with-space bd-content-title'>数字证书<a class='anchorjs-link ' href='#db55e53b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>数字证书是一个经证书授权中心数字签名的包含公开密钥拥有者信息以及公开密钥的文件。NEO使用X509格式的证书。</p>
+<h2 id='fa8a6461'><span class='with-space bd-content-title'>钱包文件<a class='anchorjs-link ' href='#fa8a6461' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='c62a4bd8'><span class='with-space bd-content-title'>db3 钱包文件<a class='anchorjs-link ' href='#c62a4bd8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>db3钱包文件是neo采用sqlite技术存储数据所使用存储文件，文件尾缀名： <code>.db3</code> 。 文件中主要存储以下四个属性：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <code>PasswordHash</code> ：密码的哈希，由密码做sha256得到</p></li>
+<li>
+<p class='with-space'> <code>IV</code> ：AES的初始向量，随机生成</p></li>
+<li>
+<p class='with-space'> <code>MasterKey</code> ：加密密文，由PasswordHash、 IV对私钥做AES256加密得到</p></li>
+<li>
+<p class='with-space'> <code>Version</code> ：版本</p></li>
+</ul>
+<p class='with-space'>db3钱包采用对称加密AES相关技术作为钱包的加密和解密方法。</p>
+<h3 id='f88728c0'><span class='with-space bd-content-title'>NEP6 钱包文件<a class='anchorjs-link ' href='#f88728c0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEP6钱包文件是neo满足NEP6标准的钱包存储数据所使用存储文件，文件尾缀名： <code>.json</code> 。 json文件格式如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+    &quot;name&quot;: null,
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;scrypt&quot;: {
+        &quot;n&quot;: 16384,
+        &quot;r&quot;: 8,
+        &quot;p&quot;: 8
+    },
+    &quot;accounts&quot;: [{
+        &quot;address&quot;: &quot;AZ6AsQ42HLkzN1SdwDfWMfNdECN41QGvWP&quot;,
+        &quot;label&quot;: null,
+        &quot;isDefault&quot;: false,
+        &quot;lock&quot;: false,
+        &quot;key&quot;: &quot;6PYKXU9ZkVTkdRzFdHUBH8SL6ESGS5SYx94UeYpeEUnG2z8H2Fvdh47EN9&quot;,
+        &quot;contract&quot;: {
+            &quot;script&quot;: &quot;210209c86ad123403f7ddaa80f6b4c72e6f46607cabed5b2c297e27812cdd755f2c2ac&quot;,
+            &quot;parameters&quot;: [{
+                &quot;name&quot;: &quot;signature&quot;,
+                &quot;type&quot;: &quot;Signature&quot;
+            }],
+            &quot;deployed&quot;: false
+        },
+        &quot;extra&quot;: null
+    }, {
+        &quot;address&quot;: &quot;AeiXnh6T47CQ5HwpJ9rE3CrMr6UT6VsGXt&quot;,
+        &quot;label&quot;: null,
+        &quot;isDefault&quot;: false,
+        &quot;lock&quot;: false,
+        &quot;key&quot;: &quot;6PYUdZvc35rD9MetztTCScgwsGV81r167M1rMx5FeG5YLHSkmcTCGEShUh&quot;,
+        &quot;contract&quot;: {
+            &quot;script&quot;: &quot;2102cb8f7571d8ed87f3a6c8c5af8bc0fbfababf4d9927dc8899af57bc362271c0a0ac&quot;,
+            &quot;parameters&quot;: [{
+                &quot;name&quot;: &quot;signature&quot;,
+                &quot;type&quot;: &quot;Signature&quot;
+            }],
+            &quot;deployed&quot;: false
+        },
+        &quot;extra&quot;: null
+    }],
+    &quot;extra&quot;: null
+}'>Copy</button><pre><code class='json' lang='json'>{
+    &quot;name&quot;: null,
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;scrypt&quot;: {
+        &quot;n&quot;: 16384,
+        &quot;r&quot;: 8,
+        &quot;p&quot;: 8
+    },
+    &quot;accounts&quot;: [{
+        &quot;address&quot;: &quot;AZ6AsQ42HLkzN1SdwDfWMfNdECN41QGvWP&quot;,
+        &quot;label&quot;: null,
+        &quot;isDefault&quot;: false,
+        &quot;lock&quot;: false,
+        &quot;key&quot;: &quot;6PYKXU9ZkVTkdRzFdHUBH8SL6ESGS5SYx94UeYpeEUnG2z8H2Fvdh47EN9&quot;,
+        &quot;contract&quot;: {
+            &quot;script&quot;: &quot;210209c86ad123403f7ddaa80f6b4c72e6f46607cabed5b2c297e27812cdd755f2c2ac&quot;,
+            &quot;parameters&quot;: [{
+                &quot;name&quot;: &quot;signature&quot;,
+                &quot;type&quot;: &quot;Signature&quot;
+            }],
+            &quot;deployed&quot;: false
+        },
+        &quot;extra&quot;: null
+    }, {
+        &quot;address&quot;: &quot;AeiXnh6T47CQ5HwpJ9rE3CrMr6UT6VsGXt&quot;,
+        &quot;label&quot;: null,
+        &quot;isDefault&quot;: false,
+        &quot;lock&quot;: false,
+        &quot;key&quot;: &quot;6PYUdZvc35rD9MetztTCScgwsGV81r167M1rMx5FeG5YLHSkmcTCGEShUh&quot;,
+        &quot;contract&quot;: {
+            &quot;script&quot;: &quot;2102cb8f7571d8ed87f3a6c8c5af8bc0fbfababf4d9927dc8899af57bc362271c0a0ac&quot;,
+            &quot;parameters&quot;: [{
+                &quot;name&quot;: &quot;signature&quot;,
+                &quot;type&quot;: &quot;Signature&quot;
+            }],
+            &quot;deployed&quot;: false
+        },
+        &quot;extra&quot;: null
+    }],
+    &quot;extra&quot;: null
+}
+</code></pre>
+</figure>
+<p class='with-space'> <strong>属性说明</strong> ：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <code>name</code> ：用户给该钱包添加的名称</p></li>
+<li>
+<p class='with-space'> <code>version</code> ：钱包版本，目前固定为1.0，在以后功能升级时可能会改变</p></li>
+<li>
+<p class='with-space'> <code>scrypt</code> （n/r/p）：scrypt算法设置计算性能的三个参数</p></li>
+<li>
+<p class='with-space'> <code>accounts</code> ：钱包所包含的账户的集合</p></li>
+<li>
+<p class='with-space'> <code>address</code> :账户地址</p></li>
+<li>
+<p class='with-space'> <code>label</code> ：标题</p></li>
+<li>
+<p class='with-space'> <code>isDefault</code> ：是否默认账户</p></li>
+<li>
+<p class='with-space'> <code>lock</code> ：是否打开</p></li>
+<li>
+<p class='with-space'> <code>key</code> ：按照NEP2标准加密的密钥nep2Key</p></li>
+<li>
+<p class='with-space'> <code>contract</code> ：地址脚本合约的详细内容</p></li>
+<li>
+<p class='with-space'> <code>script</code> ：地址脚本合约的字节</p></li>
+<li>
+<p class='with-space'> <code>parameters</code> ：地址脚本合约的参数表</p></li>
+<li>
+<p class='with-space'> <code>parameters.name</code> ：地址脚本合约参数的名称</p></li>
+<li>
+<p class='with-space'> <code>type</code> ：地址脚本合约参数的类型</p></li>
+<li>
+<p class='with-space'> <code>deployed</code> ：是否部署</p></li>
+<li>
+<p class='with-space'> <code>accounts.extra</code> ：账户其他扩展属性</p></li>
+<li>
+<p class='with-space'> <code>extra</code> ：钱包其他扩展属性</p></li>
+</ul>
+<p class='with-space'>NEP6钱包采用了以scrypt为核心算法的相关技术作为钱包的加密和解密方法。</p>
+<p class='with-space'> <strong>加密过程</strong> ：</p>
+<ol>
+<li>
+<p class='with-space'>由公钥计算地址，并获取 <code>SHA256(SHA256(Address))</code> 的前四个字节作为地址哈希</p></li>
+<li>
+<p class='with-space'>使用Scrypt算法算出一个 <code>derivedkey</code> ，并将其64个字节数据分成2半，作为 <code>derivedhalf1</code> 和 <code>derivedhalf2</code> 。Scrypt所使用参数如下：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>明文：输入的密码（UTF-8格式）</p></li>
+<li>
+<p class='with-space'>盐：地址哈希</p></li>
+<li>
+<p class='with-space'>n：16384</p></li>
+<li>
+<p class='with-space'>r：8</p></li>
+<li>
+<p class='with-space'>p：8</p></li>
+<li>
+<p class='with-space'>length：64</p></li>
+</ul></li>
+<li>
+<p class='with-space'>把私钥和derivedhalf1做异或，然后用derivedhalf2对其做AES256加密得到encryptedkey</p></li>
+<li>
+<p class='with-space'>按照以下格式拼接数据，并对其做Base58Check编码得到NEP2Key：</p>
+<p class='with-space'> <code>0x01</code> + <code>0x42</code> + <code>0xe0</code> + <code>地址哈希</code> + <code>encryptedkey</code> </p></li>
+</ol>
+<p class='with-space'> <strong>解密过程</strong> ：</p>
+<ol>
+<li>
+<p class='with-space'>对NEP2key做Base58Check解码</p></li>
+<li>
+<p class='with-space'>验证解码后数据长度为39，以及前3个字节（data[0-2]是否为0x01、0x42、0xe0）</p></li>
+<li>
+<p class='with-space'>取data[3-6]作为 <code>addresshash</code> </p></li>
+<li>
+<p class='with-space'>把密码、addresshash代入Scrypt算法，指定结果长度为64，求出 <code>derivedkey</code> </p></li>
+<li>
+<p class='with-space'>把 <code>derivedkey</code> 前32字节作为 <code>derivedhalf1</code> ，后32字节作为 <code>derivedhalf2</code> </p></li>
+<li>
+<p class='with-space'>取data[7-38]作为 <code>encryptedkey</code> （32字节），并用derivedhalf2作为初始向量对其进行AES256解密</p></li>
+<li>
+<p class='with-space'>把解密结果与Derivedhalf1做异或处理求得私钥</p></li>
+<li>
+<p class='with-space'>把该私钥做ECC求出公钥，并生成地址，对该地址做2次Sha256然后取结果的前四字节判断其是否与addresshash相同，相同则是正确的私钥（参考NEP2）</p></li>
+</ol>
+<p class='with-space'>相关详细技术请参照neo文档中的NEP2和NEP6提案。</p>
+<p class='with-space'>NEP2提案： <a href='https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki' target='_blank'>https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki</a> </p>
+<p class='with-space'>NEP6提案： <a href='https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki' target='_blank'>https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki</a> </p>
+<h2 id='f0022850'><span class='with-space bd-content-title'>钱包功能<a class='anchorjs-link ' href='#f0022850' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>功能名称</th><th>描述</th></tr></thead>
+<tbody><tr><td>导入钱包文件</td><td>从指定钱包文件导入账户信息</td></tr><tr><td>导出钱包文件</td><td>将账户信息导出到指定的钱包文件，如db3文件、NEP6 json文件</td></tr><tr><td>解锁钱包</td><td>验证用户密码来防止账户信息泄露</td></tr><tr><td>生成私钥</td><td>推荐使用安全的随机数发生器</td></tr><tr><td>导入私钥</td><td>从WIF字符串或者数字证书导入私钥到钱包中</td></tr><tr><td>导出私钥</td><td>导出账户的私钥</td></tr><tr><td>生成公钥</td><td>使用ECC算法从私钥得到公钥</td></tr><tr><td>生成地址</td><td>从私钥生成地址</td></tr><tr><td>导入地址</td><td>添加新的地址到钱包中</td></tr><tr><td>导出地址</td><td>导出账户地址</td></tr><tr><td>导入离线数据包</td><td>从 <code>chain.acc</code> 文件加载区块数据来减少同步时间</td></tr><tr><td>导出离线数据包</td><td>导出区块数据到 <code>chain.acc</code> 文件</td></tr><tr><td>同步区块数据</td><td></td></tr><tr><td>转账</td><td>转账资产到其他地址</td></tr><tr><td>签名</td><td>对数据签名，比如交易</td></tr><tr><td>提取gas</td><td>提取通过持有neo新分配的gas</td></tr><tr><td>获取余额</td><td>显示该钱包中所有账户的资产余额</td></tr><tr><td>获取交易</td><td>显示该钱包中产生的交易历史</td></tr><tr><td>构造多签合约</td><td>构造多签合约</td></tr><tr><td>扩展</td><td></td></tr><tr><td>部署智能合约</td><td>部署智能合约</td></tr><tr><td>测试智能合约</td><td>测试智能合约</td></tr>
+</tbody>
+</table></figure>
+<h2 id='d88b5761'><span class='with-space bd-content-title'>钱包软件<a class='anchorjs-link ' href='#d88b5761' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='b45ebc75'><span class='with-space bd-content-title'>全节点钱包<a class='anchorjs-link ' href='#b45ebc75' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>全节点钱包包含所有区块数据的备份，保存了所有链上数据，并且参与p2p网络通信，所以占用存储空间较大。</p>
+<p class='with-space'>NEO-CLI 和 NEO-GUI 都是全节点钱包。</p>
+<h3 id='d5787929'><span class='with-space bd-content-title'>SPV钱包<a class='anchorjs-link ' href='#d5787929' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>SPV (Simplified Payment Verification, 简单支付验证)钱包不同于全节点钱包，它不会存储所有的区块数据，仅存储区块头数据，并使用布隆过滤器和梅克尔树算法。它主要在移动端App或者轻节点中使用，因为它能有效得节省存储空间。</p>
+<p class='with-space'>如果要开发SPV钱包，请参考NEO网络协议接口。</p>
+<p class='with-space'>使用：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='1. SPV钱包发送一个布隆过滤器到全节点，全节点加载该布隆过滤器。
+
+2. SPV钱包发送布隆过滤器的参数到全节点，全节点加载该布隆过滤器的参数。（可选）
+
+3. SPV钱包从全节点查询交易，全节点在使用布隆过滤器过滤后返回交易数据和构造的梅克尔树路径。
+
+4. SPV钱包使用梅尔克树路径来验证交易数据。
+
+5. SPV钱包发送`clear the bloom filter`指令给全节点，全节点清楚该布隆过滤器。'>Copy</button><pre><code>1. SPV钱包发送一个布隆过滤器到全节点，全节点加载该布隆过滤器。
+
+2. SPV钱包发送布隆过滤器的参数到全节点，全节点加载该布隆过滤器的参数。（可选）
+
+3. SPV钱包从全节点查询交易，全节点在使用布隆过滤器过滤后返回交易数据和构造的梅克尔树路径。
+
+4. SPV钱包使用梅尔克树路径来验证交易数据。
+
+5. SPV钱包发送`clear the bloom filter`指令给全节点，全节点清楚该布隆过滤器。
+</code></pre>
+</figure>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/zh-cn/tooldev\concept\wallets.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#bf384d6d'>钱包</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#cdbc3905'>格式</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#be882b36'>私钥</a>
+<a class='ml-2 my-1 nav-link' href='#a7ffb9d5'>公钥</a>
+<a class='ml-2 my-1 nav-link' href='#c378e87a'>地址</a>
+<a class='ml-2 my-1 nav-link' href='#db55e53b'>数字证书</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#fa8a6461'>钱包文件</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#c62a4bd8'>db3 钱包文件</a>
+<a class='ml-2 my-1 nav-link' href='#f88728c0'>NEP6 钱包文件</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#f0022850'>钱包功能</a>
+<a class='ml-0 my-1 nav-link' href='#d88b5761'>钱包软件</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b45ebc75'>全节点钱包</a>
+<a class='ml-2 my-1 nav-link' href='#d5787929'>SPV钱包</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

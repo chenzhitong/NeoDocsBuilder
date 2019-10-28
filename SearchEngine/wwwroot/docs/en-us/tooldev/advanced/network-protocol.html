@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Network Structure: P2P</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/index.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Introduction</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/whitepaper.html'>NEO Whitepaper</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Technology</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/dbft.html'>Consensus Mechanism</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Node</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/introduction.html'>Introduction</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/install.html'>Installing the Client</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/transc.html'>Transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/asset.html'>Registering and Distributing Assets</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/sc.html'>Interacting with Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/vote.html'>Election and Voting</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/other.html'>Other Features</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/publish.html'>Publishing from Source</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/setup.html'>Installation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/seedlist.html'>SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/cli.html'>Command Line</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/syncblocks.html'>Synchronizing the blockchain faster</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/testnet.html'>Main Net and Test Net</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Setting up Private Chain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/solo.html'>Solo Mode</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain.html'>Multiple Nodes (virtual machines)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain2.html'>Multiple Nodes (local host)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Getting Started (C#)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/introduction.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/prerequisites.html'>Before You Begin</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/enviroment.html'>Setting up local network</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/develop.html'>Compiling a Contract Sample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/deploy.html'>Deploying and Invoking the Contract</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Development Environment</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-mac.html'>Using C# on macOS</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-ubuntu.html'>Using C# on ubuntu</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-java.html'>Using Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-python.html'>Using Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Writing smart contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/basics.html'>Basics</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/limitation.html'>Limitations</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Deploying and Invoking Smart Contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/deploy.html'>Deploying Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/invoke.html'>Invoking Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/Parameter.html'>Parameters and Return Values</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/test.html'>Testing</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/migrate.html'>Contract Migration and Destruction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/fees.html'>Fees</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Contract Samples</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Domain.html'>Domain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/verify.html'>Verification Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Lock2.html'>Lock Contract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Tools Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Main Concepts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blockchain Models</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/token_model.html'>Tokens</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/account_asset.html'>Account and Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/validator.html'>Validator</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/charging_model.html'>Charging Model</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/wallets.html'>Wallet</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_algorithm.html'>Consensus Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_protocol.html'>Consensus Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/vote_validator.html'>Vote</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Cryptography</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encode_algorithm.html'>Encode Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/hash_algorithm.html'>Hash Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encryption_algorithm.html'>Encryption Algorithm</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/neo_cli_structure.html'>NEO-CLI Structure</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/introduction.html'>About NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/conversion.html'>Data Conversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/tx.html'>Transaction Construction</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/endian.html'>Big and Little Endian Usage</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Advanced Topics</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/neo_vm.html'>NeoVM Instructions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/network-protocol.html'>Network Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/tx_execution.html'>Transaction Process</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/merkle_tree.html'>Merkel Tree</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Document for Exchange Developers</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/general.html'>Overview</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/deploynode.html'>Deploying NEO nodes</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/client.html'>Using NEO-CLI</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/transaction.html'>Dealing with assets transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/gas.html'>Distributing GAS to users</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/changelog.html'>Changelog</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api.html'>API Reference</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='https'>SDK API (C#)</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='ef8967a5'><span class='with-space bd-content-title'>Network Structure: P2P<a class='anchorjs-link ' href='#ef8967a5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>NEO uses P2P network structure and TCP/IP protocol for transmission.</p>
+<p class='with-space'>There are 2 types of node in the network, ordinary node and consensus node. The former can perform transaction/block broadcasting, receiving and relaying, while the latter can furthermore perform block construction.</p>
+<p class='with-space'>NEO&#39;s network protocol standard is similiar to Bitcoin&#39;s, but varies a lot in block / transaction data structure.</p>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>In NEO network, seed node is not equal to consensus node. It&#39;s a kind of ordinary node which provides node list query service to other nodes.</p></li>
+<li>
+<p class='with-space'>NEO network also supports WebSocket connection and supports constructing node in a LAN by using UPnP protocol (Optional).</p></li>
+</ul>
+</blockquote>
+<h2 id='c3eb4f44'><span class='with-space bd-content-title'>Transmission Protocol and Port<a class='anchorjs-link ' href='#c3eb4f44' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Protocol</th><th>Port (Main net)</th><th>Port (Test net)</th></tr></thead>
+<tbody><tr><td>TCP/IP</td><td>10333</td><td>20333</td></tr><tr><td>WebSocket</td><td>10334</td><td>20334</td></tr>
+</tbody>
+</table></figure>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<p class='with-space'>The ports mentioned above can be set to any unused ones when constructing a NEO private chain. Ports of the nodes in a private chain can also be different.</p>
+</blockquote>
+<h2 id='a6a78e3d'><span class='with-space bd-content-title'>Message<a class='anchorjs-link ' href='#a6a78e3d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Message&#39;s basic format is as follows:</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Type</th><th>Name</th><th>Description</th></tr></thead>
+<tbody><tr><td>uint</td><td>Magic</td><td>Magic number to avoid network conflict</td></tr><tr><td>string(12)</td><td>Command</td><td>String message name (Fill with zeros if shorter than 12 byte)</td></tr><tr><td>int</td><td>Payload length</td><td>Payload length</td></tr><tr><td>uint</td><td>Payload Checksum</td><td>Payload verification to avoid falsification and transmission errors</td></tr><tr><td>byte[]</td><td>Payload</td><td>Message text, varying by message type</td></tr>
+</tbody>
+</table></figure>
+<h2 id='b826e6cc'><span class='with-space bd-content-title'>Command List<a class='anchorjs-link ' href='#b826e6cc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Name</th><th>Uniqueness</th><th>High priority</th><th>Reserved</th><th>Description</th></tr></thead>
+<tbody><tr><td>getaddr</td><td>〇</td><td>〇</td><td></td><td>Queries address and port numer of other nodes.</td></tr><tr><td>addr</td><td>〇</td><td></td><td></td><td>Answers getaddr message with at most 200 records of succesfully connected node addresses and port numbers.</td></tr><tr><td>filteradd</td><td></td><td>〇</td><td></td><td>Adds data to bloom_filter for SPV wallet.</td></tr><tr><td>filterclear</td><td></td><td>〇</td><td></td><td>Remove bloom_filter for SPV wallet.</td></tr><tr><td>filterload</td><td></td><td>〇</td><td></td><td>Initialize bloom_filter for SPV wallet.</td></tr><tr><td>getblocks</td><td>〇</td><td></td><td></td><td>Specify the start and end hash values to get the details of several consecutive blocks.</td></tr><tr><td>getdata</td><td></td><td></td><td></td><td>Queries other nodes for Inventory objects of specified type and hash. <br>Current usage: <br>1)Sending get-transaction query during consensus process. <br>2)Sending getdata message upon receiving inv message.</td></tr><tr><td>block</td><td></td><td></td><td></td><td>Answers getdata message with Block of specified hash.</td></tr><tr><td>consensus</td><td></td><td>〇</td><td></td><td>Answers getdata message with consensus data of specified hash.</td></tr><tr><td>tx</td><td></td><td></td><td></td><td>Answering getdata message for a transaction with specified hash.</td></tr><tr><td>getheaders</td><td>〇</td><td></td><td></td><td>Node with fewer information queries for block head after two nodes establish connection.</td></tr><tr><td>headers</td><td></td><td></td><td></td><td>Answers getheaders message with at most 2000 block header items.</td></tr><tr><td>inv</td><td></td><td></td><td></td><td>Send Inventory hash array of specified type and hash (only hash value rather than complete information). Inventory types include Block, Transaction, and Consensus). Currently inv message is used in these scenarios: <br>1)Sending transaction in consensus process. <br>2)Replying getblocks message with no more than 500 blocks. <br>3) Replying mempool message with all transactions in memory pool. <br>4) Relaying an Inventory. <br>5) Relaying a batch of transactions.</td></tr><tr><td>mempool</td><td>〇</td><td>〇</td><td></td><td>Query for all transactions in the memory pool of the connected node.</td></tr><tr><td>version</td><td>-</td><td>〇</td><td>-</td><td>First instruction: with information like block header height, etc.</td></tr><tr><td>verack</td><td>-</td><td>〇</td><td>-</td><td>Sencond instruction: handshake Version</td></tr><tr><td>merkleblock</td><td></td><td></td><td>〇</td><td>Sending process is implemented while receiving is not. It&#39;s for SPV wallet.</td></tr><tr><td>ping</td><td></td><td></td><td></td><td>Standard ping message</td></tr><tr><td>pong</td><td></td><td></td><td></td><td>Response to ping message</td></tr><tr><td>alert</td><td></td><td>〇</td><td>〇</td><td>Unimplemented</td></tr><tr><td>notfound</td><td></td><td></td><td>〇</td><td>Unimplemented</td></tr><tr><td>reject</td><td></td><td></td><td>〇</td><td>Unimplemented</td></tr><tr><td>others</td><td></td><td></td><td>〇</td><td>Neglected</td></tr>
+</tbody>
+</table></figure>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Uniqueness：only one such message in message queue at the same time.</p></li>
+<li>
+<p class='with-space'>High priority：the system needs to guarantee that higher priority messages are transmitted and processed first.</p></li>
+</ul>
+</blockquote>
+<h2 id='e6c1205d'><span class='with-space bd-content-title'>Conversation protocol<a class='anchorjs-link ' href='#e6c1205d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<ol>
+<li>
+<p class='with-space'>Firstly a NEO node tries to connect to those seed nodes.</p></li>
+<li>
+<p class='with-space'>The node firstly sends <code>version</code> message upon connecting successfully and waits for <code>version</code> message. Local block height is contained in <code>version</code> message.</p></li>
+<li>
+<p class='with-space'>The node sends <code>verack</code> message and waits for <code>verack</code> message to complete handshake.</p></li>
+<li>
+<p class='with-space'>If the local block height is lower than the other side&#39;s height, the node sends <code>getheaders</code> message.</p></li>
+<li>
+<p class='with-space'>The other side sends <code>headers</code> message which contains no more than 2000 block headers upon receiving <code>getheaders</code> message.</p></li>
+<li>
+<p class='with-space'>If block header information has been synchronized and local block height is lower than the other side&#39;s, send <code>getblocks</code> message.</p></li>
+<li>
+<p class='with-space'>The other side will send <code>inv</code> message which contains no more than 500 block hashes upon receiving <code>getblocks</code> message.</p></li>
+<li>
+<p class='with-space'>The node determines whether the complete block information is needed based on each block hash upon receiving the <code>inv</code> message. If so, the node sends <code>getdata</code> message querying for complete block information.</p></li>
+<li>
+<p class='with-space'>The other side sends <code>block</code> message which contains complete block information upon receiving <code>getdata</code> message.</p></li>
+<li>
+<p class='with-space'>NEO nodes check the number of connections every 5 seconds. The node connects to backup nodes initiatively if connection count is less than 10. The node sends <code>getaddr</code> message to connected nodes to query information about other nodes in the network if backup nodes are not enough.</p></li>
+<li>
+<p class='with-space'>The other side sends <code>addr</code> message which contains address and port information of no more than 200 nodes upon receiving <code>getaddr</code> message.</p></li>
+<li>
+<p class='with-space'>The node uses hash to manage relatively large data like consensus messages / block / transaction data, to avoid receiving duplicate messages from different nodes.</p></li>
+<li>
+<p class='with-space'>The node is responsible for relaying received consensus messages / block / transaction data to other nodes by <code>inv</code> message.</p></li>
+</ol>
+<h2 id='f57cd27c'><span class='with-space bd-content-title'>Conversation Sequence Instance<a class='anchorjs-link ' href='#f57cd27c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Message direction</th><th>Message type</th><th>Description</th></tr></thead>
+<tbody><tr><td>send</td><td>version</td><td>Send version to perform 1st handshake</td></tr><tr><td>receive</td><td>version</td><td>Receive version to perform 1st handshake</td></tr><tr><td>send</td><td>verack</td><td>Send verack to perform 2nd handshake</td></tr><tr><td>receive</td><td>verack</td><td>Receive verack to perform 2nd handshake</td></tr><tr><td>send</td><td>getheaders</td><td>Send getheaders to retrieve block head</td></tr><tr><td>receive</td><td>headers</td><td>Receive block headers</td></tr><tr><td>send</td><td>getblocks</td><td>Send getblocks to get blocks</td></tr><tr><td>receive</td><td>inv(blocks)</td><td>Receive inv hash of some blocks</td></tr><tr><td>send</td><td>getdata(blocks)</td><td>Send getdata to retrieve complete block</td></tr><tr><td>receive</td><td>inv(consensus)</td><td>Receive inv hash of consensus data</td></tr><tr><td>send</td><td>getdata(consensus)</td><td>Send getdata to retrieve consensus data of specified hash</td></tr><tr><td>receive</td><td>consensus</td><td>Receive complete consensus data</td></tr><tr><td>send</td><td>inv(consensus)</td><td>Relay received consensus data&#39;s hash to other nodes</td></tr><tr><td>receive</td><td>block</td><td>Receive a complete block</td></tr><tr><td>send</td><td>inv(block)</td><td>Relay block hash</td></tr><tr><td>receive</td><td>block</td><td>Receive a complete block</td></tr><tr><td>send</td><td>inv(block)</td><td>Relay block hash</td></tr><tr><td>receive</td><td>block</td><td>Receive a complete block</td></tr><tr><td>send</td><td>inv(block)</td><td>Relay block hash</td></tr><tr><td>...</td><td>...</td><td>...</td></tr>
+</tbody>
+</table></figure>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/en-us/tooldev\advanced\network-protocol.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#ef8967a5'>Network Structure: P2P</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#c3eb4f44'>Transmission Protocol and Port</a>
+<a class='ml-0 my-1 nav-link' href='#a6a78e3d'>Message</a>
+<a class='ml-0 my-1 nav-link' href='#b826e6cc'>Command List</a>
+<a class='ml-0 my-1 nav-link' href='#e6c1205d'>Conversation protocol</a>
+<a class='ml-0 my-1 nav-link' href='#f57cd27c'>Conversation Sequence Instance</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>区块与区块链介绍</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/1-Introduction_to_NEO.html'>简介</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>密码学、区块链和智能合约</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/3-Fundamentals_of_NEO.html'>基础知识</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>钱包</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/1-Introduction_to_wallets.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>私钥和地址生成</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/3-Key_encryption_and_contract_accounts.html'>私钥与合约账户</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/4-UTXO_and_account_models.html'>UTXO 与账户模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/1-Introduction_to_transactions.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/2-Structure_of_NEO_transactions.html'>交易结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/3-NEO_transaction_types.html'>交易类型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/4-NEO_transaction_fees.html'>交易手续费</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/2-Structure_of_a_block.html'>区块结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/3-Block_creation_broadcasting.html'>区块创建与广播</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/4-Block_validation_processing.html'>区块验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/1-Introduction_to_the_NEO_network_protocol.html'>协议和网络</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>持久性</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/1-persistence.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/2-levelDB_data_structure.html'>LevelDB 数据结构</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/1-Introduction_to_consensus.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW 与 PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/3-PBFT_and_DBFT.html'>pBFT 与 dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>共识示例与场景</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_smart_contract.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_privateChain.html'>搭建私链</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_set_up.html'>搭建开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_compile.html'>编译、调用与部署</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Smart_Contract_basics.html'>智能合约基础</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>创建 NEP-5 合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_nep5.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Implementation_of_NEP5.html'>实现 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Give_an_ITO.html'>ITO</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/UTXO.html'>UTXO 基础</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/1_what_is_cgas.html'>什么是 CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/2_global_asset_and_nep5.html'>全局资产与 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/3_utxo_model.html'>UTXO 模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/4_trigger.html'>触发器</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/5_minttokens_and_refund.html'>铸币与退款</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/6_signature_and_verification.html'>签名与验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/7_invocation.html'>交易调用</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/neo_python_quickstart_cn.html'>NEO Python 快速入门</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='bf2aff2c'><span class='with-space bd-content-title'>区块与区块链介绍<a class='anchorjs-link ' href='#bf2aff2c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='ef21320f'><span class='with-space bd-content-title'>概念<a class='anchorjs-link ' href='#ef21320f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>当Alice想向Bob发送一个交易时，她会对交易进行签名并将其广播到网络中的节点。共识节点会对内存池中的有效交易进行筛选，并将所选的交易打包到区块中。区块是一批同时得到确认和存储的交易。除了所包含的交易之外，区块结构还包括一些其他字段，相关讨论请点击 <a href='2-Structure_of_a_block.html'> 此处</a> 查看。</p>
+<h2 id='e1c7ee81'><span class='with-space bd-content-title'>链接区块<a class='anchorjs-link ' href='#e1c7ee81' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>区块(b<sub>n</sub>)中有一个代表对上一个区块引用的字段，被引用的区块(b<sub>n-1</sub>)是最近一个在当前区块之前得到确认的区块。更准确地说，它是前一个区块的哈希。由节点来计算哈希值从而验证区块的父节点。同理，上一个区块(b<sub>n-1</sub>)也具有相同的行为，即链接到它之前的区块(b<sub>n-2</sub>)。这条链一直延伸直到创建的第一个区块，称为创世块(b<sub>0</sub>)。这就是术语“区块链”的由来，因为它实际上是一条由区块链接而成的链结构。</p>
+<h2 id='ce4c19ce'><span class='with-space bd-content-title'>父块与子块<a class='anchorjs-link ' href='#ce4c19ce' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>每个区块只能有一个父块，通过字段引用到前一个区块。大多数区块链都会出现一种临时状态，即一个父块可以有多个子块，也就是说，多个区块可以指向同一个父块。比特币平均每周会出现一次这样的情况。当两个矿工近乎同时地发现新区块的一个有效Nonce时（“解决难题”），就会出现这种情况，两个矿工都会向网络广播有效的区块。这就是所谓的分叉，当挖出新的区块时这个问题就会自动得到解决。因为之后产生的区块只会加在其中一条链上，且最长的那条链（难度最大的路径）才会被大家接受，而另一条则会被放弃。</p>
+<p class='with-space'>得益于dBFT共识机制，NEO区块链不会受到这种行为的影响，并且根据算法的终局性，NEO永远都不会出现分叉，因此也不会出现区块链存在两个有效版本的情况。有关共识机制的更多信息，可以阅读 <a href='../../../docs/zh-cn/basic/technology/dbft.html'> 白皮书</a> 。</p>
+<h2 id='f68b35b5'><span class='with-space bd-content-title'>阅读下节<a class='anchorjs-link ' href='#f68b35b5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='2-Structure_of_a_block.html'> 区块结构</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/zh-cn/4-blocks\1-Introduction_to_blocks_and_blockchain.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#bf2aff2c'>区块与区块链介绍</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#ef21320f'>概念</a>
+<a class='ml-0 my-1 nav-link' href='#e1c7ee81'>链接区块</a>
+<a class='ml-0 my-1 nav-link' href='#ce4c19ce'>父块与子块</a>
+<a class='ml-0 my-1 nav-link' href='#f68b35b5'>阅读下节</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

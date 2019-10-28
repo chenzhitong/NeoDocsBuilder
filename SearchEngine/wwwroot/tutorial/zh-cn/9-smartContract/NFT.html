@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>什么是非同质通证?</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/1-Introduction_to_NEO.html'>简介</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>密码学、区块链和智能合约</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/3-Fundamentals_of_NEO.html'>基础知识</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>钱包</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/1-Introduction_to_wallets.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>私钥和地址生成</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/3-Key_encryption_and_contract_accounts.html'>私钥与合约账户</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/4-UTXO_and_account_models.html'>UTXO 与账户模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/1-Introduction_to_transactions.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/2-Structure_of_NEO_transactions.html'>交易结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/3-NEO_transaction_types.html'>交易类型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/4-NEO_transaction_fees.html'>交易手续费</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/2-Structure_of_a_block.html'>区块结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/3-Block_creation_broadcasting.html'>区块创建与广播</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/4-Block_validation_processing.html'>区块验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/1-Introduction_to_the_NEO_network_protocol.html'>协议和网络</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>持久性</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/1-persistence.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/2-levelDB_data_structure.html'>LevelDB 数据结构</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/1-Introduction_to_consensus.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW 与 PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/3-PBFT_and_DBFT.html'>pBFT 与 dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>共识示例与场景</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_smart_contract.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_privateChain.html'>搭建私链</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_set_up.html'>搭建开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_compile.html'>编译、调用与部署</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Smart_Contract_basics.html'>智能合约基础</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>创建 NEP-5 合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_nep5.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Implementation_of_NEP5.html'>实现 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Give_an_ITO.html'>ITO</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/UTXO.html'>UTXO 基础</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/1_what_is_cgas.html'>什么是 CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/2_global_asset_and_nep5.html'>全局资产与 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/3_utxo_model.html'>UTXO 模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/4_trigger.html'>触发器</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/5_minttokens_and_refund.html'>铸币与退款</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/6_signature_and_verification.html'>签名与验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/7_invocation.html'>交易调用</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/neo_python_quickstart_cn.html'>NEO Python 快速入门</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h2 id='c67f9e0f'><span class='with-space bd-content-title'>什么是非同质通证?<a class='anchorjs-link ' href='#c67f9e0f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>非同质通证（NFT）可以被看作是一个财产契约——每个财产都是唯一的，并且携带一些不可更改的信息(例如，财产的物理地址)，不过其他信息，例如财产的所有者，是可以更改的。NFT智能合约有助于追踪真实世界中物品的所有权，在网络游戏中也是如此，它允许用户拥有特有的角色或限量供应的道具，这些道具可以在用户之间转移，而无需获得游戏所有者的许可。</p>
+<p class='with-space'>NEO智能经济的NFT提案标准目前正在开发中。这是使用C#写的一个例子，展示了如何编写这样一个智能合约。在NEP-5 (可替换的) 通证功能之间有一些重叠，以便API的编写能更容易的进行适配调整。</p>
+<h3 id='b6d3e158'><span class='with-space bd-content-title'>方法<a class='anchorjs-link ' href='#b6d3e158' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='f021b0bf'><span class='with-space bd-content-title'>name<a class='anchorjs-link ' href='#f021b0bf' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static string name()'>Copy</button><pre><code class='csharp' lang='csharp'>public static string name()
+</code></pre>
+</figure>
+<p class='with-space'>返回通证的名称。例如， &lt;code&gt;&quot;MyNFT&quot;&lt;/code&gt;。</p>
+<p class='with-space'>每次调用此方法时，它都必须返回相同的值。</p>
+<h4 id='d3192ce1'><span class='with-space bd-content-title'>symbol<a class='anchorjs-link ' href='#d3192ce1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static string symbol()'>Copy</button><pre><code class='csharp' lang='csharp'>public static string symbol()
+</code></pre>
+</figure>
+<p class='with-space'>返回此合约中管理的通证的短字符串符号。例如，&lt;code&gt;&quot;MNFT&quot;&lt;/code&gt;。这个符号应该是简短的 (推荐是3-8个字符)，没有空格字符或换行符，并且应该限于大写的拉丁字母(即英语中使用的26个字母)。</p>
+<p class='with-space'>每次调用此方法时，它都必须返回相同的值。</p>
+<h4 id='c47b2a44'><span class='with-space bd-content-title'>totalSupply<a class='anchorjs-link ' href='#c47b2a44' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static BigInteger totalSupply()'>Copy</button><pre><code class='csharp' lang='csharp'>public static BigInteger totalSupply()
+</code></pre>
+</figure>
+<p class='with-space'>返回系统中部署的通证的供应总量。</p>
+<h4 id='cd08a200'><span class='with-space bd-content-title'>decimals<a class='anchorjs-link ' href='#cd08a200' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static byte decimals()'>Copy</button><pre><code class='csharp' lang='csharp'>public static byte decimals()
+</code></pre>
+</figure>
+<p class='with-space'>返回通证使用的小数位数——例如，&lt;code&gt;8&lt;/code&gt;，表示将通证数量除以&lt;code&gt;100,000,000&lt;/code&gt;，从而得到它的用户表示。</p>
+<p class='with-space'>如果这个合约中管理的通证是不可分割的，函数应该返回 &lt;code&gt;0&lt;/code&gt;。</p>
+<p class='with-space'>如果函数返回非零值，则必须实现此标准中的所有&#39;&#39;OPTIONAL&#39;&#39;方法。</p>
+<p class='with-space'>每次调用此方法时，它都必须返回相同的值。</p>
+<h4 id='be69b4e3'><span class='with-space bd-content-title'>tokens<a class='anchorjs-link ' href='#be69b4e3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static enumerator tokens()'>Copy</button><pre><code class='csharp' lang='csharp'>public static enumerator tokens()
+</code></pre>
+</figure>
+<p class='with-space'>返回此合约中已经发行的所有通证的 &lt;code&gt;枚举值&lt;/code&gt;。</p>
+<h4 id='df112e42'><span class='with-space bd-content-title'>transfer<a class='anchorjs-link ' href='#df112e42' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static bool transfer(byte[] to, byte[] tokenid)'>Copy</button><pre><code class='csharp' lang='csharp'>public static bool transfer(byte[] to, byte[] tokenid)
+</code></pre>
+</figure>
+<p class='with-space'>将id为 &lt;code&gt;tokenid&lt;/code&gt;的通证转到地址&lt;code&gt;to&lt;/code&gt;。</p>
+<p class='with-space'>参数 &lt;code&gt;tokenid&lt;/code&gt;应该是一个有效的NFT。如果无效，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<p class='with-space'>参数&lt;code&gt;to&lt;/code&gt; 应该是一个20字节长的地址。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<p class='with-space'>如果要转账的通证有多个所有者，函数应该返回&lt;code&gt;false&lt;/code&gt;。</p>
+<p class='with-space'>如果方法执行成功，它必须触发&lt;code&gt;转账&lt;/code&gt; 事件，并且必须返回 &lt;code&gt;true&lt;/code&gt;，即使通证是被发送给合约所有者本人。</p>
+<p class='with-space'>函数应该检查所有者的地址是否等于合约调用者的散列值。如果是，则应处理转账;如果不是，函数应该使用SYSCALL &lt;code&gt;Neo.Runtime.CheckWitness&lt;/code&gt; 来对转账操作进行验证。</p>
+<p class='with-space'>如果 &lt;code&gt;to&lt;/code&gt; 地址是已经部署的合约，函数应该检查该合约的 &lt;code&gt;payable&lt;/code&gt; 标志，从而决定是否应该将通证转账到该合约。</p>
+<p class='with-space'>如果没有处理转账事件，函数应该返回 &lt;code&gt;false&lt;/code&gt;。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static bool transfer(byte[] from, byte[] to, BigInteger amount, byte[] tokenid)'>Copy</button><pre><code class='csharp' lang='csharp'>public static bool transfer(byte[] from, byte[] to, BigInteger amount, byte[] tokenid)
+</code></pre>
+</figure>
+<p class='with-space'>&#39;&#39;OPTIONAL&#39;&#39;: 如果&lt;code&gt;decimals() &gt; 0&lt;/code&gt;，则必须实现此方法。</p>
+<p class='with-space'>将具有id &lt;code&gt;tokenid&lt;/code&gt; 的通证相应的&lt;code&gt;数量&lt;/code&gt;从一个地址&lt;code&gt;from&lt;/code&gt;转到另一个地址&lt;code&gt;to&lt;/code&gt;。</p>
+<p class='with-space'>参数&lt;code&gt;tokenid&lt;/code&gt;应该是一个有效的NFT。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<p class='with-space'>参数 &lt;code&gt;from&lt;/code&gt; 和 &lt;code&gt;to&lt;/code&gt; 应该是20字节长的地址。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<p class='with-space'>参数 &lt;code&gt;amount&lt;/code&gt; 应该大于或等于 &lt;code&gt;0&lt;/code&gt;，并且应该小于或等于&lt;code&gt;pow(10, decimals())&lt;/code&gt;。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<p class='with-space'>如果&lt;code&gt;from&lt;/code&gt;账户余额没有足够的通证来消费，函数应该返回&lt;code&gt;false&lt;/code&gt;。</p>
+<p class='with-space'>如果方法执行成功，它必须触发&lt;code&gt;转账&lt;/code&gt;事件，并且必须返回 &lt;code&gt;true&lt;/code&gt;，即使&lt;code&gt;数量&lt;/code&gt;为&lt;code&gt;0&lt;/code&gt;，或者通证被发送给合约所有者本人。</p>
+<p class='with-space'>函数应该检查&lt;code&gt;from&lt;/code&gt; 地址是否等于合约调用者的散列值。如果是，则应处理转账;如果不是，函数应该使用SYSCALL  &lt;code&gt;Neo.Runtime.CheckWitness&lt;/code&gt; 来对转账操作进行验证。</p>
+<p class='with-space'>如果&lt;code&gt;to&lt;/code&gt;地址是已经部署的合约，函数应该检查该合约的&lt;code&gt;payable&lt;/code&gt; 标志，从而决定是否应该将通证转到该合约。</p>
+<p class='with-space'>如果没有处理转账操作，函数应该返回&lt;code&gt;false&lt;/code&gt;。</p>
+<h4 id='dbe58c89'><span class='with-space bd-content-title'>ownerOf<a class='anchorjs-link ' href='#dbe58c89' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static enumerator ownerOf(byte[] tokenid)'>Copy</button><pre><code class='csharp' lang='csharp'>public static enumerator ownerOf(byte[] tokenid)
+</code></pre>
+</figure>
+<p class='with-space'>返回一个&lt;code&gt;枚举值&lt;/code&gt;，该枚举值包含拥有指定通证的所有共同所有者。</p>
+<p class='with-space'>参数&lt;code&gt;tokenid&lt;/code&gt;应该是一个有效的NFT。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<h4 id='cb3fbc08'><span class='with-space bd-content-title'>tokenURI<a class='anchorjs-link ' href='#cb3fbc08' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static string tokenURI(byte[] tokenid)'>Copy</button><pre><code class='csharp' lang='csharp'>public static string tokenURI(byte[] tokenid)
+</code></pre>
+</figure>
+<p class='with-space'>返回给定资产的不同的统一资源标识符(URI)。通证的URI数据提供了一个引用，以获取关于特定通证或通证数据的更多信息。</p>
+<p class='with-space'>参数&lt;code&gt;tokenid&lt;/code&gt;应该是一个有效的NFT。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<h4 id='fdb6dab3'><span class='with-space bd-content-title'>balanceOf<a class='anchorjs-link ' href='#fdb6dab3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static BigInteger balanceOf(byte[] owner, byte[] tokenid)'>Copy</button><pre><code class='csharp' lang='csharp'>public static BigInteger balanceOf(byte[] owner, byte[] tokenid)
+</code></pre>
+</figure>
+<p class='with-space'>返回指定所有者账户的指定通证的余额。</p>
+<p class='with-space'>参数&lt;code&gt;tokenid&lt;/code&gt;应该是一个有效的NFT。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<p class='with-space'>参数&lt;code&gt;owner&lt;/code&gt; 应该是一个20字节长的地址。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<p class='with-space'>如果&lt;code&gt;owner&lt;/code&gt; 是未使用的地址，或者不是指定通证的所有者，则此方法应该返回&lt;code&gt;0&lt;/code&gt;。</p>
+<h4 id='c689cdbc'><span class='with-space bd-content-title'>tokensOfOwner<a class='anchorjs-link ' href='#c689cdbc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static enumerator tokensOfOwner(byte[] owner)'>Copy</button><pre><code class='csharp' lang='csharp'>public static enumerator tokensOfOwner(byte[] owner)
+</code></pre>
+</figure>
+<p class='with-space'>返回一个&lt;code&gt;枚举值&lt;/code&gt;，该枚举值包含指定地址所拥有的所有通证。</p>
+<p class='with-space'>参数&lt;code&gt;owner&lt;/code&gt; 应该是一个20字节长的地址。如果不是，这个方法应该&lt;code&gt;抛出&lt;/code&gt;异常。</p>
+<h3 id='ad71f2e9'><span class='with-space bd-content-title'>事件<a class='anchorjs-link ' href='#ad71f2e9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='fec7ef79'><span class='with-space bd-content-title'>transfer<a class='anchorjs-link ' href='#fec7ef79' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static event transfer(byte[] from, byte[] to, BigInteger amount, byte[] tokenid)'>Copy</button><pre><code class='csharp' lang='csharp'>public static event transfer(byte[] from, byte[] to, BigInteger amount, byte[] tokenid)
+</code></pre>
+</figure>
+<p class='with-space'>必须在通证转账(包括零值转账)时触发。</p>
+<p class='with-space'>创建新通证的合约应该在通证创建时触发&lt;code&gt;转账&lt;/code&gt;事件，其中地址&lt;code&gt;from&lt;/code&gt;设置为&lt;code&gt;null&lt;/code&gt;。</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/zh-cn/9-smartContract\NFT.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#c67f9e0f'>什么是非同质通证?</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b6d3e158'>方法</a>
+<a class='ml-2 my-1 nav-link' href='#ad71f2e9'>事件</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

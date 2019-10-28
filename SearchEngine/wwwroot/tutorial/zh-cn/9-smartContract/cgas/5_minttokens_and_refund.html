@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>铸币与退款</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/1-Introduction_to_NEO.html'>简介</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>密码学、区块链和智能合约</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/3-Fundamentals_of_NEO.html'>基础知识</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/1-introduction/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>钱包</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/1-Introduction_to_wallets.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>私钥和地址生成</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/3-Key_encryption_and_contract_accounts.html'>私钥与合约账户</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/4-UTXO_and_account_models.html'>UTXO 与账户模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/2-wallet/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/1-Introduction_to_transactions.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/2-Structure_of_NEO_transactions.html'>交易结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/3-NEO_transaction_types.html'>交易类型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/4-NEO_transaction_fees.html'>交易手续费</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/3-transactions/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/2-Structure_of_a_block.html'>区块结构</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/3-Block_creation_broadcasting.html'>区块创建与广播</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/4-Block_validation_processing.html'>区块验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/4-blocks/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/1-Introduction_to_the_NEO_network_protocol.html'>协议和网络</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/5-network/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>持久性</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/1-persistence.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/6-persistence/2-levelDB_data_structure.html'>LevelDB 数据结构</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/1-Introduction_to_consensus.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW 与 PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/3-PBFT_and_DBFT.html'>pBFT 与 dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>共识示例与场景</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/7-consensus/resource.html'>更多资源</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_smart_contract.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_privateChain.html'>搭建私链</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_set_up.html'>搭建开发环境</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Development_compile.html'>编译、调用与部署</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Smart_Contract_basics.html'>智能合约基础</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>创建 NEP-5 合约</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/What_is_nep5.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Implementation_of_NEP5.html'>实现 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/Give_an_ITO.html'>ITO</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/UTXO.html'>UTXO 基础</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/1_what_is_cgas.html'>什么是 CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/2_global_asset_and_nep5.html'>全局资产与 NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/3_utxo_model.html'>UTXO 模型</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/4_trigger.html'>触发器</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/5_minttokens_and_refund.html'>铸币与退款</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/6_signature_and_verification.html'>签名与验证</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/cgas/7_invocation.html'>交易调用</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/tutorial/zh-cn/9-smartContract/neo_python_quickstart_cn.html'>NEO Python 快速入门</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='c64d63a2'><span class='with-space bd-content-title'>铸币与退款<a class='anchorjs-link ' href='#c64d63a2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='aefe5245'><span class='with-space bd-content-title'>MintTokens 部分代码<a class='anchorjs-link ' href='#aefe5245' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='var tx = ExecutionEngine.ScriptContainer as Transaction;
+byte[] sender = null;
+var inputs = tx.GetReferences();
+foreach (var input in inputs)
+{
+    if (input.AssetId.AsBigInteger() == AssetId.AsBigInteger())
+        sender = sender ?? input.ScriptHash;
+    if (input.ScriptHash.AsBigInteger() == ExecutionEngine.ExecutingScriptHash.AsBigInteger())
+        return false;
+}'>Copy</button><pre><code class='csharp' lang='csharp'>var tx = ExecutionEngine.ScriptContainer as Transaction;
+byte[] sender = null;
+var inputs = tx.GetReferences();
+foreach (var input in inputs)
+{
+    if (input.AssetId.AsBigInteger() == AssetId.AsBigInteger())
+        sender = sender ?? input.ScriptHash;
+    if (input.ScriptHash.AsBigInteger() == ExecutionEngine.ExecutingScriptHash.AsBigInteger())
+        return false;
+}
+</code></pre>
+</figure>
+<p class='with-space'>这几行代码的作用是获取发起 MintTokens 的人，也就是投资者。但要求投资者不能是 CGAS 本身，否则就可以利用此漏洞进行攻击。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='if (GetTxInfo(tx.Hash) != null)
+    return false;'>Copy</button><pre><code class='csharp' lang='csharp'>if (GetTxInfo(tx.Hash) != null)
+    return false;
+</code></pre>
+</figure>
+<p class='with-space'>接下来这句也是防止黑客攻击的，和 MintTokens 结尾这一段代码配合使用。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='SetTxInfo(null, sender, value);'>Copy</button><pre><code class='csharp' lang='csharp'>SetTxInfo(null, sender, value);
+</code></pre>
+</figure>
+<p class='with-space'>因为正常来讲一笔 Invocation 交易会执行一遍 Main 方法，从 NEO-GUI 里调用的也是这样，但如果黑客手动构造了一笔交易，让其执行多次 Main 方法，然后都调用了 MintTokens，就会导致一笔投资，进行多次铸币操作。通过这样的方法可以避免这类攻击。在一次 MintTokens 方法执行结束后， 将交易 ID 写在存储区里，每次执行 MintTokens 的时候，如果发现存储区里有该交易 ID，则返回 False，将其认为非法的 MintTokens 操作。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='var outputs = tx.GetOutputs();
+ulong value = 0;
+foreach (var output in outputs)
+{
+    if (output.ScriptHash == ExecutionEngine.ExecutingScriptHash &amp;&amp;
+        output.AssetId.AsBigInteger() == AssetId.AsBigInteger())
+    {
+        value += (ulong)output.Value;
+    }
+}'>Copy</button><pre><code class='csharp' lang='csharp'>var outputs = tx.GetOutputs();
+ulong value = 0;
+foreach (var output in outputs)
+{
+    if (output.ScriptHash == ExecutionEngine.ExecutingScriptHash &amp;&amp;
+        output.AssetId.AsBigInteger() == AssetId.AsBigInteger())
+    {
+        value += (ulong)output.Value;
+    }
+}
+</code></pre>
+</figure>
+<p class='with-space'>接下来的代码是进行计算用户向 CGAS 合约转账了多少 GAS，这里对所有交易输出进行了遍历，如果转的地址是 CGAS 地址，并且转的资产是 GAS，则进行统计。</p>
+<p class='with-space'>获取了用户总共向 CGAS 合约转了多少 GAS 之后，就要做两件事:</p>
+<ol>
+<li>
+<p class='with-space'>修改 CGAS 的总量</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract)); 
+var totalSupply = contract.Get(&quot;totalSupply&quot;).AsBigInteger();  
+totalSupply += value; 
+contract.Put(&quot;totalSupply&quot;, totalSupply); '>Copy</button><pre><code class='csharp' lang='csharp'>StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract)); 
+var totalSupply = contract.Get(&quot;totalSupply&quot;).AsBigInteger();  
+totalSupply += value; 
+contract.Put(&quot;totalSupply&quot;, totalSupply); 
+</code></pre>
+</figure></li>
+<li>
+<p class='with-space'>给用户分按兑换比例发 CGAS</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset)); 
+var amount = asset.Get(sender).AsBigInteger(); 
+asset.Put(sender, amount + value); '>Copy</button><pre><code class='csharp' lang='csharp'>StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset)); 
+var amount = asset.Get(sender).AsBigInteger(); 
+asset.Put(sender, amount + value); 
+</code></pre>
+</figure></li>
+</ol>
+<p class='with-space'>最后触发转账的事件，通知客户端无中生有地给一个用户进行了转账，也就是分发资产。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='Transferred(null, sender, value);'>Copy</button><pre><code class='csharp' lang='csharp'>Transferred(null, sender, value);
+</code></pre>
+</figure>
+<p class='with-space'>Transferred 的参数有 3 个，分别是 转账人、收款人、转账金额。在 MintTokens 中，转账人为 null，在 refund 第一步，收款人为 null。</p>
+<p class='with-space'>用户如果想在 MintTokens 的时候附加一些手续费，也是可以的，代码中只检测转给 CGAS 合约的交易输出中的 GAS 部分，用户交易输入中包含的 GAS，以及找零的 GAS 程序是不进行统计的。</p>
+<h2 id='cdbbf7e1'><span class='with-space bd-content-title'>Refund 部分代码<a class='anchorjs-link ' href='#cdbbf7e1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>回顾一下方法说明中的介绍：用户将 CGAS 提取，变成 GAS 总共分两步。第一步，发起一笔 InvocationTransaction 其中包含一笔从 CGAS 地址到 CGAS 地址的 GAS 转账（转账金额为用户想退回的 GAS 的数量），并调用 refund 方法（参数为退回者的 Script Hash）。合约调用成功后，将自动销毁与退回数量相等的 CGAS，并把该交易的第 0 号 output 标记为所属于该用户。第二步，用户构造一个交易将第一步标记过的 UTXO 作为交易输入，交易输出为用户自己的地址，从而将 GAS 从 CGAS 地址中取走。</p>
+<p class='with-space'>那么 refund 方法这一部分的代码对应上面的哪一步呢？</p>
+<p class='with-space'>显然，refund 是在 Main 方法中的 Application 触发器中调用的，所以只有 InvocationTransaction 才可能触发该方法。对应的就是第一步中的交易成功后，执行 refund 方法这一步。</p>
+<p class='with-space'>在代码中，有两段代码共同配合完成 Refund 的第一步的操作，一段就是上文所说的 Verification 触发器部分代码，第二段就是 refund 方法这一部分的代码。</p>
+<p class='with-space'>这段代码是在 InvocationTransaction 验证成功后，才执行的。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='if (from.Length != 20)
+    throw new InvalidOperationException(&quot;The parameter from SHOULD be 20-byte addresses.&quot;);'>Copy</button><pre><code class='csharp' lang='csharp'>if (from.Length != 20)
+    throw new InvalidOperationException(&quot;The parameter from SHOULD be 20-byte addresses.&quot;);
+</code></pre>
+</figure>
+<p class='with-space'>首先是对参数进行验证，这符合 NEP-5 规范。在转账的过程一直是从 CGAS 合约地址转到 CGAS 合约地址，不存在用户的地址，所以为了获得用户的地址，需要把用户的地址作为参数传进来。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='var tx = ExecutionEngine.ScriptContainer as Transaction;
+var preRefund = tx.GetOutputs()[0];
+if (preRefund.AssetId.AsBigInteger() != AssetId.AsBigInteger()) return false;'>Copy</button><pre><code class='csharp' lang='csharp'>var tx = ExecutionEngine.ScriptContainer as Transaction;
+var preRefund = tx.GetOutputs()[0];
+if (preRefund.AssetId.AsBigInteger() != AssetId.AsBigInteger()) return false;
+</code></pre>
+</figure>
+<p class='with-space'>然后验证了 Refund 的资产是否符合要求。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='if (preRefund.ScriptHash.AsBigInteger() != ExecutionEngine.ExecutingScriptHash.AsBigInteger()) return false;'>Copy</button><pre><code class='csharp' lang='csharp'>if (preRefund.ScriptHash.AsBigInteger() != ExecutionEngine.ExecutingScriptHash.AsBigInteger()) return false;
+</code></pre>
+</figure>
+<p class='with-space'>接下来我们打算把 index 为 0 的交易输出标记为 refund，所以先验证一下这个交易输出是否转到的是 CGAS 地址，而不是其它的地址。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='StorageMap refund = Storage.CurrentContext.CreateMap(nameof(refund));
+if (refund.Get(tx.Hash).Length &gt; 0) return false; 
+……
+refund.Put(tx.Hash, from);'>Copy</button><pre><code class='csharp' lang='csharp'>StorageMap refund = Storage.CurrentContext.CreateMap(nameof(refund));
+if (refund.Get(tx.Hash).Length &gt; 0) return false; 
+……
+refund.Put(tx.Hash, from);
+</code></pre>
+</figure>
+<p class='with-space'>这一步是预防性编程，防止同一个 UTXO 被多次 refund，如果发生会让用户损失资产。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='if (!Runtime.CheckWitness(from)) return false;'>Copy</button><pre><code class='csharp' lang='csharp'>if (!Runtime.CheckWitness(from)) return false;
+</code></pre>
+</figure>
+<p class='with-space'>最后一步验证就是验证签名，这是进行权限验证的常用手段，如果黑客想 refund 其它人的资产，我把 from 填写为其它人的地址，到这一步验证签名就会失败。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
+var fromAmount = asset.Get(from).AsBigInteger(); 
+var preRefundValue = preRefund.Value;
+if (fromAmount &lt; preRefundValue)
+    return false;
+else if (fromAmount == preRefundValue)
+    asset.Delete(from); 
+else
+    asset.Put(from, fromAmount - preRefundValue); '>Copy</button><pre><code class='csharp' lang='csharp'>StorageMap asset = Storage.CurrentContext.CreateMap(nameof(asset));
+var fromAmount = asset.Get(from).AsBigInteger(); 
+var preRefundValue = preRefund.Value;
+if (fromAmount &lt; preRefundValue)
+    return false;
+else if (fromAmount == preRefundValue)
+    asset.Delete(from); 
+else
+    asset.Put(from, fromAmount - preRefundValue); 
+</code></pre>
+</figure>
+<p class='with-space'>验证好身份之后，就要对用户资产进行操作了。这里做的事情就是将用户的资产减少，为了避免产生负数，先对 refund 的金额和用户的余额进行了比较。然后修改用户资产。</p>
+<p class='with-space'>有用户的资产减少了，那么 CGAS 的总量也会减少，所以还要对 totalSupply 进行修改，代码如下：</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
+var totalSupply = contract.Get(&quot;totalSupply&quot;).AsBigInteger(); 
+totalSupply -= preRefundValue;
+contract.Put(&quot;totalSupply&quot;, totalSupply);'>Copy</button><pre><code class='csharp' lang='csharp'>StorageMap contract = Storage.CurrentContext.CreateMap(nameof(contract));
+var totalSupply = contract.Get(&quot;totalSupply&quot;).AsBigInteger(); 
+totalSupply -= preRefundValue;
+contract.Put(&quot;totalSupply&quot;, totalSupply);
+</code></pre>
+</figure>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='SetTxInfo(from, null, preRefundValue);
+Transferred(from, null, preRefundValue);
+Refunded(tx.Hash, from);'>Copy</button><pre><code class='csharp' lang='csharp'>SetTxInfo(from, null, preRefundValue);
+Transferred(from, null, preRefundValue);
+Refunded(tx.Hash, from);
+</code></pre>
+</figure>
+<p class='with-space'>最后记录下交易 ID，方便查询，触发 Transferrd 事件，方便区块链浏览器和客户端处理。然后记下这个 UTXO 是谁退回的，为 refund 第二步做准备。</p>
+<h2 id='a7bbd0b8'><span class='with-space bd-content-title'>阅读下节<a class='anchorjs-link ' href='#a7bbd0b8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>下节我们将介绍 <a href='6_signature_and_verification.html'> 签名与验证</a> 。</p>
+<p class='with-space'>如果要返回上节了解触发器，点击 <a href='4_trigger.html'> 这里</a> 。</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/zh-cn/9-smartContract\cgas\5_minttokens_and_refund.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#c64d63a2'>铸币与退款</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#aefe5245'>MintTokens 部分代码</a>
+<a class='ml-0 my-1 nav-link' href='#cdbbf7e1'>Refund 部分代码</a>
+<a class='ml-0 my-1 nav-link' href='#a7bbd0b8'>阅读下节</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

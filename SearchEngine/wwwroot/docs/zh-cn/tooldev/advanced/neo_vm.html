@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>NeoVM指令集</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/index.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/whitepaper.html'>NEO 白皮书</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 技术</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/dbft.html'>共识机制</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 节点</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/introduction.html'>节点介绍</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/install.html'>下载客户端</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/wallet.html'>钱包</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/transc.html'>交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/asset.html'>注册与分发资产</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/sc.html'>与智能合约交互</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/vote.html'>选举与投票</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/other.html'>其它功能</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/publish.html'>发布</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/setup.html'>安装</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/seedlist.html'>节点列表</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/cli.html'>命令参考</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/overview.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/install.html'>安装 （Ubuntu/OSX）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/installwin.html'>安装 （Windows）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/seedlist.html'>NEO-Python SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/basic.html'>基本用法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/prompt.html'>Prompt</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/syncblocks.html'>快速同步区块</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/testnet.html'>主网与测试网</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>搭建私有链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/solo.html'>单节点模式</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/private-chain.html'>使用虚拟机搭建</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/private-chain2.html'>在本地主机搭建</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>快速入门（C#）</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/introduction.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/prerequisites.html'>准备工作</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/enviroment.html'>搭建网络环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/develop.html'>开发示例合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/deploy.html'>部署并调用合约</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发环境</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-csharp-mac.html'>macOS + C#</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-csharp-ubuntu.html'>ubuntu + C#</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-java.html'>Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-python.html'>Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>合约编写</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/basics.html'>合约编写基础</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/limitation.html'>编写限制</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>部署和调用</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/deploy.html'>部署合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/invoke.html'>调用合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/Parameter.html'>参数和返回值</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/test.html'>测试</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/migrate.html'>合约迁移</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/fees.html'>手续费</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>合约示例</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/Domain.html'>Domain（域名系统）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/verify.html'>鉴权合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/Lock2.html'>锁仓合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO工具开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>基本概念</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块模型</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/block.html'>区块</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/token_model.html'>通证</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/account_asset.html'>账户与资产</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/validator.html'>验证人</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/charging_model.html'>收费模型</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/transaction.html'>交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/wallets.html'>钱包</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/consensus_algorithm.html'>共识算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/consensus_protocol.html'>共识协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/vote_validator.html'>投票</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>密码学</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.html'>编码算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.html'>哈希算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.html'>加密算法</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/neo_cli_structure.html'>NEO-CLI 结构</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/introduction.html'>关于 NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/conversion.html'>数据类型转换</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/account.html'>账户</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/wallet.html'>钱包</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/tx.html'>交易</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/endian.html'>大小端序的使用</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>进阶知识</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/neo_vm.html'>NeoVM 指令集</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/network-protocol.html'>网络协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/tx_execution.html'>交易流程</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/merkle_tree.html'>梅克尔树</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/general.html'>概述</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/deploynode.html'>部署 NEO 节点</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/client.html'>使用 NEO-CLI 客户端</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/transaction.html'>处理资产交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/gas.html'>给用户分发 GAS</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/changelog.html'>更新记录</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api.html'>API 参考</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API 参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>框架</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net 框架</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='https'>SDK API (C#)</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='ce7a3e50'><span class='with-space bd-content-title'>NeoVM指令集<a class='anchorjs-link ' href='#ce7a3e50' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='cbe58142'><span class='with-space bd-content-title'>内置数据类型<a class='anchorjs-link ' href='#cbe58142' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>NeoVM内置的数据类型一共有7种：</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>类型</th><th>描述</th></tr></thead>
+<tbody><tr><td>Boolean</td><td>布尔类型，实现为一个bool值和两个字节数组 <code>TRUE</code> 和 <code>FALSE</code> 。</td></tr><tr><td>Integer</td><td>整型，实现为一个 <code>BigInteger</code> 值。</td></tr><tr><td>ByteArray</td><td>字节数组，实现为一个 <code>byte[]</code> 。</td></tr><tr><td>Array</td><td>数组，实现为一个 <code>List&lt;StackItem&gt;</code> ， <code>StackItem</code> 是一个抽象类，NeoVM内置的数据类型均继承自 <code>StackItem</code> 。</td></tr><tr><td>Struct</td><td>结构体，继承自 <code>Array</code> 。结构与 <code>Array</code> 相同，只是添加了 <code>Clone</code> 方法和重写了 <code>Equals</code> 方法。</td></tr><tr><td>Map</td><td>实现为一个键值对为 <code>StackItem</code> 的字典类型 <code>Dictionary&lt;StackItem, StackItem&gt;</code> 。</td></tr><tr><td>InteropInterface</td><td>互操作接口</td></tr>
+</tbody>
+</table></figure>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='// boolean 类型
+private static readonly byte[] TRUE = { 1 };
+private static readonly byte[] FALSE = { 0 };
+
+private bool value;'>Copy</button><pre><code class='csharp' lang='csharp'>// boolean 类型
+private static readonly byte[] TRUE = { 1 };
+private static readonly byte[] FALSE = { 0 };
+
+private bool value;
+</code></pre>
+</figure>
+<h2 id='cf9479d3'><span class='with-space bd-content-title'>指令集<a class='anchorjs-link ' href='#cf9479d3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Neo.VM虚拟机一共实现了113个指令（另外有4个被注释未实现指令），类别如下：</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>常数</th><th>流程控制</th><th>栈操作</th><th>字符串操作</th><th>逻辑运算</th><th>算术运算</th><th>密码学</th><th>高级数据结构</th><th>栈隔离</th><th>异常处理</th></tr></thead>
+<tbody><tr><td>25</td><td>9</td><td>16</td><td>5</td><td>5</td><td>25</td><td>7</td><td>14</td><td>5</td><td>2</td></tr>
+</tbody>
+</table></figure>
+<p class='with-space'>下面将分别介绍各个指令的详细内容。</p>
+<h3 id='e85a9cf5'><span class='with-space bd-content-title'>常数<a class='anchorjs-link ' href='#e85a9cf5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>常数部分指令主要完成向计算栈中压入常数或者数组的功能。</p>
+<h4 id='a5f20f07'><span class='with-space bd-content-title'>PUSH0<a class='anchorjs-link ' href='#a5f20f07' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令</th><th>PUSH0</th></tr></thead>
+<tbody><tr><td>字节码</td><td>0x00</td></tr><tr><td>别名：</td><td> <code>PUSHF</code> </td></tr><tr><td>功能：</td><td>向计算栈中压入一个长度为0的字节数组。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d11c1702'><span class='with-space bd-content-title'>PUSHBYTES<a class='anchorjs-link ' href='#d11c1702' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>PUSHBYTES1~PUSHBYTES75</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x01~0x4B</td></tr><tr><td>功能：</td><td>向计算栈中压入一个字节数组，其长度等于本指令字节码的数值。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ac204876'><span class='with-space bd-content-title'>PUSHDATA<a class='anchorjs-link ' href='#ac204876' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>PUSHDATA1, PUSHDATA2, PUSHDATA4</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x4C, 0x4D, 0x4E</td></tr><tr><td>功能：</td><td>向计算栈中压入一个字节数组，其长度由本指令后的 1|2|4 字节指定。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a11183d5'><span class='with-space bd-content-title'>PUSHM1<a class='anchorjs-link ' href='#a11183d5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>PUSHM1</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x4F</td></tr><tr><td>功能：</td><td>向计算栈中压入一个大整数，其数值等于-1。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d454ce56'><span class='with-space bd-content-title'>PUSHN<a class='anchorjs-link ' href='#d454ce56' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>PUSH1~PUSH16</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x51~0x60</td></tr><tr><td>别名：</td><td> <code>PUSHT</code> </td></tr><tr><td>功能：</td><td>向计算栈中压入一个大整数，其数值等于1~16。</td></tr>
+</tbody>
+</table></figure>
+<h3 id='edf7878f'><span class='with-space bd-content-title'>流程控制<a class='anchorjs-link ' href='#edf7878f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>用于控制的虚拟机运行流程，包括跳转、调用等指令。</p>
+<h4 id='b6b6be04'><span class='with-space bd-content-title'>NOP<a class='anchorjs-link ' href='#b6b6be04' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NOP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x61</td></tr><tr><td>功能：</td><td>空操作，但是会使指令计步器加1。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e99b837d'><span class='with-space bd-content-title'>JMP<a class='anchorjs-link ' href='#e99b837d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>JMP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x62</td></tr><tr><td>功能：</td><td>无条件跳转到指定偏移位置，偏移量由本指令后的2字节指定。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='b34f02f4'><span class='with-space bd-content-title'>JMPIF<a class='anchorjs-link ' href='#b34f02f4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>JMPIF</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x63</td></tr><tr><td>功能：</td><td>当计算栈栈顶元素不等于0时，跳转到指定偏移位置，<br>偏移量由本指令后的2字节指定。不论条件判断成功与否，栈顶元素将被移除。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f23dedbc'><span class='with-space bd-content-title'>JMPIFNOT<a class='anchorjs-link ' href='#f23dedbc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>JMPIFNOT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x64</td></tr><tr><td>功能：</td><td>当计算栈栈顶元素等于0时，跳转到指定偏移位置，偏移量由本指令后的2字节指定</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a329184a'><span class='with-space bd-content-title'>CALL<a class='anchorjs-link ' href='#a329184a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CALL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x65</td></tr><tr><td>功能：</td><td>调用指定偏移位置的函数，偏移量由本指令后的2字节指定。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d2d0beeb'><span class='with-space bd-content-title'>RET<a class='anchorjs-link ' href='#d2d0beeb' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>RET</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x66</td></tr><tr><td>功能：</td><td>移除调用栈的顶部元素，并使程序在调用栈的下一帧中继续执行。<br>如果调用栈为空，则虚拟机进入停机状态。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ea4546ed'><span class='with-space bd-content-title'>APPCALL<a class='anchorjs-link ' href='#ea4546ed' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>APPCALL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x67</td></tr><tr><td>功能：</td><td>调用指定地址的函数，函数地址由本指令后的20字节指定。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='efe10b71'><span class='with-space bd-content-title'>SYSCALL<a class='anchorjs-link ' href='#efe10b71' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SYSCALL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x68</td></tr><tr><td>功能：</td><td>调用指定的互操作函数，函数名称由本指令后的字符串指定。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a21bf77e'><span class='with-space bd-content-title'>TAILCALL<a class='anchorjs-link ' href='#a21bf77e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>TAILCALL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x69</td></tr><tr><td>功能：</td><td>以尾调用的方式(调用完后不再返回当前执行环境)，<br>调用指定的互操作函数，函数名称由本指令后的字符串指定。</td></tr>
+</tbody>
+</table></figure>
+<h3 id='cff68d9a'><span class='with-space bd-content-title'>栈操作<a class='anchorjs-link ' href='#cff68d9a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>实现对栈的元素做复制、移除、交换等功能。</p>
+<h4 id='f39bb152'><span class='with-space bd-content-title'>DUPFROMALTSTACK<a class='anchorjs-link ' href='#f39bb152' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令</th><th>DUPFROMALTSTACK</th></tr></thead>
+<tbody><tr><td>字节码</td><td>0x6A</td></tr><tr><td>功能</td><td>复制备用栈栈顶的元素，并将其压入计算栈。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='b8c4314c'><span class='with-space bd-content-title'>TOALTSTACK<a class='anchorjs-link ' href='#b8c4314c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>TOALTSTACK</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x6B</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的元素，并将其压入备用栈。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='c9304de2'><span class='with-space bd-content-title'>FROMALTSTACK<a class='anchorjs-link ' href='#c9304de2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>FROMALTSTACK</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x6C</td></tr><tr><td>功能：</td><td>移除备用栈栈顶的元素，并将其压入计算栈。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='b828a6bb'><span class='with-space bd-content-title'>XDROP<a class='anchorjs-link ' href='#b828a6bb' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>XDROP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x6D</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的元素n，并移除剩余的索引为n的元素。</td></tr><tr><td>输入：</td><td>Xn&#160;Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;n</td></tr><tr><td>输出：</td><td>Xn-1&#160;...&#160;X2&#160;X1&#160;X0</td></tr>
+</tbody>
+</table></figure>
+<h4 id='df10662b'><span class='with-space bd-content-title'>XSWAP<a class='anchorjs-link ' href='#df10662b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>XSWAP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x72</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的元素n，并将剩余的索引为0的元素和索引为n的元素交换位置。</td></tr><tr><td>输入：</td><td>Xn&#160;Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;n</td></tr><tr><td>输出：</td><td>X0&#160;Xn-1&#160;...&#160;X2&#160;X1&#160;Xn</td></tr>
+</tbody>
+</table></figure>
+<h4 id='c820a42f'><span class='with-space bd-content-title'>XTUCK<a class='anchorjs-link ' href='#c820a42f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>XTUCK</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x73</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的元素n，并将剩余的索引为0的元素复制并插入到索引为n的位置。</td></tr><tr><td>输入：</td><td>Xn&#160;Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;n</td></tr><tr><td>输出：</td><td>Xn&#160;X0&#160;Xn-1&#160;...&#160;X2&#160;X1&#160;X0</td></tr>
+</tbody>
+</table></figure>
+<h4 id='cafaeaff'><span class='with-space bd-content-title'>DEPTH<a class='anchorjs-link ' href='#cafaeaff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>DEPTH</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x74</td></tr><tr><td>功能：</td><td>将当前计算栈中的元素数量压入计算栈顶。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='be39182f'><span class='with-space bd-content-title'>DROP<a class='anchorjs-link ' href='#be39182f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>DROP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x75</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的元素。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d7e1a99f'><span class='with-space bd-content-title'>DUP<a class='anchorjs-link ' href='#d7e1a99f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>DUP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x76</td></tr><tr><td>功能：</td><td>复制计算栈栈顶的元素。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>X X</td></tr>
+</tbody>
+</table></figure>
+<h4 id='bd9e2a8b'><span class='with-space bd-content-title'>NIP<a class='anchorjs-link ' href='#bd9e2a8b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NIP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x77</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的第2个元素。</td></tr><tr><td>输入：</td><td>X1&#160;X0</td></tr><tr><td>输出：</td><td>X0</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f629f842'><span class='with-space bd-content-title'>OVER<a class='anchorjs-link ' href='#f629f842' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>OVER</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x78</td></tr><tr><td>功能：</td><td>复制计算栈栈顶的第二个元素，并压入栈顶。</td></tr><tr><td>输入：</td><td>X1&#160;X0</td></tr><tr><td>输出：</td><td>X1&#160;X0&#160;X1</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a75cfb07'><span class='with-space bd-content-title'>PICK<a class='anchorjs-link ' href='#a75cfb07' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>PICK</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x79</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的元素n，并将剩余的索引为n的元素复制到栈顶。</td></tr><tr><td>输入：</td><td>Xn&#160;Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;n</td></tr><tr><td>输出：</td><td>Xn&#160;Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;Xn</td></tr>
+</tbody>
+</table></figure>
+<h4 id='fdcddf14'><span class='with-space bd-content-title'>ROLL<a class='anchorjs-link ' href='#fdcddf14' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>ROLL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x7A</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的元素n，并将剩余的索引为n的元素移动到栈顶。</td></tr><tr><td>输入：</td><td>Xn&#160;Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;n</td></tr><tr><td>输出：</td><td>Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;Xn</td></tr>
+</tbody>
+</table></figure>
+<h4 id='eb09f83f'><span class='with-space bd-content-title'>ROT<a class='anchorjs-link ' href='#eb09f83f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>ROT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x7B</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的第3个元素，并将其压入栈顶。</td></tr><tr><td>输入：</td><td>X2&#160;X1&#160;X0</td></tr><tr><td>输出：</td><td>X1&#160;X0&#160;X2</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e075546e'><span class='with-space bd-content-title'>SWAP<a class='anchorjs-link ' href='#e075546e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SWAP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x7C</td></tr><tr><td>功能：</td><td>交换计算栈栈顶两个元素的位置。</td></tr><tr><td>输入：</td><td>X1&#160;X0</td></tr><tr><td>输出：</td><td>X0&#160;X1</td></tr>
+</tbody>
+</table></figure>
+<h4 id='b0c8e4aa'><span class='with-space bd-content-title'>TUCK<a class='anchorjs-link ' href='#b0c8e4aa' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>TUCK</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x7D</td></tr><tr><td>功能：</td><td>复制计算栈栈顶的元素到索引为2的位置。</td></tr><tr><td>输入：</td><td>X1&#160;X0</td></tr><tr><td>输出：</td><td>X0&#160;X1&#160;X0</td></tr>
+</tbody>
+</table></figure>
+<h3 id='ffc1bb9c'><span class='with-space bd-content-title'>字符串操作<a class='anchorjs-link ' href='#ffc1bb9c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='b615a328'><span class='with-space bd-content-title'>CAT<a class='anchorjs-link ' href='#b615a328' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CAT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x7E</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的两个元素，并将其拼接后压入栈顶。</td></tr><tr><td>输入：</td><td>X1&#160;X0</td></tr><tr><td>输出：</td><td>Concat(X1,X0)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d9a02f05'><span class='with-space bd-content-title'>SUBSTR<a class='anchorjs-link ' href='#d9a02f05' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SUBSTR</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x7F</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的三个元素，取子串后压入栈顶。</td></tr><tr><td>输入：</td><td>X&#160;index&#160;len</td></tr><tr><td>输出：</td><td>SubString(X,index,len)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f09a78bd'><span class='with-space bd-content-title'>LEFT<a class='anchorjs-link ' href='#f09a78bd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>LEFT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x80</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的两个元素，取子串后压入栈顶。</td></tr><tr><td>输入：</td><td>X&#160;len</td></tr><tr><td>输出：</td><td>Left(X,len)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='b14d18f5'><span class='with-space bd-content-title'>RIGHT<a class='anchorjs-link ' href='#b14d18f5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>RIGHT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x81</td></tr><tr><td>功能：</td><td>移除计算栈栈顶的两个元素，取子串后压入栈顶。</td></tr><tr><td>输入：</td><td>X&#160;len</td></tr><tr><td>输出：</td><td>Right(X,len)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e43e3f3f'><span class='with-space bd-content-title'>SIZE<a class='anchorjs-link ' href='#e43e3f3f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SIZE</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x82</td></tr><tr><td>功能：</td><td>将计算栈栈顶元素的长度压入栈顶。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>X&#160;len(X)</td></tr>
+</tbody>
+</table></figure>
+<h3 id='e6d0f73d'><span class='with-space bd-content-title'>逻辑运算<a class='anchorjs-link ' href='#e6d0f73d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='c32740c6'><span class='with-space bd-content-title'>INVERT<a class='anchorjs-link ' href='#c32740c6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>INVERT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x83</td></tr><tr><td>功能：</td><td>对计算栈栈顶的元素按位取反。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>~X</td></tr>
+</tbody>
+</table></figure>
+<h4 id='bd1c84e5'><span class='with-space bd-content-title'>AND<a class='anchorjs-link ' href='#bd1c84e5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>AND</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x84</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个元素执行按位与运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A&amp;B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='fd32a83f'><span class='with-space bd-content-title'>OR<a class='anchorjs-link ' href='#fd32a83f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>OR</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x85</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个元素执行按位或运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A|B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e1671446'><span class='with-space bd-content-title'>XOR<a class='anchorjs-link ' href='#e1671446' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>XOR</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x86</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个元素执行按位异或运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A^B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ece14bf7'><span class='with-space bd-content-title'>EQUAL<a class='anchorjs-link ' href='#ece14bf7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>EQUAL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x87</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个元素执行逐字节的相等判断。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>Equals(A,B)</td></tr>
+</tbody>
+</table></figure>
+<h3 id='a61d68d2'><span class='with-space bd-content-title'>算术运算<a class='anchorjs-link ' href='#a61d68d2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='f8d0b424'><span class='with-space bd-content-title'>INC<a class='anchorjs-link ' href='#f8d0b424' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>INC</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x8B</td></tr><tr><td>功能：</td><td>对计算栈栈顶的大整数执行递增运算。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>X+1</td></tr>
+</tbody>
+</table></figure>
+<h4 id='b26cee06'><span class='with-space bd-content-title'>DEC<a class='anchorjs-link ' href='#b26cee06' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>DEC</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x8C</td></tr><tr><td>功能：</td><td>对计算栈栈顶的大整数执行递减运算。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>X-1</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d3f3fd99'><span class='with-space bd-content-title'>SIGN<a class='anchorjs-link ' href='#d3f3fd99' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SIGN</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x8D</td></tr><tr><td>功能：</td><td>获取计算栈栈顶的大整数的符号（负、正或零）。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>X.Sign()</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a911363b'><span class='with-space bd-content-title'>NEGATE<a class='anchorjs-link ' href='#a911363b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NEGATE</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x8F</td></tr><tr><td>功能：</td><td>求计算栈栈顶的大整数的相反数。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>-X</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d49fb007'><span class='with-space bd-content-title'>ABS<a class='anchorjs-link ' href='#d49fb007' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>ABS</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x90</td></tr><tr><td>功能：</td><td>求计算栈栈顶的大整数的绝对值。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>Abs(X)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f926727e'><span class='with-space bd-content-title'>NOT<a class='anchorjs-link ' href='#f926727e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NOT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x91</td></tr><tr><td>功能：</td><td>对计算栈栈顶的元素执行逻辑非运算。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>!X</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ba483231'><span class='with-space bd-content-title'>NZ<a class='anchorjs-link ' href='#ba483231' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NZ</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x92</td></tr><tr><td>功能：</td><td>判断计算栈栈顶的大整数是否为非0值。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>X!=0</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ec7e84f0'><span class='with-space bd-content-title'>ADD<a class='anchorjs-link ' href='#ec7e84f0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>ADD</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x93</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行加法运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A+B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ff3164f6'><span class='with-space bd-content-title'>SUB<a class='anchorjs-link ' href='#ff3164f6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SUB</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x94</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行减法运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A-B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e55791d8'><span class='with-space bd-content-title'>MUL<a class='anchorjs-link ' href='#e55791d8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>MUL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x95</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行乘法运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A*B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f06074de'><span class='with-space bd-content-title'>DIV<a class='anchorjs-link ' href='#f06074de' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>DIV</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x96</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行除法运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A/B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ffa6d93b'><span class='with-space bd-content-title'>MOD<a class='anchorjs-link ' href='#ffa6d93b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>MOD</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x97</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行求余运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A%B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f739bd37'><span class='with-space bd-content-title'>SHL<a class='anchorjs-link ' href='#f739bd37' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SHL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x98</td></tr><tr><td>功能：</td><td>对计算栈中的大整数执行左移运算。</td></tr><tr><td>指令：</td><td>Xn</td></tr><tr><td>字节码：</td><td>X&lt;&lt;n</td></tr>
+</tbody>
+</table></figure>
+<h4 id='cdcec231'><span class='with-space bd-content-title'>SHR<a class='anchorjs-link ' href='#cdcec231' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SHR</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x99</td></tr><tr><td>功能：</td><td>对计算栈中的大整数执行右移运算。</td></tr><tr><td>输入：</td><td>Xn</td></tr><tr><td>输出：</td><td>X&gt;&gt;n</td></tr>
+</tbody>
+</table></figure>
+<h4 id='fea30a9e'><span class='with-space bd-content-title'>BOOLAND<a class='anchorjs-link ' href='#fea30a9e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>BOOLAND</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x9A</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个元素执行逻辑与运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A&amp;&amp;B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e8e29728'><span class='with-space bd-content-title'>BOOLOR<a class='anchorjs-link ' href='#e8e29728' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>BOOLOR</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x9D</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个元素执行逻辑或运算。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A||B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f8139b0f'><span class='with-space bd-content-title'>NUMEQUAL<a class='anchorjs-link ' href='#f8139b0f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NUMEQUAL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x9C</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行相等判断。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A==B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='eb214b73'><span class='with-space bd-content-title'>NUMNOTEQUAL<a class='anchorjs-link ' href='#eb214b73' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NUMNOTEQUAL</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x9E</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行不相等判断。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A!=B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a614fc7a'><span class='with-space bd-content-title'>LT<a class='anchorjs-link ' href='#a614fc7a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>LT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0x9F</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行小于判断。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A&lt;B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a908897f'><span class='with-space bd-content-title'>GT<a class='anchorjs-link ' href='#a908897f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>GT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA0</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行大于判断。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A&gt;B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ff4cc0e4'><span class='with-space bd-content-title'>LTE<a class='anchorjs-link ' href='#ff4cc0e4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>LTE</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA1</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行小于等于判断。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A&lt;=B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f4aba8b1'><span class='with-space bd-content-title'>GTE<a class='anchorjs-link ' href='#f4aba8b1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>GTE</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA2</td></tr><tr><td>功能：</td><td>对计算栈栈顶的两个大整数执行大于等于判断。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>A&gt;=B</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e54ff674'><span class='with-space bd-content-title'>MIN<a class='anchorjs-link ' href='#e54ff674' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>MIN</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA3</td></tr><tr><td>功能：</td><td>取出计算栈栈顶的两个大整数中的最小值。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>Min(A,B)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ec08d70c'><span class='with-space bd-content-title'>MAX<a class='anchorjs-link ' href='#ec08d70c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>MAX</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA4</td></tr><tr><td>功能：</td><td>取出计算栈栈顶的两个大整数中的最大值。</td></tr><tr><td>输入：</td><td>AB</td></tr><tr><td>输出：</td><td>Max(A,B)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a1805bb6'><span class='with-space bd-content-title'>WITHIN<a class='anchorjs-link ' href='#a1805bb6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>WITHIN</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA5</td></tr><tr><td>功能：</td><td>判断计算栈中的大整数是否在指定的数值范围内。</td></tr><tr><td>输入：</td><td>XAB</td></tr><tr><td>输出：</td><td>A&lt;=X&amp;&amp;X&lt;B</td></tr>
+</tbody>
+</table></figure>
+<h3 id='ee97bcd9'><span class='with-space bd-content-title'>密码学<a class='anchorjs-link ' href='#ee97bcd9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>实现了常用的哈希运算以及签名验证等。</p>
+<h4 id='a5a72a85'><span class='with-space bd-content-title'>SHA1<a class='anchorjs-link ' href='#a5a72a85' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SHA1</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA7</td></tr><tr><td>功能：</td><td>对计算栈栈顶的元素执行SHA1运算。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>SHA1(X)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e5763542'><span class='with-space bd-content-title'>SHA256<a class='anchorjs-link ' href='#e5763542' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SHA256</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA8</td></tr><tr><td>功能：</td><td>对计算栈栈顶的元素执行SHA256运算。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>SHA256(X)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e634faf1'><span class='with-space bd-content-title'>HASH160<a class='anchorjs-link ' href='#e634faf1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>HASH160</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xA9</td></tr><tr><td>功能：</td><td>对计算栈栈顶的元素执行内置的160位散列运算。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>HASH160(X)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='c35e38a9'><span class='with-space bd-content-title'>HASH256<a class='anchorjs-link ' href='#c35e38a9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>HASH256</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xAA</td></tr><tr><td>功能：</td><td>对计算栈栈顶的元素执行内置的256位散列运算。</td></tr><tr><td>输入：</td><td>X</td></tr><tr><td>输出：</td><td>HASH256(X)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e79fbe9e'><span class='with-space bd-content-title'>CHECKSIG<a class='anchorjs-link ' href='#e79fbe9e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CHECKSIG</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xAC</td></tr><tr><td>功能：</td><td>利用计算栈栈顶元素中的签名和公钥，对当前验证对象执行内置的非对称签名验证操作。</td></tr><tr><td>输入：</td><td>SK</td></tr><tr><td>输出：</td><td>Verify(S,K)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f0ff5013'><span class='with-space bd-content-title'>VERIFY<a class='anchorjs-link ' href='#f0ff5013' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>VERIFY</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xAD</td></tr><tr><td>功能：</td><td>利用计算栈栈顶元素中的签名、公钥和验证对象，执行内置的非对称签名验证操作。</td></tr><tr><td>输入：</td><td>MSK</td></tr><tr><td>输出：</td><td>Verify(M,S,K)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a6dbe343'><span class='with-space bd-content-title'>CHECKMULTISIG<a class='anchorjs-link ' href='#a6dbe343' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CHECKMULTISIG</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xAE</td></tr><tr><td>功能：</td><td>利用计算栈栈顶元素中的多个签名和公钥，对当前验证对象执行内置的非对称多重签名验证操作。</td></tr><tr><td>输入：</td><td>Sm-1&#160;...&#160;S2&#160;S1&#160;S0&#160;m&#160;Kn-1&#160;...&#160;K2&#160;K1&#160;K0&#160;n</td></tr><tr><td>输出：</td><td>V</td></tr><tr><td>备注：</td><td>对于任意的&#119878;&#119894;∈{&#119878;0,…, &#119878;&#119898;−1}，存在一个&#119870;&#119895;∈{&#119870;0,&#160;…&#160;,&#160;&#119870;&#119899;−1}&lt;/br&gt;使得Verify(&#119878;&#119894;,&#160;&#119870;&#119895;) ==1，则V=1；否则，V=0。</td></tr>
+</tbody>
+</table></figure>
+<h3 id='a131f33d'><span class='with-space bd-content-title'>高级数据结构<a class='anchorjs-link ' href='#a131f33d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>实现对Array、Map、Struct等的常用操作。</p>
+<h4 id='f88fa571'><span class='with-space bd-content-title'>ARRAYSIZE<a class='anchorjs-link ' href='#f88fa571' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>ARRAYSIZE</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC0</td></tr><tr><td>功能：</td><td>获取计算栈栈顶的数组的元素数量。</td></tr><tr><td>输入：</td><td>[X0&#160;X1&#160;X2&#160;...&#160;Xn-1]</td></tr><tr><td>输出：</td><td>n</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ae132596'><span class='with-space bd-content-title'>PACK<a class='anchorjs-link ' href='#ae132596' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>PACK</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC1</td></tr><tr><td>功能：</td><td>将计算栈栈顶的n个元素打包成数组。</td></tr><tr><td>输入：</td><td>Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;n</td></tr><tr><td>输出：</td><td>[X0&#160;X1&#160;X2&#160;...&#160;Xn-1]</td></tr>
+</tbody>
+</table></figure>
+<h4 id='eff70f89'><span class='with-space bd-content-title'>UNPACK<a class='anchorjs-link ' href='#eff70f89' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>UNPACK</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC2</td></tr><tr><td>功能：</td><td>将计算栈栈顶的数组拆包成元素序列。</td></tr><tr><td>输入：</td><td>[X0&#160;X1&#160;X2&#160;...&#160;Xn-1]</td></tr><tr><td>输出：</td><td>Xn-1&#160;...&#160;X2&#160;X1&#160;X0&#160;n</td></tr>
+</tbody>
+</table></figure>
+<h4 id='dd461e9f'><span class='with-space bd-content-title'>PICKITEM<a class='anchorjs-link ' href='#dd461e9f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>PICKITEM</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC3</td></tr><tr><td>功能：</td><td>获取计算栈栈顶的数组中的指定元素。</td></tr><tr><td>输入：</td><td>[X0&#160;X1&#160;X2&#160;...&#160;Xn-1]&#160;i</td></tr><tr><td>输出：</td><td>Xi</td></tr>
+</tbody>
+</table></figure>
+<h4 id='cd421949'><span class='with-space bd-content-title'>SETITEM*<a class='anchorjs-link ' href='#cd421949' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>SETITEM</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC4</td></tr><tr><td>功能：</td><td>对计算栈栈顶的数组中的指定位置元素赋值。</td></tr><tr><td>输入：</td><td>[X0 X1 X2 ... Xn-1] I V</td></tr><tr><td>输出：</td><td>[X0 X1 X2 Xi-1 V X i+1 ... Xn-1]</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e0ae2bbd'><span class='with-space bd-content-title'>NEWARRAY<a class='anchorjs-link ' href='#e0ae2bbd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NEWARRAY</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC5</td></tr><tr><td>功能：</td><td>在计算栈栈顶新建一个大小为n的Array</td></tr><tr><td>输入：</td><td>n</td></tr><tr><td>输出：</td><td>Array(n)值全为false的Array</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ef36e273'><span class='with-space bd-content-title'>NEWSTRUCT<a class='anchorjs-link ' href='#ef36e273' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NEWSTRUCT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC6</td></tr><tr><td>功能：</td><td>在计算栈栈顶新建一个大小为n的Struct</td></tr><tr><td>输入：</td><td>n</td></tr><tr><td>输出：</td><td>Struct(n)值全为false的Struct</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d18ca64d'><span class='with-space bd-content-title'>NEWMAP<a class='anchorjs-link ' href='#d18ca64d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>NEWMAP</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC7</td></tr><tr><td>功能：</td><td>在计算栈栈顶新建一个Map</td></tr><tr><td>输入：</td><td>无</td></tr><tr><td>输出：</td><td>Map()</td></tr>
+</tbody>
+</table></figure>
+<h4 id='afb69a97'><span class='with-space bd-content-title'>APPEND*<a class='anchorjs-link ' href='#afb69a97' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>APPEND</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC8</td></tr><tr><td>功能：</td><td>向Array中添加一个新项</td></tr><tr><td>输入：</td><td>Array item</td></tr><tr><td>输出：</td><td>Array.add(item)</td></tr>
+</tbody>
+</table></figure>
+<h4 id='c4d842ca'><span class='with-space bd-content-title'>REVERSE*<a class='anchorjs-link ' href='#c4d842ca' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>REVERSE</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xC9</td></tr><tr><td>功能：</td><td>将Array元素倒序排列</td></tr><tr><td>输入：</td><td>[X0 X1 X2 ... Xn-1]</td></tr><tr><td>输出：</td><td>[Xn-1 ... X2 X1 X0]</td></tr>
+</tbody>
+</table></figure>
+<h4 id='b2712963'><span class='with-space bd-content-title'>REMOVE*<a class='anchorjs-link ' href='#b2712963' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>REMOVE</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xCA</td></tr><tr><td>功能：</td><td>从Array或Map中移除指定元素</td></tr><tr><td>输入：</td><td>[X0 X1 X2 ... Xn-1] m</td></tr><tr><td>输出：</td><td>[X0 X1 X2 ... Xm-1 Xm+1 ... Xn-1]</td></tr>
+</tbody>
+</table></figure>
+<h4 id='b543a3d2'><span class='with-space bd-content-title'>HASKEY<a class='anchorjs-link ' href='#b543a3d2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>HASKEY</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xCB</td></tr><tr><td>功能：</td><td>判断Array或Map中是否包含Key指定元素</td></tr><tr><td>输入：</td><td>[X0 X1 X2 ... Xn-1] key</td></tr><tr><td>输出：</td><td>true 或 false</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f9d8c3fc'><span class='with-space bd-content-title'>KEYS<a class='anchorjs-link ' href='#f9d8c3fc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>KEYS</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xCC</td></tr><tr><td>功能：</td><td>获取Map的所有Key，并放入新的Array中</td></tr><tr><td>输入：</td><td>Map</td></tr><tr><td>输出：</td><td>[key1 key2 ... key n]</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ca69f23a'><span class='with-space bd-content-title'>VALUES<a class='anchorjs-link ' href='#ca69f23a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>VALUES</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xCD</td></tr><tr><td>功能：</td><td>获取Array或Map所有值，并放入新的Array中</td></tr><tr><td>输入：</td><td>Map或Array</td></tr><tr><td>输出：</td><td>[Value1 Value2... Value n]</td></tr>
+</tbody>
+</table></figure>
+<h3 id='a5eea3e3'><span class='with-space bd-content-title'>栈隔离<a class='anchorjs-link ' href='#a5eea3e3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='abe61a05'><span class='with-space bd-content-title'>CALL_I<a class='anchorjs-link ' href='#abe61a05' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CALL_I</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xE0</td></tr><tr><td>功能：</td><td>调用一个新的运行上下文，其脚本为当前上下文的脚本，<br> pcount指定参数个数，rvcount指定结果个数。执行指令跳转至新的运行上下文。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e5b21017'><span class='with-space bd-content-title'>CALL_E<a class='anchorjs-link ' href='#e5b21017' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CALL_E</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xE1</td></tr><tr><td>功能：</td><td>调用一个新的运行上下文，其脚本由指令后20位Hash指定。<br> pcount指定参数个数，rvcount指定结果个数。执行指令跳转至新的运行上下文。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a101a05d'><span class='with-space bd-content-title'>CALL_ED<a class='anchorjs-link ' href='#a101a05d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CALL_ED</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xE2</td></tr><tr><td>功能：</td><td>调用一个新的运行上下文，其脚本由计算栈栈顶的Hash指定。<br> pcount指定参数个数，rvcount指定结果个数。执行指令跳转至新的运行上下文。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d17b72ef'><span class='with-space bd-content-title'>CALL_ET<a class='anchorjs-link ' href='#d17b72ef' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CALL_ET</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xE3</td></tr><tr><td>功能：</td><td>CALL_E的尾调用形式。</td></tr>
+</tbody>
+</table></figure>
+<h4 id='aaf5c888'><span class='with-space bd-content-title'>CALL_EDT<a class='anchorjs-link ' href='#aaf5c888' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>CALL_EDT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xE4</td></tr><tr><td>功能：</td><td>CALL_ED的尾调用形式。</td></tr>
+</tbody>
+</table></figure>
+<h3 id='beaadc35'><span class='with-space bd-content-title'>异常处理<a class='anchorjs-link ' href='#beaadc35' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='e5c05d0a'><span class='with-space bd-content-title'>THROW<a class='anchorjs-link ' href='#e5c05d0a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>THROW</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xF0</td></tr><tr><td>功能：</td><td>将虚拟机状态置为FAULT</td></tr>
+</tbody>
+</table></figure>
+<h4 id='ac8b9ec5'><span class='with-space bd-content-title'>THROWIFNOT<a class='anchorjs-link ' href='#ac8b9ec5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>指令：</th><th>THROWIFNOT</th></tr></thead>
+<tbody><tr><td>字节码：</td><td>0xF1</td></tr><tr><td>功能：</td><td>从计算栈栈顶读取一个布尔值，如果为False，则将虚拟机状态置为FAULT</td></tr>
+</tbody>
+</table></figure>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<p class='with-space'>带*操作码表示该操作码的操作结果并未使用 <code>PUSH()</code> 放回计算栈。</p>
+</blockquote>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/zh-cn/tooldev\advanced\neo_vm.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#ce7a3e50'>NeoVM指令集</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#cbe58142'>内置数据类型</a>
+<a class='ml-0 my-1 nav-link' href='#cf9479d3'>指令集</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#e85a9cf5'>常数</a>
+<a class='ml-2 my-1 nav-link' href='#edf7878f'>流程控制</a>
+<a class='ml-2 my-1 nav-link' href='#cff68d9a'>栈操作</a>
+<a class='ml-2 my-1 nav-link' href='#ffc1bb9c'>字符串操作</a>
+<a class='ml-2 my-1 nav-link' href='#e6d0f73d'>逻辑运算</a>
+<a class='ml-2 my-1 nav-link' href='#a61d68d2'>算术运算</a>
+<a class='ml-2 my-1 nav-link' href='#ee97bcd9'>密码学</a>
+<a class='ml-2 my-1 nav-link' href='#a131f33d'>高级数据结构</a>
+<a class='ml-2 my-1 nav-link' href='#a5eea3e3'>栈隔离</a>
+<a class='ml-2 my-1 nav-link' href='#beaadc35'>异常处理</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

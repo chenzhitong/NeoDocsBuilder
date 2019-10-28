@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Persistence</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Introduction to NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/1-Introduction_to_NEO.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>Cryptography, Blockchain, and Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.html'>NEO Fundamentals</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Wallet</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/1-Introduction_to_wallets.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>Keys and Addresses</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.html'>Private key encryption and Wallet files</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/4-UTXO_and_account_models.html'>The UTXO and Account models</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Transactions</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/1-Introduction_to_transactions.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.html'>Structure of NEO transactions</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/3-NEO_transaction_types.html'>NEO transaction types</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/4-NEO_transaction_fees.html'>Transaction fees</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blocks</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/2-Structure_of_a_block.html'>Structure of a Block</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/3-Block_creation_broadcasting.html'>Block Creation and Broadcasting</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/4-Block_validation_processing.html'>Block Validation and Processing</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.html'>NEO Network and Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Persistence</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/1-persistence.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/2-levelDB_data_structure.html'>Developing a NEO Ping using Golang</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/1-Introduction_to_consensus.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW and PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/3-PBFT_and_DBFT.html'>pBFT and dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>dBFT Consensus Examples and Scenarios</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_smart_contract.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_privateChain.html'>Setting up a Private Chain</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_set_up.html'>Setting up Development Enviroment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_compile.html'>Contract Invoking and Deployment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Smart_Contract_basics.html'>Smart Contract Basics</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Make your NEP-5 Token</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_nep5.html'>Introduction to NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Implementation_of_NEP5.html'>Implementation of NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Give_an_ITO.html'>ITO(Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/UTXO.html'>UTXO basics</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.html'>What is CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.html'>Global asset and NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/3_utxo_model.html'>UTXO model</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/4_trigger.html'>Trigger</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.html'>Mint and Refund</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.html'>Signature and Verification</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/7_invocation.html'>Transaction Invocation</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Write NEO smart contract with Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part1_setup.html'>Installing and Setting up the Environment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part2_neopy.html'>Wallet Operations and Smart Contracts</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='c05261f8'><span class='with-space bd-content-title'>Persistence<a class='anchorjs-link ' href='#c05261f8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='db533a6a'><span class='with-space bd-content-title'>Serialization Model<a class='anchorjs-link ' href='#db533a6a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>The native types in NEO platform are Integer, Decimal and String, UInt160 and UInt256. This model is used for both the persistence and the network layer.</p>
+<h3 id='eb9933db'><span class='with-space bd-content-title'>Integer serialization<a class='anchorjs-link ' href='#eb9933db' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Integers are encoded using a variable length according to the value stored:</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Value</th><th>Length</th><th>Format</th></tr></thead>
+<tbody><tr><td>&lt; 0xfd</td><td>1</td><td>uint8</td></tr><tr><td>&lt;= 0xffff</td><td>3</td><td>0xfd + uint16</td></tr><tr><td>&lt;= 0xffffffff</td><td>5</td><td>0xfe + uint32</td></tr><tr><td>&gt; 0xffffffff</td><td>9</td><td>0xff + uint64</td></tr>
+</tbody>
+</table></figure>
+<p class='with-space'>The value 1 is stored using a single byte:</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='persistence_1_byte.png' alt='single_byte' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>But the number 65535 is stored using 3 bytes:</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='persistence_3_bytes.png' alt='three_bytes' referrerPolicy='no-referrer' /></p>
+<h4 id='c0650c62'><span class='with-space bd-content-title'>Integer serialization in code<a class='anchorjs-link ' href='#c0650c62' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>You can find <a href='https://github.com/neo-project/neo/blob/b0793b74f25d817f826c4dca3f7f06a8b7dce88e/neo/IO/Helper.cs#L235' target='_blank'> here</a> the code used to serialise integers in our C# version:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static void WriteVarInt(this BinaryWriter writer, long value)
+{
+  if (value &lt; 0)
+    throw new ArgumentOutOfRangeException();
+  if (value &lt; 0xFD)
+  {
+    writer.Write((byte)value);
+  }
+  else if (value &lt;= 0xFFFF)
+  {
+    writer.Write((byte)0xFD);
+    writer.Write((ushort)value);
+  }
+  else if (value &lt;= 0xFFFFFFFF)
+  {
+    writer.Write((byte)0xFE);
+    writer.Write((uint)value);
+  }
+  else
+  {
+    writer.Write((byte)0xFF);
+    writer.Write(value);
+  }
+}'>Copy</button><pre><code class='csharp' lang='csharp'>public static void WriteVarInt(this BinaryWriter writer, long value)
+{
+  if (value &lt; 0)
+    throw new ArgumentOutOfRangeException();
+  if (value &lt; 0xFD)
+  {
+    writer.Write((byte)value);
+  }
+  else if (value &lt;= 0xFFFF)
+  {
+    writer.Write((byte)0xFD);
+    writer.Write((ushort)value);
+  }
+  else if (value &lt;= 0xFFFFFFFF)
+  {
+    writer.Write((byte)0xFE);
+    writer.Write((uint)value);
+  }
+  else
+  {
+    writer.Write((byte)0xFF);
+    writer.Write(value);
+  }
+}
+</code></pre>
+</figure>
+<h4 id='fb5d8ad0'><span class='with-space bd-content-title'>Byte order<a class='anchorjs-link ' href='#fb5d8ad0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>All variable length integer of NEO are little endian except for IP address and port number.</p>
+<h3 id='eb607350'><span class='with-space bd-content-title'>String serialization<a class='anchorjs-link ' href='#eb607350' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Strings are encoded using variable length strings, consisting of variable length integer followed by the string encoded in UTF8.</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Size</th><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+<tbody><tr><td>?</td><td>length</td><td>integer</td><td>The length of a string in bytes</td></tr><tr><td>length</td><td>string</td><td>uint8[length]</td><td>string itself</td></tr>
+</tbody>
+</table></figure>
+<p class='with-space'>You can find <a href='http://www.unicode.org/versions/Unicode9.0.0/ch03.pdf#page=54' target='_blank'> here</a> additional information on how UTF-8 is serialized.</p>
+<p class='with-space'>The string &quot;NEO&quot; is stored using 4 bytes:<img class='d-inline-block img-fluid' data-original='persistence_var_string.png' alt='var_string' referrerPolicy='no-referrer' /></p>
+<h4 id='db533d67'><span class='with-space bd-content-title'>String serialization in code<a class='anchorjs-link ' href='#db533d67' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>You can find <a href='https://github.com/neo-project/neo/blob/b0793b74f25d817f826c4dca3f7f06a8b7dce88e/neo/IO/Helper.cs#L235' target='_blank'> here</a> the code used to serialise strings in our C# version:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static void WriteVarString(this BinaryWriter writer, string value)
+{
+  writer.WriteVarBytes(Encoding.UTF8.GetBytes(value));
+}
+
+public static void WriteVarBytes(this BinaryWriter writer, byte[] value)
+{
+  writer.WriteVarInt(value.Length);
+  writer.Write(value);
+}'>Copy</button><pre><code class='csharp' lang='csharp'>public static void WriteVarString(this BinaryWriter writer, string value)
+{
+  writer.WriteVarBytes(Encoding.UTF8.GetBytes(value));
+}
+
+public static void WriteVarBytes(this BinaryWriter writer, byte[] value)
+{
+  writer.WriteVarInt(value.Length);
+  writer.Write(value);
+}
+</code></pre>
+</figure>
+<p class='with-space'>In special occasions NEO serializes a string with a fixed length. In this case, this is how we do it:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static void WriteFixedString(this BinaryWriter writer, string value, int length)
+{
+  if (value == null)
+    throw new ArgumentNullException(nameof(value));
+  if (value.Length &gt; length)
+    throw new ArgumentException();
+  byte[] bytes = Encoding.UTF8.GetBytes(value);
+  if (bytes.Length &gt; length)
+    throw new ArgumentException();
+  writer.Write(bytes);
+  if (bytes.Length &lt; length)
+    writer.Write(new byte[length - bytes.Length]);
+}'>Copy</button><pre><code class='csharp' lang='csharp'>public static void WriteFixedString(this BinaryWriter writer, string value, int length)
+{
+  if (value == null)
+    throw new ArgumentNullException(nameof(value));
+  if (value.Length &gt; length)
+    throw new ArgumentException();
+  byte[] bytes = Encoding.UTF8.GetBytes(value);
+  if (bytes.Length &gt; length)
+    throw new ArgumentException();
+  writer.Write(bytes);
+  if (bytes.Length &lt; length)
+    writer.Write(new byte[length - bytes.Length]);
+}
+</code></pre>
+</figure>
+<h3 id='fb12283b'><span class='with-space bd-content-title'>UInt160 and UInt256 serialization<a class='anchorjs-link ' href='#fb12283b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Both UInt160 and UInt256 are stored as fixed size byte arrays, using 20 and 32 bytes respectively. NEO uses RIPMED160 for script-hashes and SHA256 for transaction and block hashes.
+Note that in NEO we use hash functions twice. The first hash is always SHA256.</p>
+<p class='with-space'>A very common use for UInt160 are contract hashes:<img class='d-inline-block img-fluid' data-original='persistence_contract.png' alt='contract' referrerPolicy='no-referrer' /></p>
+<h4 id='ca7ca831'><span class='with-space bd-content-title'>Contract hashing in code<a class='anchorjs-link ' href='#ca7ca831' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>A simple contract can be created using the owner public key:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static byte[] CreateSignatureRedeemScript(ECPoint publicKey)
+{
+  using (ScriptBuilder sb = new ScriptBuilder())
+  {
+    sb.EmitPush(publicKey.EncodePoint(true));
+    sb.Emit(OpCode.CHECKSIG);
+    return sb.ToArray();
+  }
+}'>Copy</button><pre><code class='csharp' lang='csharp'>public static byte[] CreateSignatureRedeemScript(ECPoint publicKey)
+{
+  using (ScriptBuilder sb = new ScriptBuilder())
+  {
+    sb.EmitPush(publicKey.EncodePoint(true));
+    sb.Emit(OpCode.CHECKSIG);
+    return sb.ToArray();
+  }
+}
+</code></pre>
+</figure>
+<p class='with-space'>The resulting contract is a byte array. This byte array is converted to script-hash using the hash functions described earlier (RIPMED160):</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='// https://github.com/neo-project/neo/blob/41caff115c28d6c7665b2a7ac72967e7ce82e921/neo/SmartContract/Helper.cs#L82
+public static UInt160 ToScriptHash(this byte[] script)
+{
+  return new UInt160(Crypto.Default.Hash160(script));
+}
+
+// https://github.com/neo-project/neo/blob/35ff9a68010bdddc160840f222df13c3c46290f6/neo/Cryptography/Crypto.cs#L12
+public byte[] Hash160(byte[] message)
+{
+  return message.Sha256().RIPEMD160();
+}'>Copy</button><pre><code class='csharp' lang='csharp'>// https://github.com/neo-project/neo/blob/41caff115c28d6c7665b2a7ac72967e7ce82e921/neo/SmartContract/Helper.cs#L82
+public static UInt160 ToScriptHash(this byte[] script)
+{
+  return new UInt160(Crypto.Default.Hash160(script));
+}
+
+// https://github.com/neo-project/neo/blob/35ff9a68010bdddc160840f222df13c3c46290f6/neo/Cryptography/Crypto.cs#L12
+public byte[] Hash160(byte[] message)
+{
+  return message.Sha256().RIPEMD160();
+}
+</code></pre>
+</figure>
+<h4 id='d3e3eb5b'><span class='with-space bd-content-title'>Address<a class='anchorjs-link ' href='#d3e3eb5b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>UInt160 is used for contract hashes and the resulting hash is used to build the address.
+The address is the script-hash of the contract, encoded in Bas58Check prefixed with the contract version, currently <code>0x17</code> .</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='persistence_address.png' alt='address' referrerPolicy='no-referrer' /></p>
+<h4 id='a26e9f14'><span class='with-space bd-content-title'>Address conversion in code<a class='anchorjs-link ' href='#a26e9f14' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>You can find <a href='https://github.com/neo-project/neo/blob/a8fd76b715e675bc7982f26481ecfb9b6ea68811/neo/Wallets/Helper.cs#L16' target='_blank'> here</a> an example of this code conversion. Note that the address is used for human communication only, in system operations we always use the script hash.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static string ToAddress(this UInt160 scriptHash)
+{
+  byte[] data = new byte[21];
+  data[0] = ProtocolSettings.Default.AddressVersion;
+  Buffer.BlockCopy(scriptHash.ToArray(), 0, data, 1, 20);
+  return data.Base58CheckEncode();
+}
+
+public static UInt160 ToScriptHash(this string address)
+{
+  byte[] data = address.Base58CheckDecode();
+  if (data.Length != 21)
+    throw new FormatException();
+  if (data[0] != ProtocolSettings.Default.AddressVersion)
+    throw new FormatException();
+  return new UInt160(data.Skip(1).ToArray());
+}'>Copy</button><pre><code class='csharp' lang='csharp'>public static string ToAddress(this UInt160 scriptHash)
+{
+  byte[] data = new byte[21];
+  data[0] = ProtocolSettings.Default.AddressVersion;
+  Buffer.BlockCopy(scriptHash.ToArray(), 0, data, 1, 20);
+  return data.Base58CheckEncode();
+}
+
+public static UInt160 ToScriptHash(this string address)
+{
+  byte[] data = address.Base58CheckDecode();
+  if (data.Length != 21)
+    throw new FormatException();
+  if (data[0] != ProtocolSettings.Default.AddressVersion)
+    throw new FormatException();
+  return new UInt160(data.Skip(1).ToArray());
+}
+</code></pre>
+</figure>
+<h3 id='f7150fff'><span class='with-space bd-content-title'>Decimal serialization<a class='anchorjs-link ' href='#f7150fff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Decimal numbers are stored as 64 bit fixed-point number with a precision of 10<sup>-8</sup>，range：[-2<sup>63</sup>/10<sup>8</sup>, +2<sup>63</sup>/10<sup>8</sup>)</p>
+<p class='with-space'>More information on fixed point numbers please check <a href='http://www-inst.eecs.berkeley.edu/~cs61c/sp06/handout/fixedpt.html' target='_blank'> here</a> .</p>
+<h3 id='b288b1a4'><span class='with-space bd-content-title'>Data Structures<a class='anchorjs-link ' href='#b288b1a4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<h4 id='c0bdbc4b'><span class='with-space bd-content-title'>Arrays<a class='anchorjs-link ' href='#c0bdbc4b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<h4 id='beabfa35'><span class='with-space bd-content-title'>Maps<a class='anchorjs-link ' href='#beabfa35' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<h4 id='d79d9f6b'><span class='with-space bd-content-title'>Structs<a class='anchorjs-link ' href='#d79d9f6b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<h3 id='c1656a57'><span class='with-space bd-content-title'>Domain classes serialization<a class='anchorjs-link ' href='#c1656a57' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The encoding used here is the same for both network communication and the persistence layer (C#).
+The blockchain is composed of elements combined, stored in the persistence layer.<img class='d-inline-block img-fluid' data-original='persistence_blockchain.png' alt='blockchain' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>A blockchain always has at least one block (the Genesis block) and every block has at least one transaction (the Miner transaction).</p>
+<h4 id='f372ea1c'><span class='with-space bd-content-title'>Block Header<a class='anchorjs-link ' href='#f372ea1c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>The block header contains all the information about the block, without the transactions. The block can be constructed using a block header and a list of transactions using the Merkle Root for integrity verification.</p>
+<p class='with-space'>At network level, nodes request for the block header and transactions separately in order to retrieve a block.</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='persistence_header.png' alt='persistence_header' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>Serializable data structure of block header:</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Size</th><th>Field</th><th>DataType</th><th>Description</th></tr></thead>
+<tbody><tr><td>4</td><td>Version</td><td>uint32</td><td>Version of the block which is 0 for now</td></tr><tr><td>32</td><td>PrevBlock</td><td>uint256</td><td>Hash value of the previous block</td></tr><tr><td>32</td><td>MerkleRoot</td><td>uint256</td><td>Root hash of a transaction list</td></tr><tr><td>4</td><td>Timestamp</td><td>uint32</td><td>Time-stamp</td></tr><tr><td>4</td><td>Height</td><td>uint32</td><td>Height of block</td></tr><tr><td>8</td><td>Nonce</td><td>uint64</td><td>Random number</td></tr><tr><td>20</td><td>NextMiner</td><td>uint160</td><td>Contract address of next miner</td></tr><tr><td>1</td><td>-</td><td>uint8</td><td>It&#39;s fixed to 1</td></tr><tr><td>?</td><td>Script</td><td>script</td><td>Script used to validate the block</td></tr><tr><td>1</td><td>-</td><td>uint8</td><td>It&#39;s fixed to 0</td></tr>
+</tbody>
+</table></figure>
+<h4 id='dacb38d8'><span class='with-space bd-content-title'>Block<a class='anchorjs-link ' href='#dacb38d8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>The block is composed by properties from the block header and an array of transactions, with at least one transaction (Miner Transaction).</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='persistence_block.png' alt='persistence_header' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>Serializable data structure of the block:</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Size</th><th>Field</th><th>DataType</th><th>Description</th></tr></thead>
+<tbody><tr><td>4</td><td>Version</td><td>uint32</td><td>Version of the block which is 0 for now</td></tr><tr><td>32</td><td>PrevBlock</td><td>uint256</td><td>Hash value of the previous block</td></tr><tr><td>32</td><td>MerkleRoot</td><td>uint256</td><td>Root hash of a transaction list</td></tr><tr><td>4</td><td>Timestamp</td><td>uint32</td><td>Time-stamp</td></tr><tr><td>4</td><td>Height</td><td>uint32</td><td>Height of block</td></tr><tr><td>8</td><td>Nonce</td><td>uint64</td><td>Random number</td></tr><tr><td>20</td><td>NextMiner</td><td>uint160</td><td>Contract address of next miner</td></tr><tr><td>1</td><td>-</td><td>uint8</td><td>It&#39;s fixed to 1</td></tr><tr><td>?</td><td>Script</td><td>script</td><td>Script used to validate the block</td></tr><tr><td>?*?</td><td>Transactions</td><td>tx[]</td><td>Transactions list</td></tr>
+</tbody>
+</table></figure>
+<h4 id='f8e2dcff'><span class='with-space bd-content-title'>(Native) Asset<a class='anchorjs-link ' href='#f8e2dcff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>A native asset is represented by it&#39;s <strong>RegisterTransaction</strong> hash. After the asset is registered, it is sent to an address using the <strong>IssueTransaction</strong> . These transactions were used to emit the first NEO and GAS in the platform found in the <code>GenesisBlock</code> .</p>
+<h4 id='d85cb199'><span class='with-space bd-content-title'>Native asset emission in code<a class='anchorjs-link ' href='#d85cb199' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>The <code>GenesisBlock</code> code can be found <a href='https://github.com/neo-project/neo/blob/41caff115c28d6c7665b2a7ac72967e7ce82e921/neo/Ledger/Blockchain.cs#L66' target='_blank'> here</a> .</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static readonly Block GenesisBlock = new Block
+{
+    PrevHash = UInt256.Zero,
+    Timestamp = (new DateTime(2016, 7, 15, 15, 8, 21, DateTimeKind.Utc)).ToTimestamp(),
+    Index = 0,
+    ConsensusData = 2083236893, //向比特币致敬
+    NextConsensus = GetConsensusAddress(StandbyValidators),
+    Witness = new Witness
+    {
+        InvocationScript = new byte[0],
+        VerificationScript = new[] { (byte)OpCode.PUSHT }
+    },
+    Transactions = new Transaction[]
+    {
+        new MinerTransaction
+        {
+            Nonce = 2083236893,
+            Attributes = new TransactionAttribute[0],
+            Inputs = new CoinReference[0],
+            Outputs = new TransactionOutput[0],
+            Witnesses = new Witness[0]
+        },
+        GoverningToken,
+        UtilityToken,
+        new IssueTransaction
+        {
+            Attributes = new TransactionAttribute[0],
+            Inputs = new CoinReference[0],
+            Outputs = new[]
+            {
+              new TransactionOutput
+              {
+                    AssetId = GoverningToken.Hash,
+                    Value = GoverningToken.Amount,
+                    ScriptHash = Contract.CreateMultiSigRedeemScript(StandbyValidators.Length / 2 + 1, StandbyValidators).ToScriptHash()
+                }
+            },
+            Witnesses = new[]
+            {
+                new Witness
+                {
+                    InvocationScript = new byte[0],
+                    VerificationScript = new[] { (byte)OpCode.PUSHT }
+                }
+            }
+        }
+    }
+};'>Copy</button><pre><code class='csharp' lang='csharp'>public static readonly Block GenesisBlock = new Block
+{
+    PrevHash = UInt256.Zero,
+    Timestamp = (new DateTime(2016, 7, 15, 15, 8, 21, DateTimeKind.Utc)).ToTimestamp(),
+    Index = 0,
+    ConsensusData = 2083236893, //向比特币致敬
+    NextConsensus = GetConsensusAddress(StandbyValidators),
+    Witness = new Witness
+    {
+        InvocationScript = new byte[0],
+        VerificationScript = new[] { (byte)OpCode.PUSHT }
+    },
+    Transactions = new Transaction[]
+    {
+        new MinerTransaction
+        {
+            Nonce = 2083236893,
+            Attributes = new TransactionAttribute[0],
+            Inputs = new CoinReference[0],
+            Outputs = new TransactionOutput[0],
+            Witnesses = new Witness[0]
+        },
+        GoverningToken,
+        UtilityToken,
+        new IssueTransaction
+        {
+            Attributes = new TransactionAttribute[0],
+            Inputs = new CoinReference[0],
+            Outputs = new[]
+            {
+              new TransactionOutput
+              {
+                    AssetId = GoverningToken.Hash,
+                    Value = GoverningToken.Amount,
+                    ScriptHash = Contract.CreateMultiSigRedeemScript(StandbyValidators.Length / 2 + 1, StandbyValidators).ToScriptHash()
+                }
+            },
+            Witnesses = new[]
+            {
+                new Witness
+                {
+                    InvocationScript = new byte[0],
+                    VerificationScript = new[] { (byte)OpCode.PUSHT }
+                }
+            }
+        }
+    }
+};
+</code></pre>
+</figure>
+<p class='with-space'>NEO is represented as the &quot;GoverningToken&quot;, and after it is registered, it is sent to the <code>Validators</code> multi-signature contract address:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static readonly RegisterTransaction GoverningToken = new RegisterTransaction
+{
+  AssetType = AssetType.GoverningToken,
+  Name = &quot;[{\&quot;lang\&quot;:\&quot;zh-CN\&quot;,\&quot;name\&quot;:\&quot;小蚁股\&quot;},{\&quot;lang\&quot;:\&quot;en\&quot;,\&quot;name\&quot;:\&quot;AntShare\&quot;}]&quot;,
+  Amount = Fixed8.FromDecimal(100000000),
+  Precision = 0,
+  Owner = ECCurve.Secp256r1.Infinity,
+  Admin = (new[] { (byte)OpCode.PUSHT }).ToScriptHash(),
+  Attributes = new TransactionAttribute[0],
+  Inputs = new CoinReference[0],
+  Outputs = new TransactionOutput[0],
+  Witnesses = new Witness[0]
+};'>Copy</button><pre><code class='csharp' lang='csharp'>public static readonly RegisterTransaction GoverningToken = new RegisterTransaction
+{
+  AssetType = AssetType.GoverningToken,
+  Name = &quot;[{\&quot;lang\&quot;:\&quot;zh-CN\&quot;,\&quot;name\&quot;:\&quot;小蚁股\&quot;},{\&quot;lang\&quot;:\&quot;en\&quot;,\&quot;name\&quot;:\&quot;AntShare\&quot;}]&quot;,
+  Amount = Fixed8.FromDecimal(100000000),
+  Precision = 0,
+  Owner = ECCurve.Secp256r1.Infinity,
+  Admin = (new[] { (byte)OpCode.PUSHT }).ToScriptHash(),
+  Attributes = new TransactionAttribute[0],
+  Inputs = new CoinReference[0],
+  Outputs = new TransactionOutput[0],
+  Witnesses = new Witness[0]
+};
+</code></pre>
+</figure>
+<p class='with-space'>And GAS as the UtilityToken.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='public static readonly RegisterTransaction UtilityToken = new RegisterTransaction
+{
+  AssetType = AssetType.UtilityToken,
+  Name = &quot;[{\&quot;lang\&quot;:\&quot;zh-CN\&quot;,\&quot;name\&quot;:\&quot;小蚁币\&quot;},{\&quot;lang\&quot;:\&quot;en\&quot;,\&quot;name\&quot;:\&quot;AntCoin\&quot;}]&quot;,
+  Amount = Fixed8.FromDecimal(GenerationAmount.Sum(p =&gt; p) * DecrementInterval),
+  Precision = 8,
+  Owner = ECCurve.Secp256r1.Infinity,
+  Admin = (new[] { (byte)OpCode.PUSHF }).ToScriptHash(),
+  Attributes = new TransactionAttribute[0],
+  Inputs = new CoinReference[0],
+  Outputs = new TransactionOutput[0],
+  Witnesses = new Witness[0]
+};'>Copy</button><pre><code class='csharp' lang='csharp'>public static readonly RegisterTransaction UtilityToken = new RegisterTransaction
+{
+  AssetType = AssetType.UtilityToken,
+  Name = &quot;[{\&quot;lang\&quot;:\&quot;zh-CN\&quot;,\&quot;name\&quot;:\&quot;小蚁币\&quot;},{\&quot;lang\&quot;:\&quot;en\&quot;,\&quot;name\&quot;:\&quot;AntCoin\&quot;}]&quot;,
+  Amount = Fixed8.FromDecimal(GenerationAmount.Sum(p =&gt; p) * DecrementInterval),
+  Precision = 8,
+  Owner = ECCurve.Secp256r1.Infinity,
+  Admin = (new[] { (byte)OpCode.PUSHF }).ToScriptHash(),
+  Attributes = new TransactionAttribute[0],
+  Inputs = new CoinReference[0],
+  Outputs = new TransactionOutput[0],
+  Witnesses = new Witness[0]
+};
+</code></pre>
+</figure>
+<h5 id='abd949f6'><span class='with-space bd-content-title'>Native assets in code<a class='anchorjs-link ' href='#abd949f6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h5>
+<p class='with-space'>Native assets can be found in the <code>Genesis Block</code> . Note that it uses the <code>Validators</code> property, meaning that this transaction has a different hash in different networks (main network, test network or other).</p>
+<h5 id='a286dbfa'><span class='with-space bd-content-title'>Deprecation notice<a class='anchorjs-link ' href='#a286dbfa' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h5>
+<p class='with-space'>The <strong>RegisterTransaction</strong> and <strong>IssueTransaction</strong> are both<em>deprecated</em>. You can use a <a href='https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki' target='_blank'> NEP-5</a> contract to create your own tokens. NEP-5 contracts use <strong>InvocationTransaction</strong> for both deploying and running SmartContracts.</p>
+<h4 id='cab1d3b5'><span class='with-space bd-content-title'>Coin Reference (Transaction Input)<a class='anchorjs-link ' href='#cab1d3b5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>NEO utilize the UTXO model in it&#39;s native assets, meaning that that to spend a coin, you need to reference the transaction where you received it. This reference is done using two properties: <code>PrevHash</code> and <code>PrevIndex</code> . The <code>PrevHash</code> references to a transaction hash and the <code>PrevIndex</code> points to the index in the TransactionOutput array in that transaction.</p>
+<p class='with-space'>In this transaction, one CoinReference (in <code>vin</code> array) is transformed into multiple TransactionOutputs ( <code>vout</code> ). Note that the last transaction is used to send the change back to the sender, so he/she can have another unspent transaction to be used in the future.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;result&quot;: {
+        &quot;txid&quot;: &quot;0x630c74684cc6dad330397c63e8c7aa6403c043cc1f241638cff87e3b97a40716&quot;,
+        &quot;size&quot;: 382,
+        &quot;type&quot;: &quot;ContractTransaction&quot;,
+        &quot;version&quot;: 0,
+        &quot;attributes&quot;: [],
+        &quot;vin&quot;: [
+            {
+                &quot;txid&quot;: &quot;0xd5ae4a22ffe49912a2a3dc698d39ac63a8fcf2cef63ae136850d039c312591d8&quot;,
+                &quot;vout&quot;: 5
+            }
+        ],
+        &quot;vout&quot;: [
+            {
+                &quot;n&quot;: 0,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;94&quot;,
+                &quot;address&quot;: &quot;ATM7fayESuu1jKRWVXuNFYrq4EFfeAeSfj&quot;
+            },
+            {
+                &quot;n&quot;: 1,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;72&quot;,
+                &quot;address&quot;: &quot;AYQvsVafPPkHSTdVYYGgz1B9CPsqpM2XVk&quot;
+            },
+            {
+                &quot;n&quot;: 2,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;45&quot;,
+                &quot;address&quot;: &quot;AdPoqv3ZRAb8Bc4bUjhzHq4SBZMt6dxdfY&quot;
+            },
+            {
+                &quot;n&quot;: 3,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;2879&quot;,
+                &quot;address&quot;: &quot;Aab9jDXcs4ZRdZyJZusCExauKE5wuzzVEX&quot;
+            }
+        ],
+        &quot;sys_fee&quot;: &quot;0&quot;,
+        &quot;net_fee&quot;: &quot;0&quot;,
+        &quot;scripts&quot;: [
+            {
+                &quot;invocation&quot;: &quot;40a623d40c74fe2d7a51a98b580c08108f1f12cc76dbaf9307320f0fd0c3d0782bf14bd32c24e8d097f8a31ab0e60bc330386f3c5d1e5f6fe25b188c8eed6d8cff&quot;,
+                &quot;verification&quot;: &quot;210310c5ab33fac18c22f280c8354d872af488508de74661ec799d03c94d23515358ac&quot;
+            }
+        ],
+        &quot;blockhash&quot;: &quot;0x5820dffbb46a86bbc7398522e157d68a2495b99b7bc5d18f4c848cde81a46c28&quot;,
+        &quot;confirmations&quot;: 68436,
+        &quot;blocktime&quot;: 1555106714
+    }
+}'>Copy</button><pre><code class='json' lang='json'>{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;result&quot;: {
+        &quot;txid&quot;: &quot;0x630c74684cc6dad330397c63e8c7aa6403c043cc1f241638cff87e3b97a40716&quot;,
+        &quot;size&quot;: 382,
+        &quot;type&quot;: &quot;ContractTransaction&quot;,
+        &quot;version&quot;: 0,
+        &quot;attributes&quot;: [],
+        &quot;vin&quot;: [
+            {
+                &quot;txid&quot;: &quot;0xd5ae4a22ffe49912a2a3dc698d39ac63a8fcf2cef63ae136850d039c312591d8&quot;,
+                &quot;vout&quot;: 5
+            }
+        ],
+        &quot;vout&quot;: [
+            {
+                &quot;n&quot;: 0,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;94&quot;,
+                &quot;address&quot;: &quot;ATM7fayESuu1jKRWVXuNFYrq4EFfeAeSfj&quot;
+            },
+            {
+                &quot;n&quot;: 1,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;72&quot;,
+                &quot;address&quot;: &quot;AYQvsVafPPkHSTdVYYGgz1B9CPsqpM2XVk&quot;
+            },
+            {
+                &quot;n&quot;: 2,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;45&quot;,
+                &quot;address&quot;: &quot;AdPoqv3ZRAb8Bc4bUjhzHq4SBZMt6dxdfY&quot;
+            },
+            {
+                &quot;n&quot;: 3,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;2879&quot;,
+                &quot;address&quot;: &quot;Aab9jDXcs4ZRdZyJZusCExauKE5wuzzVEX&quot;
+            }
+        ],
+        &quot;sys_fee&quot;: &quot;0&quot;,
+        &quot;net_fee&quot;: &quot;0&quot;,
+        &quot;scripts&quot;: [
+            {
+                &quot;invocation&quot;: &quot;40a623d40c74fe2d7a51a98b580c08108f1f12cc76dbaf9307320f0fd0c3d0782bf14bd32c24e8d097f8a31ab0e60bc330386f3c5d1e5f6fe25b188c8eed6d8cff&quot;,
+                &quot;verification&quot;: &quot;210310c5ab33fac18c22f280c8354d872af488508de74661ec799d03c94d23515358ac&quot;
+            }
+        ],
+        &quot;blockhash&quot;: &quot;0x5820dffbb46a86bbc7398522e157d68a2495b99b7bc5d18f4c848cde81a46c28&quot;,
+        &quot;confirmations&quot;: 68436,
+        &quot;blocktime&quot;: 1555106714
+    }
+}
+</code></pre>
+</figure>
+<p class='with-space'>The TransactionOutput of index 1 is now referenced in another transaction, using the transaction hash and index. In this example, the previous transaction hash is <code>0x630c74684cc6dad330397c63e8c7aa6403c043cc1f241638cff87e3b97a40716</code> and the index is <code>1</code> .</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;result&quot;: {
+        &quot;txid&quot;: &quot;0xd59ab9e40e3dc5302fb6ca464823f3569eceace69f3a30a41d1ef1e86225e467&quot;,
+        &quot;size&quot;: 245,
+        &quot;type&quot;: &quot;ContractTransaction&quot;,
+        &quot;version&quot;: 0,
+        &quot;attributes&quot;: [
+            {
+                &quot;usage&quot;: &quot;Remark&quot;,
+                &quot;data&quot;: &quot;4f335853454e44&quot;
+            }
+        ],
+        &quot;vin&quot;: [
+            {
+                &quot;txid&quot;: &quot;0x630c74684cc6dad330397c63e8c7aa6403c043cc1f241638cff87e3b97a40716&quot;,
+                &quot;vout&quot;: 1
+            },
+            {
+                &quot;txid&quot;: &quot;0xd5ae4a22ffe49912a2a3dc698d39ac63a8fcf2cef63ae136850d039c312591d8&quot;,
+                &quot;vout&quot;: 3
+            }
+        ],
+        &quot;vout&quot;: [
+            {
+                &quot;n&quot;: 0,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;180&quot;,
+                &quot;address&quot;: &quot;Ab4U1pBCQCDSKWq4nHvUtXdbQPB6DsDj8S&quot;
+            }
+        ],
+        &quot;sys_fee&quot;: &quot;0&quot;,
+        &quot;net_fee&quot;: &quot;0&quot;,
+        &quot;scripts&quot;: [
+            {
+                &quot;invocation&quot;: &quot;40fafd537ad4a8aabf3645d8f546b9f7207facbd4cb6647d2d8bb2c9eb400269ddd97c37c511fb72c4d3e3d0a01ee979eab8da87fa7e45c912adb801e006c08e30&quot;,
+                &quot;verification&quot;: &quot;2102bed127ae7e97f4954280b96359a17f1672e79a2ff2084c2750c34681b7ae0dc2ac&quot;
+            }
+        ],
+        &quot;blockhash&quot;: &quot;0xbc9626bcdfa31c6efdf19e6de2b52a8a9b86d0cf660c4e83c4b09c3e382231f9&quot;,
+        &quot;confirmations&quot;: 59884,
+        &quot;blocktime&quot;: 1555278520
+    }
+}'>Copy</button><pre><code class='json' lang='json'>{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;result&quot;: {
+        &quot;txid&quot;: &quot;0xd59ab9e40e3dc5302fb6ca464823f3569eceace69f3a30a41d1ef1e86225e467&quot;,
+        &quot;size&quot;: 245,
+        &quot;type&quot;: &quot;ContractTransaction&quot;,
+        &quot;version&quot;: 0,
+        &quot;attributes&quot;: [
+            {
+                &quot;usage&quot;: &quot;Remark&quot;,
+                &quot;data&quot;: &quot;4f335853454e44&quot;
+            }
+        ],
+        &quot;vin&quot;: [
+            {
+                &quot;txid&quot;: &quot;0x630c74684cc6dad330397c63e8c7aa6403c043cc1f241638cff87e3b97a40716&quot;,
+                &quot;vout&quot;: 1
+            },
+            {
+                &quot;txid&quot;: &quot;0xd5ae4a22ffe49912a2a3dc698d39ac63a8fcf2cef63ae136850d039c312591d8&quot;,
+                &quot;vout&quot;: 3
+            }
+        ],
+        &quot;vout&quot;: [
+            {
+                &quot;n&quot;: 0,
+                &quot;asset&quot;: &quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+                &quot;value&quot;: &quot;180&quot;,
+                &quot;address&quot;: &quot;Ab4U1pBCQCDSKWq4nHvUtXdbQPB6DsDj8S&quot;
+            }
+        ],
+        &quot;sys_fee&quot;: &quot;0&quot;,
+        &quot;net_fee&quot;: &quot;0&quot;,
+        &quot;scripts&quot;: [
+            {
+                &quot;invocation&quot;: &quot;40fafd537ad4a8aabf3645d8f546b9f7207facbd4cb6647d2d8bb2c9eb400269ddd97c37c511fb72c4d3e3d0a01ee979eab8da87fa7e45c912adb801e006c08e30&quot;,
+                &quot;verification&quot;: &quot;2102bed127ae7e97f4954280b96359a17f1672e79a2ff2084c2750c34681b7ae0dc2ac&quot;
+            }
+        ],
+        &quot;blockhash&quot;: &quot;0xbc9626bcdfa31c6efdf19e6de2b52a8a9b86d0cf660c4e83c4b09c3e382231f9&quot;,
+        &quot;confirmations&quot;: 59884,
+        &quot;blocktime&quot;: 1555278520
+    }
+}
+</code></pre>
+</figure>
+<p class='with-space'>You can only spend the coins by pointing to them. This indexing is one of the tasks of the wallet. When you add an account to your wallet, it will search all blocks looking for transactions that belong to that address. This way, when the user demands to send funds, it can find these unspent coins references and use them to build the transaction. In light-wallets, where the blockchain is not stored, we use external services like <a href='neoscan.io'> neoscan.io</a> to get the user balance (unspent coins references).</p>
+<p class='with-space'>Regular nodes do not offer an indexing service, however, a plugin is being built to add indexing functionality to C# nodes.</p>
+<h4 id='e804d9e1'><span class='with-space bd-content-title'>Transaction Attribute<a class='anchorjs-link ' href='#e804d9e1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>Transactions may have special attributes, depending on their type. Transaction attributes are serialized after the <code>Version</code> field.</p>
+<h5 id='d065ffbb'><span class='with-space bd-content-title'>Attributes in Miner Transaction<a class='anchorjs-link ' href='#d065ffbb' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h5>
+<p class='with-space'>The <code>MinerTransaction</code> has one attribute called <code>nonce</code> used to avoid hash collision.</p>
+<p class='with-space'>Miner Transaction special attributes:</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Size</th><th>Field</th><th>DataType</th><th>Description</th></tr></thead>
+<tbody><tr><td>4</td><td>Nonce</td><td>uint32</td><td>random number</td></tr>
+</tbody>
+</table></figure>
+<h4 id='d3a10c68'><span class='with-space bd-content-title'>Witnesses<a class='anchorjs-link ' href='#d3a10c68' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<h4 id='a692f66c'><span class='with-space bd-content-title'>Contract<a class='anchorjs-link ' href='#a692f66c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<h4 id='be94a239'><span class='with-space bd-content-title'>Transaction<a class='anchorjs-link ' href='#be94a239' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>Transactions are the inputs used in our ledger. They can me used to claim GAS, transfer native assets and perform actions in the blockchain. The serialization of a transaction varies depending on the action to be registered in the ledger.</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Size</th><th>Field</th><th>DataType</th><th>Description</th></tr></thead>
+<tbody><tr><td>1</td><td>Type</td><td>uint8</td><td>Type of transaction</td></tr><tr><td>1</td><td>Version</td><td>uint8</td><td>Trading version, currently 0</td></tr><tr><td>?</td><td>-</td><td>-</td><td>Data specific to transaction types</td></tr><tr><td>?*?</td><td>Attributes</td><td>tx_attr[]</td><td>Additional features that the transaction has</td></tr><tr><td>34*?</td><td>Inputs</td><td>tx_in[]</td><td>Input</td></tr><tr><td>60*?</td><td>Outputs</td><td>tx_out[]</td><td>Output</td></tr><tr><td>?*?</td><td>Scripts</td><td>script[]</td><td>List of scripts used to validate the transaction</td></tr>
+</tbody>
+</table></figure>
+<h5 id='c0525952'><span class='with-space bd-content-title'>Contract Transaction<a class='anchorjs-link ' href='#c0525952' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h5>
+<p class='with-space'>Contract transactions have Type <code>0x80</code> . The verification script used is usually a 64 bytes signatures.</p>
+<h2 id='f0d18b32'><span class='with-space bd-content-title'>What&#39;s next?<a class='anchorjs-link ' href='#f0d18b32' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='2-levelDB_data_structure.html'> LevelDB Blockchain Data Structure</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/en-us/6-persistence\1-persistence.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#c05261f8'>Persistence</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#db533a6a'>Serialization Model</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#eb9933db'>Integer serialization</a>
+<a class='ml-2 my-1 nav-link' href='#eb607350'>String serialization</a>
+<a class='ml-2 my-1 nav-link' href='#fb12283b'>UInt160 and UInt256 serialization</a>
+<a class='ml-2 my-1 nav-link' href='#f7150fff'>Decimal serialization</a>
+<a class='ml-2 my-1 nav-link' href='#b288b1a4'>Data Structures</a>
+<a class='ml-2 my-1 nav-link' href='#c1656a57'>Domain classes serialization</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#f0d18b32'>What's next?</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

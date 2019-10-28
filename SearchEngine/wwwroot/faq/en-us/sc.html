@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Smart contract</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/faq/en-us/basic.html'>General</a>
+<a class='ml-0 my-1 nav-link' href='/faq/en-us/client.html'>Client and Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/faq/en-us/dev.html'>Development</a>
+<a class='ml-0 my-1 nav-link' href='/faq/en-us/sc.html'>Smart Contract</a>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='d9235263'><span class='with-space bd-content-title'>Smart contract<a class='anchorjs-link ' href='#d9235263' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='d3caf5ef' class='h2-collapse'><span class='with-space bd-content-title'>Why is it prompted the NuGet package cannot be restored when I try to publish neon? Even if I use Visual Studio 2017, the problem still occurs.<a class='anchorjs-link ' href='#d3caf5ef' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>To solve it:</p>
+<ol>
+<li>
+<p class='with-space'>Download nuget.exe from <a href='https://www.nuget.org/downloads' target='_blank'> here</a> and place it under the root  of the neo-compiler project.</p></li>
+<li>
+<p class='with-space'>Run Power Shell or command line (CMD)</p></li>
+<li>
+<p class='with-space'>Go to the neo-compiler root and run <code>nuget restore</code> .</p></li>
+</ol></div>
+<h2 id='c83ff2d5' class='h2-collapse'><span class='with-space bd-content-title'>Why can&#39;t neon.dll be copied when publishing a neon project?<a class='anchorjs-link ' href='#c83ff2d5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>This may caused by a VS 2017 bug. In some versions of VS 2017 (e.g.15.4, 15.5), the following error may occur:</p>
+<p class='with-space'>Cannot copy &quot;obj\Release\netcoreapp1.0\win10-x64\neon.dll&quot; because the file could not be found.</p>
+<p class='with-space'>To solve it, you can manually copy the file <code>\obj\Release\netcoreapp1.0\neon.dll</code> to the directory <code>\obj\Release\netcoreapp1.0\win10-x64\</code> and then republish.</p></div>
+<h2 id='edd660e0' class='h2-collapse'><span class='with-space bd-content-title'>Why can&#39;t NEO namespace be found in the new-created NeoContract project?<a class='anchorjs-link ' href='#edd660e0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>After creating the NeoContract project, there are many red underlines in the code indicating that the NEO namespace is not found, and there is an exclamation mark in the project reference.</p>
+<p class='with-space'>To solve this problem, right-click on the solution file in Visual Studio and click <code>restore NuGet package</code> . After all the packages are restored successfully, if the issue still exists and there is still an exclamation mark in References in the right panel, try double-clicking the exclamation mark to solve the issue.</p>
+<p class='with-space'>If you still cannot solve the issue, try this way:</p>
+<ol>
+<li>
+<p class='with-space'>Download nuget.exe from <a href='https://www.nuget.org/downloads' target='_blank'> here</a> and place it under the root of the NeoContract project.</p></li>
+<li>
+<p class='with-space'>Run Power Shell or command line (CMD)</p></li>
+<li>
+<p class='with-space'>Go to the NeoContract root and run <code>nuget restore</code> .</p></li>
+</ol></div>
+<h2 id='a9a59d63' class='h2-collapse'><span class='with-space bd-content-title'>Why do I fail to publish C# smart contract compiler?<a class='anchorjs-link ' href='#a9a59d63' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>Before you publish the C# smart contract compiler, make sure you have done the following:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Installed .net core 2.1 the latest version</p></li>
+<li>
+<p class='with-space'>If using VS2017, selected the target as win10-64</p></li>
+<li>
+<p class='with-space'>If using VS2019, changed the target to win10-64 and then selected the &quot;Self-contained deployment&quot; mode.</p></li>
+</ul></div>
+<h2 id='ec0191be' class='h2-collapse'><span class='with-space bd-content-title'>After publishing neon in Windows 7 and setting the environment variable, why is it prompted that api-ms-win-core-console-l2-1-0.dll is missing when I am running neon?<a class='anchorjs-link ' href='#ec0191be' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>This is caused by the publishing system configuration. As the default publishing system for the neon project is win 10-x64, when you publish neon in Windows 7 the missing .dll file is prompted.</p>
+<p class='with-space'>To solve this problem, edit the neon.csproj file and change <code>&lt;RuntimeIdentifiers&gt;win10-x64&lt;/RuntimeIdentifiers&gt;</code> to <code>&lt;RuntimeIdentifiers&gt;win7-64&lt;/RuntimeIdentifiers&gt;</code> . Then republish the project in Visual Studio or using the command <code>dotnet publish -r win7-x64 -c debug</code> .</p>
+<p class='with-space'>For more information about RID refer to <a href='https://docs.microsoft.com/en-us/dotnet/core/rid-catalog' target='_blank'> .NET Core Runtime IDentifier (RID) catalog</a> .</p>
+<p class='with-space'>Although you can download the file and copy it to the neon.exe directory, this method is not recommended due to potential security issues.</p></div>
+<h2 id='a529c292' class='h2-collapse'><span class='with-space bd-content-title'>Why can&#39;t neon be found in CMD after I set the environment variable?<a class='anchorjs-link ' href='#a529c292' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>This is because you did not restart CMD after you changed the environment variable. The CMD still read the parameters changed before. To solve this, restart the CMD.</p></div>
+<h2 id='a9f4cf58' class='h2-collapse'><span class='with-space bd-content-title'>After publishing neon and adding neon.exe directory to path, why does compiling NeoContract hang at the step &quot;Start NeoContract converter&quot;?<a class='anchorjs-link ' href='#a9f4cf58' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>This is because you did not restart Visual Studio after modifying the environment variable. The Visual Studio still read the environment variable changed before.</p>
+<p class='with-space'>To solve this problem, restart Visual Studio. If not solved, restart your system.</p></div>
+<h2 id='f84e6e10' class='h2-collapse'><span class='with-space bd-content-title'>Why does smart contract complied with the old version of neon fail to run on the test net or main net?<a class='anchorjs-link ' href='#f84e6e10' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>NEO smart contracts require development framework, compiler, and NEOVM versions are consistent. The code compiled with the old framework and compiler may not be able to work in the new version of NEOVM. It does not affect the smart contracts already published on the blockchain. So before you start developing smart contracts, make sure you use the latest version of framework (e.g. NeoContractPlugin) and compiler (e.g. neon).</p>
+<p class='with-space'>Some parts of this article is excerpted from <a href='https://steemit.com/neo/@cybourgeoisie/neo-contract-development-common-pitfalls-using-windows-7' target='_blank'> NEO Contract Development - Common Pitfalls using Windows 7</a> . Thanks for <strong>cybourgeoisie</strong> &#39;s contribution.</p>
+<p class='with-space'>If you are still having trouble or you do not find a relevant issue, you can open an issue or pull request on <a href='https://github.com/neo-project/docs' target='_blank'> GitHub NEO Doc project</a> .</p></div>
+<h2 id='f7d199a5' class='h2-collapse'><span class='with-space bd-content-title'>I have deployed my contract successfully, but why do I fail to invoke it?<a class='anchorjs-link ' href='#f7d199a5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>This issue is caused by confliction between the old NEOVM opcodes and the new NEP-8 opcodes with which neon compiles contracts. To solve it, you need to compile the contract in compatible mode:</p>
+<ol>
+<li>
+<p class='with-space'>Publish the C# compiler neon.exe and add its path to environment parameter</p></li>
+<li>
+<p class='with-space'>Compile and build the contract in Visual Studio 2017</p></li>
+<li>
+<p class='with-space'>Compile the contract in compatible mode in your command line: <code>neon contract.dll --compatible</code> </p></li>
+<li>
+<p class='with-space'>Deploy the new contract file after it is generated.</p></li>
+</ol></div>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/faq/en-us/sc.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#d9235263'>Smart contract</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#d3caf5ef'>Why is it prompted the NuGet package cannot be restored when I try to publish neon? Even if I use Visual Studio 2017, the problem still occurs.</a>
+<a class='ml-0 my-1 nav-link' href='#c83ff2d5'>Why can't neon.dll be copied when publishing a neon project?</a>
+<a class='ml-0 my-1 nav-link' href='#edd660e0'>Why can't NEO namespace be found in the new-created NeoContract project?</a>
+<a class='ml-0 my-1 nav-link' href='#a9a59d63'>Why do I fail to publish C# smart contract compiler?</a>
+<a class='ml-0 my-1 nav-link' href='#ec0191be'>After publishing neon in Windows 7 and setting the environment variable, why is it prompted that api-ms-win-core-console-l2-1-0.dll is missing when I am running neon?</a>
+<a class='ml-0 my-1 nav-link' href='#a529c292'>Why can't neon be found in CMD after I set the environment variable?</a>
+<a class='ml-0 my-1 nav-link' href='#a9f4cf58'>After publishing neon and adding neon.exe directory to path, why does compiling NeoContract hang at the step "Start NeoContract converter"?</a>
+<a class='ml-0 my-1 nav-link' href='#f84e6e10'>Why does smart contract complied with the old version of neon fail to run on the test net or main net?</a>
+<a class='ml-0 my-1 nav-link' href='#f7d199a5'>I have deployed my contract successfully, but why do I fail to invoke it?</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (true) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

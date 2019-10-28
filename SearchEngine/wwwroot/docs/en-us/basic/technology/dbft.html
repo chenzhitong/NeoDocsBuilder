@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Consensus Mechanism</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/index.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Introduction</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/whitepaper.html'>NEO Whitepaper</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Technology</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/dbft.html'>Consensus Mechanism</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Node</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/introduction.html'>Introduction</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/install.html'>Installing the Client</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/transc.html'>Transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/asset.html'>Registering and Distributing Assets</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/sc.html'>Interacting with Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/vote.html'>Election and Voting</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/other.html'>Other Features</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/publish.html'>Publishing from Source</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/setup.html'>Installation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/seedlist.html'>SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/cli.html'>Command Line</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/syncblocks.html'>Synchronizing the blockchain faster</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/testnet.html'>Main Net and Test Net</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Setting up Private Chain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/solo.html'>Solo Mode</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain.html'>Multiple Nodes (virtual machines)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain2.html'>Multiple Nodes (local host)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Getting Started (C#)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/introduction.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/prerequisites.html'>Before You Begin</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/enviroment.html'>Setting up local network</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/develop.html'>Compiling a Contract Sample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/deploy.html'>Deploying and Invoking the Contract</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Development Environment</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-mac.html'>Using C# on macOS</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-ubuntu.html'>Using C# on ubuntu</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-java.html'>Using Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-python.html'>Using Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Writing smart contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/basics.html'>Basics</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/limitation.html'>Limitations</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Deploying and Invoking Smart Contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/deploy.html'>Deploying Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/invoke.html'>Invoking Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/Parameter.html'>Parameters and Return Values</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/test.html'>Testing</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/migrate.html'>Contract Migration and Destruction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/fees.html'>Fees</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Contract Samples</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Domain.html'>Domain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/verify.html'>Verification Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Lock2.html'>Lock Contract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Tools Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Main Concepts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blockchain Models</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/token_model.html'>Tokens</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/account_asset.html'>Account and Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/validator.html'>Validator</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/charging_model.html'>Charging Model</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/wallets.html'>Wallet</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_algorithm.html'>Consensus Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_protocol.html'>Consensus Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/vote_validator.html'>Vote</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Cryptography</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encode_algorithm.html'>Encode Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/hash_algorithm.html'>Hash Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encryption_algorithm.html'>Encryption Algorithm</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/neo_cli_structure.html'>NEO-CLI Structure</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/introduction.html'>About NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/conversion.html'>Data Conversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/tx.html'>Transaction Construction</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/endian.html'>Big and Little Endian Usage</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Advanced Topics</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/neo_vm.html'>NeoVM Instructions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/network-protocol.html'>Network Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/tx_execution.html'>Transaction Process</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/merkle_tree.html'>Merkel Tree</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Document for Exchange Developers</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/general.html'>Overview</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/deploynode.html'>Deploying NEO nodes</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/client.html'>Using NEO-CLI</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/transaction.html'>Dealing with assets transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/gas.html'>Distributing GAS to users</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/changelog.html'>Changelog</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api.html'>API Reference</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='https'>SDK API (C#)</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='f6e7ea4f'><span class='with-space bd-content-title'>Consensus Mechanism<a class='anchorjs-link ' href='#f6e7ea4f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='eac05d8c'><span class='with-space bd-content-title'>Overview<a class='anchorjs-link ' href='#eac05d8c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>A blockchain is a decentralized distributed ledger system. It could be used for registration and issuance of digitalized assets, property right certificates, credit points and so on. It enables transfer, payment, and transactions in a peer-to-peer way. The blockchain technology was originally proposed by Satoshi Nakamoto in a cryptography mailing list, i.e. the Bitcoin. Since then, numerous applications based on the blockchain emerged, such as e-cash systems, stock equity exchanges and Smart Contract systems.</p>
+<p class='with-space'>A blockchain system is advantageous over a traditional centralized ledger system for its full-openness,immutability and anti-multiple-spend characters, and it does not rely on any kind of trusted third-party.</p>
+<p class='with-space'>However, like all distributed systems, blockchain systems are challenged with network latency, transmission errors, software bugs, security loopholes and black-hat hacker threats. Moreover, its decentralized nature suggests that no participant of the system cannot be trusted. Malicious nodes may emerge, so does data difference due to conflicting interests.</p>
+<p class='with-space'>To counter these potential errors, a blockchain system is in need of an efficient consensus mechanism to ensure that every node has a copy of a recognized version of the total ledger. Traditional fault tolerance mechanisms concerning certain problems may not be completely capable of tackling the issue that distributed and blockchain systems are faced with. A universal cure-to-all fault tolerance solution is in need.</p>
+<p class='with-space'>Proof-of-Work mechanism, employed by the Bitcoin, addresses this issue rather brilliantly. But it comes with an obvious price, i.e. significant electricity cost and energy consumption. Further, with Bitcoin’s existence, new blockchains must find different hashing algorithms, so as to prevent computational attacks from it. For example, Litecoin adopts SCRYPT, rather than Bitcoin’s SHA256.</p>
+<p class='with-space'>Byzantine Fault Tolerance mechanism is a universal solution for distributed systems. NEO proposes dBFT (delegated Byzantine Fault Tolerance) consensus algorithm based on PBFT   (Practical Byzantine Fault Tolerance) algorithm. Algorithm dBFT determines validator set according to real-time blockchain voting, which effectively enhances the effectiveness of the algorithm, bringing block time and transaction confirmation time savings. dBFT2.0 as an upgraded version was released in Mar. 2019, which improves robustness and safety by introducing 3-stage consensus as well as a recovery mechanism.</p>
+<h2 id='b77a0018'><span class='with-space bd-content-title'>System Model<a class='anchorjs-link ' href='#b77a0018' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>A blockchain is a distributed ledger system in which participants connect with each other via a peer-to-peer network. All messages within it will be sent by broadcasting. Two types of roles exist: Ordinary nodes and Bookkeeping nodes. Ordinary nodes use the system to transfer and exchange, accepting ledger data; while bookkeeping nodes provide accounting service for the entire network and maintain the ledger.</p>
+<p class='with-space'>Hypothetically, in this system, messages may subject to loss, damage, latency and repetition. Also, the sending order may not necessarily be consistent with the receiving order of messages. The activities of nodes could be arbitrary, they may join and quit the network at any time; they may also dump and falsify information or simply stop working. Artificial or non-artificial glitches may occur as well.</p>
+<p class='with-space'>Integrity and Authenticity of information transmission are ensured with cryptography while senders must attach signatures to the hash value of the message sent.</p>
+<h2 id='f61bf372'><span class='with-space bd-content-title'>The Algorithm<a class='anchorjs-link ' href='#f61bf372' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Our algorithm ensures security as well as usability. With erroneous nodes in the consensus making no more than ⌊ (N−1) / 3 ⌋ , the functionality and stability of the system is guaranteed. In it, N = |&#119877;| suggests the total number of nodes joined in the consensus making while R stands for the set of consensus nodes. Given F = ⌊ (N−1) / 3 ⌋ , f stands for the maximum number of erroneous nodes allowed in the system. In fact, the total ledger is maintained by bookkeeping nodes while ordinary nodes do not participate in the consensus making. This is to show the entire consensus making procedures.</p>
+<p class='with-space'>All consensus nodes are required to maintain a state table to record current consensus status. The data set used for a consensus from its beginning to its end is called a View. If consensus cannot be reached within the current View, a View Change will be required. We identify each View with a number v, starting from 0 and it may increase till achieving the consensus.</p>
+<p class='with-space'>We identify each consensus node with a number, starting from 0, the last node is numbered N − 1. For each round of consensus making, a node will play speaker of the house while other nodes play congressmen. The speaker’s number p will be determined by the following algorithm: Hypothetically the current block height is h, then &#119901; = (ℎ − &#119907;) &#119898;&#119900;&#119889; N, p’s value range will be  0 ≤ &#119901; &lt; N .</p>
+<p class='with-space'>A new block will be generated with each round of consensus, with at least N − F signatures from bookkeeping nodes. Upon the generation of a block, a new round of consensus making shall begin, resetting v=0.</p>
+<h3 id='b2cb79b3'><span class='with-space bd-content-title'>General Procedures<a class='anchorjs-link ' href='#b2cb79b3' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='../../tooldev/images/consensus/1.png' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>A round of consensus consists of 4 steps, as shown in the Figure above.</p>
+<ol>
+<li>
+<p class='with-space'>Speaker starts consensus by broadcasting a Prepare Request message,</p></li>
+<li>
+<p class='with-space'>Delegates broadcast Prepare Response after receiving the Prepare Request message,</p></li>
+<li>
+<p class='with-space'>Validators broadcast Commit after receiving enough Prepare Response messages,</p></li>
+<li>
+<p class='with-space'>Validators produce &amp; broadcast a new block after receiving enough Commit messages.</p></li>
+</ol>
+<h3 id='a8725f9a'><span class='with-space bd-content-title'>View Change<a class='anchorjs-link ' href='#a8725f9a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>In case of the following scenarios, the Change View Request will be broadcasted attempting to replace speaker:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>The transaction verification fails</p></li>
+<li>
+<p class='with-space'>Time is out while waiting for Prepare Request or Prepare Response</p></li>
+</ul>
+<h3 id='a0596592'><span class='with-space bd-content-title'>Recovery Mechanism<a class='anchorjs-link ' href='#a0596592' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>When creating Change View Request, if there are not enough active consensus nodes (sum of nodes with Commit sent and fault nodes is greater than F), consensus nodes will broadcast Recovery Request message to update the local consensus context. Upon receiving Recovery Request, if certain conditions are met, a consensus node will generate and broadcast Recovery Message.</p>
+<h2 id='c0412c6a'><span class='with-space bd-content-title'>Fault Tolerance of dBFT2.0<a class='anchorjs-link ' href='#c0412c6a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>A dBFT2.0 consensus system with<em>N</em>validators can tolerate at most<em>F</em>abnormal nodes. Each consensus phase (Commit, Change View, block generation, etc.) requires at least<em>M</em>nodes to reach consensus. As long as the amount of normal validators is not less than<em>M</em>, the consensus process will go on smoothly. For example, just 4 − ⌊ (4−1) / 3 ⌋ =3  normal validators required can keep alive a consensus system where<em>N</em>= 4.</p>
+<h2 id='cac821ec'><span class='with-space bd-content-title'>Single Block Finality of dBFT2.0<a class='anchorjs-link ' href='#cac821ec' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Neo&#39;s dBFT 1.0 algorithm was susceptible to a single block fork in rare cases of network latency. dBFT2.0 fixes this problem, hence there is no possibility of forking since then. The mechanism is described as follows:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>To generate a new block, it is required to collect Commit messages from at least M different validators for corresponding block proposal.</p></li>
+<li>
+<p class='with-space'>A validator will never change its view after broadcasting Commit message.</p></li>
+</ul>
+<p class='with-space'>Hence the success of block generation means:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>There are already at least M validators having signed the block proposal and broadcast Commit messages. Moreover, these validators won&#39;t change the view in current consensus round.</p></li>
+<li>
+<p class='with-space'>The rest of the validators are insufficient to produce another different block.</p></li>
+</ul>
+<p class='with-space'>Therefore, the finality of the new block can be guaranteed at a given height.</p>
+<h2 id='ce1d43be'><span class='with-space bd-content-title'>Further Reading<a class='anchorjs-link ' href='#ce1d43be' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='../../tooldev/concept/consensus/consensus_algorithm.html'> Consensus Algorithm</a> </p>
+<p class='with-space'> <a href='../../tooldev/concept/consensus/consensus_protocol.html'> Consensus Protocol</a> </p>
+<p class='with-space'> <a href='../../tooldev/concept/consensus/vote_validator.html'> Voting</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/en-us/basic\technology\dbft.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#f6e7ea4f'>Consensus Mechanism</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#eac05d8c'>Overview</a>
+<a class='ml-0 my-1 nav-link' href='#b77a0018'>System Model</a>
+<a class='ml-0 my-1 nav-link' href='#f61bf372'>The Algorithm</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b2cb79b3'>General Procedures</a>
+<a class='ml-2 my-1 nav-link' href='#a8725f9a'>View Change</a>
+<a class='ml-2 my-1 nav-link' href='#a0596592'>Recovery Mechanism</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#c0412c6a'>Fault Tolerance of dBFT2.0</a>
+<a class='ml-0 my-1 nav-link' href='#cac821ec'>Single Block Finality of dBFT2.0</a>
+<a class='ml-0 my-1 nav-link' href='#ce1d43be'>Further Reading</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

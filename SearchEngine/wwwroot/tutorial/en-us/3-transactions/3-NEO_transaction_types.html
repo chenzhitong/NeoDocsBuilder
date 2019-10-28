@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Transaction Types</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Introduction to NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/1-Introduction_to_NEO.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>Cryptography, Blockchain, and Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.html'>NEO Fundamentals</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Wallet</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/1-Introduction_to_wallets.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>Keys and Addresses</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.html'>Private key encryption and Wallet files</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/4-UTXO_and_account_models.html'>The UTXO and Account models</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Transactions</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/1-Introduction_to_transactions.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.html'>Structure of NEO transactions</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/3-NEO_transaction_types.html'>NEO transaction types</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/4-NEO_transaction_fees.html'>Transaction fees</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blocks</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/2-Structure_of_a_block.html'>Structure of a Block</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/3-Block_creation_broadcasting.html'>Block Creation and Broadcasting</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/4-Block_validation_processing.html'>Block Validation and Processing</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.html'>NEO Network and Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Persistence</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/1-persistence.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/2-levelDB_data_structure.html'>Developing a NEO Ping using Golang</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/1-Introduction_to_consensus.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW and PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/3-PBFT_and_DBFT.html'>pBFT and dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>dBFT Consensus Examples and Scenarios</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_smart_contract.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_privateChain.html'>Setting up a Private Chain</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_set_up.html'>Setting up Development Enviroment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_compile.html'>Contract Invoking and Deployment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Smart_Contract_basics.html'>Smart Contract Basics</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Make your NEP-5 Token</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_nep5.html'>Introduction to NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Implementation_of_NEP5.html'>Implementation of NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Give_an_ITO.html'>ITO(Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/UTXO.html'>UTXO basics</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.html'>What is CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.html'>Global asset and NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/3_utxo_model.html'>UTXO model</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/4_trigger.html'>Trigger</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.html'>Mint and Refund</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.html'>Signature and Verification</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/7_invocation.html'>Transaction Invocation</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Write NEO smart contract with Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part1_setup.html'>Installing and Setting up the Environment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part2_neopy.html'>Wallet Operations and Smart Contracts</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='adf0c079'><span class='with-space bd-content-title'>Transaction Types<a class='anchorjs-link ' href='#adf0c079' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>There are several different types of transactions on NEO, each with a different purpose and different properties. Some previously used transaction types are now deprecated or removed from the network, so these should not be used when creating new transactions on the MainNet.</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Byte</th><th>Name</th><th>Status</th><th>Transaction fee</th><th>Description</th></tr></thead>
+<tbody><tr><td> <code>0x00</code> </td><td> <code>MinerTransaction</code> </td><td><em>Active</em></td><td> <code>0</code> </td><td>First transaction in a block to distribute network fees</td></tr><tr><td> <code>0x01</code> </td><td> <code>IssueTransaction</code> </td><td><em>Deprecated</em></td><td> <code>500</code> </td><td>Issue assets from a registered native asset</td></tr><tr><td> <code>0x02</code> </td><td> <code>ClaimTransaction</code> </td><td><em>Active</em></td><td> <code>0</code> </td><td>Claim GAS from unclaimed transaction outputs</td></tr><tr><td> <code>0x20</code> </td><td> <code>EnrollmentTransaction</code> </td><td><em>Deprecated</em></td><td> <code>1000</code> </td><td>Enroll a new consensus node candidate</td></tr><tr><td> <code>0x24</code> </td><td> <code>VotingTransaction</code> </td><td><em>Removed</em></td><td> <code>0</code> </td><td>Vote for consensus node candidates</td></tr><tr><td> <code>0x40</code> </td><td> <code>RegisterTransaction</code> </td><td><em>Deprecated</em></td><td> <code>10000</code> </td><td>Register a new native asset on the blockchain</td></tr><tr><td> <code>0x80</code> </td><td> <code>ContractTransaction</code> </td><td><em>Active</em></td><td> <code>0</code> </td><td>Common transaction to transfer assets</td></tr><tr><td> <code>0x90</code> </td><td> <code>StateTransaction</code> </td><td><em>Active</em></td><td> <code>0</code> </td><td>Voting and registering for a consensus node candidate</td></tr><tr><td> <code>0xb0</code> </td><td> <code>AgencyTransaction</code> </td><td><em>Removed</em></td><td> <code>0</code> </td><td>Place orders on the blockchain</td></tr><tr><td> <code>0xd0</code> </td><td> <code>PublishTransaction</code> </td><td><em>Deprecated</em></td><td> <code>500</code> </td><td>Publish a smart contract to the blockchain</td></tr><tr><td> <code>0xd1</code> </td><td> <code>InvocationTransaction</code> </td><td><em>Active</em></td><td> <code>0</code> </td><td>Invoke a smart contract on the blockchain</td></tr>
+</tbody>
+</table></figure>
+<h3 id='f437384b'><span class='with-space bd-content-title'>MinerTransaction<a class='anchorjs-link ' href='#f437384b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The first transaction in a block. It is generated by the active consensus node for a given consensus round, and will collect and distribute all the network fees in that block.</p>
+<h4 id='b1954232'><span class='with-space bd-content-title'>Additional attributes for a MinerTransaction:<a class='anchorjs-link ' href='#b1954232' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+<tbody><tr><td> <code>nonce</code> </td><td>uint32</td><td>Random number to make the transaction hash unique</td></tr>
+</tbody>
+</table></figure>
+<p class='with-space'>Example:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+   &quot;txid&quot;:&quot;0xdbf3ad80e483c56b996fcc1264384f87a86a889d3cc2c79888200d347923f6c6&quot;,
+   &quot;size&quot;:70,
+   &quot;type&quot;:&quot;MinerTransaction&quot;,
+   &quot;version&quot;:0,
+   &quot;attributes&quot;:[
+
+   ],
+   &quot;vout&quot;:[
+      {
+         &quot;n&quot;:0,
+         &quot;asset&quot;:&quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+         &quot;value&quot;:&quot;0.001&quot;,
+         &quot;address&quot;:&quot;AWHX6wX5mEJ4Vwg7uBcqESeq3NggtNFhzD&quot;
+      }
+   ],
+   &quot;vin&quot;:[
+
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0&quot;,
+   &quot;scripts&quot;:[
+
+   ],
+   &quot;nonce&quot;:960164232
+}'>Copy</button><pre><code class='javascript' lang='javascript'>{
+   &quot;txid&quot;:&quot;0xdbf3ad80e483c56b996fcc1264384f87a86a889d3cc2c79888200d347923f6c6&quot;,
+   &quot;size&quot;:70,
+   &quot;type&quot;:&quot;MinerTransaction&quot;,
+   &quot;version&quot;:0,
+   &quot;attributes&quot;:[
+
+   ],
+   &quot;vout&quot;:[
+      {
+         &quot;n&quot;:0,
+         &quot;asset&quot;:&quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+         &quot;value&quot;:&quot;0.001&quot;,
+         &quot;address&quot;:&quot;AWHX6wX5mEJ4Vwg7uBcqESeq3NggtNFhzD&quot;
+      }
+   ],
+   &quot;vin&quot;:[
+
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0&quot;,
+   &quot;scripts&quot;:[
+
+   ],
+   &quot;nonce&quot;:960164232
+}
+</code></pre>
+</figure>
+<h3 id='a8003563'><span class='with-space bd-content-title'>ClaimTransaction<a class='anchorjs-link ' href='#a8003563' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Claim GAS from unclaimed transaction outputs</p>
+<h4 id='d9d2d414'><span class='with-space bd-content-title'>Additional attributes for a ClaimTransaction:<a class='anchorjs-link ' href='#d9d2d414' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+<tbody><tr><td> <code>claims</code> </td><td>array</td><td>References to spent outputs in previous transactions</td></tr>
+</tbody>
+</table></figure>
+<h4 id='e715f505'><span class='with-space bd-content-title'>Claims<a class='anchorjs-link ' href='#e715f505' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>A <code>claim</code> is a reference to a spent <a href='2-Structure_of_NEO_transactions.html#outputs'>  <code>output</code> </a> (only for the NEO asset) in a previous transaction. Each transaction can have up to 65536 claim references. Each claim reference in the array of claims has a set of required attributes.</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+<tbody><tr><td> <code>txid</code> </td><td>uint256</td><td>The transaction hash of the referenced output</td></tr><tr><td> <code>vout</code> </td><td>uint16</td><td>The index of the outputs array to use as input</td></tr>
+</tbody>
+</table></figure>
+<p class='with-space'>Once an output from a previous transaction is used as a claim reference, it will be considered <code>claimed</code> and cannot be used anymore in any future claims. The amount of GAS that can be claimed will be calculated by the total GAS distribution in all blocks while the referenced NEO asset was in the respective contract address.</p>
+<p class='with-space'>Example:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+   &quot;txid&quot;:&quot;0x30f90c7df4c02984bcdc11abd68ffef01557eed3ccadc1b653ab918842ecdfcc&quot;,
+   &quot;size&quot;:237,
+   &quot;type&quot;:&quot;ClaimTransaction&quot;,
+   &quot;version&quot;:0,
+   &quot;attributes&quot;:[
+
+   ],
+   &quot;vout&quot;:[
+      {
+         &quot;n&quot;:0,
+         &quot;asset&quot;:&quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+         &quot;value&quot;:&quot;0.03326015&quot;,
+         &quot;address&quot;:&quot;ANAP9Afv5WxJzgw5j5Q3zrY71QWMAwhZHg&quot;
+      }
+   ],
+   &quot;vin&quot;:[
+
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0&quot;,
+   &quot;scripts&quot;:[
+      {
+         &quot;invocation&quot;:&quot;40da65923fbfb60ee9f94882e1df1d11dfefa1eae89cb989ec6e27007108c4d7db4e134ce9be5636436fae1209bb44c308f8b9eef3dcbc73d1a0132b8dab9f07de&quot;,
+         &quot;verification&quot;:&quot;210282606b2b58cbbeb25890d35e5b7480089fa726e5f625fdb3193a2677b3a6ebf6ac&quot;
+      }
+   ],
+   &quot;claims&quot;:[
+      {
+         &quot;txid&quot;:&quot;0x84d91a7641f038a03a7e93ddfd0d7f546aba3b4494dd4d7981552abdf2890593&quot;,
+         &quot;vout&quot;:0
+      },
+      {
+         &quot;txid&quot;:&quot;0x3c256425d2f650572fdcef7101cfb845bd668170e3fbc5b55ef10bd4d8b6ac1a&quot;,
+         &quot;vout&quot;:0
+      }
+   ]
+}'>Copy</button><pre><code class='javascript' lang='javascript'>{
+   &quot;txid&quot;:&quot;0x30f90c7df4c02984bcdc11abd68ffef01557eed3ccadc1b653ab918842ecdfcc&quot;,
+   &quot;size&quot;:237,
+   &quot;type&quot;:&quot;ClaimTransaction&quot;,
+   &quot;version&quot;:0,
+   &quot;attributes&quot;:[
+
+   ],
+   &quot;vout&quot;:[
+      {
+         &quot;n&quot;:0,
+         &quot;asset&quot;:&quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+         &quot;value&quot;:&quot;0.03326015&quot;,
+         &quot;address&quot;:&quot;ANAP9Afv5WxJzgw5j5Q3zrY71QWMAwhZHg&quot;
+      }
+   ],
+   &quot;vin&quot;:[
+
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0&quot;,
+   &quot;scripts&quot;:[
+      {
+         &quot;invocation&quot;:&quot;40da65923fbfb60ee9f94882e1df1d11dfefa1eae89cb989ec6e27007108c4d7db4e134ce9be5636436fae1209bb44c308f8b9eef3dcbc73d1a0132b8dab9f07de&quot;,
+         &quot;verification&quot;:&quot;210282606b2b58cbbeb25890d35e5b7480089fa726e5f625fdb3193a2677b3a6ebf6ac&quot;
+      }
+   ],
+   &quot;claims&quot;:[
+      {
+         &quot;txid&quot;:&quot;0x84d91a7641f038a03a7e93ddfd0d7f546aba3b4494dd4d7981552abdf2890593&quot;,
+         &quot;vout&quot;:0
+      },
+      {
+         &quot;txid&quot;:&quot;0x3c256425d2f650572fdcef7101cfb845bd668170e3fbc5b55ef10bd4d8b6ac1a&quot;,
+         &quot;vout&quot;:0
+      }
+   ]
+}
+</code></pre>
+</figure>
+<h3 id='b58e29f8'><span class='with-space bd-content-title'>ContractTransaction<a class='anchorjs-link ' href='#b58e29f8' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Common transaction to transfer assets. The <code>ContractTransaction</code> is used to send NEO or GAS to another contract address.</p>
+<h4 id='a2342cfb'><span class='with-space bd-content-title'>Additional attributes for a ContractTransaction:<a class='anchorjs-link ' href='#a2342cfb' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>There are no additional attributes required.</p>
+<p class='with-space'>Example:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+   &quot;txid&quot;:&quot;0x3d5b91a488a12ec091fff743b1670c008cc1962f3aa98e760981016685e9c668&quot;,
+   &quot;size&quot;:211,
+   &quot;type&quot;:&quot;ContractTransaction&quot;,
+   &quot;version&quot;:0,
+   &quot;attributes&quot;:[
+      {
+         &quot;usage&quot;:255,
+         &quot;data&quot;:&quot;6e656f2d6f6e65&quot;
+      }
+   ],
+   &quot;vout&quot;:[
+      {
+         &quot;n&quot;:0,
+         &quot;asset&quot;:&quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+         &quot;value&quot;:&quot;12&quot;,
+         &quot;address&quot;:&quot;ATNjqV62Azg3yLw4Tfc6yhKyUCSsqjQ6iA&quot;
+      }
+   ],
+   &quot;vin&quot;:[
+      {
+         &quot;txid&quot;:&quot;0xdd5fb8bfac04742788e1d0a73307d1eeb87d098165eb248d481fb84448742003&quot;,
+         &quot;vout&quot;:0
+      }
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0&quot;,
+   &quot;scripts&quot;:[
+      {
+         &quot;invocation&quot;:&quot;407eea3ba920b48973e7f3d5d4e532fe3011d02da3e75daaa20f310c3248ed49a97f5dad0a28178c9473b52ed04c8fa2ffe2f49eb8e6e4a8ed5968d4a507283c86&quot;,
+         &quot;verification&quot;:&quot;21029d910eb93122578d0ddf0443f96f4cdece42a7e4e404ae047a75734c1aa4738eac&quot;
+      }
+   ]
+}'>Copy</button><pre><code class='javascript' lang='javascript'>{
+   &quot;txid&quot;:&quot;0x3d5b91a488a12ec091fff743b1670c008cc1962f3aa98e760981016685e9c668&quot;,
+   &quot;size&quot;:211,
+   &quot;type&quot;:&quot;ContractTransaction&quot;,
+   &quot;version&quot;:0,
+   &quot;attributes&quot;:[
+      {
+         &quot;usage&quot;:255,
+         &quot;data&quot;:&quot;6e656f2d6f6e65&quot;
+      }
+   ],
+   &quot;vout&quot;:[
+      {
+         &quot;n&quot;:0,
+         &quot;asset&quot;:&quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;,
+         &quot;value&quot;:&quot;12&quot;,
+         &quot;address&quot;:&quot;ATNjqV62Azg3yLw4Tfc6yhKyUCSsqjQ6iA&quot;
+      }
+   ],
+   &quot;vin&quot;:[
+      {
+         &quot;txid&quot;:&quot;0xdd5fb8bfac04742788e1d0a73307d1eeb87d098165eb248d481fb84448742003&quot;,
+         &quot;vout&quot;:0
+      }
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0&quot;,
+   &quot;scripts&quot;:[
+      {
+         &quot;invocation&quot;:&quot;407eea3ba920b48973e7f3d5d4e532fe3011d02da3e75daaa20f310c3248ed49a97f5dad0a28178c9473b52ed04c8fa2ffe2f49eb8e6e4a8ed5968d4a507283c86&quot;,
+         &quot;verification&quot;:&quot;21029d910eb93122578d0ddf0443f96f4cdece42a7e4e404ae047a75734c1aa4738eac&quot;
+      }
+   ]
+}
+</code></pre>
+</figure>
+<h3 id='b2b97866'><span class='with-space bd-content-title'>StateTransaction<a class='anchorjs-link ' href='#b2b97866' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Voting and registering for a consensus node candidate.</p>
+<h4 id='ee60d729'><span class='with-space bd-content-title'>Additional attributes for a StateTransaction:<a class='anchorjs-link ' href='#ee60d729' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+<tbody><tr><td> <code>descriptors</code> </td><td>array</td><td>State descriptor list</td></tr>
+</tbody>
+</table></figure>
+<h4 id='c63381cf'><span class='with-space bd-content-title'>Descriptors<a class='anchorjs-link ' href='#c63381cf' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>A <code>descriptor</code> contains voting information. It can be used to apply as a consensus node or to vote for a consensus node candidate.</p>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+<tbody><tr><td> <code>type</code> </td><td>uint8</td><td>State descriptor type</td></tr><tr><td> <code>key</code> </td><td>byte</td><td>Contract script hash or public key</td></tr><tr><td> <code>field</code> </td><td>string</td><td>State field to update</td></tr><tr><td> <code>value</code> </td><td>byte</td><td>Updated value for the state field</td></tr>
+</tbody>
+</table></figure>
+<h4 id='c0d98027'><span class='with-space bd-content-title'>Type<a class='anchorjs-link ' href='#c0d98027' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>The state descriptor type can be either <code>0x40</code> for <code>Account</code> or <code>0x48</code> for <code>Validator</code> . If this type is set to account, then the descriptor can be used to update votes. If this type is set to validator, then it is used to update the registration state as a consensus node candidate.</p>
+<h4 id='dc10c2ca'><span class='with-space bd-content-title'>Key<a class='anchorjs-link ' href='#dc10c2ca' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>The key is either the 20 byte script hash of the voting contract if <code>Type</code> is <code>Account</code> , or the 33 byte public key of the validator if <code>Type</code> is <code>Validator</code> .</p>
+<h4 id='dcecef77'><span class='with-space bd-content-title'>Field<a class='anchorjs-link ' href='#dcecef77' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>The state field to update. This is either <code>Registered</code> to set validator request or <code>Votes</code> to set account votes.</p>
+<h4 id='b29eef7a'><span class='with-space bd-content-title'>Value<a class='anchorjs-link ' href='#b29eef7a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>Updated value for the state field. If a validator wants to register to be a consensus node candidate then he can set the <code>Registered</code> field to the value <code>True</code> or cancel a registration by setting <code>Registered</code> to <code>False</code> . If an account wants to vote for consensus nodes he can set an array of public keys to vote for.</p>
+<p class='with-space'>Example:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+   &quot;txid&quot;:&quot;0x7031bbc63b5087ed1e84a7a6f02a4b5c7a998c800862f0b5d1e745128bdd152f&quot;,
+   &quot;size&quot;:271,
+   &quot;type&quot;:&quot;StateTransaction&quot;,
+   &quot;version&quot;:0,
+   &quot;attributes&quot;:[
+
+   ],
+   &quot;vout&quot;:[
+
+   ],
+   &quot;vin&quot;:[
+
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0&quot;,
+   &quot;scripts&quot;:[
+      {
+         &quot;invocation&quot;:&quot;40f74883a23083f9a236b01aec3eb016e4611ac23cf3036addf8957460917bad4bb968cbbb93e321da368e11da77defca0342299dd8806e9953c0def13c6b348f4&quot;,
+         &quot;verification&quot;:&quot;21034278b37db70b6c59b1e68a34569b77c5470ed50b9a1176b0d2da1b1b601ae86cac&quot;
+      }
+   ],
+   &quot;descriptors&quot;:[
+      {
+         &quot;type&quot;:&quot;Account&quot;,
+         &quot;key&quot;:&quot;ce47912d51b7ed8a24a77f97f2cb6ef9a0e0bf0d&quot;,
+         &quot;field&quot;:&quot;Votes&quot;,
+         &quot;value&quot;:&quot;04024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d02aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e02ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba55402df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093&quot;
+      }
+   ]
+}'>Copy</button><pre><code class='javascript' lang='javascript'>{
+   &quot;txid&quot;:&quot;0x7031bbc63b5087ed1e84a7a6f02a4b5c7a998c800862f0b5d1e745128bdd152f&quot;,
+   &quot;size&quot;:271,
+   &quot;type&quot;:&quot;StateTransaction&quot;,
+   &quot;version&quot;:0,
+   &quot;attributes&quot;:[
+
+   ],
+   &quot;vout&quot;:[
+
+   ],
+   &quot;vin&quot;:[
+
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0&quot;,
+   &quot;scripts&quot;:[
+      {
+         &quot;invocation&quot;:&quot;40f74883a23083f9a236b01aec3eb016e4611ac23cf3036addf8957460917bad4bb968cbbb93e321da368e11da77defca0342299dd8806e9953c0def13c6b348f4&quot;,
+         &quot;verification&quot;:&quot;21034278b37db70b6c59b1e68a34569b77c5470ed50b9a1176b0d2da1b1b601ae86cac&quot;
+      }
+   ],
+   &quot;descriptors&quot;:[
+      {
+         &quot;type&quot;:&quot;Account&quot;,
+         &quot;key&quot;:&quot;ce47912d51b7ed8a24a77f97f2cb6ef9a0e0bf0d&quot;,
+         &quot;field&quot;:&quot;Votes&quot;,
+         &quot;value&quot;:&quot;04024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d02aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e02ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba55402df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093&quot;
+      }
+   ]
+}
+</code></pre>
+</figure>
+<h3 id='d3e72a1f'><span class='with-space bd-content-title'>InvocationTransaction<a class='anchorjs-link ' href='#d3e72a1f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Invoke or deploy a smart contract on the blockchain.</p>
+<h4 id='d9b0e578'><span class='with-space bd-content-title'>Additional attributes for a InvocationTransaction:<a class='anchorjs-link ' href='#d9b0e578' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<figure class='with-space'><table class='table table-hover'>
+<thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+<tbody><tr><td> <code>script</code> </td><td>byte</td><td>Script to be executed by the virtual machine</td></tr>
+</tbody>
+</table></figure>
+<h4 id='a780c335'><span class='with-space bd-content-title'>Script<a class='anchorjs-link ' href='#a780c335' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h4>
+<p class='with-space'>The <code>script</code> is the AVM bytecode to be executed. This can be a stand-alone script, an invocation of an already deployed smart contract using the <code>AppCall</code> opcode, or the deployment of a new smart contract through the use of the <code>Neo.Contract.Create</code> instruction.</p>
+<p class='with-space'>Example:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+   &quot;txid&quot;:&quot;0x1ae96d64e4d88a31f21f8a05a5370600efb3a7aa55e6fec6057f895f5ba91c16&quot;,
+   &quot;size&quot;:231,
+   &quot;type&quot;:&quot;InvocationTransaction&quot;,
+   &quot;version&quot;:1,
+   &quot;attributes&quot;:[
+
+   ],
+   &quot;vout&quot;:[
+      {
+         &quot;n&quot;:0,
+         &quot;asset&quot;:&quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+         &quot;value&quot;:&quot;1011.92212&quot;,
+         &quot;address&quot;:&quot;ALEN8KC46GLaadRxaWdvYBUhdokT3RhxPC&quot;
+      }
+   ],
+   &quot;vin&quot;:[
+      {
+         &quot;txid&quot;:&quot;0x33b241c922c7178c1fc50c0bf104ab729a851b77c2073be842c69712ceac2118&quot;,
+         &quot;vout&quot;:0
+      }
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0.0001&quot;,
+   &quot;scripts&quot;:[
+      {
+         &quot;invocation&quot;:&quot;401ba0d3ba2751842cca57c562ad31617cec8187fe0fa894ca71e0a1dfb29f87e6753615528336be273a7ef90601c9ba1b7719beaa0cc5113ec4dc11e5b52b68a0&quot;,
+         &quot;verification&quot;:&quot;2103ed613933d4745622e7c626275c5e74dac1a595d07a9ada02b31104ebb6330aa2ac&quot;
+      }
+   ],
+   &quot;script&quot;:&quot;00c104696e69746771496142de066bd6b7a2d6a166dc47a543d1c0ba&quot;
+}'>Copy</button><pre><code class='javascript' lang='javascript'>{
+   &quot;txid&quot;:&quot;0x1ae96d64e4d88a31f21f8a05a5370600efb3a7aa55e6fec6057f895f5ba91c16&quot;,
+   &quot;size&quot;:231,
+   &quot;type&quot;:&quot;InvocationTransaction&quot;,
+   &quot;version&quot;:1,
+   &quot;attributes&quot;:[
+
+   ],
+   &quot;vout&quot;:[
+      {
+         &quot;n&quot;:0,
+         &quot;asset&quot;:&quot;0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7&quot;,
+         &quot;value&quot;:&quot;1011.92212&quot;,
+         &quot;address&quot;:&quot;ALEN8KC46GLaadRxaWdvYBUhdokT3RhxPC&quot;
+      }
+   ],
+   &quot;vin&quot;:[
+      {
+         &quot;txid&quot;:&quot;0x33b241c922c7178c1fc50c0bf104ab729a851b77c2073be842c69712ceac2118&quot;,
+         &quot;vout&quot;:0
+      }
+   ],
+   &quot;sys_fee&quot;:&quot;0&quot;,
+   &quot;net_fee&quot;:&quot;0.0001&quot;,
+   &quot;scripts&quot;:[
+      {
+         &quot;invocation&quot;:&quot;401ba0d3ba2751842cca57c562ad31617cec8187fe0fa894ca71e0a1dfb29f87e6753615528336be273a7ef90601c9ba1b7719beaa0cc5113ec4dc11e5b52b68a0&quot;,
+         &quot;verification&quot;:&quot;2103ed613933d4745622e7c626275c5e74dac1a595d07a9ada02b31104ebb6330aa2ac&quot;
+      }
+   ],
+   &quot;script&quot;:&quot;00c104696e69746771496142de066bd6b7a2d6a166dc47a543d1c0ba&quot;
+}
+</code></pre>
+</figure>
+<h2 id='b88286ec'><span class='with-space bd-content-title'>Registering assets (deprecated)<a class='anchorjs-link ' href='#b88286ec' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>NEO supports the registration of native (UTXO) assets on the blockchain with the <code>RegisterTransaction</code> and <code>IssueTransaction</code> transaction types. NEO and GAS are both examples of these native assets. For digital asset registration it is more common now to use a (NEP-5 compatible) smart contract. Using a smart contract is more scalable and flexible than using native assets. The new token smart contract may be deployed to the blockchain with an <a href='#InvocationTransaction'> InvocationTransaction</a> .</p>
+<h2 id='f8c00074'><span class='with-space bd-content-title'>What&#39;s next?<a class='anchorjs-link ' href='#f8c00074' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='4-NEO_transaction_fees.html'> Transaction Fees</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/en-us/3-transactions\3-NEO_transaction_types.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#adf0c079'>Transaction Types</a>
+<nav class='nav nav-pills flex-column'>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f437384b'>MinerTransaction</a>
+<a class='ml-2 my-1 nav-link' href='#a8003563'>ClaimTransaction</a>
+<a class='ml-2 my-1 nav-link' href='#b58e29f8'>ContractTransaction</a>
+<a class='ml-2 my-1 nav-link' href='#b2b97866'>StateTransaction</a>
+<a class='ml-2 my-1 nav-link' href='#d3e72a1f'>InvocationTransaction</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#b88286ec'>Registering assets (deprecated)</a>
+<a class='ml-0 my-1 nav-link' href='#f8c00074'>What's next?</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

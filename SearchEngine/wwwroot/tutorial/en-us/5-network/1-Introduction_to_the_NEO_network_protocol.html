@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>NEO Protocol and Networking</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Introduction to NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/1-Introduction_to_NEO.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>Cryptography, Blockchain, and Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.html'>NEO Fundamentals</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Wallet</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/1-Introduction_to_wallets.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>Keys and Addresses</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.html'>Private key encryption and Wallet files</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/4-UTXO_and_account_models.html'>The UTXO and Account models</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Transactions</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/1-Introduction_to_transactions.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.html'>Structure of NEO transactions</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/3-NEO_transaction_types.html'>NEO transaction types</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/4-NEO_transaction_fees.html'>Transaction fees</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blocks</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/2-Structure_of_a_block.html'>Structure of a Block</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/3-Block_creation_broadcasting.html'>Block Creation and Broadcasting</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/4-Block_validation_processing.html'>Block Validation and Processing</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.html'>NEO Network and Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Persistence</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/1-persistence.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/2-levelDB_data_structure.html'>Developing a NEO Ping using Golang</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/1-Introduction_to_consensus.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW and PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/3-PBFT_and_DBFT.html'>pBFT and dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>dBFT Consensus Examples and Scenarios</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_smart_contract.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_privateChain.html'>Setting up a Private Chain</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_set_up.html'>Setting up Development Enviroment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_compile.html'>Contract Invoking and Deployment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Smart_Contract_basics.html'>Smart Contract Basics</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Make your NEP-5 Token</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_nep5.html'>Introduction to NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Implementation_of_NEP5.html'>Implementation of NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Give_an_ITO.html'>ITO(Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/UTXO.html'>UTXO basics</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.html'>What is CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.html'>Global asset and NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/3_utxo_model.html'>UTXO model</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/4_trigger.html'>Trigger</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.html'>Mint and Refund</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.html'>Signature and Verification</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/7_invocation.html'>Transaction Invocation</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Write NEO smart contract with Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part1_setup.html'>Installing and Setting up the Environment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part2_neopy.html'>Wallet Operations and Smart Contracts</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='aa342cee'><span class='with-space bd-content-title'>NEO Protocol and Networking<a class='anchorjs-link ' href='#aa342cee' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>The NEO network consists of two kind of protocols: a protocol to communicate with local clients and wallets, and an external protocol to communicate with other NEO nodes. To connect to a local node, <a href='https://www.jsonrpc.org/' target='_blank'> JSON-RPC</a> is used. This JSON-RPC can also be exposed to other external nodes.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='                          +--------------+
++----------+              | +----------+ |
+|          | NEO Protocol | |          | |
+| NEO node +----------------+ NEO peer | |
+|          |              | |          | |
++----------+              | +----+-----+ |
+                          |      |       |
+                          |      |JSON   |
+                          |      |RPC    |
+                          |      |       |
+                          | +----+-----+ |
+                          | |          | |
+                          | |Local node| |
+                          | |          | |
+                          | +----------+ |
+                          +--------------+
+                              NEO node'>Copy</button><pre><code>                          +--------------+
++----------+              | +----------+ |
+|          | NEO Protocol | |          | |
+| NEO node +----------------+ NEO peer | |
+|          |              | |          | |
++----------+              | +----+-----+ |
+                          |      |       |
+                          |      |JSON   |
+                          |      |RPC    |
+                          |      |       |
+                          | +----+-----+ |
+                          | |          | |
+                          | |Local node| |
+                          | |          | |
+                          | +----------+ |
+                          +--------------+
+                              NEO node
+</code></pre>
+</figure>
+<p class='with-space'>In this tutorial, we will focus on the other protocol, the <a href='https://docs.neo.org/docs/en-us/tooldev/advanced/network-protocol.html' target='_blank'> NEO protocol</a> . Using the Golang programming language, we will learn how to communicate with a NEO node.</p>
+<h2 id='e6c33076'><span class='with-space bd-content-title'>NEO Ping with Golang<a class='anchorjs-link ' href='#e6c33076' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>Although many <a href='https://github.com/neo-project/neo' target='_blank'> core libraries of NEO</a> are written in C# or Python, for this tutorial we will use <a href='https://golang.org/' target='_blank'> Golang</a> . The communication basics are the same for all languages.</p>
+<p class='with-space'>The NEO protocol defines However, ia header and a payload. Every message needs to be sent with this specific format, with a 24 bytes header and its payload:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text=' 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Magic: 0x00746E41                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                                                               +
+|                      Command: 12 bytes                        |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-++-+-++-+-++-+-+-+-+-+-+-+-+
+|                        Payload length                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-++-+-++-+-++-+-+-+-+-+-+-+-+
+|                       Payload checksum                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-++-+-++-+-++-+-+-+-+-+-+-+-+
+|                                                               |
+|                           Payload                             |'>Copy</button><pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      Magic: 0x00746E41                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                                                               +
+|                      Command: 12 bytes                        |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-++-+-++-+-++-+-+-+-+-+-+-+-+
+|                        Payload length                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-++-+-++-+-++-+-+-+-+-+-+-+-+
+|                       Payload checksum                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-++-+-++-+-++-+-++-+-+-+-+-+-+-+-+
+|                                                               |
+|                           Payload                             |
+</code></pre>
+</figure>
+<p class='with-space'>Communication with other NEO nodes is handled via TCP or via <a href='https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API' target='_blank'> WebSockets</a> . The advantage of using WebSockets is that you could connect to a NEO node with a web browser, however in this tutorial we will use TCP.</p>
+<p class='with-space'>The header contains a 4 bytes magic, which stands for &quot;Ant&quot; (little-endian), the name that was used before the NEO rebranding. The testnet uses slightly different magic bytes, allowing messages to be distinguished between the MainNet and TestNet.</p>
+<hr />
+<p class='with-space'> <strong>Exercise 1</strong> :However, i Please answer the following question:</p>
+<p class='with-space'>Although compatibility is very important and changing the format of the protocol could break many clients, what theoretical optimizations could be done in the protocol header?</p>
+<hr />
+<p class='with-space'>In order to participate in the NEO distributed system, firstly we need to open a connection to a NEO node. Since we want to issue ping/pong commands, which was released in NEO version 2.10.1 on 4. April 2019, we need to make sure that our node has this version. A list of NEO nodes with versions can be found here: <a href='http://monitor.cityofzion.io/' target='_blank'> http://monitor.cityofzion.io/</a> . The following nodes announce this version at the time of writing:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>node1.ledgercate.com:10333</p></li>
+<li>
+<p class='with-space'>seed.neoeconomy.io:10333</p></li>
+<li>
+<p class='with-space'>seed10.ngd.network:10333</p></li>
+</ul>
+<p class='with-space'>Please note that peers can go offline at any time, and those peers above may not be online anymore. Any other NEO node above v2.10.1 may be substituted.</p>
+<p class='with-space'>These nodes must be well reachable on the respective port. The default port in the mainnet is 10333. In case a node is behind a firewall, a node can use UPnP to configure the router to accept incoming connection to the node. NAT-PMP is currently not supported. In our tutorial we won&#39;t accept any incoming connections, that means we don&#39;t have any NAT issues.</p>
+<p class='with-space'>Let&#39;s implement the protocol. Here is what we need to do: first we set the magic number, then we set the command followed by the payload length. Then we calculate the checksum and append the payload. Now, we can send our packet to one of the NEO nodes. Sounds easy, right?</p>
+<h3 id='af696c2f'><span class='with-space bd-content-title'>Little-Endian vs. Big-Endian<a class='anchorjs-link ' href='#af696c2f' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>For every protocol, it must be defined which byte order is used. In case of NEO its little-endian. Thus, the magic byte will be encoded as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='0x00746E41 -&gt; [41][6E][74][00]'>Copy</button><pre><code>0x00746E41 -&gt; [41][6E][74][00]
+</code></pre>
+</figure>
+<p class='with-space'>Big-endian encoding would like as follows: <a href='javascript:'> 00</a>  <a href='javascript:'> 6E</a> . Many programming languages have utilities to handle the conversion, such as Golang:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='binary.LittleEndian.PutUint32(b[0:], 0x00746E41)'>Copy</button><pre><code>binary.LittleEndian.PutUint32(b[0:], 0x00746E41)
+</code></pre>
+</figure>
+<p class='with-space'>While most CPUs use little-endian encoding, network protocols such as TCP or UDP use big-endian. More information on endianness can be found in <a href='https://en.wikipedia.org/wiki/Endianness' target='_blank'> https://en.wikipedia.org/wiki/Endianness</a> . For this tutorial we will use little-endian, as most data is encoded in little-endian in NEO, and we won&#39;t touch the exceptions.</p>
+<h3 id='d6655728'><span class='with-space bd-content-title'>Checksum<a class='anchorjs-link ' href='#d6655728' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The checksum field in the header is the checksum calculated over the payload. Although TCP also has a checksum over its payload, the TCP checksum is only 16 bits. The payload checksum in NEO is the first 4 bytes (32 bits) of the double SHA256 hash of the payload. In Golang, the checksum can be calculated as follows:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text=' tmp := sha256.Sum256(payload)
+ hash := sha256.Sum256(tmp[:])
+ ...
+ copy(b[20:], hash[0:4])'>Copy</button><pre><code> tmp := sha256.Sum256(payload)
+ hash := sha256.Sum256(tmp[:])
+ ...
+ copy(b[20:], hash[0:4])
+</code></pre>
+</figure>
+<p class='with-space'>If the checksum does not match, the node should ignore the message.</p>
+<hr />
+<p class='with-space'> <strong>Exercise 2</strong> : Write an encoder and decoder for the header. Use the following &quot;quick and dirty&quot; template in Appendix A and complete the following two functions: <code>encodeHeader(cmd string, payload []byte) []byte</code> , where the return array is the header combined with the payload. The encoder should return the whole byte array that can be sent on the wire, and <code>decodeHeader(b []byte) (uint32, uint32)</code> , where the first return value is the length of the payload and the second value is the checksum.</p>
+<hr />
+<h3 id='bb63841e'><span class='with-space bd-content-title'>Payload protocol<a class='anchorjs-link ' href='#bb63841e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>After implementing the encoding and decoding of the headers for the NEO protocol, we can focus on the payload. The NEO protocol supports the following commands, though not every command has a payload.</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>version - information about the version of the node, including version number</p></li>
+<li>
+<p class='with-space'>verack - on successfully receiving of version information, send back verack (no payload)</p></li>
+<li>
+<p class='with-space'>getaddr - request to send a send active NEO nodes</p></li>
+<li>
+<p class='with-space'>addr - response to getaddr request</p></li>
+<li>
+<p class='with-space'>getblocks - request to send blocks</p></li>
+<li>
+<p class='with-space'>block - response to getblocks or getdata</p></li>
+<li>
+<p class='with-space'>consensus - response to getdata</p></li>
+<li>
+<p class='with-space'>filteradd - add data to the bloomfilter</p></li>
+<li>
+<p class='with-space'>filterclear - clear the bloomfilter</p></li>
+<li>
+<p class='with-space'>filterload - create the bloomfilter with its initial settings. The bloomfilter is used to return only blocks with transactions we are interested in</p></li>
+<li>
+<p class='with-space'>getdata - request a specific object. Response will be in tx, block, merkleblock, or consensus message</p></li>
+<li>
+<p class='with-space'>getheaders - request to send block headers</p></li>
+<li>
+<p class='with-space'>headers - response to getheaders</p></li>
+<li>
+<p class='with-space'>inv - send information about transactions, blocks, or consensus</p></li>
+<li>
+<p class='with-space'>mempool - request verified transactions from the mempool. Response will be in inv</p></li>
+<li>
+<p class='with-space'>ping - checks if the peer alive</p></li>
+<li>
+<p class='with-space'>pong - response to a ping message</p></li>
+<li>
+<p class='with-space'>tx - response to a getdata message</p></li>
+</ul>
+<p class='with-space'>To write a NEO ping message it is important to understand that there is a strict order of commands that needs to be issued. For every connection, a version and its acknowledgment verack needs to be exchanged twice; once from your node and once from the remote node. The following flow diagram shows this sequence of commands:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='+-------+             +-------+
+| NEO1  |             | NEO2  |
++-------+             +-------+
+    |                     |
+    | command version     |
+    |--------------------&gt;|
+    |                     |
+    |     command version |
+    |&lt;--------------------|
+    |                     |
+    | command verack      |
+    |--------------------&gt;|
+    |                     |
+    |      command verack |
+    |&lt;--------------------|
+    |                     |
+    | command ping        |
+    |--------------------&gt;|
+    |                     |
+    |        command pong |
+    |&lt;--------------------|
+    |                     |'>Copy</button><pre><code>+-------+             +-------+
+| NEO1  |             | NEO2  |
++-------+             +-------+
+    |                     |
+    | command version     |
+    |--------------------&gt;|
+    |                     |
+    |     command version |
+    |&lt;--------------------|
+    |                     |
+    | command verack      |
+    |--------------------&gt;|
+    |                     |
+    |      command verack |
+    |&lt;--------------------|
+    |                     |
+    | command ping        |
+    |--------------------&gt;|
+    |                     |
+    |        command pong |
+    |&lt;--------------------|
+    |                     |
+</code></pre>
+</figure>
+<p class='with-space'>For the NEO ping, we will only use the version and ping command with a payload. The verack command does not have any payload and will not be described. The payload of those two commands are defined as follows:</p>
+<h3 id='b2904231'><span class='with-space bd-content-title'>Command &quot;version&quot;<a class='anchorjs-link ' href='#b2904231' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Version (uint32) specifies the version of the protocol, currently the version is 0</p></li>
+<li>
+<p class='with-space'>Services (uint64) - specifies the services, currently set to 1</p></li>
+<li>
+<p class='with-space'>Timestamp (uint32) - time in seconds since 01.01.1970</p></li>
+<li>
+<p class='with-space'>Port (uint16) - the port we are listening to, this can be 0 if your node does not handle incoming connections</p></li>
+<li>
+<p class='with-space'>Nonce (uint32) - random number</p></li>
+<li>
+<p class='with-space'>UserAgent max 1024 bytes - use 1 byte as the length in this tutorial, then the string. Don&#39;t go over 253 bytes (0xfd)</p></li>
+<li>
+<p class='with-space'>BlockHeight (uint32) - the block height, your block height can be 0</p></li>
+<li>
+<p class='with-space'>Relay (uint8) - if your node is a relay, set to false (0)</p></li>
+</ul>
+<h3 id='e64538f4'><span class='with-space bd-content-title'>Command &quot;ping&quot;<a class='anchorjs-link ' href='#e64538f4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>BlockHeight (uint32) - the block height, your block height can be 0</p></li>
+<li>
+<p class='with-space'>Timestamp (uint32) - time in seconds since 01.01.1970</p></li>
+<li>
+<p class='with-space'>Nonce (uint32) - random number</p></li>
+</ul>
+<h3 id='e67e32ff'><span class='with-space bd-content-title'>Protocol<a class='anchorjs-link ' href='#e67e32ff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>With this information we can implement the NEO node ping. First we need to write the encoders and decoders for the payload of version and ping.</p>
+<hr />
+<p class='with-space'> <strong>Exercise 3</strong> : Write an encoder and decoder for ping/version. Use the following template at <a href='https://github.com/tbocek/VSS-NEO-TUTORIAL/blob/master/neo_ping_template.go' target='_blank'> https://github.com/tbocek/VSS-NEO-TUTORIAL/blob/master/neo<em>ping</em>template.go</a> and complete the following two functions: <code>encodeVersion(userAgent string) []byte</code> , <code>encodePing() []byte</code> , <code>decodeVersion(b []byte) string</code> , which returns the user agent, and <code>decodePing(b []byte)</code> . Print relevant information to the console in the decoder.</p>
+<p class='with-space'>Hint: the timestamp can be encoded as:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='binary.LittleEndian.PutUint32(b[12:], uint32(time.Now().Unix()))'>Copy</button><pre><code>binary.LittleEndian.PutUint32(b[12:], uint32(time.Now().Unix()))
+</code></pre>
+</figure>
+<p class='with-space'>and decoded as:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='fmt.Printf(&quot;time: %v\n&quot;, time.Unix(int64(binary.LittleEndian.Uint32(b[12:])), 0))'>Copy</button><pre><code>fmt.Printf(&quot;time: %v\n&quot;, time.Unix(int64(binary.LittleEndian.Uint32(b[12:])), 0))
+</code></pre>
+</figure>
+<hr />
+<h3 id='bdcce1d4'><span class='with-space bd-content-title'>Putting It together<a class='anchorjs-link ' href='#bdcce1d4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>First, connect to a NEO node that supports ping/pong. We will check for the correct version later on.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='func main() {
+    remote, err := net.Dial(&quot;tcp&quot;, &quot;node1.plutolo.gy:10333&quot;) //check: http://monitor.cityofzion.io/
+    if err != nil {
+        panic(err)
+    }
+    defer remote.Close()
+    fmt.Println(&quot;Conneced to: %v&quot;, remote.RemoteAddr())'>Copy</button><pre><code>func main() {
+    remote, err := net.Dial(&quot;tcp&quot;, &quot;node1.plutolo.gy:10333&quot;) //check: http://monitor.cityofzion.io/
+    if err != nil {
+        panic(err)
+    }
+    defer remote.Close()
+    fmt.Println(&quot;Conneced to: %v&quot;, remote.RemoteAddr())
+</code></pre>
+</figure>
+<p class='with-space'>Now we send our version to the remote NEO node. <code>` 	payloadVersion := encodeVersion(&quot;/Our NEO client:0.0.1/&quot;) 	packetVersion := encodeHeader(&quot;version&quot;, payloadVersion) 	n, err := remote.Write(packetVersion) 	if err != nil { 		panic(err) 	} 	fmt.Printf(&quot;wrote version packet: %v, %d\n&quot;, packetVersion, n)</code> `</p>
+<p class='with-space'>We wrote the version and now we can expect the version from the remote host. In fact, some clients also send it right after connection is established.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='    //we get the version from the remote, display it
+    read := make([]byte, 24)
+    n, err = io.ReadFull(remote, read) //read header
+    plen,rcvChecksum := decodeHeader(read)
+    read = make([]byte, plen)
+    n, err = io.ReadFull(remote, read) //read payload
+    userAgent := decodeVersion(read)'>Copy</button><pre><code>    //we get the version from the remote, display it
+    read := make([]byte, 24)
+    n, err = io.ReadFull(remote, read) //read header
+    plen,rcvChecksum := decodeHeader(read)
+    read = make([]byte, plen)
+    n, err = io.ReadFull(remote, read) //read payload
+    userAgent := decodeVersion(read)
+</code></pre>
+</figure>
+<p class='with-space'>On receiving the version from the NEO node, we additionally check the checksum to ensure that they match. The checksum is the first 4 bytes of the double SHA256 hash of the payload.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='    tmp := sha256.Sum256(read)
+    hash := sha256.Sum256(tmp[:])
+    checksum := binary.LittleEndian.Uint32(hash[0:4])
+    fmt.Printf(&quot;read version payload: %v, %d\n&quot;, read, n)
+    if rcvChecksum != checksum {
+        panic(errors.New(&quot;checksum mismatch in version!&quot;))
+    }'>Copy</button><pre><code>    tmp := sha256.Sum256(read)
+    hash := sha256.Sum256(tmp[:])
+    checksum := binary.LittleEndian.Uint32(hash[0:4])
+    fmt.Printf(&quot;read version payload: %v, %d\n&quot;, read, n)
+    if rcvChecksum != checksum {
+        panic(errors.New(&quot;checksum mismatch in version!&quot;))
+    }
+</code></pre>
+</figure>
+<p class='with-space'>Since ping/pong was only implemented recently, we need to make sure that we ask a supported version. It looks that the versions use semantic versioning. However, the Python implementation uses different versioning, so we should also check which user agent is used. As there is no other implementation with such a high version 2.10.1, we can just check this version (its quick and dirty :).</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='    //check if we have a good version
+    start := strings.Index(userAgent, &quot;:&quot;)
+    end := strings.Index(userAgent[start:], &quot;/&quot;)
+    if start &lt; 0 &amp;&amp; end &lt; 0 {
+        panic(errors.New(fmt.Sprintf(&quot;cannot parse version in %s&quot;, userAgent)))
+    }
+    semVer := userAgent[start+1:start+end]
+    fmt.Printf(&quot;parsed semver: %v\n&quot;, semVer)
+    v1, err := version.NewVersion(semVer)
+    min, err := version.NewVersion(&quot;2.10.1&quot;)
+    if v1.LessThan(min) {
+        panic(errors.New(fmt.Sprintf(&quot;%s is less than %s&quot;, v1, min)))
+    }'>Copy</button><pre><code>    //check if we have a good version
+    start := strings.Index(userAgent, &quot;:&quot;)
+    end := strings.Index(userAgent[start:], &quot;/&quot;)
+    if start &lt; 0 &amp;&amp; end &lt; 0 {
+        panic(errors.New(fmt.Sprintf(&quot;cannot parse version in %s&quot;, userAgent)))
+    }
+    semVer := userAgent[start+1:start+end]
+    fmt.Printf(&quot;parsed semver: %v\n&quot;, semVer)
+    v1, err := version.NewVersion(semVer)
+    min, err := version.NewVersion(&quot;2.10.1&quot;)
+    if v1.LessThan(min) {
+        panic(errors.New(fmt.Sprintf(&quot;%s is less than %s&quot;, v1, min)))
+    }
+</code></pre>
+</figure>
+<p class='with-space'>Since we sent a version packet, we need to get the verack and we also need to send a verack, as we received the version as well:</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='    ////////// got version, send ack
+    packetVerack := encodeHeader(&quot;verack&quot;, []byte{})
+    n, err = remote.Write(packetVerack);
+    if err != nil {
+        panic(err)
+    }
+
+    ///////// wait for verack confirmation
+    read = make([]byte, 24)
+    n, err = io.ReadFull(remote, read)
+    plen, rcvChecksum = decodeHeader(read)
+    fmt.Printf(&quot;read verack array: %v, %d\n&quot;, read, plen)
+    if rcvChecksum != 3806393949 {
+        panic(errors.New(&quot;checksum mismatch in verack!&quot;))
+    }'>Copy</button><pre><code>    ////////// got version, send ack
+    packetVerack := encodeHeader(&quot;verack&quot;, []byte{})
+    n, err = remote.Write(packetVerack);
+    if err != nil {
+        panic(err)
+    }
+
+    ///////// wait for verack confirmation
+    read = make([]byte, 24)
+    n, err = io.ReadFull(remote, read)
+    plen, rcvChecksum = decodeHeader(read)
+    fmt.Printf(&quot;read verack array: %v, %d\n&quot;, read, plen)
+    if rcvChecksum != 3806393949 {
+        panic(errors.New(&quot;checksum mismatch in verack!&quot;))
+    }
+</code></pre>
+</figure>
+<p class='with-space'>After the version/verack, we can now send the ping. Without the versions, no commands can be sent.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='    /////// send ping
+    packet2 := encodeHeader(&quot;ping&quot;, encodePing())
+    n, err = remote.Write(packet2)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(&quot;wrote ping: %v, %d\n&quot;, packet2, n)'>Copy</button><pre><code>    /////// send ping
+    packet2 := encodeHeader(&quot;ping&quot;, encodePing())
+    n, err = remote.Write(packet2)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(&quot;wrote ping: %v, %d\n&quot;, packet2, n)
+</code></pre>
+</figure>
+<p class='with-space'>After sending the ping, we can expect a pong message.</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='    //////// receive pong
+    read = make([]byte, 36)
+    _, err = io.ReadFull(remote, read)
+    _, rcvChecksum = decodeHeader(read)
+    decodePing(read[24 : 24+12])
+    fmt.Printf(&quot;read array: %v\n&quot;, read)
+
+    tmp = sha256.Sum256(read[24 : 24+12])
+    hash = sha256.Sum256(tmp[:])
+    checksum = binary.LittleEndian.Uint32(hash[0:4])
+
+    if rcvChecksum != checksum {
+        panic(errors.New(&quot;checksum mismatch in pong!&quot;))
+    }
+
+    remote.Close()
+}'>Copy</button><pre><code>    //////// receive pong
+    read = make([]byte, 36)
+    _, err = io.ReadFull(remote, read)
+    _, rcvChecksum = decodeHeader(read)
+    decodePing(read[24 : 24+12])
+    fmt.Printf(&quot;read array: %v\n&quot;, read)
+
+    tmp = sha256.Sum256(read[24 : 24+12])
+    hash = sha256.Sum256(tmp[:])
+    checksum = binary.LittleEndian.Uint32(hash[0:4])
+
+    if rcvChecksum != checksum {
+        panic(errors.New(&quot;checksum mismatch in pong!&quot;))
+    }
+
+    remote.Close()
+}
+</code></pre>
+</figure>
+<hr />
+<p class='with-space'> <strong>Exercise 4</strong> : Merge your encoder/decoder code with the main function from the template and run it on the MainNet. What can you see?</p>
+<hr />
+<p class='with-space'>After successfully sending a NEO ping and receiving a pong back, we can send <code>getaddr</code> and receive further nodes in the NEO network. For that, you can use the connection you have already established. Finding other peers is crucial for P2P and distributed systems, as peers may go offline at any time, and having other nodes to connect to is vital.</p>
+<hr />
+<p class='with-space'> <strong>Exercise 5</strong> : After sending the ping message, send a <code>getaddr</code> message. Analyze the output.</p>
+<p class='with-space'>Hint: The output contains a list of IP addresses (16 bytes IPv6/4, 2 bytes port) that are encoded big-endian. The data also contains a service flag (set to 1) and a timestamp.</p>
+<hr />
+<p class='with-space'>You now have successfully implemented a NEO client that can initiate a connection to other NEO nodes, send a ping, receive a pong, and get a list of further peers.</p>
+<h2 id='e07e117b'><span class='with-space bd-content-title'>Appendix A: Quick &amp; Dirty Template<a class='anchorjs-link ' href='#e07e117b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='package main
+
+import (
+    &quot;bytes&quot;
+    //&quot;bytes&quot;
+    &quot;crypto/sha256&quot;
+    &quot;encoding/binary&quot;
+    &quot;errors&quot;
+    &quot;fmt&quot;
+    &quot;github.com/hashicorp/go-version&quot;
+    &quot;io&quot;
+    //&quot;math/rand&quot;
+    &quot;net&quot;
+    &quot;strings&quot;
+    //&quot;time&quot;
+)
+
+func main() {
+    remote, err := net.Dial(&quot;tcp&quot;, &quot;node1.plutolo.gy:10333&quot;) //check: http://monitor.cityofzion.io/
+    if err != nil {
+        panic(err)
+    }
+    defer remote.Close()
+    fmt.Println(&quot;Conneced to: %v&quot;, remote.RemoteAddr())
+
+    payloadVersion := encodeVersion(&quot;/The HSR NEO client:0.0.1/&quot;)
+    packetVersion := encodeHeader(&quot;version&quot;, payloadVersion)
+    n, err := remote.Write(packetVersion)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(&quot;wrote version packet: %v, %d\n&quot;, packetVersion, n)
+
+    //we get the version from the remote, display it
+    read := make([]byte, 24)
+    n, err = io.ReadFull(remote, read) //read header
+    plen, rcvChecksum := decodeHeader(read)
+    read = make([]byte, plen)
+    n, err = io.ReadFull(remote, read) //read payload
+    userAgent := decodeVersion(read)
+
+    tmp := sha256.Sum256(read)
+    hash := sha256.Sum256(tmp[:])
+    checksum := binary.LittleEndian.Uint32(hash[0:4])
+    fmt.Printf(&quot;read version payload: %v, %d\n&quot;, read, n)
+    if rcvChecksum != checksum {
+        panic(errors.New(&quot;checksum mismatch in version!&quot;))
+    }
+
+    //check if we have a good version
+    start := strings.Index(userAgent, &quot;:&quot;)
+    end := strings.Index(userAgent[start:], &quot;/&quot;)
+    if start &lt; 0 &amp;&amp; end &lt; 0 {
+        panic(errors.New(fmt.Sprintf(&quot;cannot parse version in %s&quot;, userAgent)))
+    }
+    semVer := userAgent[start+1 : start+end]
+    fmt.Printf(&quot;parsed semver: %v\n&quot;, semVer)
+    v1, err := version.NewVersion(semVer)
+    min, err := version.NewVersion(&quot;2.10.1&quot;)
+    if v1.LessThan(min) {
+        panic(errors.New(fmt.Sprintf(&quot;%s is less than %s&quot;, v1, min)))
+    }
+
+    ////////// got version, send ack
+    packetVerack := encodeHeader(&quot;verack&quot;, []byte{})
+    n, err = remote.Write(packetVerack)
+    if err != nil {
+        panic(err)
+    }
+
+    ///////// wait for verack confirmation
+    read = make([]byte, 24)
+    n, err = io.ReadFull(remote, read)
+    plen, rcvChecksum = decodeHeader(read)
+    fmt.Printf(&quot;read verack array: %v, %d\n&quot;, read, plen)
+    if rcvChecksum != 3806393949 {
+        panic(errors.New(&quot;checksum mismatch in verack!&quot;))
+    }
+
+    /////// send ping
+    packet2 := encodeHeader(&quot;ping&quot;, encodePing())
+    n, err = remote.Write(packet2)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(&quot;wrote ping: %v, %d\n&quot;, packet2, n)
+
+    //////// receive pong
+    read = make([]byte, 36)
+    _, err = io.ReadFull(remote, read)
+    _, rcvChecksum = decodeHeader(read)
+    decodePing(read[24 : 24+12])
+    fmt.Printf(&quot;read array: %v\n&quot;, read)
+
+    tmp = sha256.Sum256(read[24 : 24+12])
+    hash = sha256.Sum256(tmp[:])
+    checksum = binary.LittleEndian.Uint32(hash[0:4])
+
+    if rcvChecksum != checksum {
+        panic(errors.New(&quot;checksum mismatch in pong!&quot;))
+    }
+
+    remote.Close()
+}
+
+func encodeHeader(cmd string, payload []byte) []byte {
+    b := make([]byte, 24+len(payload))
+
+    binary.LittleEndian.PutUint32(b[0:], 0x00746E41)
+    //encoding here
+    copy(b[4:], cmd)
+    //payload length
+    binary.LittleEndian.PutUint32(b[16:], uint32(len(payload)))
+    //payload checksum
+    tmp := sha256.Sum256(payload)
+    hash := sha256.Sum256(tmp[:])
+    copy(b[20:], hash[0:4])
+
+    //payload
+    copy(b[24:], payload)
+    return b
+}
+
+func encodeVersion(userAgent string) []byte {
+    userAgentLen := len(userAgent)
+    b := make([]byte, 27+userAgentLen+1)
+    // encoding here
+    b[27+userAgentLen] = 0
+    return b
+}
+
+func encodePing() []byte {
+    b := make([]byte, 12)
+    // encoding here
+    return b
+}
+
+func decodeHeader(b []byte) (uint32, uint32) {
+    fmt.Printf(&quot;magic: 0x%x\n&quot;, binary.LittleEndian.Uint32(b))
+    fmt.Printf(&quot;command: %v\n&quot;, string(bytes.Trim(b[4:16], &quot;\x00&quot;)))
+    len := binary.LittleEndian.Uint32(b[16:])
+    fmt.Printf(&quot;payload len: %d\n&quot;, len)
+    checksum := binary.LittleEndian.Uint32(b[20:])
+    fmt.Printf(&quot;checksum: 0x%x\n&quot;, checksum)
+    return len, checksum
+
+}
+
+func decodeVersion(b []byte) string {
+    // decoding here
+    //return userAgent
+
+    return &quot;&quot;
+}
+
+func decodePing(b []byte) {
+    // decoding here
+}'>Copy</button><pre><code class='go' lang='go'>package main
+
+import (
+    &quot;bytes&quot;
+    //&quot;bytes&quot;
+    &quot;crypto/sha256&quot;
+    &quot;encoding/binary&quot;
+    &quot;errors&quot;
+    &quot;fmt&quot;
+    &quot;github.com/hashicorp/go-version&quot;
+    &quot;io&quot;
+    //&quot;math/rand&quot;
+    &quot;net&quot;
+    &quot;strings&quot;
+    //&quot;time&quot;
+)
+
+func main() {
+    remote, err := net.Dial(&quot;tcp&quot;, &quot;node1.plutolo.gy:10333&quot;) //check: http://monitor.cityofzion.io/
+    if err != nil {
+        panic(err)
+    }
+    defer remote.Close()
+    fmt.Println(&quot;Conneced to: %v&quot;, remote.RemoteAddr())
+
+    payloadVersion := encodeVersion(&quot;/The HSR NEO client:0.0.1/&quot;)
+    packetVersion := encodeHeader(&quot;version&quot;, payloadVersion)
+    n, err := remote.Write(packetVersion)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(&quot;wrote version packet: %v, %d\n&quot;, packetVersion, n)
+
+    //we get the version from the remote, display it
+    read := make([]byte, 24)
+    n, err = io.ReadFull(remote, read) //read header
+    plen, rcvChecksum := decodeHeader(read)
+    read = make([]byte, plen)
+    n, err = io.ReadFull(remote, read) //read payload
+    userAgent := decodeVersion(read)
+
+    tmp := sha256.Sum256(read)
+    hash := sha256.Sum256(tmp[:])
+    checksum := binary.LittleEndian.Uint32(hash[0:4])
+    fmt.Printf(&quot;read version payload: %v, %d\n&quot;, read, n)
+    if rcvChecksum != checksum {
+        panic(errors.New(&quot;checksum mismatch in version!&quot;))
+    }
+
+    //check if we have a good version
+    start := strings.Index(userAgent, &quot;:&quot;)
+    end := strings.Index(userAgent[start:], &quot;/&quot;)
+    if start &lt; 0 &amp;&amp; end &lt; 0 {
+        panic(errors.New(fmt.Sprintf(&quot;cannot parse version in %s&quot;, userAgent)))
+    }
+    semVer := userAgent[start+1 : start+end]
+    fmt.Printf(&quot;parsed semver: %v\n&quot;, semVer)
+    v1, err := version.NewVersion(semVer)
+    min, err := version.NewVersion(&quot;2.10.1&quot;)
+    if v1.LessThan(min) {
+        panic(errors.New(fmt.Sprintf(&quot;%s is less than %s&quot;, v1, min)))
+    }
+
+    ////////// got version, send ack
+    packetVerack := encodeHeader(&quot;verack&quot;, []byte{})
+    n, err = remote.Write(packetVerack)
+    if err != nil {
+        panic(err)
+    }
+
+    ///////// wait for verack confirmation
+    read = make([]byte, 24)
+    n, err = io.ReadFull(remote, read)
+    plen, rcvChecksum = decodeHeader(read)
+    fmt.Printf(&quot;read verack array: %v, %d\n&quot;, read, plen)
+    if rcvChecksum != 3806393949 {
+        panic(errors.New(&quot;checksum mismatch in verack!&quot;))
+    }
+
+    /////// send ping
+    packet2 := encodeHeader(&quot;ping&quot;, encodePing())
+    n, err = remote.Write(packet2)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Printf(&quot;wrote ping: %v, %d\n&quot;, packet2, n)
+
+    //////// receive pong
+    read = make([]byte, 36)
+    _, err = io.ReadFull(remote, read)
+    _, rcvChecksum = decodeHeader(read)
+    decodePing(read[24 : 24+12])
+    fmt.Printf(&quot;read array: %v\n&quot;, read)
+
+    tmp = sha256.Sum256(read[24 : 24+12])
+    hash = sha256.Sum256(tmp[:])
+    checksum = binary.LittleEndian.Uint32(hash[0:4])
+
+    if rcvChecksum != checksum {
+        panic(errors.New(&quot;checksum mismatch in pong!&quot;))
+    }
+
+    remote.Close()
+}
+
+func encodeHeader(cmd string, payload []byte) []byte {
+    b := make([]byte, 24+len(payload))
+
+    binary.LittleEndian.PutUint32(b[0:], 0x00746E41)
+    //encoding here
+    copy(b[4:], cmd)
+    //payload length
+    binary.LittleEndian.PutUint32(b[16:], uint32(len(payload)))
+    //payload checksum
+    tmp := sha256.Sum256(payload)
+    hash := sha256.Sum256(tmp[:])
+    copy(b[20:], hash[0:4])
+
+    //payload
+    copy(b[24:], payload)
+    return b
+}
+
+func encodeVersion(userAgent string) []byte {
+    userAgentLen := len(userAgent)
+    b := make([]byte, 27+userAgentLen+1)
+    // encoding here
+    b[27+userAgentLen] = 0
+    return b
+}
+
+func encodePing() []byte {
+    b := make([]byte, 12)
+    // encoding here
+    return b
+}
+
+func decodeHeader(b []byte) (uint32, uint32) {
+    fmt.Printf(&quot;magic: 0x%x\n&quot;, binary.LittleEndian.Uint32(b))
+    fmt.Printf(&quot;command: %v\n&quot;, string(bytes.Trim(b[4:16], &quot;\x00&quot;)))
+    len := binary.LittleEndian.Uint32(b[16:])
+    fmt.Printf(&quot;payload len: %d\n&quot;, len)
+    checksum := binary.LittleEndian.Uint32(b[20:])
+    fmt.Printf(&quot;checksum: 0x%x\n&quot;, checksum)
+    return len, checksum
+
+}
+
+func decodeVersion(b []byte) string {
+    // decoding here
+    //return userAgent
+
+    return &quot;&quot;
+}
+
+func decodePing(b []byte) {
+    // decoding here
+}
+</code></pre>
+</figure>
+<h2 id='db9b57b1'><span class='with-space bd-content-title'>What&#39;s next?<a class='anchorjs-link ' href='#db9b57b1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='../6-persistence/1-persistence.html'> Persistence</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/en-us/5-network\1-Introduction_to_the_NEO_network_protocol.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#aa342cee'>NEO Protocol and Networking</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#e6c33076'>NEO Ping with Golang</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#af696c2f'>Little-Endian vs. Big-Endian</a>
+<a class='ml-2 my-1 nav-link' href='#d6655728'>Checksum</a>
+<a class='ml-2 my-1 nav-link' href='#bb63841e'>Payload protocol</a>
+<a class='ml-2 my-1 nav-link' href='#b2904231'>Command "version"</a>
+<a class='ml-2 my-1 nav-link' href='#e64538f4'>Command "ping"</a>
+<a class='ml-2 my-1 nav-link' href='#e67e32ff'>Protocol</a>
+<a class='ml-2 my-1 nav-link' href='#bdcce1d4'>Putting It together</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#e07e117b'>Appendix A: Quick & Dirty Template</a>
+<a class='ml-0 my-1 nav-link' href='#db9b57b1'>What's next?</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

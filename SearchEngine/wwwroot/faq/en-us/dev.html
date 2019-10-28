@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Development</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/faq/en-us/basic.html'>General</a>
+<a class='ml-0 my-1 nav-link' href='/faq/en-us/client.html'>Client and Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/faq/en-us/dev.html'>Development</a>
+<a class='ml-0 my-1 nav-link' href='/faq/en-us/sc.html'>Smart Contract</a>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='b5e3d9fc'><span class='with-space bd-content-title'>Development<a class='anchorjs-link ' href='#b5e3d9fc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='b7becfbd' class='h2-collapse'><span class='with-space bd-content-title'>How to apply for test tokens?<a class='anchorjs-link ' href='#b7becfbd' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>Up to 1000 GAS and 1000 NEO per day can be requested via the <a href='https://neowish.ngd.network/' target='_blank'> NGD faucet</a> . If you need more than that, go to <a href='https://neo.org/testcoin/apply' target='_blank'>https://neo.org/testcoin/apply</a> and fill out the application form. If the application is accepted, you will be notified in three to five workdays.</p></div>
+<h2 id='fc992a14' class='h2-collapse'><span class='with-space bd-content-title'>How to build a private chain?<a class='anchorjs-link ' href='#fc992a14' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>To build a private chain, you have the following options：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Quickly build a private chain with one node. See <a href='../../docs/en-us/network/private-chain/solo.html'> here</a> .</p></li>
+<li>
+<p class='with-space'>Use a virtual machine to build a private chain on a cloud server. See <a href='../../docs/en-us/network/private-chain/private-chain.html'> here</a> .</p></li>
+<li>
+<p class='with-space'>Quickly build a private chain on your local host. See <a href='../../docs/en-us/network/private-chain/private-chain2.html'> here</a> .</p></li>
+<li>
+<p class='with-space'>Quickly build a private chain using neo-local. See <a href='../../docs/en-us/network/private-chain/neolocal.html'> here</a> .</p></li>
+</ul>
+<p class='with-space'>You can also refer to the <a href='../../articles/en-us/index.html'> community articles</a> to learn more options.</p></div>
+<h2 id='d9719615' class='h2-collapse'><span class='with-space bd-content-title'>What languages can I use to develop smart contracts?<a class='anchorjs-link ' href='#d9719615' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>NEO supports a variety of mainstream programming languages and can be developed using C#, Python, Go, JS, and Jave. Currently in the NEO ecosystem, the infrastructure for C# and Python is extremely well-developed and various compilers are provided for developers.</p></div>
+<h2 id='b644e72e' class='h2-collapse'><span class='with-space bd-content-title'>How can I obtain the NEP-5 asset hash?<a class='anchorjs-link ' href='#b644e72e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>You can choose one of the following methods:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Use a blockchain browser, e.g. <a href='https://scan.nel.group' target='_blank'>https://scan.nel.group</a> , to view the NEP-5 asset hash:</p>
+<ol>
+<li>
+<p class='with-space'>In the browser, click Assets in the top navigation bar.</p></li>
+<li>
+<p class='with-space'>In the Assets drop-down list, select NEP-5.</p></li>
+<li>
+<p class='with-space'>Click the desired asset to view its hash in the details page that appears.</p></li>
+</ol></li>
+<li>
+<p class='with-space'>Download the plugin <a href='https://github.com/neo-project/neo-plugins/releases/download/v2.10.2/RpcNep5Tracker.zip' target='_blank'> RpcNep5Tracker</a> and then invoke the API method <a href='../../docs/zh-cn/reference/rpc/latest-version/api/getmetricblocktimestamp.html'> getnep5balances</a> included. You can find NEP-5 asset hash in the returned response.</p></li>
+</ul></div>
+<h2 id='a75f3a20' class='h2-collapse'><span class='with-space bd-content-title'>Why is it prompted that there is no object&#39;s private key in the wallet when withdrawing assets from a multi-party signature contract?<a class='anchorjs-link ' href='#a75f3a20' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>After the private chain is set up, you need to make the same configurations in all (n/2+1) wallets (n is the node number), that is, add the multi-party signed addresses and then rebuild the wallet index.</p></div>
+<h2 id='c248d341' class='h2-collapse'><span class='with-space bd-content-title'>What SDKs are provided for developers?<a class='anchorjs-link ' href='#c248d341' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<div class='div-collapse p-2 px-4'>
+<p class='with-space'>NEO developer communities have developed and maintained various NEO SDKs for many mainstream languages including C#, JavaScript, Java, and etc. You can check them here:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>C# SDK: <a href='https://github.com/neo-project/neo' target='_blank'> neo</a> </p></li>
+<li>
+<p class='with-space'>JavaScript SDK: <a href='http://cityofzion.io/neon-js/' target='_blank'> neon-js</a> </p></li>
+<li>
+<p class='with-space'>Java SDK: <a href='https://github.com/neow3j' target='_blank'> neow3j</a> </p></li>
+</ul></div>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/faq/en-us/dev.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#b5e3d9fc'>Development</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#b7becfbd'>How to apply for test tokens?</a>
+<a class='ml-0 my-1 nav-link' href='#fc992a14'>How to build a private chain?</a>
+<a class='ml-0 my-1 nav-link' href='#d9719615'>What languages can I use to develop smart contracts?</a>
+<a class='ml-0 my-1 nav-link' href='#b644e72e'>How can I obtain the NEP-5 asset hash?</a>
+<a class='ml-0 my-1 nav-link' href='#a75f3a20'>Why is it prompted that there is no object's private key in the wallet when withdrawing assets from a multi-party signature contract?</a>
+<a class='ml-0 my-1 nav-link' href='#c248d341'>What SDKs are provided for developers?</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (true) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

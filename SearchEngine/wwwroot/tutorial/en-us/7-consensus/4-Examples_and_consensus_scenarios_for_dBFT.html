@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Examples and consensus scenarios for dBFT</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Introduction to NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/1-Introduction_to_NEO.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/2-Cryptography_Blockchain_and_Smart_Contracts.html'>Cryptography, Blockchain, and Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/3-Fundamentals_of_NEO.html'>NEO Fundamentals</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/1-introduction/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Wallet</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/1-Introduction_to_wallets.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/2-Key_derivation_and_address_generation_on_NEO.html'>Keys and Addresses</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/3-Key_encryption_and_contract_accounts.html'>Private key encryption and Wallet files</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/4-UTXO_and_account_models.html'>The UTXO and Account models</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/2-wallet/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Transactions</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/1-Introduction_to_transactions.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/2-Structure_of_NEO_transactions.html'>Structure of NEO transactions</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/3-NEO_transaction_types.html'>NEO transaction types</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/4-NEO_transaction_fees.html'>Transaction fees</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/3-transactions/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blocks</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/1-Introduction_to_blocks_and_blockchain.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/2-Structure_of_a_block.html'>Structure of a Block</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/3-Block_creation_broadcasting.html'>Block Creation and Broadcasting</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/4-Block_validation_processing.html'>Block Validation and Processing</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/4-blocks/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/1-Introduction_to_the_NEO_network_protocol.html'>NEO Network and Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/5-network/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Persistence</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/1-persistence.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/6-persistence/2-levelDB_data_structure.html'>Developing a NEO Ping using Golang</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/1-Introduction_to_consensus.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/2-Proof_of_work_and_proof_of_stake.html'>PoW and PoS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/3-PBFT_and_DBFT.html'>pBFT and dBFT</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/4-Examples_and_consensus_scenarios_for_dBFT.html'>dBFT Consensus Examples and Scenarios</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/7-consensus/resource.html'>Additional Resources</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_smart_contract.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_privateChain.html'>Setting up a Private Chain</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_set_up.html'>Setting up Development Enviroment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Development_compile.html'>Contract Invoking and Deployment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Smart_Contract_basics.html'>Smart Contract Basics</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Make your NEP-5 Token</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/What_is_nep5.html'>Introduction to NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Implementation_of_NEP5.html'>Implementation of NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/Give_an_ITO.html'>ITO(Initial Token Offering)</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/UTXO.html'>UTXO basics</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>CGAS</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/1_what_is_cgas.html'>What is CGAS</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/2_global_asset_and_nep5.html'>Global asset and NEP-5</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/3_utxo_model.html'>UTXO model</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/4_trigger.html'>Trigger</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/5_minttokens_and_refund.html'>Mint and Refund</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/6_signature_and_verification.html'>Signature and Verification</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/cgas/7_invocation.html'>Transaction Invocation</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Write NEO smart contract with Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part1_setup.html'>Installing and Setting up the Environment</a>
+<a class='ml-0 my-1 nav-link' href='/tutorial/en-us/9-smartContract/neopython/part2_neopy.html'>Wallet Operations and Smart Contracts</a>
+</nav>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='a9dea386'><span class='with-space bd-content-title'>Examples and consensus scenarios for dBFT<a class='anchorjs-link ' href='#a9dea386' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h2 id='f55ff128'><span class='with-space bd-content-title'>Watch-only consensus nodes<a class='anchorjs-link ' href='#f55ff128' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>As could be verified in the <a href='../5-network/1-Introduction_to_the_NEO_network_protocol.html'> Network tutorial</a> , NEO network operates in a fully distributed fashion, such as this figure above, extracted from this <a href='https://medium.com/neoresearch/understanding-neo-network-in-five-pictures-e51b7c19d6e0' target='_blank'> Medium Article</a> :</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='https://cdn-images-1.medium.com/max/800/1*vKbm_Di8GgQep8SyKeAWNw.png' alt='Transaction is retransmitted until it reaches the Consensus Nodes (green)' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>The green boxes represents consensus, which are emerged in the pool of nodes. Messages are all broadcasted to neighbors (in an optimal scenario). Nodes with special feature can be designed for just monitoring the CN P2P messages, as can be accesed here in the <a href='https://neocompiler.io/#!/ecolab/cnnodesinfo' target='_blank'> NeoCompiler Eco Shared Privatenet</a> .</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='./watch-only-node.png' alt='Info from a watch only node' referrerPolicy='no-referrer' /></p>
+<p class='with-space'>In this figure, this Watch-Only node also has the feature of RPC. It is noteworthy that nodes can have special features and summarize any information desired by those that manage that client.</p>
+<h2 id='d6e71437'><span class='with-space bd-content-title'>dBFT consensus scenarios<a class='anchorjs-link ' href='#d6e71437' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>We will now outline possible consensus scenarios, using the following characters to represent nodes:</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='./cn_characters.jpg' alt='dBFT consensus node characters' referrerPolicy='no-referrer' /></p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <strong>N1:</strong> Erik Zhang, the Jedi Master;</p></li>
+<li>
+<p class='with-space'> <strong>N2:</strong> Da Hongfei, the hearth of the Smart Economy;</p></li>
+<li>
+<p class='with-space'> <strong>N3:</strong> Peter Lin, the truth in the hearth;</p></li>
+<li>
+<p class='with-space'> <strong>N4:</strong> NEO Ecosystem, the sum of all projects and interests of users, exchanges, and developers;</p></li>
+<li>
+<p class='with-space'> <strong>N5:</strong> City of Zion, the combination and partnership of individuals around the world;</p></li>
+<li>
+<p class='with-space'> <strong>N6:</strong> NeoResearch Butterfly, the ability to explore, recover, and transform;</p></li>
+<li>
+<p class='with-space'> <strong>N7:</strong> Master Yoda, learning from past.</p></li>
+</ul>
+<p class='with-space'>By using these 7 consensus nodes and their virtues, we are going give some examples that may enlighten the mind of the readers about how dBFT may work:</p>
+<h3 id='b52a9d16'><span class='with-space bd-content-title'>The Genesis Block<a class='anchorjs-link ' href='#b52a9d16' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Genesis block is created with 3 transactions, in which native assets NEO and GAS are created then subsequently transferred to a multi-signature account composed of the current validators.</p>
+<h3 id='ff9caeac'><span class='with-space bd-content-title'>Case 1 (normal operation)<a class='anchorjs-link ' href='#ff9caeac' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>We are at Height <code>1</code> and view <code>0</code> , the primary will be <code>N1</code> (considering a didactic formula);</p></li>
+<li>
+<p class='with-space'>Erik Zhang picks the first set of transactions, signed by the multi-sig accounts, and proposes a block <code>b_1_0</code> ;</p></li>
+<li>
+<p class='with-space'> <code>2f+1</code> nodes needs to agree with the proposal. Nodes N2, N3, N4, and N5 are the first ones to reply with their agreement on this block. Together with N1, they reach the required total of 5 (exactly 2f +1);</p></li>
+<li>
+<p class='with-space'>N1, ..., N5 will probably be the ones that are first to enter into the commit phase.</p></li>
+<li>
+<p class='with-space'>Those that are in the commit phase will automatically send their signature for the current block proposal <code>b_1_0</code> ;</p></li>
+<li>
+<p class='with-space'>As soon as a node sees <code>2f+1</code> signatures, it can broadcast a valid block to the network. Even a <strong>watch-only node</strong> could be the first one to perform this task (which highlights how this MAS enviroment may work).</p></li>
+</ul>
+<h3 id='df0b25af'><span class='with-space bd-content-title'>Case 2 (faulty primary)<a class='anchorjs-link ' href='#df0b25af' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>We are at Height <code>2</code> and view <code>0</code> , the primary will be <code>N2</code> ;</p></li>
+<li>
+<p class='with-space'>Da Hongfei took a brief nap and was not able to communicate with the other characters for a few seconds;</p></li>
+<li>
+<p class='with-space'> <code>2f+1</code> nodes agreed that they should <code>change_view</code> . No progress on the network has occurred, and they should timeout exactly with <code>blocktime</code> shifted 1 bit. In the case of a 15 second block time, it would be after 30s;</p></li>
+<li>
+<p class='with-space'>The primary will change to N3;</p></li>
+<li>
+<p class='with-space'>N3 will propose a block only if it has participated in the <code>view_change</code> , otherwise it would still be waiting for <code>N2</code> to propose a block;</p></li>
+<li>
+<p class='with-space'>Considering that N3 received <code>2f+1</code>  <code>change_view</code> messages, it would now proposes a block <code>b_2_1</code> ;</p></li>
+<li>
+<p class='with-space'>The standard flow outlined in Case 1 would happen from here.</p></li>
+</ul>
+<h3 id='fadd9fc9'><span class='with-space bd-content-title'>Case 3 (faulty after commit)<a class='anchorjs-link ' href='#fadd9fc9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>We are at Height <code>3</code> and view <code>0</code> , the primary will be <code>N3</code> ;</p></li>
+<li>
+<p class='with-space'>N3 proposes a block <code>b_3_0</code> </p></li>
+<li>
+<p class='with-space'>The majority agrees, from <code>N3</code> , ..., <code>N7</code> ;</p></li>
+<li>
+<p class='with-space'>However, after entering into the commit phase, <code>N4</code> dies before broadcasting its signature for <code>b_3_0</code> ;</p></li>
+<li>
+<p class='with-space'> <code>N3</code> , <code>N5</code> , <code>N6</code> and <code>N7</code> are just <code>2F</code> and are still need one more signature for <code>b_3_0</code> . The possibilities are: 1) <code>N4</code> will recover from its fault; 2) <code>N1</code> and <code>N2</code> would see the messages they lost; 3) <code>N1</code> and <code>N2</code> will ask for <code>change_view</code> but will not have the majority <code>M</code> and the other nodes will reply to them with a <code>Recovery</code> message, in which they would automatically receive all known messages. As soon as any of these 3 nodes receive such messages, they will continue to contribute to the current block <code>b_3_0</code> .</p></li>
+</ul>
+<p class='with-space'>It should be noticed that 3 faulty nodes are <code>f+1</code> which is expected to halt the progress of the network. On the other hand, it should be noticed that no real Byzantine behavior was really detected, only delays and connections problems. In this sense, it is expected that due to the partially synchronous protocol, messages will eventually arrive at these nodes.</p>
+<h3 id='e127da41'><span class='with-space bd-content-title'>Case 4 (Byzantine Primary)<a class='anchorjs-link ' href='#e127da41' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>We are at Height <code>4</code> and view <code>0</code> , the primary will be <code>N4</code> ;</p></li>
+<li>
+<p class='with-space'> <code>N4</code> is malicious and decides to send different block proposals to the network;</p></li>
+<li>
+<p class='with-space'>Each node is designed to just accept a single proposal per <code>view</code> . Until the majority <code>M = 2f+1</code> nodes reach an agreement on the same proposal (summarized by the <code>hash</code> ), no nodes will be committed;</p></li>
+<li>
+<p class='with-space'>If <code>M</code> nodes commit and the other <code>f = 2</code> cached a different proposal, they will receive a <code>Recover</code> message at some time, which will allow them to match the hashes. If the hashes are different we have proof of malicious activity by the primary, which would surely make NEO holders to remove him as a validator.</p></li>
+</ul>
+<h2 id='efe8c82b'><span class='with-space bd-content-title'>A 4-node consensus multi-sig<a class='anchorjs-link ' href='#efe8c82b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>As you may already known, an address in the NEO blockchain 2.x is formed by <code>21</code> , which means <a href='https://github.com/neo-project/neo-vm/blob/f81c3039d5fb4417b3c1ad780378c7f92499964a/src/neo-vm/OpCode.cs#L144' target='_blank'> &quot;Push 34 bytes on the evaluation stack&quot;</a> , the public key and <code>ac</code> , which is an opcode that invokes an script for checking witness of the address.</p>
+<p class='with-space'>We suggest readers to take a look at the following article:</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <a href='https://medium.com/neoresearch/understanding-multisig-on-neo-df9c9c1403b1' target='_blank'> Understanding MultiSig on NEO</a> .</p></li>
+</ul>
+<p class='with-space'>Let&#39;s consider nodes with the following pubkeys (21+rootOfPubKey+ac):</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>N1: <code>2102103a7f7dd016558597f7960d27c516a4394fd968b9e65155eb4b013e4040406eac</code> </p></li>
+<li>
+<p class='with-space'>N2: <code>2102a7bc55fe8684e0119768d104ba30795bdcc86619e864add26156723ed185cd62ac</code> </p></li>
+<li>
+<p class='with-space'>N3: <code>2102b3622bf4017bdfe317c58aed5f4c753f206b7db896046fa7d774bbc4bf7f8dc2ac</code> </p></li>
+<li>
+<p class='with-space'>N4: <code>2103d90c07df63e690ce77912e10ab51acc944b66860237b608c4f8f8309e71ee699ac</code> </p></li>
+</ul>
+<p class='with-space'>Basically, a trivial way to create a multi-signature account can be done using the following script:</p>
+<p class='with-space'> <code>532102103a7f7dd016558597f7960d27c516a4394fd968b9e65155eb4b013e4040406e2102a7bc55fe8684e0119768d104ba30795bdcc86619e864add26156723ed185cd622102b3622bf4017bdfe317c58aed5f4c753f206b7db896046fa7d774bbc4bf7f8dc22103d90c07df63e690ce77912e10ab51acc944b66860237b608c4f8f8309e71ee69954ae</code> </p>
+<p class='with-space'>which is: <code>53</code> (number of signers) + <code>21</code> + <code>02...6e</code> + <code>21</code> + <code>02...62</code> + <code>21</code> + <code>02...c2</code> + <code>21</code> + <code>03...99</code> + <code>54</code> (number of owners) + <code>ae</code> </p>
+<p class='with-space'>We a holders pick those 4 nodes as their desired validators, the following script will be one signing every block, with the following public address: <code>AZ81H31DMWzbSnFDLFkzh9vHwaDLayV7fU</code> . The latter can be achieved by converted that script to &quot;Scripthash big-endian&quot; and then converting to base-58. We suggest readers to access <a href='https://neocompiler.io/#!/ecolab/conversor' target='_blank'> NeoCompiler-Eco</a> if they want to play with these conversors.</p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='./multisig_3_4.png' alt='multisig 3/4' referrerPolicy='no-referrer' /></p>
+<p class='with-space'><img class='d-inline-block img-fluid' data-original='./scripthash_address.png' alt='scripthash to address base58' referrerPolicy='no-referrer' /></p>
+<h3 id='efdab4b0'><span class='with-space bd-content-title'>A simple single-node consensus multi-sig<a class='anchorjs-link ' href='#efdab4b0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Let&#39;s take the first node (N1) previous described and create a multi-signatures acount with 1 owners and one signers by just switing <code>53</code> and <code>54</code> to <code>4f</code> .</p>
+<p class='with-space'> <code>512102b3622bf4017bdfe317c58aed5f4c753f206b7db896046fa7d774bbc4bf7f8dc251ae</code> </p>
+<p class='with-space'>The latter would result in the following Address: <code>AbU69m8WUZJSWanfr1Cy66cpEcsmMcX7BR</code> </p>
+<h2 id='d186c4a0'><span class='with-space bd-content-title'>What&#39;s next?<a class='anchorjs-link ' href='#d186c4a0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='../9-smartContract/What_is_smart_contract.html'> What is smart contract?</a> </p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/tutorial/en-us/7-consensus\4-Examples_and_consensus_scenarios_for_dBFT.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#a9dea386'>Examples and consensus scenarios for dBFT</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#f55ff128'>Watch-only consensus nodes</a>
+<a class='ml-0 my-1 nav-link' href='#d6e71437'>dBFT consensus scenarios</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#b52a9d16'>The Genesis Block</a>
+<a class='ml-2 my-1 nav-link' href='#ff9caeac'>Case 1 (normal operation)</a>
+<a class='ml-2 my-1 nav-link' href='#df0b25af'>Case 2 (faulty primary)</a>
+<a class='ml-2 my-1 nav-link' href='#fadd9fc9'>Case 3 (faulty after commit)</a>
+<a class='ml-2 my-1 nav-link' href='#e127da41'>Case 4 (Byzantine Primary)</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#efe8c82b'>A 4-node consensus multi-sig</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#efdab4b0'>A simple single-node consensus multi-sig</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#d186c4a0'>What's next?</a>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>Introduction</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/index.html'>Site Map</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Introduction</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/whitepaper.html'>NEO Whitepaper</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Technology</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/basic/technology/dbft.html'>Consensus Mechanism</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Node</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/introduction.html'>Introduction</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/install.html'>Installing the Client</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/transc.html'>Transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/asset.html'>Registering and Distributing Assets</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/sc.html'>Interacting with Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/vote.html'>Election and Voting</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/gui/other.html'>Other Features</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/publish.html'>Publishing from Source</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/setup.html'>Installation</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/seedlist.html'>SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/node/cli/cli.html'>Command Line</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/syncblocks.html'>Synchronizing the blockchain faster</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Network</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/testnet.html'>Main Net and Test Net</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Setting up Private Chain</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/solo.html'>Solo Mode</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain.html'>Multiple Nodes (virtual machines)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/private-chain2.html'>Multiple Nodes (local host)</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Getting Started (C#)</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/introduction.html'>Introduction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/prerequisites.html'>Before You Begin</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/enviroment.html'>Setting up local network</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/develop.html'>Compiling a Contract Sample</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/gettingstarted/deploy.html'>Deploying and Invoking the Contract</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Development Environment</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-mac.html'>Using C# on macOS</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-csharp-ubuntu.html'>Using C# on ubuntu</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-java.html'>Using Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/devenv/getting-started-python.html'>Using Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Writing smart contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/basics.html'>Basics</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/limitation.html'>Limitations</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Deploying and Invoking Smart Contracts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/deploy.html'>Deploying Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/invoke.html'>Invoking Smart Contracts</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/deploy/Parameter.html'>Parameters and Return Values</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/test.html'>Testing</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/migrate.html'>Contract Migration and Destruction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/fees.html'>Fees</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Contract Samples</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Domain.html'>Domain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/verify.html'>Verification Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/sc/sample/Lock2.html'>Lock Contract</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO Tools Development</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Main Concepts</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Blockchain Models</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/token_model.html'>Tokens</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/account_asset.html'>Account and Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/blockchain/validator.html'>Validator</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/charging_model.html'>Charging Model</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/wallets.html'>Wallet</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Consensus</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_algorithm.html'>Consensus Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/consensus_protocol.html'>Consensus Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/consensus/vote_validator.html'>Vote</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Cryptography</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encode_algorithm.html'>Encode Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/hash_algorithm.html'>Hash Algorithm</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/concept/cryptography/encryption_algorithm.html'>Encryption Algorithm</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/neo_cli_structure.html'>NEO-CLI Structure</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/introduction.html'>About NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/conversion.html'>Data Conversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/wallet.html'>Wallet</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/sdk/tx.html'>Transaction Construction</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/endian.html'>Big and Little Endian Usage</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Advanced Topics</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/neo_vm.html'>NeoVM Instructions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/network-protocol.html'>Network Protocol</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/tx_execution.html'>Transaction Process</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/tooldev/advanced/merkle_tree.html'>Merkel Tree</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Document for Exchange Developers</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/general.html'>Overview</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/deploynode.html'>Deploying NEO nodes</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/client.html'>Using NEO-CLI</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/transaction.html'>Dealing with assets transactions</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/2.10.3/gas.html'>Distributing GAS to users</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/exchange/changelog.html'>Changelog</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api.html'>API Reference</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Smart Contract API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API Reference</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net Framework</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/en-us/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='https'>SDK API (C#)</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <p class='with-space'><p align="center">   <img      src="../assets/logo.svg"      width="200px"     alt="Neo"> </p></p>
+<p class='with-space'><p align="center" style="font-size: 48px;">   <strong>Workshop 003: Smart Contracts 1 - Writing, Deploying, and Invoking</strong> </p></p>
+<h1 id='d849bb7e'><span class='with-space bd-content-title'>Introduction<a class='anchorjs-link ' href='#d849bb7e' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<ul class='with-space'>
+<li>
+<p class='with-space'><b>Duration:</b></p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>1 Hour</p></li>
+</ul></li>
+<li>
+<p class='with-space'><b>Prerequisites:</b></p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <a href='../2_development_environment/README.html'> 002 Neo Development Environments</a> </p></li>
+</ul></li>
+<li>
+<p class='with-space'><b>Infrastructure Requirements:</b></p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>(Required) Whiteboard or Projector</p></li>
+<li>
+<p class='with-space'>(Required) High-Speed Internet Connection</p></li>
+<li>
+<p class='with-space'>(Required) Deployment of an Eventnet for workshop use</p></li>
+</ul></li>
+<li>
+<p class='with-space'><b>Instructor Prework:</b></p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>(Required) Workshop content review</p></li>
+<li>
+<p class='with-space'>(Required) Fill out the <a href='./Worksheet.html'> worksheet</a> for students</p></li>
+</ul></li>
+<li>
+<p class='with-space'><b>Student Prework:</b></p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>(Recommended) General Understanding of blockchain fundamentals</p></li>
+<li>
+<p class='with-space'>(Recommended) Familiarization with Amazon Web Services(or other CSP)</p></li>
+</ul></li>
+<li>
+<p class='with-space'><b>Workshop Materials List:</b></p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>None</p></li>
+</ul></li>
+</ul>
+<h2 id='dfcf75c5'><span class='with-space bd-content-title'>Outline<a class='anchorjs-link ' href='#dfcf75c5' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>This workshop covers how to use the Neo development environment to develop basic smart contracts for the Neo platform. It will also cover the deployment process as well as how to invoke the contracts. This workshop will be branching and will support C#, python, and typescript contract development and their environments.</p>
+<h2 id='fa7ab651'><span class='with-space bd-content-title'>Tools<a class='anchorjs-link ' href='#fa7ab651' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<ul class='with-space'>
+<li>
+<p class='with-space'><i><b>Note:</b> All code examples are flagged with a language and tool for clarity.  Depending on your implementation path, you may be using cross language libraries (for example, writing a smart contract in python, but interfacing in javascript). </i></p></li>
+</ul>
+<h2 id='a560c67d'><span class='with-space bd-content-title'>Introduction and Setup<a class='anchorjs-link ' href='#a560c67d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>In this course we will be walking students through smart contract development including writing, deploying, and invoking.  We will primarily be using NEP5 contracts as examples, but will cover additional contracts to provide feature coverage.  When developing a smart contract for Neo, its important to understand that the contract deployment workflow has an intermediary step where the contract code is compiled from its native language into a .avm file containing bytecode which the neoVM interprets.</p>
+<p class='with-space'><p align="center">   <img  	src="../2<em>development</em>environment/assets/workflow.png&quot;  	alt=&quot;Neo&quot;&gt; &lt;/p&gt;</p>
+<h2 id='cc7c48c6'><span class='with-space bd-content-title'>Writing a contract<a class='anchorjs-link ' href='#cc7c48c6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>In the NEO ecosystem, there are two triggers to consider when writing a smart contract.  These triggers are used as flow control.  * <b>Application Triggers:</b> Application triggers behave similarly to method calls.  These events occur when a user attempted to invoke a specific method exposed in the smart contract. * <b>Verification Triggers:</b> Verification triggers running when a verification occurs from a transaction.  For example, if an address sends NEO or GAS to the contract, the verification trigger is emitted.</p>
+<h3 id='af53e912'><span class='with-space bd-content-title'>Events<a class='anchorjs-link ' href='#af53e912' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>Events are another important component to smart contracts because they significantly enhance the usability of the platform.  Because invokes are published using bytecode, its very difficult of applications to parse this information to detect events which may be relevant to their performance.  An event raises a flag to indicate that something occured.  In the NEP5 standard, we see a <a href='https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki#events' target='_blank'> transfer event</a> which broadcasts that a token transfer event has taken place.  It also provides some additional useful information about the event.</p>
+<h3 id='e18f27ff'><span class='with-space bd-content-title'>The Virtual Machine<a class='anchorjs-link ' href='#e18f27ff' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>The Neo platform runs smart contracts in a virtual machine.  This allows contracts to be written in any language for which there is a compiler.  Its very important to note the distinction between compiling from a lanaguage to byte code run by the VM and native support for the language.  If you are having issues with debugging a section of your code, its possible that a feature of your language may not yet be supported by the compiler. Examples of the same method in multiple languages: * C#: <code>Storage.Put(Storage.CurrentContext, Owner, pre_ico_cap);</code> * Python: <code>Put(ctx, t_to, to_total)</code> * Go: <code>storage.Put(ctx, to, totalAmountTo)</code> </p>
+<p class='with-space'>These all result in similar bytecode once compiled.  You can refer to the complete list <a href='https://docs.neo.org/developerguide/en/articles/neo_vm.html' target='_blank'> <b>here</b></a> </p>
+<h3 id='d79f4dce'><span class='with-space bd-content-title'>Our Atomic NEP-5<a class='anchorjs-link ' href='#d79f4dce' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>In this workshop will make use of an atomic NEP-5 token.  The contract used may be referenced for learning purposes but you should always reference the latest templates for contracts which implement the most updated design patterns to ensure security.</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <a href='./assets/nep5.py'> <b>Python</b></a> </p></li>
+<li>
+<p class='with-space'> <a href='https://github.com/CityOfZion/neo-storm/tree/13b9dfa70af55896334ea02de3b5a05ec6dc4eee/examples/token' target='_blank'> <b>Go</b></a> </p></li>
+</ul>
+<p class='with-space'><b>The Python Example:</b> ```python</p>
+<p class='with-space'>&quot;&quot;&quot;</p>
+<h1 id='f9b299ae'><span class='with-space bd-content-title'>NEP5 Token<a class='anchorjs-link ' href='#f9b299ae' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>A simplified version of the original authored by:  .. moduleauthor:: Thomas Saunders &lt; <a href='tom@cityofzion.io'>tom@cityofzion.io</a> &gt;</p>
+<p class='with-space'>..modifiedby:: Tyler Adams &lt; <a href='tyler@coz.io'>tyler@coz.io</a> &gt;</p>
+<p class='with-space'>&quot;&quot;&quot;</p>
+<p class='with-space'>from boa.interop.Neo.Runtime import GetTrigger, CheckWitness from boa.interop.Neo.Action import RegisterAction from boa.interop.Neo.TriggerType import Application, Verification from boa.interop.Neo.Storage import GetContext, Get, Put, Delete from boa.builtins import concat</p>
+<h1 id='a3c5323a'><span class='with-space bd-content-title'>-------------------------------------------<a class='anchorjs-link ' href='#a3c5323a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h1 id='e95e30d0'><span class='with-space bd-content-title'>TOKEN SETTINGS<a class='anchorjs-link ' href='#e95e30d0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h1 id='fd6ccf71'><span class='with-space bd-content-title'>-------------------------------------------<a class='anchorjs-link ' href='#fd6ccf71' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h1 id='bddc10ef'><span class='with-space bd-content-title'>Script hash of the contract owner<a class='anchorjs-link ' href='#bddc10ef' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h1 id='e33bf84c'><span class='with-space bd-content-title'>Use: np-utils --address-to-scripthash {{address}}<a class='anchorjs-link ' href='#e33bf84c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>OWNER = b&#39;\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&#39;</p>
+<h1 id='acd012b2'><span class='with-space bd-content-title'>Name of the Token<a class='anchorjs-link ' href='#acd012b2' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>TOKEN_NAME = &#39;NEP5 Standard&#39;</p>
+<h1 id='e3e9cd19'><span class='with-space bd-content-title'>Symbol of the Token<a class='anchorjs-link ' href='#e3e9cd19' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>TOKEN_SYMBOL = &#39;NEP5&#39;</p>
+<h1 id='c92ec48d'><span class='with-space bd-content-title'>Number of decimal places<a class='anchorjs-link ' href='#c92ec48d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>TOKEN_DECIMALS = 8</p>
+<h1 id='b4e697c7'><span class='with-space bd-content-title'>Total Supply of tokens in the system<a class='anchorjs-link ' href='#b4e697c7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>TOKEN<em>TOTAL</em>SUPPLY = 10000000 * 100000000  # 10m total supply * 10<sup>8</sup>( decimals)</p>
+<p class='with-space'>ctx = GetContext()</p>
+<h1 id='e490214c'><span class='with-space bd-content-title'>-------------------------------------------<a class='anchorjs-link ' href='#e490214c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h1 id='f3afc0d0'><span class='with-space bd-content-title'>Events<a class='anchorjs-link ' href='#f3afc0d0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<h1 id='d3e975a0'><span class='with-space bd-content-title'>-------------------------------------------<a class='anchorjs-link ' href='#d3e975a0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>OnTransfer = RegisterAction(&#39;transfer&#39;, &#39;addr<em>from&#39;, &#39;addr</em>to&#39;, &#39;amount&#39;) OnApprove = RegisterAction(&#39;approve&#39;, &#39;addr<em>from&#39;, &#39;addr</em>to&#39;, &#39;amount&#39;)</p>
+<p class='with-space'>def Main(operation, args):     &quot;&quot;&quot;     This is the main entry point for the Smart Contract</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text=':param operation: the operation to be performed ( eg `balanceOf`, `transfer`, etc)
+:type operation: str
+:param args: a list of arguments ( which may be empty, but not absent )
+:type args: list
+:return: indicating the successful execution of the smart contract
+:rtype: bool
+&quot;&quot;&quot;
+
+# The trigger determines whether this smart contract is being
+# run in &#39;verification&#39; mode or &#39;application&#39;
+
+trigger = GetTrigger()
+
+# &#39;Verification&#39; mode is used when trying to spend assets ( eg NEO, Gas)
+# on behalf of this contract&#39;s address
+if trigger == Verification():
+
+    # if the script that sent this is the owner
+    # we allow the spend
+    is_owner = CheckWitness(OWNER)
+
+    if is_owner:
+
+        return True
+
+    return False
+
+# &#39;Application&#39; mode is the main body of the smart contract
+elif trigger == Application():
+
+    if operation == &#39;name&#39;:
+        return TOKEN_NAME
+
+    elif operation == &#39;decimals&#39;:
+        return TOKEN_DECIMALS
+
+    elif operation == &#39;symbol&#39;:
+        return TOKEN_SYMBOL
+
+    elif operation == &#39;totalSupply&#39;:
+        return TOKEN_TOTAL_SUPPLY
+
+    elif operation == &#39;balanceOf&#39;:
+        if len(args) == 1:
+            account = args[0]
+            return do_balance_of(ctx, account)
+
+    elif operation == &#39;transfer&#39;:
+        if len(args) == 3:
+            t_from = args[0]
+            t_to = args[1]
+            t_amount = args[2]
+            return do_transfer(ctx, t_from, t_to, t_amount)
+        else:
+            return False
+
+    return &#39;unknown operation&#39;
+
+return False'>Copy</button><pre><code>:param operation: the operation to be performed ( eg `balanceOf`, `transfer`, etc)
+:type operation: str
+:param args: a list of arguments ( which may be empty, but not absent )
+:type args: list
+:return: indicating the successful execution of the smart contract
+:rtype: bool
+&quot;&quot;&quot;
+
+# The trigger determines whether this smart contract is being
+# run in &#39;verification&#39; mode or &#39;application&#39;
+
+trigger = GetTrigger()
+
+# &#39;Verification&#39; mode is used when trying to spend assets ( eg NEO, Gas)
+# on behalf of this contract&#39;s address
+if trigger == Verification():
+
+    # if the script that sent this is the owner
+    # we allow the spend
+    is_owner = CheckWitness(OWNER)
+
+    if is_owner:
+
+        return True
+
+    return False
+
+# &#39;Application&#39; mode is the main body of the smart contract
+elif trigger == Application():
+
+    if operation == &#39;name&#39;:
+        return TOKEN_NAME
+
+    elif operation == &#39;decimals&#39;:
+        return TOKEN_DECIMALS
+
+    elif operation == &#39;symbol&#39;:
+        return TOKEN_SYMBOL
+
+    elif operation == &#39;totalSupply&#39;:
+        return TOKEN_TOTAL_SUPPLY
+
+    elif operation == &#39;balanceOf&#39;:
+        if len(args) == 1:
+            account = args[0]
+            return do_balance_of(ctx, account)
+
+    elif operation == &#39;transfer&#39;:
+        if len(args) == 3:
+            t_from = args[0]
+            t_to = args[1]
+            t_amount = args[2]
+            return do_transfer(ctx, t_from, t_to, t_amount)
+        else:
+            return False
+
+    return &#39;unknown operation&#39;
+
+return False
+</code></pre>
+</figure>
+<p class='with-space'>def do<em>balance</em>of(ctx, account):     &quot;&quot;&quot;     Method to return the current balance of an address</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text=':param account: the account address to retrieve the balance for
+:type account: bytearray
+
+:return: the current balance of an address
+:rtype: int
+
+&quot;&quot;&quot;
+
+if len(account) != 20:
+    return 0
+
+return Get(ctx, account)'>Copy</button><pre><code>:param account: the account address to retrieve the balance for
+:type account: bytearray
+
+:return: the current balance of an address
+:rtype: int
+
+&quot;&quot;&quot;
+
+if len(account) != 20:
+    return 0
+
+return Get(ctx, account)
+</code></pre>
+</figure>
+<p class='with-space'>def do<em>transfer(ctx, t</em>from, t_to, amount):     &quot;&quot;&quot;     Method to transfer NEP5 tokens of a specified amount from one account to another</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text=':param t_from: the address to transfer from
+:type t_from: bytearray
+:param t_to: the address to transfer to
+:type t_to: bytearray
+:param amount: the amount of NEP5 tokens to transfer
+:type amount: int
+
+:return: whether the transfer was successful
+:rtype: bool
+
+&quot;&quot;&quot;
+
+if amount &lt;= 0:
+    return False
+
+if len(t_from) != 20:
+    return False
+
+if len(t_to) != 20:
+    return False
+
+if CheckWitness(t_from):
+
+    if t_from == t_to:
+        print(&quot;transfer to self!&quot;)
+        return True
+
+    from_val = Get(ctx, t_from)
+
+    if from_val &lt; amount:
+        print(&quot;insufficient funds&quot;)
+        return False
+
+    if from_val == amount:
+        Delete(ctx, t_from)
+
+    else:
+        difference = from_val - amount
+        Put(ctx, t_from, difference)
+
+    to_value = Get(ctx, t_to)
+
+    to_total = to_value + amount
+
+    Put(ctx, t_to, to_total)
+
+    OnTransfer(t_from, t_to, amount)
+
+    return True
+else:
+    print(&quot;from address is not the tx sender&quot;)
+
+return False
+
+
+
+
+
+&lt;b&gt;To Build into a .avm:&lt;/b&gt;
+* &lt;b&gt;Python:&lt;/b&gt; In the neo-python prompt
+
+   ```sc build {{path to smart contract}}```
+
+* &lt;b&gt;Go:&lt;/b&gt; From shell
+
+    ```neo-storm compile -i path/to/file.go```
+
+
+* &lt;b&gt;C#:&lt;/b&gt; (Built from compiler)
+
+### Other Examples:
+
+#### &lt;b&gt;C#&lt;/b&gt;:
+* [Vanilla NEP-5 template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template)
+* [Moonlight NEP-5 template](https://github.com/Moonlight-io/moonlight-ico-template)
+* [Neo Docs Samples](https://docs.neo.org/en-us/sc/tutorial/HelloWorld.html)
+
+#### &lt;b&gt;Python&lt;/b&gt;:
+* [NEX NEP-5 Template](https://github.com/nash-io/neo-ico-template)
+
+#### &lt;b&gt;Go&lt;/b&gt;:
+* [neo-storm examples](https://github.com/CityOfZion/neo-storm/tree/13b9dfa70af55896334ea02de3b5a05ec6dc4eee/examples)
+
+
+&lt;b&gt;For a list of supported methods:&lt;/b&gt;
+* [&lt;b&gt;Python:&lt;/b&gt;](https://neo-boa.readthedocs.io/en/latest/index.html)
+* [&lt;b&gt;Go:&lt;/b&gt;](https://github.com/CityOfZion/neo-storm/tree/13b9dfa70af55896334ea02de3b5a05ec6dc4eee/examples)
+* [&lt;b&gt;C#&lt;/b&gt;](https://docs.neo.org/en-us/sc/reference/api.html)
+
+## Addresses
+For more contract development tools, you must have an open wallet with a standing balance to work.  With a privatenet deployed, we can use the faucet to receive assets, but first we need to have a valid address to receive them. During this step, it is &lt;b&gt;CRITICAL&lt;/b&gt; for your to log this information in a private location.  If you lose it, it cannot be recovered.
+
+To Create a new wallet:
+* &lt;b&gt;Python:&lt;/b&gt;
+
+wallet create {{path to new wallet}}`
+
+wallet import wif KxDgvEKzgSBPPfuVfw67oPQBSjidEiqTHURKSDL1R7yGaGYAeYnr`
+
+* &lt;b&gt;Go:&lt;/b&gt;
+
+
+
+* &lt;b&gt;C#:&lt;/b&gt;
+
+
+### Wallet Attributes
+ &lt;b&gt; Wallet output from Python `wallet create` command: &lt;/b&gt;'>Copy</button><pre><code>:param t_from: the address to transfer from
+:type t_from: bytearray
+:param t_to: the address to transfer to
+:type t_to: bytearray
+:param amount: the amount of NEP5 tokens to transfer
+:type amount: int
+
+:return: whether the transfer was successful
+:rtype: bool
+
+&quot;&quot;&quot;
+
+if amount &lt;= 0:
+    return False
+
+if len(t_from) != 20:
+    return False
+
+if len(t_to) != 20:
+    return False
+
+if CheckWitness(t_from):
+
+    if t_from == t_to:
+        print(&quot;transfer to self!&quot;)
+        return True
+
+    from_val = Get(ctx, t_from)
+
+    if from_val &lt; amount:
+        print(&quot;insufficient funds&quot;)
+        return False
+
+    if from_val == amount:
+        Delete(ctx, t_from)
+
+    else:
+        difference = from_val - amount
+        Put(ctx, t_from, difference)
+
+    to_value = Get(ctx, t_to)
+
+    to_total = to_value + amount
+
+    Put(ctx, t_to, to_total)
+
+    OnTransfer(t_from, t_to, amount)
+
+    return True
+else:
+    print(&quot;from address is not the tx sender&quot;)
+
+return False
+
+
+
+
+
+&lt;b&gt;To Build into a .avm:&lt;/b&gt;
+* &lt;b&gt;Python:&lt;/b&gt; In the neo-python prompt
+
+   ```sc build {{path to smart contract}}```
+
+* &lt;b&gt;Go:&lt;/b&gt; From shell
+
+    ```neo-storm compile -i path/to/file.go```
+
+
+* &lt;b&gt;C#:&lt;/b&gt; (Built from compiler)
+
+### Other Examples:
+
+#### &lt;b&gt;C#&lt;/b&gt;:
+* [Vanilla NEP-5 template](https://github.com/neo-project/examples-csharp/blob/master/ICO_Template)
+* [Moonlight NEP-5 template](https://github.com/Moonlight-io/moonlight-ico-template)
+* [Neo Docs Samples](https://docs.neo.org/en-us/sc/tutorial/HelloWorld.html)
+
+#### &lt;b&gt;Python&lt;/b&gt;:
+* [NEX NEP-5 Template](https://github.com/nash-io/neo-ico-template)
+
+#### &lt;b&gt;Go&lt;/b&gt;:
+* [neo-storm examples](https://github.com/CityOfZion/neo-storm/tree/13b9dfa70af55896334ea02de3b5a05ec6dc4eee/examples)
+
+
+&lt;b&gt;For a list of supported methods:&lt;/b&gt;
+* [&lt;b&gt;Python:&lt;/b&gt;](https://neo-boa.readthedocs.io/en/latest/index.html)
+* [&lt;b&gt;Go:&lt;/b&gt;](https://github.com/CityOfZion/neo-storm/tree/13b9dfa70af55896334ea02de3b5a05ec6dc4eee/examples)
+* [&lt;b&gt;C#&lt;/b&gt;](https://docs.neo.org/en-us/sc/reference/api.html)
+
+## Addresses
+For more contract development tools, you must have an open wallet with a standing balance to work.  With a privatenet deployed, we can use the faucet to receive assets, but first we need to have a valid address to receive them. During this step, it is &lt;b&gt;CRITICAL&lt;/b&gt; for your to log this information in a private location.  If you lose it, it cannot be recovered.
+
+To Create a new wallet:
+* &lt;b&gt;Python:&lt;/b&gt;
+
+wallet create {{path to new wallet}}`
+
+wallet import wif KxDgvEKzgSBPPfuVfw67oPQBSjidEiqTHURKSDL1R7yGaGYAeYnr`
+
+* &lt;b&gt;Go:&lt;/b&gt;
+
+
+
+* &lt;b&gt;C#:&lt;/b&gt;
+
+
+### Wallet Attributes
+ &lt;b&gt; Wallet output from Python `wallet create` command: &lt;/b&gt;
+</code></pre>
+</figure>
+<p class='with-space'>Wallet {     &quot;path&quot;: &quot;demowallet&quot;,     &quot;addresses&quot;: [         {             &quot;address&quot;: &quot;AUjpV8S35wW1ZZzkBZcD3d8uiiDuNdjpCH&quot;,             &quot;script<em>hash&quot;: &quot;8e362a05574a0b4dc77a63b51d69294bff1828d0&quot;,             &quot;tokens&quot;: null         }     ],     &quot;height&quot;: 0,     &quot;percent</em>synced&quot;: 0,     &quot;synced<em>balances&quot;: [],     &quot;public</em>keys&quot;: [         {             &quot;Address&quot;: &quot;AUjpV8S35wW1ZZzkBZcD3d8uiiDuNdjpCH&quot;,             &quot;Public Key&quot;: &quot;036192a94cb37e11b828dfef96c6539f9b4397ee330837217db4e                                                                                                                                                             bee9cf3158ef2&quot;         }     ],     &quot;tokens&quot;: [],     &quot;claims&quot;: {         &quot;available&quot;: &quot;0.0&quot;,         &quot;unavailable&quot;: &quot;0.0&quot;     } } Pubkey b&#39;036192a94cb37e11b828dfef96c6539f9b4397ee330837217db4ebee9cf3158ef2&#39;</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='* Claims
+* Address
+* Keys
+    * Public
+    * Private
+
+### Assets for Development
+For a development environment using a neo-local privatenet, you can now navigate to the faucet {{privatenet address}:4002 and request assets for your address.
+
+
+
+## Local Invokes
+Now that we have a compiled contract, lets run some invokes on it.  In NEO, we &lt;b&gt;HIGHLY&lt;/b&gt; recommend leveraging testing in a local VM before deploying to the blockchain (even a privatenet) for efficiency.  Alternatively, you can deploy the contract to the privatenet and run system-level unit testing.
+
+* &lt;b&gt;Python:&lt;/b&gt; In the neo-python prompt
+    ```sc build_run {{path to smart contract}} True False False  0710 05 name []```
+* &lt;b&gt;Go:&lt;/b&gt;
+
+* &lt;b&gt;C#:&lt;/b&gt;
+
+Local invokes private a strong foundation for unit testing of smart contracts.
+
+&lt;b&gt;Python result of local invoke:&lt;/b&gt;'>Copy</button><pre><code>* Claims
+* Address
+* Keys
+    * Public
+    * Private
+
+### Assets for Development
+For a development environment using a neo-local privatenet, you can now navigate to the faucet {{privatenet address}:4002 and request assets for your address.
+
+
+
+## Local Invokes
+Now that we have a compiled contract, lets run some invokes on it.  In NEO, we &lt;b&gt;HIGHLY&lt;/b&gt; recommend leveraging testing in a local VM before deploying to the blockchain (even a privatenet) for efficiency.  Alternatively, you can deploy the contract to the privatenet and run system-level unit testing.
+
+* &lt;b&gt;Python:&lt;/b&gt; In the neo-python prompt
+    ```sc build_run {{path to smart contract}} True False False  0710 05 name []```
+* &lt;b&gt;Go:&lt;/b&gt;
+
+* &lt;b&gt;C#:&lt;/b&gt;
+
+Local invokes private a strong foundation for unit testing of smart contracts.
+
+&lt;b&gt;Python result of local invoke:&lt;/b&gt;
+</code></pre>
+</figure>
+<hr />
+<hr />
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='### Input and Return Parameters
+
+When deploying a contract, interface parameters are defined by bytes using the following [&lt;b&gt;definition&lt;/b&gt;](https://docs.neo.org/en-us/sc/Parameter.html).
+
+## Deploying a Contract
+* Overview of deployment costs
+
+
+* &lt;b&gt;Python:&lt;/b&gt;
+
+   ```sc deploy {{path to avm}} True False False 0710 05```
+
+* &lt;b&gt;Go:&lt;/b&gt;
+
+* &lt;b&gt;C#:&lt;/b&gt;
+
+
+&lt;b&gt;Example result:&lt;/b&gt;'>Copy</button><pre><code>### Input and Return Parameters
+
+When deploying a contract, interface parameters are defined by bytes using the following [&lt;b&gt;definition&lt;/b&gt;](https://docs.neo.org/en-us/sc/Parameter.html).
+
+## Deploying a Contract
+* Overview of deployment costs
+
+
+* &lt;b&gt;Python:&lt;/b&gt;
+
+   ```sc deploy {{path to avm}} True False False 0710 05```
+
+* &lt;b&gt;Go:&lt;/b&gt;
+
+* &lt;b&gt;C#:&lt;/b&gt;
+
+
+&lt;b&gt;Example result:&lt;/b&gt;
+</code></pre>
+</figure>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='             Name: nep5 demo
+          Version: 1.0
+           Author: lllwvlvwlll
+            Email: tyler@coz.io
+      Description: a nep5 demo
+    Needs Storage: True'>Copy</button><pre><code>             Name: nep5 demo
+          Version: 1.0
+           Author: lllwvlvwlll
+            Email: tyler@coz.io
+      Description: a nep5 demo
+    Needs Storage: True
+</code></pre>
+</figure>
+<p class='with-space'>Needs Dynamic Invoke: False            Is Payable: False {     &quot;hash&quot;: &quot;0xcc109ff556bb10f05213c76b0ba763be079a76a8&quot;,     &quot;script&quot;: &quot;0126c56b6a00527ac46a51527ac41400000000000000000000000000000000000000006a52527ac40d4e455035205374616e646172646a53527ac4044e4550356a54527ac4586a55527ac4070080c6a47e8d036a56527ac468164e656f2e53746f726167652e476574436f6e74657874616a57527ac468164e656f2e52756e74696d652e47657454726967676572616a58527ac46a58c30100876435006a52c368184e656f2e52756e74696d652e436865636b5769746e657373616a59527ac46a59c3640700516c756661006c7566616a58c30110876409016a00c3046e616d65876409006a53c36c7566616a00c308646563696d616c73876409006a55c36c7566616a00c30673796d626f6c876409006a54c36c7566616a00c30b746f74616c537570706c79876409006a56c36c7566616a00c30962616c616e63654f66876426006a51c3c051876480006a51c300c36a5a527ac46a57c36a5ac37c656f026c7566626600616a00c3087472616e73666572876455006a51c3c053876447006a51c300c36a5b527ac46a51c351c36a5c527ac46a51c352c36a5d527ac46a57c36a5bc36a5cc36a5dc353795179557275517275527952795472755272756526006c756661006c75666111756e6b6e6f776e206f7065726174696f6e6c756661006c7566011fc56b6a00527ac46a51527ac46a52527ac46a53527ac46a53c300a1640700006c7566616a51c3c001149e640700006c7566616a52c3c001149e640700006c7566616a51c368184e656f2e52756e74696d652e436865636b5769746e65737361644f016a51c36a52c387642a00117472616e7366657220746f2073656c6621680f4e656f2e52756e74696d652e4c6f67516c7566616a00c36a51c37c680f4e656f2e53746f726167652e476574616a54527ac46a54c36a53c39f642b0012696e73756666696369656e742066756e6473680f4e656f2e52756e74696d652e4c6f67006c7566616a54c36a53c3876422006a00c36a51c37c68124e656f2e53746f726167652e44656c65746561622d00616a54c36a53c3946a55527ac46a00c36a51c36a55c35272680f4e656f2e53746f726167652e50757461616a00c36a52c37c680f4e656f2e53746f726167652e476574616a56527ac46a56c36a53c3936a57527ac46a00c36a52c36a57c35272680f4e656f2e53746f726167652e507574616a51c36a52c36a53c35272087472616e7366657254c168124e656f2e52756e74696d652e4e6f74696679516c7566612166726f6d2061646472657373206973206e6f74207468652074782073656e646572680f4e656f2e52756e74696d652e4c6f67006c756657c56b6a00527ac46a51527ac46a51c3c001149e640700006c7566616a00c36a51c37c680f4e656f2e53746f726167652e476574616c75665ec56b6a00527ac46a51527ac46a51c36a00c3946a52527ac46a52c3c56a53527ac4006a54527ac46a00c36a55527ac461616a00c36a51c39f6433006a54c36a55c3936a56527ac46a56c36a53c36a54c37bc46a54c351936a54527ac46a55c36a54c3936a00527ac462c8ff6161616a53c36c7566&quot;,     &quot;parameters&quot;: [         &quot;String&quot;,         &quot;Array&quot;     ],     &quot;returntype&quot;: &quot;ByteArray&quot; } Used 500.0 Gas</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='## Invoking a Contract
+
+On the NEO platform, invocations (including deployments) cost GAS.  The first 10 GAS associated with an invoke are free.  Invocation costs are a function of byte code execution.
+
+* &lt;b&gt;Python:&lt;/b&gt;'>Copy</button><pre><code>## Invoking a Contract
+
+On the NEO platform, invocations (including deployments) cost GAS.  The first 10 GAS associated with an invoke are free.  Invocation costs are a function of byte code execution.
+
+* &lt;b&gt;Python:&lt;/b&gt;
+</code></pre>
+</figure>
+<ul class='with-space'>
+<li>
+<p class='with-space'><b>Javascript:</b></p></li>
+<li>
+<p class='with-space'>Example invokation using neo-gui</p></li>
+<li>
+<p class='with-space'>Example invocation using neon.js</p></li>
+</ul>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='-------------------------------------------------------------------------------------------------------------------------------------
+Test invoke successful
+Total operations: 120
+Results [{&#39;type&#39;: &#39;ByteArray&#39;, &#39;value&#39;: &#39;756e6b6e6f776e206f7065726174696f6e&#39;}]
+Invoke TX GAS cost: 0.0
+Invoke TX fee: 0.0001
+-------------------------------------------------------------------------------------------------------------------------------------'>Copy</button><pre><code>-------------------------------------------------------------------------------------------------------------------------------------
+Test invoke successful
+Total operations: 120
+Results [{&#39;type&#39;: &#39;ByteArray&#39;, &#39;value&#39;: &#39;756e6b6e6f776e206f7065726174696f6e&#39;}]
+Invoke TX GAS cost: 0.0
+Invoke TX fee: 0.0001
+-------------------------------------------------------------------------------------------------------------------------------------
+</code></pre>
+</figure>
+<p class='with-space'><b>Note:</b> Notice that the response is a binary array.  This was defined as our response type when deploying.  If you use a HEX converter, you will be able to see that the resulting string is the name of the contract.</p>
+<h3 id='e9426c56'><span class='with-space bd-content-title'>Local Invokes v. Published Invokes<a class='anchorjs-link ' href='#e9426c56' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Differences in how each works</p></li>
+<li>
+<p class='with-space'>How to leverage the difference in your architecture</p></li>
+</ul>
+<h3 id='c4cf38d9'><span class='with-space bd-content-title'>Events<a class='anchorjs-link ' href='#c4cf38d9' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>In the contract examples, you&#39;ll notice that we have events these are signals that are published with the transactions as helpers to external tools.  In our example, we publish information indicating that a transfer has occurred.</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/en-us/workshop\3_smart_contract_1\README.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#d849bb7e'>Introduction</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#dfcf75c5'>Outline</a>
+<a class='ml-0 my-1 nav-link' href='#fa7ab651'>Tools</a>
+<a class='ml-0 my-1 nav-link' href='#a560c67d'>Introduction and Setup</a>
+<a class='ml-0 my-1 nav-link' href='#cc7c48c6'>Writing a contract</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#af53e912'>Events</a>
+<a class='ml-2 my-1 nav-link' href='#e18f27ff'>The Virtual Machine</a>
+<a class='ml-2 my-1 nav-link' href='#d79f4dce'>Our Atomic NEP-5</a>
+</nav>
+</nav>
+<a class='ml--2 d-none my-1 nav-link' href='#f9b299ae'>NEP5 Token</a>
+<a class='ml--2 d-none my-1 nav-link' href='#a3c5323a'>-------------------------------------------</a>
+<a class='ml--2 d-none my-1 nav-link' href='#e95e30d0'>TOKEN SETTINGS</a>
+<a class='ml--2 d-none my-1 nav-link' href='#fd6ccf71'>-------------------------------------------</a>
+<a class='ml--2 d-none my-1 nav-link' href='#bddc10ef'>Script hash of the contract owner</a>
+<a class='ml--2 d-none my-1 nav-link' href='#e33bf84c'>Use: np-utils --address-to-scripthash {{address}}</a>
+<a class='ml--2 d-none my-1 nav-link' href='#acd012b2'>Name of the Token</a>
+<a class='ml--2 d-none my-1 nav-link' href='#e3e9cd19'>Symbol of the Token</a>
+<a class='ml--2 d-none my-1 nav-link' href='#c92ec48d'>Number of decimal places</a>
+<a class='ml--2 d-none my-1 nav-link' href='#b4e697c7'>Total Supply of tokens in the system</a>
+<a class='ml--2 d-none my-1 nav-link' href='#e490214c'>-------------------------------------------</a>
+<a class='ml--2 d-none my-1 nav-link' href='#f3afc0d0'>Events</a>
+<a class='ml--2 d-none my-1 nav-link' href='#d3e975a0'>-------------------------------------------</a>
+<nav class='nav nav-pills flex-column'>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#e9426c56'>Local Invokes v. Published Invokes</a>
+<a class='ml-2 my-1 nav-link' href='#c4cf38d9'>Events</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>

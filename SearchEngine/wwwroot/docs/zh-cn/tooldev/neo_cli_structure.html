@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="neo-project">
+    <meta name="application-name" content="neo.org">
+    <meta name="renderer" content="ie-stand">
+    <title>NEO-CLI 结构</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Neo Documentation" />
+    <meta property="og:description" content="Neo Documentation" />
+    <meta property="og:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:title" content="Neo Documentation" />
+    <meta name="twitter:description" content="Neo Documentation" />
+    <meta name="twitter:image" content="/img/twitter-img.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://neo-cdn.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://neo-cdn.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="/css/site.min.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll" data-target="#navbar-sidenav">
+    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
+        <a class="navbar-brand" href="https://neo.org">
+            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
+            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/docs">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item" style="margin-right: 100px">
+                    <a class="nav-link" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid" style="margin-top: 55px">
+        <div class="row d-flex">
+            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/index.html'>站点地图</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 介绍</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/whitepaper.html'>NEO 白皮书</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 技术</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/neovm.html'>NeoVM</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/neocontract.html'>NEO Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/basic/technology/dbft.html'>共识机制</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 节点</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/introduction.html'>节点介绍</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-GUI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/install.html'>下载客户端</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/wallet.html'>钱包</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/transc.html'>交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/asset.html'>注册与分发资产</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/sc.html'>与智能合约交互</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/vote.html'>选举与投票</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/gui/other.html'>其它功能</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-CLI</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/publish.html'>发布</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/setup.html'>安装</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/seedlist.html'>节点列表</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/cli/cli.html'>命令参考</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO-Python</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/overview.html'>概述</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/install.html'>安装 （Ubuntu/OSX）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/installwin.html'>安装 （Windows）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/seedlist.html'>NEO-Python SeedList</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/basic.html'>基本用法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/python/prompt.html'>Prompt</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/node/syncblocks.html'>快速同步区块</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO 网络</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/testnet.html'>主网与测试网</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>搭建私有链</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/solo.html'>单节点模式</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/private-chain.html'>使用虚拟机搭建</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/private-chain2.html'>在本地主机搭建</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/network/private-chain/neolocal.html'>Neo-local</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>快速入门（C#）</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/introduction.html'>介绍</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/prerequisites.html'>准备工作</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/enviroment.html'>搭建网络环境</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/develop.html'>开发示例合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/gettingstarted/deploy.html'>部署并调用合约</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发环境</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-csharp-mac.html'>macOS + C#</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-csharp-ubuntu.html'>ubuntu + C#</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-java.html'>Java</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/devenv/getting-started-python.html'>Python</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>合约编写</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/basics.html'>合约编写基础</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/limitation.html'>编写限制</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/write/nep5.html'>NEP-5</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>部署和调用</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/deploy.html'>部署合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/invoke.html'>调用合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/deploy/Parameter.html'>参数和返回值</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/test.html'>测试</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/migrate.html'>合约迁移</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/fees.html'>手续费</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>合约示例</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/HelloWorld.html'>Hello World</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/Domain.html'>Domain（域名系统）</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/verify.html'>鉴权合约</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/sc/sample/Lock2.html'>锁仓合约</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO工具开发</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>基本概念</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>区块模型</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/block.html'>区块</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/token_model.html'>通证</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/utxo.html'>UTXO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/account_asset.html'>账户与资产</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/blockchain/validator.html'>验证人</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/charging_model.html'>收费模型</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/transaction.html'>交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/wallets.html'>钱包</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>共识机制</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/consensus_algorithm.html'>共识算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/consensus_protocol.html'>共识协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/consensus/vote_validator.html'>投票</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>密码学</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/encode_algorithm.html'>编码算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/hash_algorithm.html'>哈希算法</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/concept/cryptography/encryption_algorithm.html'>加密算法</a>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/neo_cli_structure.html'>NEO-CLI 结构</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO SDK</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/introduction.html'>关于 NEO SDK</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/conversion.html'>数据类型转换</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/account.html'>账户</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/wallet.html'>钱包</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/sdk/tx.html'>交易</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/endian.html'>大小端序的使用</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>进阶知识</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/neo_vm.html'>NeoVM 指令集</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/network-protocol.html'>网络协议</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/tx_execution.html'>交易流程</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/tooldev/advanced/merkle_tree.html'>梅克尔树</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>交易所对接指南</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/general.html'>概述</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/deploynode.html'>部署 NEO 节点</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/client.html'>使用 NEO-CLI 客户端</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/transaction.html'>处理资产交易</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/2.10.3/gas.html'>给用户分发 GAS</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/exchange/changelog.html'>更新记录</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>开发参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>RPC API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api.html'>API 参考</a>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>v2.10.3</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/claimgas.html'>claimgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/dumpprivkey.html'>dumpprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getaccountstate.html'>getaccountstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.html'>getapplicationlog</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getassetstate.html'>getassetstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getbalance.html'>getbalance</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getbestblockhash.html'>getbestblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblock.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblock2.html'>getblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockcount.html'>getblockcount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockheader.html'>getblockheader</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblockhash.html'>getblockhash</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getblocksysfee.html'>getblocksysfee</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getclaimable.html'>getclaimable</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getconnectioncount.html'>getconnectioncount</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getcontractstate.html'>getcontractstate</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getmetricblocktimestamp.html'>getmetricblocktimestamp</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnep5balances.html'>getnep5balances</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnep5transfers.html'>getnep5transfers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getnewaddress.html'>getnewaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getrawmempool.html'>getrawmempool</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getrawtransaction.html'>getrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getstorage.html'>getstorage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/gettransactionheight.html'>gettransactionheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/gettxout.html'>gettxout</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getpeers.html'>getpeers</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunclaimedgas.html'>getunclaimedgas</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunclaimed.html'>getunclaimed</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getunspents.html'>getunspents</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getvalidators.html'>getvalidators</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getversion.html'>getversion</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/getwalletheight.html'>getwalletheight</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/importprivkey.html'>importprivkey</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/invokefunction.html'>invokefunction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/invokescript.html'>invokescript</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/listplugins.html'>listplugins</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/listaddress.html'>listaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendfrom.html'>sendfrom</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendrawtransaction.html'>sendrawtransaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendtoaddress.html'>sendtoaddress</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/sendmany.html'>sendmany</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/submitblock.html'>submitblock</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/rpc/latest-version/api/validateaddress.html'>validateaddress</a>
+</nav>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>智能合约API</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>API 参考</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/api/neo.html'>NEO</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/api/System.html'>System</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>框架</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>.net 框架</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>NEO</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Account.html'>Account</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Asset.html'>Asset</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Block.html'>Block</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Blockchain.html'>Blockchain</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Contract.html'>Contract</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Enrollment.html'>Enrollment</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Header.html'>Header</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Runtime.html'>Runtime</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Storage.html'>Storage</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/StorageContext.html'>StorageContext</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Transaction.html'>Transaction</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionAttribute.html'>TransactionAttribute</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionInput.html'>TransactionInput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TransactionOutput.html'>TransactionOutput</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/TriggerType.html'>TriggerType</a>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/neo/Validator.html'>Validator</a>
+</nav>
+<span class='ml-0 my-1 nav-link'><i class='fas fa-caret-right'></i>System</span>
+<nav class='nav nav-pills flex-column ml-3'>
+<a class='ml-0 my-1 nav-link' href='/docs/zh-cn/reference/scapi/fw/dotnet/System/ExecutionEngine.html'>ExecutionEngine</a>
+</nav>
+</nav>
+</nav>
+</nav>
+<a class='ml-0 my-1 nav-link' href='https'>SDK API (C#)</a>
+</nav>
+</nav>
+            </div>
+            <main class="p-3 p-sm-4 p-md-5">
+                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <h1 id='e4904458'><span class='with-space bd-content-title'>NEO-CLI 结构<a class='anchorjs-link ' href='#e4904458' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h1>
+<p class='with-space'>NEO是一个基于点对点网络的区块链系统。它提供基于UTXO模型的数字资产记账功能，以及一个基于NEO虚拟机的智能合约的执行环境。本文将描述网络中节点程序NEO-CLI的整体结构和基本行为。</p>
+<h2 id='f91c26dc'><span class='with-space bd-content-title'>整个网络<a class='anchorjs-link ' href='#f91c26dc' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'> <a href='../images/neo_cli_structure/neo-p2p-network.png'> <img class='d-inline-block img-fluid' data-original='images/neo_cli_structure/neo-p2p-network.png' alt='neo p2p network' referrerPolicy='no-referrer' /></a> </p>
+<p class='with-space'>网络中的每个节点运行一个 NEO-CLI 程序或者协议兼容程序。其中参与共识的是共识节点。不参与共识的是非共识节点。</p>
+<h2 id='bd04a3e6'><span class='with-space bd-content-title'>NEO-CLI<a class='anchorjs-link ' href='#bd04a3e6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>NEO-CLI的结构如下图。（由于版本升级，部分结构可能会有变化 ）</p>
+<p class='with-space'> <a href='../images/neo_cli_structure/NEO-CLI.png'> <img class='d-inline-block img-fluid' data-original='images/neo_cli_structure/NEO-CLI.png' alt='NEO-CLI structure' referrerPolicy='no-referrer' /></a> </p>
+<h3 id='f3763305'><span class='with-space bd-content-title'>NEO-CLI 命令行<a class='anchorjs-link ' href='#f3763305' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEO-CLI 是一个命令行程序。通过命令行控制台提供与区块链交互的基本功能。更多信息，请参考 <a href='../node/cli/cli.html'> NEO-CLI 命令行</a> 。</p>
+<h3 id='f5ee368d'><span class='with-space bd-content-title'>账本 API<a class='anchorjs-link ' href='#f5ee368d' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>账本API定义了UTXO模型的基本数据类型，包括交易，区块，记账人等基础数据结构。细节将在后续章节中介绍。</p>
+<h3 id='f4a6faf7'><span class='with-space bd-content-title'>钱包<a class='anchorjs-link ' href='#f4a6faf7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEO官方提供两种格式的钱包，一种是sqlite数据库格式的钱包，另一种是NEP-6钱包。sqlite格式钱包的优点是性能相对较好，缺点是适用的平台不如NEP-6钱包更广泛。</p>
+<h3 id='bc620bc1'><span class='with-space bd-content-title'>LevelDBStore / Blockchain<a class='anchorjs-link ' href='#bc620bc1' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>基于leveldb实现的区块链数据管理模块。向其它部分提供区块链数据的存储和查询服务。</p>
+<h3 id='a5cf051c'><span class='with-space bd-content-title'>LocalNode<a class='anchorjs-link ' href='#a5cf051c' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>节点的网络通信的模块。负责与网络中的其它节点交换信息。细节将在后续章节中介绍。</p>
+<h3 id='ad67dc58'><span class='with-space bd-content-title'>RpcServer<a class='anchorjs-link ' href='#ad67dc58' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>一个向外提供RPC调用接口的模块。关于RPC接口的细节，请参考 <a href='../reference/rpc/latest-version/api.html'> RPC API</a> 。</p>
+<h3 id='b65a6fb6'><span class='with-space bd-content-title'>ConsensusService<a class='anchorjs-link ' href='#b65a6fb6' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>在NEO网络中，只有共识节点需要启动共识服务。共识节点通过点对点网络与其它共识节点交换信息，完成区块链中生成新的区块的过程。细节将在后续章节中介绍。</p>
+<h3 id='c350e992'><span class='with-space bd-content-title'>Plugin<a class='anchorjs-link ' href='#c350e992' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>通过插件的形式实现区块链中一些特定模块的逻辑，方便特定功能的定制和调试。包括下述四个种类：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <strong>ILogPlugin</strong> : 智能合约的执行结果存储插件。</p></li>
+<li>
+<p class='with-space'> <strong>IPolicyPlugin</strong> : 生成新区块时交易的排序策略插件。</p></li>
+<li>
+<p class='with-space'> <strong>IRpcPlugin</strong> : 执行RPC调用的插件。</p></li>
+<li>
+<p class='with-space'> <strong>IPersistencePlugin</strong> : 节点收到新的区块，将其保存到本地数据库时的自定义行为插件。</p></li>
+</ul>
+<h3 id='d6a4b17b'><span class='with-space bd-content-title'>NeoVM<a class='anchorjs-link ' href='#d6a4b17b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>NEO实现的虚拟机。用来执行验证脚本和智能合约。细节将在后续章节中介绍。</p>
+<p class='with-space'>ApplicationEngine是对NeoVM的一层封装。NeoVM被设计成一个独立的模块。可以在区块链之外部署。而ApplicationEngine与区块链本身的联系更加紧密。</p>
+<h2 id='f1fda995'><span class='with-space bd-content-title'>配置文件<a class='anchorjs-link ' href='#f1fda995' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<p class='with-space'>NEO-CLI的节点程序在执行过程中会访问下述配置文件。</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'> <strong>config.json</strong> : 基础配置文件</p></li>
+<li>
+<p class='with-space'> <strong>protocol.json</strong> : 协议配置文件</p></li>
+</ul>
+<h3 id='eb41033a'><span class='with-space bd-content-title'>config.json<a class='anchorjs-link ' href='#eb41033a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>定义数据库路径、网络配置、启动设置等基础配置。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+  &quot;ApplicationConfiguration&quot;: {
+    &quot;Paths&quot;: {
+      &quot;Chain&quot;: &quot;Chain_{0}&quot;,
+      &quot;Index&quot;: &quot;Index_{0}&quot;
+    },
+    &quot;P2P&quot;: {
+      &quot;Port&quot;: 10333,
+      &quot;WsPort&quot;: 10334
+    },
+    &quot;RPC&quot;: {
+      &quot;BindAddress&quot;: &quot;127.0.0.1&quot;,
+      &quot;Port&quot;: 10332,
+      &quot;SslCert&quot;: &quot;&quot;,
+      &quot;SslCertPassword&quot;: &quot;&quot;
+    },
+    &quot;UnlockWallet&quot;: {
+      &quot;Path&quot;: &quot;&quot;,
+      &quot;Password&quot;: &quot;&quot;,
+      &quot;StartConsensus&quot;: false,
+      &quot;IsActive&quot;: false
+    }
+  }
+}'>Copy</button><pre><code class='json' lang='json'>{
+  &quot;ApplicationConfiguration&quot;: {
+    &quot;Paths&quot;: {
+      &quot;Chain&quot;: &quot;Chain_{0}&quot;,
+      &quot;Index&quot;: &quot;Index_{0}&quot;
+    },
+    &quot;P2P&quot;: {
+      &quot;Port&quot;: 10333,
+      &quot;WsPort&quot;: 10334
+    },
+    &quot;RPC&quot;: {
+      &quot;BindAddress&quot;: &quot;127.0.0.1&quot;,
+      &quot;Port&quot;: 10332,
+      &quot;SslCert&quot;: &quot;&quot;,
+      &quot;SslCertPassword&quot;: &quot;&quot;
+    },
+    &quot;UnlockWallet&quot;: {
+      &quot;Path&quot;: &quot;&quot;,
+      &quot;Password&quot;: &quot;&quot;,
+      &quot;StartConsensus&quot;: false,
+      &quot;IsActive&quot;: false
+    }
+  }
+}
+</code></pre>
+</figure>
+<p class='with-space'>属性说明：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Paths/Chain : 区块链数据库的存储目录前缀。存储目录的后缀是Magic数的8位16进制表示。Magic数将在后续提及。</p></li>
+<li>
+<p class='with-space'>Paths/Index : 钱包索引的存储目录前缀。</p></li>
+<li>
+<p class='with-space'>P2P/Port : 网络节点之间 TCP/IP 协议连接的监听端口号。</p></li>
+<li>
+<p class='with-space'>P2P/WsPort : 网络节点之间 WebSocket 协议连接的监听端口号。</p></li>
+<li>
+<p class='with-space'>RPC/BindAddress : JSON-RPC 服务的监听 IP 地址。</p></li>
+<li>
+<p class='with-space'>RPC/Port : JSON-RPC 服务的监听端口号。</p></li>
+<li>
+<p class='with-space'>RPC/SslCert : JSON-RPC 服务的安全连接的认证。默认为空时，不使用安全连接。</p></li>
+<li>
+<p class='with-space'>RPC/SslCertPassword : JSON-RPC 服务的安全连接的密码。默认为空时，不使用安全连接。</p></li>
+<li>
+<p class='with-space'>UnlockWallet/IsActive : 启动网络节点时是否自动解锁钱包。</p></li>
+<li>
+<p class='with-space'>UnlockWallet/Path : 启动网络节点时解锁钱包的钱包文件地址。</p></li>
+<li>
+<p class='with-space'>UnlockWallet/Password : 启动网络节点时解锁钱包的密码。</p></li>
+<li>
+<p class='with-space'>UnlockWallet/StartConsensus : 启动网络节点时是否自动开始共识。自动开始共识依赖于自动解锁钱包。</p></li>
+</ul>
+<p class='with-space'> <code>config.mainnet.json</code> 和 <code>config.testnet.json</code> 是两个备份文件，分别存放主网和测试网的配置文件。</p>
+<h3 id='fef3a07a'><span class='with-space bd-content-title'>protocol.json<a class='anchorjs-link ' href='#fef3a07a' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>定义协议级的变量、备用共识节点公钥列表、种子节点列表、系统手续费价格。</p>
+<figure class='highlight'>
+<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{
+  &quot;ProtocolConfiguration&quot;: {
+    &quot;Magic&quot;: 7630401,
+    &quot;AddressVersion&quot;: 23,
+    &quot;SecondsPerBlock&quot;: 15, 
+    &quot;StandbyValidators&quot;: [
+      &quot;03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c&quot;,
+      &quot;02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093&quot;,
+      &quot;03b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a&quot;,
+      &quot;02ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba554&quot;,
+      &quot;024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d&quot;,
+      &quot;02aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e&quot;,
+      &quot;02486fd15702c4490a26703112a5cc1d0923fd697a33406bd5a1c00e0013b09a70&quot;
+    ],
+    &quot;SeedList&quot;: [
+      &quot;seed1.ngd.network:10333&quot;,
+      &quot;seed2.ngd.network:10333&quot;,
+      &quot;seed3.ngd.network:10333&quot;,
+      &quot;seed4.ngd.network:10333&quot;,
+      &quot;seed5.ngd.network:10333&quot;,
+      &quot;seed6.ngd.network:10333&quot;,
+      &quot;seed7.ngd.network:10333&quot;,
+      &quot;seed8.ngd.network:10333&quot;,
+      &quot;seed9.ngd.network:10333&quot;,
+      &quot;seed10.ngd.network:10333&quot;,
+      &quot;seed1.neo.org:10333&quot;,
+      &quot;seed2.neo.org:10333&quot;,
+      &quot;seed3.neo.org:10333&quot;,
+      &quot;seed4.neo.org:10333&quot;,
+      &quot;seed5.neo.org:10333&quot;
+    ],
+    &quot;SystemFee&quot;: {
+      &quot;EnrollmentTransaction&quot;: 1000,
+      &quot;IssueTransaction&quot;: 500,
+      &quot;PublishTransaction&quot;: 500,
+      &quot;RegisterTransaction&quot;: 10000
+    }
+  }
+}'>Copy</button><pre><code class='json' lang='json'>{
+  &quot;ProtocolConfiguration&quot;: {
+    &quot;Magic&quot;: 7630401,
+    &quot;AddressVersion&quot;: 23,
+    &quot;SecondsPerBlock&quot;: 15, 
+    &quot;StandbyValidators&quot;: [
+      &quot;03b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c&quot;,
+      &quot;02df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e895093&quot;,
+      &quot;03b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a&quot;,
+      &quot;02ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba554&quot;,
+      &quot;024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d&quot;,
+      &quot;02aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e&quot;,
+      &quot;02486fd15702c4490a26703112a5cc1d0923fd697a33406bd5a1c00e0013b09a70&quot;
+    ],
+    &quot;SeedList&quot;: [
+      &quot;seed1.ngd.network:10333&quot;,
+      &quot;seed2.ngd.network:10333&quot;,
+      &quot;seed3.ngd.network:10333&quot;,
+      &quot;seed4.ngd.network:10333&quot;,
+      &quot;seed5.ngd.network:10333&quot;,
+      &quot;seed6.ngd.network:10333&quot;,
+      &quot;seed7.ngd.network:10333&quot;,
+      &quot;seed8.ngd.network:10333&quot;,
+      &quot;seed9.ngd.network:10333&quot;,
+      &quot;seed10.ngd.network:10333&quot;,
+      &quot;seed1.neo.org:10333&quot;,
+      &quot;seed2.neo.org:10333&quot;,
+      &quot;seed3.neo.org:10333&quot;,
+      &quot;seed4.neo.org:10333&quot;,
+      &quot;seed5.neo.org:10333&quot;
+    ],
+    &quot;SystemFee&quot;: {
+      &quot;EnrollmentTransaction&quot;: 1000,
+      &quot;IssueTransaction&quot;: 500,
+      &quot;PublishTransaction&quot;: 500,
+      &quot;RegisterTransaction&quot;: 10000
+    }
+  }
+}
+</code></pre>
+</figure>
+<p class='with-space'>属性说明：</p>
+<ul class='with-space'>
+<li>
+<p class='with-space'>Magic : 魔法数字。主网：7630401(0x00746E41) 测试网：1953787457(0x74746E41)。搭建私有链网络时，魔法数字可以改为任意整数，但是同一网络中的节点的魔法数字必须相同。</p></li>
+<li>
+<p class='with-space'>AddressVersion : 地址版本。固定值23</p></li>
+<li>
+<p class='with-space'>SecondsPerBlock : 出块时间间隔。同一网络中共识节点必须相同。</p></li>
+<li>
+<p class='with-space'>StandbyValidators : 备用共识节点的公钥列表。</p></li>
+<li>
+<p class='with-space'>SeedList : 种子节点列表。种子节点不是共识节点。种子节点向网络中的新节点提供其它节点的地址查询服务。</p></li>
+<li>
+<p class='with-space'>SystemFee : 系统手续费定义。</p></li>
+</ul>
+<p class='with-space'>protocol.mainnet.json 和 protocol.testnet.json 是两个备份文件，分别存放主网和测试网的配置文件。</p>
+<blockquote class='bd-callout bd-callout-info with-space'>
+<ul class='with-space'>
+<li>
+<p class='with-space'>NEO-CLI 2.7.6曾经使用过临时文件 peers.dat 保存已知的其它节点 IP 地址，2.9.0开始不再使用了。</p></li>
+<li>
+<p class='with-space'>NEO-CLI运行过程中如果异常终止，那么会将错误内容写入文件error.log，方便查看错误原因。</p></li>
+</ul>
+</blockquote>
+<h2 id='a70d093b'><span class='with-space bd-content-title'>启动的基本过程<a class='anchorjs-link ' href='#a70d093b' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h2>
+<h3 id='ce67ac88'><span class='with-space bd-content-title'>NEO-CLI 的启动过程<a class='anchorjs-link ' href='#ce67ac88' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ol>
+<li>
+<p class='with-space'>初始化LevelDBStore，创建或者打开leveldb数据库。</p></li>
+<li>
+<p class='with-space'>启动LocalNode，异步开始点对点网络通信。</p></li>
+<li>
+<p class='with-space'>根据文件配置决定是否打开钱包，是否启动共识服务。</p></li>
+<li>
+<p class='with-space'>根据命令行参数(rpc)决定是否启动JSON-RPC服务。</p></li>
+<li>
+<p class='with-space'>开始命令行循环，执行命令行输入的命令。</p></li>
+<li>
+<p class='with-space'>系统结束时，停止RPC服务，停止LocalNode点对点网络通信。关闭leveldb数据库。</p></li>
+</ol>
+<h3 id='df7fe536'><span class='with-space bd-content-title'>LevelDBStore 的初始化过程<a class='anchorjs-link ' href='#df7fe536' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ol>
+<li>
+<p class='with-space'>打开leveldb数据库，初次访问就创建数据库。</p></li>
+<li>
+<p class='with-space'>读取数据格式版本号，如果版本号小于2.9.1 就清空数据库，然后写入最新的版本号。</p></li>
+</ol>
+<h3 id='cd7164c4'><span class='with-space bd-content-title'>Blockchain 的初始化过程<a class='anchorjs-link ' href='#cd7164c4' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ol>
+<li>
+<p class='with-space'>从数据库读取区块链的区块头的列表，保存在内存中实现快速索引访问(header_index)。</p></li>
+<li>
+<p class='with-space'>如果数据库中没有任何区块信息，那么将创世区块写入数据库。</p></li>
+</ol>
+<h3 id='e9fc1656'><span class='with-space bd-content-title'>LocalNode 的初始化过程<a class='anchorjs-link ' href='#e9fc1656' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ol>
+<li>
+<p class='with-space'>扫描本地的所有网卡的IP地址并保存。</p></li>
+<li>
+<p class='with-space'>启动一个后台循环，每5秒钟检查一次网络节点连接数，如果小于最大连接数(10)，就主动尝试去连接其它节点。如果不知道其它节点地址，就首先连接种子节点，然后向种子节点询问其它节点的地址和端口号。</p></li>
+<li>
+<p class='with-space'>如果设备在局域网且没有公网的IP地址，那么尝试寻找设备的UPnp外网IP，然后在外网启动TCP/IP的监听端口以及WebSocket的监听端口。</p></li>
+<li>
+<p class='with-space'>在本地启动监听端口，接受其他网络节点的主动TCP/IP连接。</p></li>
+<li>
+<p class='with-space'>在本地启动 WebSocket 服务，接受其他网络节点的主动WebSocket连接。</p></li>
+</ol>
+<h3 id='bfb616d7'><span class='with-space bd-content-title'>共识服务的初始化过程<a class='anchorjs-link ' href='#bfb616d7' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<ol>
+<li>
+<p class='with-space'>初始化共识上下文</p></li>
+<li>
+<p class='with-space'>监听共识消息并处理</p></li>
+</ol>
+<h3 id='d6712ec0'><span class='with-space bd-content-title'>JSON-RPC 服务的初始化过程<a class='anchorjs-link ' href='#d6712ec0' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>在指定的网卡地址和端口监听。如果有设置则启用安全链接(https)</p>
+<h3 id='b4d8eacf'><span class='with-space bd-content-title'>其他的初始化过程<a class='anchorjs-link ' href='#b4d8eacf' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h3>
+<p class='with-space'>初始化所有的插件。关于插件的种类，请参考 <a href='../node/cli/setup.html'> 安装插件</a> 。</p>
+            </main>
+            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+                <a href="https://github.com/neo-project/docs/blob/master/docs/zh-cn/tooldev\neo_cli_structure.md" class="contribution-link d-block">Improve this Doc</a>
+                <div class="side-nav-text">In this article</div>
+                <div id="navbar-sidenav">
+                    <nav class='nav nav-pills flex-column'>
+<a class='ml--2 d-none my-1 nav-link' href='#e4904458'>NEO-CLI 结构</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-0 my-1 nav-link' href='#f91c26dc'>整个网络</a>
+<a class='ml-0 my-1 nav-link' href='#bd04a3e6'>NEO-CLI</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#f3763305'>NEO-CLI 命令行</a>
+<a class='ml-2 my-1 nav-link' href='#f5ee368d'>账本 API</a>
+<a class='ml-2 my-1 nav-link' href='#f4a6faf7'>钱包</a>
+<a class='ml-2 my-1 nav-link' href='#bc620bc1'>LevelDBStore / Blockchain</a>
+<a class='ml-2 my-1 nav-link' href='#a5cf051c'>LocalNode</a>
+<a class='ml-2 my-1 nav-link' href='#ad67dc58'>RpcServer</a>
+<a class='ml-2 my-1 nav-link' href='#b65a6fb6'>ConsensusService</a>
+<a class='ml-2 my-1 nav-link' href='#c350e992'>Plugin</a>
+<a class='ml-2 my-1 nav-link' href='#d6a4b17b'>NeoVM</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#f1fda995'>配置文件</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#eb41033a'>config.json</a>
+<a class='ml-2 my-1 nav-link' href='#fef3a07a'>protocol.json</a>
+</nav>
+<a class='ml-0 my-1 nav-link' href='#a70d093b'>启动的基本过程</a>
+<nav class='nav nav-pills flex-column'>
+<a class='ml-2 my-1 nav-link' href='#ce67ac88'>NEO-CLI 的启动过程</a>
+<a class='ml-2 my-1 nav-link' href='#df7fe536'>LevelDBStore 的初始化过程</a>
+<a class='ml-2 my-1 nav-link' href='#cd7164c4'>Blockchain 的初始化过程</a>
+<a class='ml-2 my-1 nav-link' href='#e9fc1656'>LocalNode 的初始化过程</a>
+<a class='ml-2 my-1 nav-link' href='#bfb616d7'>共识服务的初始化过程</a>
+<a class='ml-2 my-1 nav-link' href='#d6712ec0'>JSON-RPC 服务的初始化过程</a>
+<a class='ml-2 my-1 nav-link' href='#b4d8eacf'>其他的初始化过程</a>
+</nav>
+</nav>
+</nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
+        <i class="far fa-lightbulb"></i>
+    </div>
+    <footer>
+        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+            <ul class="d-none d-md-block">
+                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+            </ul>
+            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        </div>
+    </footer>
+    <script src="https://neo-cdn.azureedge.net/lib/jquery/jquery.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/popper.js/popper.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/jquery.lazyload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="https://neo-cdn.azureedge.net/js/text-autospace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
+    <script src="/js/site.min.js"></script>
+    <script>
+        //适用于FAQ的根据标题展开收缩
+        if (false) {
+            $("h2").click(function (e) {
+                $(".div-collapse").not($(e.target).parents("h2").next()).hide("fast");
+                $(e.target).parents("h2").next().toggle("fast");
+            });
+        }
+    </script>
+</body>
+</html>
