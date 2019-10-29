@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="docs\**" />
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="docs\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="docs\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="docs\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 

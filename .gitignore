@@ -338,3 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+SearchEngine/docs
+SearchEngine/faq
+SearchEngine/tutorial
+SearchEngine/articles

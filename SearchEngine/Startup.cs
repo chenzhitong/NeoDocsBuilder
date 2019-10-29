@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Timers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,15 +25,6 @@ namespace SearchEngine
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -65,10 +52,10 @@ namespace SearchEngine
 
         public void LoadFiles(string path)
         {
-            if (!Directory.Exists(path)) return;
+            if (!Directory.Exists(path) || path.Contains("bin") || path.Contains("obj") || path.Contains("wwwroot")) return;
             Directory.GetFiles(path).ToList().ForEach(p => { 
                 if (Path.GetExtension(p) == ".md") {
-                    Sources.Pages.Add(new Page() { Lines = File.ReadAllLines(p), Link = p.Replace("\\", "/").Replace("wwwroot", "").Replace(".md", ".html") });
+                    Sources.Pages.Add(new Page() { Lines = File.ReadAllLines(p), Link = p.Replace("\\", "/").Replace("//", "/").TrimStart('.').Replace(".md", ".html") });
                 }
             });
             Directory.GetDirectories(path).ToList().ForEach(p => LoadFiles(p));
