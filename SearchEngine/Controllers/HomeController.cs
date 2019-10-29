@@ -19,7 +19,9 @@ namespace SearchEngine.Controllers
                 {
                     if (k.Split(' ').ToList().All(key => line.Contains(key, StringComparison.OrdinalIgnoreCase)))
                     {
-                        result.Add(new Result() { Line = line.Trim(), Link = pages.Link, Title = pages.Lines.Length > 0 ? pages.Lines[0].Trim().TrimStart('#', ' ') : string.Empty });
+                        var title = pages.Lines.FirstOrDefault(p => p.StartsWith("#"))?.TrimStart('#', ' ').Trim();
+                        if (title == null) continue;
+                        result.Add(new Result() { Line = line.Trim(), Link = pages.Link, Title = title});
                     }                    
                 }
             }
