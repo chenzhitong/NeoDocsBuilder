@@ -25,7 +25,11 @@ namespace SearchEngine.Controllers
                     }                    
                 }
             }
-            result = result.GroupBy(p => p.Link).OrderByDescending(p => p.Count()).Select(p => new Result() { Link = p.Key, Line = p.FirstOrDefault().Line, Title = p.FirstOrDefault().Title }).ToList();
+            result = result.GroupBy(p => p.Link).OrderByDescending(p => p.Count()).Select(p => new Result() { 
+                Link = p.Key,
+                Line = p.FirstOrDefault().Line.Length > 50 ? p.FirstOrDefault().Line.Substring(0, 50) + "..." : p.FirstOrDefault().Line,
+                Title = p.FirstOrDefault().Title }).ToList();
+
             if (!string.IsNullOrEmpty(l))
                 result = result.Where(p => p.Link.Contains(l)).ToList();
 
