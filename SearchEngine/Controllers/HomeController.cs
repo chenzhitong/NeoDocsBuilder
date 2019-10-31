@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace SearchEngine.Controllers
 {
@@ -12,6 +13,7 @@ namespace SearchEngine.Controllers
         {
             if (string.IsNullOrEmpty(k)) return Redirect("/docs/index.html");
             var result = new List<Result>();
+            var reg = new Regex("<(p|img|br|b|i|br|a|link|table|strong|tr|td|th|tbody|em|u|s|del|kbd)(\\W+|(\\s+.*?/?>))", RegexOptions.IgnoreCase);
 
             foreach (var pages in Sources.Pages)
             {
@@ -21,7 +23,8 @@ namespace SearchEngine.Controllers
                     {
                         var title = pages.Lines.FirstOrDefault(p => p.StartsWith("#"))?.TrimStart('#', ' ').Trim();
                         if (title == null) continue;
-                        result.Add(new Result() { Line = line.Trim(), Link = pages.Link, Title = title});
+                        if (reg.IsMatch(line)) continue;
+                        result.Add(new Result() { Line = System.Web.HttpUtility.HtmlEncode(line.Trim()), Link = pages.Link, Title = title});
                     }                    
                 }
             }
@@ -31,9 +34,9 @@ namespace SearchEngine.Controllers
                 Title = p.FirstOrDefault().Title }).ToList();
 
             if (!string.IsNullOrEmpty(l))
-                result = result.Where(p => p.Link.Contains(l)).ToList();
+                result = result.Where(p => p.Link.Contains(l, StringComparison.OrdinalIgnoreCase)).ToList();
 
-            return Content(JsonConvert.SerializeObject(result), "application/json");
+            return Content(JsonConvert.SerializeObject(result.Take(20)), "application/json");
         }
     }
 }

@@ -275,4 +275,62 @@
         display: inline-block;
         width: 100%
     }
+    //docs search bar
+    .search-bar {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+
+        .search-de {
+            color: @dark-link;
+            background: @dark-background;
+
+            &:hover {
+                color: #00ffaa;
+            }
+        }
+
+        #sInput {
+            border: 1px solid @dark-link;
+            background: @dark-background;
+            color: @dark-text;
+
+            &:focus {
+                box-shadow: 0 0 5px @dark-link;
+            }
+        }
+
+        .search-re {
+            box-shadow: 0 0 8px #000;
+            background: @dark-background;
+
+            ul {
+                background: @dark-background;
+
+                & > li {
+                    border-top: 1px solid #111;
+
+                    a {
+                        &:hover {
+                            color: @dark-link !important;
+                        }
+                    }
+
+                    strong {
+                        color: @dark-link;
+                    }
+
+                    span {
+                        color: #BBBBBB;
+                    }
+                }
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: rgba(200, 200, 200, 0.15);
+            }
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+        }
+    }
 }
