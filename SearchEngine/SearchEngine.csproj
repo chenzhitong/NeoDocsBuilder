@@ -5,13 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="articles\**" />
     <Compile Remove="docs\**" />
+    <Compile Remove="faq\**" />
+    <Compile Remove="tutorial\**" />
     <Compile Remove="wwwroot\**" />
+    <Content Remove="articles\**" />
     <Content Remove="docs\**" />
+    <Content Remove="faq\**" />
+    <Content Remove="tutorial\**" />
     <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="articles\**" />
     <EmbeddedResource Remove="docs\**" />
+    <EmbeddedResource Remove="faq\**" />
+    <EmbeddedResource Remove="tutorial\**" />
     <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="articles\**" />
     <None Remove="docs\**" />
+    <None Remove="faq\**" />
+    <None Remove="tutorial\**" />
     <None Remove="wwwroot\**" />
   </ItemGroup>
 

@@ -224,4 +224,6 @@ SearchEngine.runtimeconfig.json
 web.config
 ```
 
-5、运行 SearchEngine 网站（可以在 IIS 中运行，也可以在本地直接运行 SearchEngine.exe）
+5、运行 SearchEngine 网站，可以在 IIS 中运行，也可以在本地直接运行 SearchEngine.exe。
+
+需要安装 [.NET Core 3.0 Runtime & Hosting Bundle](https://dotnet.microsoft.com/download/dotnet-core/3.0/runtime)。
