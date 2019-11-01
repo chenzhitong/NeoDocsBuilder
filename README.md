@@ -24,10 +24,10 @@ NeoDocsBuilder —— 一个超牛逼的 MarkDown 转网站的工具，包括解
 | 1    | 多语言切换                       | 已完成 | 网站多语言切换以及内容的多语言切换                           |                                        |
 | 1    | GitHub 链接                      | 已完成 | 对每篇文档添加对应的 GitHub 链接                             |                                        |
 | 2    | 死链检测                         | 已完成 | 对所引用的 .md 做死链检测                                    |                                        |
-| 2    | 全局搜索                         | 未完成 | 对网站内容进行全局搜索（后端）                               |                                        |
+| 2    | 全局搜索                         | 已完成 | 对文档内容进行全文搜索（独立部署）                           |                                        |
 | 2    | 代码片段复制                     | 已完成 | 一键复制文档中的代码片断                                     | clipboard.js                           |
 | 2    | 版本切换                         | 未完成 | 在网站中可以设置版本，并且支持切换                           |                                        |
-| 2    | 多主题切换                       | 未完成 | 支持自定义主题，GitHub 样式、夜间主题                        |                                        |
+| 2    | 多主题切换                       | 已完成 | 支持自定义主题，如深色模式                                   |                                        |
 | 2    | 反馈建议                         | 未完成 | 支持文档的打分和反馈（以及时知道对开发者是否有帮助）         |                                        |
 
 ## 运行
@@ -160,3 +160,68 @@ collapse：生成文档内容时，对二级标题下的所有内容进行折叠
 }
 ```
 
+## 配置 SearchEngine
+
+SearchEngine 是一个 ASP.NET Core 3.0 的网站，为文档提供后端的搜索功能，部署方式如下：
+
+1、发布 SearchEngine 项目，生成如下文件
+
+```
+appsettings.Development.json
+appsettings.json
+Newtonsoft.Json.dll
+SearchEngine.deps.json
+SearchEngine.dll
+SearchEngine.exe
+SearchEngine.pdb
+SearchEngine.runtimeconfig.json
+web.config
+```
+
+2、发布 NeoDocsBuilder 项目，生成如下文件
+
+```
+template
+config.json
+Microsoft.Toolkit.dll
+Microsoft.Toolkit.Parsers.dll
+NeoDocsBuilder.deps.json
+NeoDocsBuilder.dll
+NeoDocsBuilder.exe
+NeoDocsBuilder.pdb
+NeoDocsBuilder.runtimeconfig.json
+Newtonsoft.Json.dll
+```
+
+3、将文档项目（如  https://github.com/neo-project/docs ）和前两步生成的文件放到一起
+
+4、运行 NeoDocsBuilder.exe 编译文档，最终的文件如下图所示
+
+```
+articles
+docs
+faq
+template
+tutorial
+wwwroot
+appsettings.Development.json
+appsettings.json
+config.json
+log.txt
+Microsoft.Toolkit.dll
+Microsoft.Toolkit.Parsers.dll
+NeoDocsBuilder.deps.json
+NeoDocsBuilder.dll
+NeoDocsBuilder.exe
+NeoDocsBuilder.pdb
+NeoDocsBuilder.runtimeconfig.json
+Newtonsoft.Json.dll
+SearchEngine.deps.json
+SearchEngine.dll
+SearchEngine.exe
+SearchEngine.pdb
+SearchEngine.runtimeconfig.json
+web.config
+```
+
+5、运行 SearchEngine 网站（可以在 IIS 中运行，也可以在本地直接运行 SearchEngine.exe）
