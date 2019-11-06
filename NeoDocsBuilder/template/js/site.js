@@ -48,7 +48,7 @@ window.onload = function () {
     $(link).parents().prev().addClass('expand');
     //导航栏高亮
     var href = pathName.split('/')[1];
-    $(".navbar-nav [href='/" + href + "']").each(function () {
+    $(".navbar-nav [href='/" + href + "/index.html']").each(function () {
         $(this).addClass("active");
     });
 };
