@@ -120,9 +120,12 @@ namespace NeoDocsBuilder
                 var isHighLevelTitle = item.Type == MarkdownBlockType.Header && (item as HeaderBlock).HeaderLevel <= 3;
                 if (isHighLevelTitle)
                 {
-                    var header = item as HeaderBlock;
-                    anchroPoint.Add(item.ToString());
-                    anchroPointCount = anchroPoint.Count(p => p == item.ToString());
+                    var itemId = (item as HeaderBlock).ToString().ToId(0);
+                    if (itemId == "c")
+                    { 
+                    }
+                    anchroPointCount = anchroPoint.Count(p => p == itemId);
+                    anchroPoint.Add(itemId);
                 }
                 var html = item.ToHtml(file, collapse ? $"collapse{anchroPointCount}" : anchroPointCount.ToString());
                 if (isHighLevelTitle)

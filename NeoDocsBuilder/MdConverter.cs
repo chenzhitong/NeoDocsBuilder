@@ -276,14 +276,14 @@ namespace NeoDocsBuilder
 
         public static string ToId(this string input, int count)
         {
-            input = input.Trim();
-            if (count > 1)
+            var id = input.Trim();
+            if (count > 0)
             {
-                input = $"{input}-{count}";
+                id = $"{id}-{count}";
             }
-            var encodeList = "~`!@#$%^&*()_+=[]\\{}|;':\",./<>? ";
-            encodeList.ToList().ForEach(p => input = input.Replace(p, '-'));
-            return input;
+            var encodeList = "~`!@#$%^&*()+=[]\\{}|;':\",./<>?";
+            encodeList.ToList().ForEach(p => id = id.Replace(p.ToString(), ""));
+            return id.Replace(" ", "-").ToLower();
         }
 
         public static bool IsExternalLink(this string link) => link.StartsWith("http");
