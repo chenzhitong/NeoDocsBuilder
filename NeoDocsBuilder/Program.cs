@@ -81,7 +81,8 @@ namespace NeoDocsBuilder
         /// <param name="config">配置文件</param>
         static void BuildMarkDown(string catalog, ConfigItem config)
         {
-            Parallel.ForEach(AllMdFiles, file => {
+            Parallel.ForEach(AllMdFiles, file =>
+            {
                 var relativeToOrigin = Path.GetRelativePath(config.Origin, file);
                 //在配置文件中该文档是否根二级标题自动折叠
                 var collapse = config.FolderJson != null && config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(relativeToOrigin, StringComparison.OrdinalIgnoreCase));
@@ -101,6 +102,7 @@ namespace NeoDocsBuilder
         /// <returns>输出元组（标题，内容，文章内的目录）</returns>
         static (string title, string content, string sideNav) Convert(string file, bool collapse)
         {
+            var anchroPoint = new List<string>();
             MarkdownDocument document = new MarkdownDocument();
             document.Parse(File.ReadAllText(file).Replace("\\|", "&#124;"));
             //文章标题（首个标题的文本）
@@ -112,13 +114,20 @@ namespace NeoDocsBuilder
             bool startCollapse = false;
 
             var lastHeaderLevel = 0;
-            for (int index = 0; index < document.Blocks.Count; index++)
+            foreach (var item in document.Blocks)
             {
-                var element = document.Blocks[index];
-                var html = element.ToHtml(file, collapse ? $"collapse{index.ToString()}" : index.ToString());
-                if (element.Type == MarkdownBlockType.Header && (element as HeaderBlock).HeaderLevel <= 3)
+                var anchroPointCount = 0;
+                var isHighLevelTitle = item.Type == MarkdownBlockType.Header && (item as HeaderBlock).HeaderLevel <= 3;
+                if (isHighLevelTitle)
                 {
-                    var header = element as HeaderBlock;
+                    var header = item as HeaderBlock;
+                    anchroPoint.Add(item.ToString());
+                    anchroPointCount = anchroPoint.Count(p => p == item.ToString());
+                }
+                var html = item.ToHtml(file, collapse ? $"collapse{anchroPointCount}" : anchroPointCount.ToString());
+                if (isHighLevelTitle)
+                {
+                    var header = item as HeaderBlock;
                     for (int i = 0; i < header.HeaderLevel - lastHeaderLevel; i++)
                     {
                         sideNav += "\r\n<nav class='nav nav-pills flex-column'>";
@@ -130,14 +139,14 @@ namespace NeoDocsBuilder
                     XmlDocument xml = new XmlDocument();
                     xml.LoadXml(html);
                     var headerText = xml.InnerText;
-                    title = title ?? headerText;
-                    sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{(header.HeaderLevel == 1 ? " d-none" : "")} my-1 nav-link' href='{header.ToString().ToAnchorPoint(index.ToString())}'>{headerText}</a>";
+                    title ??= headerText;
+                    sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{(header.HeaderLevel == 1 ? " d-none" : "")} my-1 nav-link with-space' href='{header.ToString().ToAnchorPoint(anchroPointCount)}'>{headerText}</a>";
 
                     lastHeaderLevel = header.HeaderLevel;
                 }
                 #region collapse
                 //如果 collapse 为 true，则将 h2 下面的所有内容用 <div></div> 包裹起来
-                if (collapse && (element as HeaderBlock)?.HeaderLevel == 2 && startCollapse)
+                if (collapse && (item as HeaderBlock)?.HeaderLevel == 2 && startCollapse)
                 {
                     content += "</div>";
                     startCollapse = false;
@@ -147,7 +156,7 @@ namespace NeoDocsBuilder
                 content += html;
 
                 #region collapse
-                if (collapse && (element as HeaderBlock)?.HeaderLevel == 2 && !startCollapse)
+                if (collapse && (item as HeaderBlock)?.HeaderLevel == 2 && !startCollapse)
                 {
                     content += "\r\n<div class='div-collapse p-2 px-4'>";
                     startCollapse = true;
@@ -183,17 +192,15 @@ namespace NeoDocsBuilder
         {
             try
             {
-                using (StreamWriter sw = new StreamWriter(path))
-                {
-                    sw.WriteLine(File.ReadAllText(Path.Combine(template, "template.html"))
-                        .Replace("{title}", title)
-                        .Replace("{git}", git)
-                        .Replace("{sideNav}", sideNav)
-                        .Replace("{body}", content)
-                        .Replace("{catalog}", catalog)
-                        .Replace("_collapse", collapse.ToString().ToLower()));
-                    Console.WriteLine($"build: {path}");
-                }
+                using StreamWriter sw = new StreamWriter(path);
+                sw.WriteLine(File.ReadAllText(Path.Combine(template, "template.html"))
+                .Replace("{title}", title)
+                .Replace("{git}", git)
+                .Replace("{sideNav}", sideNav)
+                .Replace("{body}", content)
+                .Replace("{catalog}", catalog)
+                .Replace("_collapse", collapse.ToString().ToLower()));
+                Console.WriteLine($"build: {path}");
             }
             catch (System.Exception e)
             {

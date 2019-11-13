@@ -32,9 +32,10 @@ namespace NeoDocsBuilder
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
                     var _class = !string.IsNullOrEmpty(args) && args.StartsWith("collapse") && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
-                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId(args?.Replace("collapse", ""))}'{_class}><span class='with-space bd-content-title'>";
+                    int.TryParse(args, out int anchroPointCount);
+                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId(anchroPointCount)}'{_class}><span class='with-space bd-content-title'>";
                     header.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
-                    result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint(args?.Replace("collapse", ""))}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
+                    result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint(anchroPointCount)}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
                     break;
                 case MarkdownBlockType.HorizontalRule: result += "\r\n<hr />"; break;
                 case MarkdownBlockType.LinkReference:
@@ -263,28 +264,30 @@ namespace NeoDocsBuilder
         /// </summary>
         public static string ToHlJs(this string input)
         {
-            string result;
-            switch (input)
+            return input switch
             {
-                case "c#": result = "csharp"; break;
-                case "c++": result = "cpp"; break;
-                default: result = input.ToLower(); break;
-            }
-            return result;
+                "c#" => "csharp",
+                "c++" => "cpp",
+                _ => input.ToLower(),
+            };
         }
 
-        public static string ToAnchorPoint(this string input, string nacl = null) => $"#{input.ToId(nacl)}";
+        public static string ToAnchorPoint(this string input, int count) => $"#{input.ToId(count)}";
 
-        public static string ToId(this string input, string nacl = null) => $"{input.Trim()}{nacl}".Sha256().TrimStart('1', '2', '3', '4', '5', '6', '7', '8', '9', '0').Substring(0, 8);
+        public static string ToId(this string input, int count)
+        {
+            input = input.Trim();
+            if (count > 1)
+            {
+                input = $"{input}-{count}";
+            }
+            var encodeList = "~`!@#$%^&*()_+=[]\\{}|;':\",./<>? ";
+            encodeList.ToList().ForEach(p => input = input.Replace(p, '-'));
+            return input;
+        }
 
         public static bool IsExternalLink(this string link) => link.StartsWith("http");
 
-        public static string Sha256(this string text)
-        {
-            string hashString = string.Empty;
-            new SHA256Managed().ComputeHash(Encoding.Unicode.GetBytes(text)).ToList().ForEach(p => hashString += string.Format("{0:x2}", p));
-            return hashString;
-        }
         public static int linkCount = 0;
         public static int errorLinkCount = 0;
         public static StringBuilder errorLog = new StringBuilder();
