@@ -117,19 +117,24 @@ namespace NeoDocsBuilder
             foreach (var item in document.Blocks)
             {
                 var anchroPointCount = 0;
-                var isHighLevelTitle = item.Type == MarkdownBlockType.Header && (item as HeaderBlock).HeaderLevel <= 3;
-                if (isHighLevelTitle)
+                var html = string.Empty;
+                var headerText = string.Empty;
+
+                if (item.Type == MarkdownBlockType.Header && (item as HeaderBlock).HeaderLevel <= 3)
                 {
-                    var itemId = (item as HeaderBlock).ToString().ToId(0);
-                    if (itemId == "c")
-                    { 
-                    }
+                    //将标题转为不加锚点的 HTML 以求 InnerText
+                    html = item.ToHtml(file, string.Empty);
+                    XmlDocument xml = new XmlDocument();
+                    xml.LoadXml(html);
+                    headerText = xml.InnerText;
+
+                    
+
+                    //区分同一篇文章中的重复锚点
+                    var itemId = headerText.ToId(0);
                     anchroPointCount = anchroPoint.Count(p => p == itemId);
                     anchroPoint.Add(itemId);
-                }
-                var html = item.ToHtml(file, collapse ? $"collapse{anchroPointCount}" : anchroPointCount.ToString());
-                if (isHighLevelTitle)
-                {
+
                     var header = item as HeaderBlock;
                     for (int i = 0; i < header.HeaderLevel - lastHeaderLevel; i++)
                     {
@@ -139,14 +144,14 @@ namespace NeoDocsBuilder
                     {
                         sideNav += "\r\n</nav>";
                     }
-                    XmlDocument xml = new XmlDocument();
-                    xml.LoadXml(html);
-                    var headerText = xml.InnerText;
+
                     title ??= headerText;
-                    sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{(header.HeaderLevel == 1 ? " d-none" : "")} my-1 nav-link with-space' href='{header.ToString().ToAnchorPoint(anchroPointCount)}'>{headerText}</a>";
+                    sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{(header.HeaderLevel == 1 ? " d-none" : "")} my-1 nav-link with-space' href='{itemId.ToAnchorPoint(anchroPointCount)}'>{headerText}</a>";
 
                     lastHeaderLevel = header.HeaderLevel;
                 }
+                html = item.ToHtml(file, headerText, collapse ? $"collapse{anchroPointCount}" : anchroPointCount.ToString());
+
                 #region collapse
                 //如果 collapse 为 true，则将 h2 下面的所有内容用 <div></div> 包裹起来
                 if (collapse && (item as HeaderBlock)?.HeaderLevel == 2 && startCollapse)
