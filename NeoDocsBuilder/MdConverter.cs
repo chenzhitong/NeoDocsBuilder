@@ -18,7 +18,7 @@ namespace NeoDocsBuilder
         /// </summary>
         /// <param name="block">MarkDown 块级元素</param>
         /// <returns>HTML</returns>
-        public static string ToHtml(this MarkdownBlock block, string file, string args = null)
+        public static string ToHtml(this MarkdownBlock block, string file, string innerText, string args = null)
         {
             var result = string.Empty;
             switch (block.Type)
@@ -33,9 +33,9 @@ namespace NeoDocsBuilder
                     var header = block as HeaderBlock;
                     var _class = !string.IsNullOrEmpty(args) && args.StartsWith("collapse") && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
                     int.TryParse(args, out int anchroPointCount);
-                    result += $"\r\n<h{header.HeaderLevel} id='{header.ToString().ToId(anchroPointCount)}'{_class}><span class='with-space bd-content-title'>";
+                    result += $"\r\n<h{header.HeaderLevel} id='{innerText.ToId(anchroPointCount)}'{_class}><span class='with-space bd-content-title'>";
                     header.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
-                    result += $"<a class='anchorjs-link ' href='{header.ToString().ToAnchorPoint(anchroPointCount)}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
+                    result += $"<a class='anchorjs-link' href='{innerText.ToAnchorPoint(anchroPointCount)}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
                     break;
                 case MarkdownBlockType.HorizontalRule: result += "\r\n<hr />"; break;
                 case MarkdownBlockType.LinkReference:
@@ -55,7 +55,7 @@ namespace NeoDocsBuilder
                         result += "\r\n<ul class='with-space'>";
                         list.Items.ToList().ForEach(l => {
                             result += $"\r\n<li>";
-                            l.Blocks.ToList().ForEach(p => result += p.ToHtml(file, "li"));
+                            l.Blocks.ToList().ForEach(p => result += p.ToHtml(file, string.Empty));
                             result += $"</li>";
                         });
                         result += "\r\n</ul>";
@@ -65,7 +65,7 @@ namespace NeoDocsBuilder
                         result += "\r\n<ol>";
                         list.Items.ToList().ForEach(l => {
                             result += $"\r\n<li>";
-                            l.Blocks.ToList().ForEach(p => result += p.ToHtml(file, "li"));
+                            l.Blocks.ToList().ForEach(p => result += p.ToHtml(file, string.Empty));
                             result += $"</li>";
                         });
                         result += "\r\n</ol>";
@@ -105,12 +105,12 @@ namespace NeoDocsBuilder
                             else
                             {
                                 result += $"\r\n<blockquote class='bd-callout with-space'>";
-                                result += blockQuote.Blocks[i].ToHtml(file);
+                                result += blockQuote.Blocks[i].ToHtml(file, string.Empty);
                             }
                         }
                         else
                         {
-                            result += blockQuote.Blocks[i].ToHtml(file);
+                            result += blockQuote.Blocks[i].ToHtml(file, string.Empty);
                         }
                     }
                     result += "\r\n</blockquote>";
@@ -195,10 +195,11 @@ namespace NeoDocsBuilder
                     var markdownLink = inline as MarkdownLinkInline;
                     var markdownLinkUrl = markdownLink.Url ?? "javascript:";
                     var markdownLinkTooltip = string.IsNullOrEmpty(markdownLink.Tooltip) ? "" : $" title='{markdownLink.Tooltip}'";
+
                     if (markdownLinkUrl.IsExternalLink())
-                        result += $" <a href='{markdownLinkUrl}' target='_blank'{markdownLinkTooltip}> ";
+                        result += $" <a href='{markdownLinkUrl}' target='_blank'{markdownLinkTooltip}>";
                     else
-                        result += $" <a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}> ";
+                        result += $" <a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}>";
                     LinkCheck(file, markdownLinkUrl);
                     markdownLink.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += "</a> ";
