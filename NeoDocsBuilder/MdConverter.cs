@@ -176,9 +176,9 @@ namespace NeoDocsBuilder
             {
                 case MarkdownInlineType.Comment: result += inline; break;
                 case MarkdownInlineType.Bold:
-                    result += " <strong>";
+                    result += "<strong>";
                     (inline as BoldTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
-                    result += "</strong> ";
+                    result += "</strong>";
                     break;
                 case MarkdownInlineType.Code: result += $" <code>{HtmlEncode((inline as CodeInline).Text)}</code> "; break;
                 case MarkdownInlineType.Image:

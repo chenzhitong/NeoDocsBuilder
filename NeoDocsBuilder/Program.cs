@@ -122,10 +122,6 @@ namespace NeoDocsBuilder
 
                 if (item.Type == MarkdownBlockType.Header && (item as HeaderBlock).HeaderLevel <= 3)
                 {
-                    if ((item as HeaderBlock).ToString().Contains("测试"))
-                    {
-
-                    }
                     //将标题转为不加锚点的 HTML 以求 InnerText
                     html = item.ToHtml(file, string.Empty);
                     XmlDocument xml = new XmlDocument();
