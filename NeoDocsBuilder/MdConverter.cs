@@ -282,7 +282,7 @@ namespace NeoDocsBuilder
             {
                 id = $"{id}-{count}";
             }
-            var encodeList = "~`!@#$%^&*()+=[]\\{}|;':\",./<>?";
+            var encodeList = "~`!@#$%^&*()+=[]\\{}|;':\",./<>?！（）；‘’：“”《》？，。";
             encodeList.ToList().ForEach(p => id = id.Replace(p.ToString(), ""));
             return id.Replace(" ", "-").ToLower();
         }

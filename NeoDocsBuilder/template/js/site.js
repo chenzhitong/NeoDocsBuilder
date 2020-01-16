@@ -127,3 +127,10 @@ window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'UA-130525731-2');
+
+//设置内容图片最大宽度为 min(100%, 700px)
+var resize = window.onresize;
+window.onresize = function () {
+    resize();
+    $("main img").css("max-width", Math.min(700, $("main").width()));
+};
