@@ -76,6 +76,12 @@
                         <ul id="sResult"></ul>
                     </div>
                 </div>
+                <div class="version-bar">
+                    <select id="version">
+                        <option value="">Neo 2.x</option>
+                        <option value="/v3">Neo 3.x</option>
+                    </select>
+                </div>
                 {catalog}
             </div>
             <main class="p-3 p-sm-4 p-md-5">
@@ -174,6 +180,20 @@
             });
         }
 
+        $("#version").change(function () {
+            var savelang = localStorage.getItem("lang");
+            var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
+            if (lang != 'zh-cn') lang = 'en-us';
+            var v = $(this).children('option:selected').val();
+
+            location.href = v + "/docs/" + lang + "/index.html";
+        });
+        $(function () {
+            if (location.href.indexOf("/v3/") > 0)
+                $("#version").val("/v3");
+            else
+                $("#version").val("");
+        });
     </script>
 </body>
 </html>

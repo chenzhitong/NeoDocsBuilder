@@ -719,4 +719,22 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.version-bar {
+    padding-left: 10px !important;
+    padding: 5px 8px;
+    border-radius: 0;
+    background: @light-background;
+
+    select {
+        border: 1px solid @light-link;
+        padding: 5px 4px;
+        width: calc(100%);
+
+        &:focus {
+            box-shadow: 0 0 3px @light-link;
+            outline: none;
+        }
+    }
+}
+
 @import "theme-dark.less";

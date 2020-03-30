@@ -626,6 +626,21 @@ h6:before {
   border-radius: 5px;
   background: transparent;
 }
+.version-bar {
+  padding-left: 10px !important;
+  padding: 5px 8px;
+  border-radius: 0;
+  background: #fff;
+}
+.version-bar select {
+  border: 1px solid #00af92;
+  padding: 5px 4px;
+  width: calc(100%);
+}
+.version-bar select:focus {
+  box-shadow: 0 0 3px #00af92;
+  outline: none;
+}
 .theme-dark body {
   color: #dcdcdc;
   background-color: #1E1E1E;

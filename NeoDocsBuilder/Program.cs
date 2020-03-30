@@ -88,7 +88,7 @@ namespace NeoDocsBuilder
                 var collapse = config.FolderJson != null && config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(relativeToOrigin, StringComparison.OrdinalIgnoreCase));
                 var (title, content, sideNav) = Convert(file, collapse);
                 //生成后的文件路径
-                var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html"));
+                var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
                 var git = Path.Combine(config.Git, relativeToOrigin);
                 Build(newFile, catalog, content, title, sideNav, git, config.Template, collapse);
             });
