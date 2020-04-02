@@ -31,7 +31,7 @@
     <link href="https://neo3.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
     <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
-    <link href="/css/site.min.css?v=20191106" rel="stylesheet" />
+    <link href="/css/site.min.css?v=20200401" rel="stylesheet" />
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
     <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
@@ -69,18 +69,19 @@
     <div class="container-fluid" style="margin-top: 55px">
         <div class="row d-flex">
             <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
+                <div class="version-bar">
+                    <div>Version</div>
+                    <select id="version">
+                        <option value="">Neo 2.x</option>
+                        <option value="/v3">Neo 3.x</option>
+                    </select>
+                </div>
                 <div class="search-bar">
                     <span class="search-de">X</span>
                     <input id="sInput" placeholder="search" />
                     <div class="search-re">
                         <ul id="sResult"></ul>
                     </div>
-                </div>
-                <div class="version-bar">
-                    <select id="version">
-                        <option value="">Neo 2.x</option>
-                        <option value="/v3">Neo 3.x</option>
-                    </select>
                 </div>
                 {catalog}
             </div>

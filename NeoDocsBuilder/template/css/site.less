@@ -600,10 +600,7 @@ h1, h2, h3, h4, h5, h6 {
 //docs search bar
 .search-bar {
     position: relative;
-    padding-left: 10px !important;
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    padding: 1rem 10px;
 
     &:hover {
         .search-re {
@@ -625,7 +622,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     #sInput {
-        width: calc( 100% - 10px );
+        width: 100%;
         padding-left: 10px;
         border: 1px solid @light-link;
         padding: 5px 8px;
@@ -635,7 +632,7 @@ h1, h2, h3, h4, h5, h6 {
             outline: none;
         }
 
-        &:focus{
+        &:focus {
             & + .search-re {
                 display: block;
             }
@@ -721,14 +718,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .version-bar {
     padding-left: 10px !important;
-    padding: 5px 8px;
+    padding: 1rem 10px;
     border-radius: 0;
     background: @light-background;
+    border-bottom: 1px solid rgba(0,0,0,.1);
 
     select {
+        margin-top: 3px;
         border: 1px solid @light-link;
         padding: 5px 4px;
-        width: calc(100%);
+        width: 100%;
 
         &:focus {
             box-shadow: 0 0 3px @light-link;

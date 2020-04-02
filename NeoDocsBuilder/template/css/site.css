@@ -532,10 +532,7 @@ h6:before {
 }
 .search-bar {
   position: relative;
-  padding-left: 10px !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  padding: 1rem 10px;
 }
 .search-bar:hover .search-re {
   display: block;
@@ -552,7 +549,7 @@ h6:before {
   color: #333;
 }
 .search-bar #sInput {
-  width: calc(100% - 10px);
+  width: 100%;
   padding-left: 10px;
   border: 1px solid #00af92;
   padding: 5px 8px;
@@ -628,14 +625,16 @@ h6:before {
 }
 .version-bar {
   padding-left: 10px !important;
-  padding: 5px 8px;
+  padding: 1rem 10px;
   border-radius: 0;
   background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .version-bar select {
+  margin-top: 3px;
   border: 1px solid #00af92;
   padding: 5px 4px;
-  width: calc(100%);
+  width: 100%;
 }
 .version-bar select:focus {
   box-shadow: 0 0 3px #00af92;
