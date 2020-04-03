@@ -111,6 +111,7 @@ setTimeout(showFooter,1000);
 $(window).scroll(showFooter);
 
 //关灯/开灯
+var i = 1;
 function turnOff() {
     if (localStorage.getItem("theme") !== "dark") {
         $("html").addClass("theme-dark");
@@ -119,6 +120,10 @@ function turnOff() {
     else {
         $("html").removeClass("theme-dark");
         localStorage.setItem("theme", "light");
+    }
+    //版本切换正式上线时去掉这段
+    if (++i > 2) {
+        $(".version-bar").show();
     }
 }
 
@@ -138,3 +143,69 @@ setMaxWidth();
 function setMaxWidth() {
     $("main img").css("max-width", Math.min(700, $("main").width()));
 }
+
+$("#sInput").bind({
+    focus: function () {
+        searchBar();
+    },
+    keyup: function (e) {
+        clearTimeout();
+        if (e.which == 13) {
+            searchBar();
+        }
+        setTimeout(searchBar, 300);
+    },
+    paste: function () {
+        searchBar();
+    }
+});
+
+$(".search-de").click(function () {
+    $("#sInput").val("");
+    $("#sResult").html("");
+})
+
+var url = window.location.origin;
+
+function searchBar() {
+    k = $("#sInput").val();
+    l = localStorage.getItem("lang") || navigator.language || "en-us";
+    if (!k) $("#sResult").html("");
+    $.ajax({
+        type: "GET",
+        url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = ""
+
+            if (data.length == 0) {
+                html += "<li><a><span> No results found. </span></a></li > ";
+            }
+            for (i in data) {
+                var _data = data[i];
+                html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
+                html += "<span>" + _data.Line + "</span></a></li>";
+            }
+            $("#sResult").html(html);
+        },
+        fail: function () {
+            alert("fail");
+        }
+    });
+}
+
+$("#version").change(function () {
+    var savelang = localStorage.getItem("lang");
+    var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
+    if (lang != 'zh-cn') lang = 'en-us';
+    var v = $(this).children('option:selected').val();
+
+    location.href = v + "/docs/" + lang + "/index.html";
+});
+$(function () {
+    if (location.href.indexOf("/v3/") > 0)
+        $("#version").val("/v3");
+    else
+        $("#version").val("");
+});
