@@ -60,7 +60,7 @@ namespace NeoDocsBuilder
                 Console.WriteLine(e.Message);
             }
             Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         static readonly List<string> AllMdFiles = new List<string>();

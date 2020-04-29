@@ -111,7 +111,6 @@ setTimeout(showFooter,1000);
 $(window).scroll(showFooter);
 
 //关灯/开灯
-var i = 1;
 function turnOff() {
     if (localStorage.getItem("theme") !== "dark") {
         $("html").addClass("theme-dark");
@@ -120,10 +119,6 @@ function turnOff() {
     else {
         $("html").removeClass("theme-dark");
         localStorage.setItem("theme", "light");
-    }
-    //版本切换正式上线时去掉这段
-    if (++i > 2) {
-        $(".version-bar").show();
     }
 }
 
