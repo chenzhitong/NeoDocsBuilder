@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html  lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
         var savelang = localStorage.getItem("lang");
         var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
         if (lang != 'zh-cn') lang = 'en-us';
-        location.href = "/faq/" + lang + "/basic.html";
+        location.href = location.href.replace("index.html", lang + "/index.html");
     </script>
 </body>
 

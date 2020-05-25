@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -15,7 +15,7 @@
         var savelang = localStorage.getItem("lang");
         var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
         if (lang != 'zh-cn') lang = 'en-us';
-        location.href = "tutorial/" + lang + "/index.html";
+        location.href = location.href.replace("index.html", lang + "/index.html");
     </script>
 </body>
 
