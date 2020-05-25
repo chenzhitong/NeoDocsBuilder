@@ -42,13 +42,12 @@ window.onload = function () {
     var link = $(".catalog").find("[href='" + pathName + "']")[0];
     $(link).addClass("active");
     $(link).parents("nav").show();
-    setTimeout(function(){ //为 less 编译预留时间
-        $(link).parents("nav").show();
-    }, 200);
     $(link).parents().prev().addClass('expand');
     //导航栏高亮
-    var href = pathName.split('/')[1];
-    $(".navbar-nav [href='/" + href + "/index.html']").each(function () {
+    var length = pathName.split('/').length;
+    var href = pathName.split('/')[length - 3];
+    $(".navbar-nav .nav-link").each(function () {
+        if ($(this).attr("href").indexOf(href) > 0)
         $(this).addClass("active");
     });
 };
@@ -199,8 +198,13 @@ $("#version").change(function () {
     location.href = v + "/docs/" + lang + "/index.html";
 });
 $(function () {
-    if (location.href.indexOf("/v3/") > 0)
+    if (location.href.indexOf("/v3/") > 0) {
         $("#version").val("/v3");
-    else
+        $(".navbar-nav .nav-link").each(function () {
+            $(this).attr("href", "/v3" + $(this).attr("href"));
+        });
+    }
+    else {
         $("#version").val("");
+    }
 });
