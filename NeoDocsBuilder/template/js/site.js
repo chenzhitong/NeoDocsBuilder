@@ -43,6 +43,19 @@ window.onload = function () {
     $(link).addClass("active");
     $(link).parents("nav").show();
     $(link).parents().prev().addClass('expand');
+    //
+    var allLinks = $(".catalog a");
+    for (var i = 1; i < allLinks.length - 1; i++) {
+        if ($(allLinks[i]).attr("href") == pathName) {
+            $("#prevPage").show();
+            $("#nextPage").show();
+            $("#prevPage span").text($(allLinks[i - 1]).text());
+            $("#nextPage span").text($(allLinks[i + 1]).text());
+            $("#prevPage").attr("href", $(allLinks[i - 1]).attr("href"));
+            $("#nextPage").attr("href", $(allLinks[i + 1]).attr("href"));
+            console.log(allLinks[i + 1]);
+        }
+    }
     //导航栏高亮
     var length = pathName.split('/').length;
     var href = pathName.split('/')[length - 3];
@@ -201,7 +214,8 @@ $(function () {
     if (location.href.indexOf("/v3/") > 0) {
         $("#version").val("/v3");
         $(".navbar-nav .nav-link").each(function () {
-            $(this).attr("href", "/v3" + $(this).attr("href"));
+            if ($(this).attr("href").indexOf(".html") > 0)
+                $(this).attr("href", "/v3" + $(this).attr("href"));
         });
     }
     else {

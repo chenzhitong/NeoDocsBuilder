@@ -646,6 +646,10 @@ h6:before {
   box-shadow: 0 0 3px #00af92;
   outline: none;
 }
+#prevPage,
+#nextPage {
+  width: 100%;
+}
 .theme-dark body {
   color: #dcdcdc;
   background-color: #1E1E1E;
