@@ -57,8 +57,7 @@ window.onload = function () {
         }
     }
     //导航栏高亮
-    var length = pathName.split('/').length;
-    var href = pathName.split('/')[length - 3];
+    var href = pathName.replace("/v3", "").split('/')[1];
     $(".navbar-nav .nav-link").each(function () {
         if ($(this).attr("href").indexOf(href) > 0)
         $(this).addClass("active");
@@ -141,15 +140,17 @@ gtag('js', new Date());
 gtag('config', 'UA-130525731-2');
 
 //设置内容图片最大宽度为 min(100%, 700px)
+function setMaxWidth() {
+    $("main img").each(function () {
+        $(this).css("max-width", Math.min(700, $(this).parent().width()));
+    });
+}
 var resize = window.onresize;
 window.onresize = function () {
     if (resize) resize();
-    setMaxWidth();
+    setTimeout(setMaxWidth, 300);
 };
 setMaxWidth();
-function setMaxWidth() {
-    $("main img").css("max-width", Math.min(700, $("main").width()));
-}
 
 $("#sInput").bind({
     focus: function () {
