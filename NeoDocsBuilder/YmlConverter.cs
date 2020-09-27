@@ -11,6 +11,7 @@ namespace NeoDocsBuilder
             var yml = File.ReadAllLines(file);
             var nav = "\r\n<nav class='nav nav-pills flex-column ml-3'>";
             var navend = "\r\n</nav>";
+            var paragraph = "\r\n<p></p>";
             var catalog = nav;
             Link a = new Link();
             var lastDepth = 0;
@@ -19,6 +20,19 @@ namespace NeoDocsBuilder
                 var splitLine = line.Trim().Split(":");
                 switch (splitLine[0])
                 {
+                    case "":
+                        if (!string.IsNullOrEmpty(a.Name))
+                        {
+                            catalog += a.ToHtml();
+                            a = new Link();
+                        }
+                        for (int i = 0; i < lastDepth; i++)
+                        {
+                            catalog += navend;
+                        }
+                        catalog += paragraph;
+                        lastDepth = 0;
+                        break;
                     case "- name":
                         if (!string.IsNullOrEmpty(a.Name))
                         {

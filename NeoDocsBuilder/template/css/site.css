@@ -780,6 +780,12 @@ h6:before {
 .theme-dark a:hover {
   color: #4cffc4;
 }
+.theme-dark .btn-outline-info {
+  color: #17a2b8;
+}
+.theme-dark .btn-outline-info:hover {
+  color: #fff;
+}
 .theme-dark .table-hover tbody tr:hover {
   color: #dcdcdc;
   background-color: rgba(255, 255, 255, 0.075);
