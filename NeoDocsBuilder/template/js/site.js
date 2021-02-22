@@ -142,7 +142,9 @@ gtag('config', 'UA-130525731-2');
 //设置内容图片最大宽度为 min(100%, 700px)
 function setMaxWidth() {
     $("main img").each(function () {
-        $(this).css("max-width", Math.min(700, $(this).parent().width()));
+        var parentWidth = $(this).parent().width();
+        if (parentWidth > 100)
+            $(this).css("max-width", Math.min(700, $(this).parent().width()));
     });
 }
 var resize = window.onresize;
