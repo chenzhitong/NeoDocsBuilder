@@ -178,8 +178,8 @@ $(".search-de").click(function () {
 var url = window.location.origin;
 
 function searchBar() {
-    k = $("#sInput").val();
-    l = localStorage.getItem("lang") || navigator.language || "en-us";
+    var k = $("#sInput").val();
+    var l = localStorage.getItem("lang") || navigator.language || "en-us";
     if (!k) $("#sResult").html("");
     $.ajax({
         type: "GET",
