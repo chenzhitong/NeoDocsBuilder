@@ -214,11 +214,11 @@ $("#version").change(function () {
     location.href = v + "/docs/" + lang + "/index.html";
 });
 $(function () {
-    if (location.href.indexOf("/v3/") > 0) {
-        $("#version").val("/v3");
+    if (location.href.indexOf("/v2/") > 0) {
+        $("#version").val("/v2");
         $(".navbar-nav .nav-link").each(function () {
             if ($(this).attr("href").indexOf(".html") > 0)
-                $(this).attr("href", "/v3" + $(this).attr("href"));
+                $(this).attr("href", "/v2" + $(this).attr("href"));
         });
     }
     else {

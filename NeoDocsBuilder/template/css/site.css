@@ -297,6 +297,7 @@ table.table thead th {
   background-color: rgba(0, 0, 0, 0.04);
   border-bottom: 2px solid #dee2e6;
   border-top: 1px solid #dee2e6;
+  min-width: 105px;
 }
 table.table td {
   vertical-align: middle;
