@@ -29,7 +29,7 @@ namespace SearchEngine
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            FileExtensionContentTypeProvider provider = new FileExtensionContentTypeProvider();
+            FileExtensionContentTypeProvider provider = new();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
             app.UseStaticFiles(new StaticFileOptions()
             {
@@ -46,7 +46,7 @@ namespace SearchEngine
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            using Timer t = new Timer(18000000);
+            using Timer t = new(18000000);
             t.Elapsed += Elapsed;
             t.Start();
             Elapsed(null, null);

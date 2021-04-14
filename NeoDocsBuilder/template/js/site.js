@@ -57,10 +57,10 @@ window.onload = function () {
         }
     }
     //导航栏高亮
-    var href = pathName.replace("/v3", "").split('/')[1];
+    var href = pathName.replace("/v2", "").split('/')[1];
     $(".navbar-nav .nav-link").each(function () {
         if ($(this).attr("href").indexOf(href) > 0)
-        $(this).addClass("active");
+            $(this).addClass("active");
     });
 };
 
@@ -109,8 +109,7 @@ $(function () {
 });
 
 //滚动到底部显示页脚
-function showFooter()
-{
+function showFooter() {
     if ($(document).height() - ($(window).scrollTop() + $(window).height()) < 1) {
         $("footer").attr("style", "display:flex");
     }
@@ -118,7 +117,7 @@ function showFooter()
         $("footer").attr("style", "display:none");
     }
 }
-setTimeout(showFooter,1000);
+setTimeout(showFooter, 1000);
 $(window).scroll(showFooter);
 
 //关灯/开灯
@@ -192,11 +191,10 @@ function searchBar() {
             if (data.length == 0) {
                 html += "<li><a><span> No results found. </span></a></li > ";
             }
-            for (i in data) {
-                var _data = data[i];
-                html += "<li><a href=" + _data.Link + "><strong>" + _data.Title + "</strong><br />";
-                html += "<span>" + _data.Line + "</span></a></li>";
-            }
+            data.forEach(v => {
+                html += "<li><a href=" + v.Link + "><strong>" + v.Title + "</strong><br />";
+                html += "<span>" + v.Line + "</span></a></li>";
+            });
             $("#sResult").html(html);
         },
         fail: function () {

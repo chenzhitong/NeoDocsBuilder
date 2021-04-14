@@ -4,6 +4,6 @@ namespace SearchEngine
 {
     public static class Sources
     {
-        public static List<Page> Pages = new List<Page>();
+        public static List<Page> Pages = new();
     }
 }

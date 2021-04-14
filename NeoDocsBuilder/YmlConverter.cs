@@ -89,7 +89,7 @@ namespace NeoDocsBuilder
         public static StringBuilder errorLog = new StringBuilder();
         private static void LinkCheck(string file, string pathBase, string link)
         {
-            var fullLink = $"{pathBase}{link.TrimStart('/').Replace("v3/", "").Replace("/", "\\")}";
+            var fullLink = $"{pathBase}{link.TrimStart('/').Replace("v2/", "").Replace("/", "\\")}";
             if (Path.GetExtension(fullLink) != ".md") return;
             linkCount++;
             if (File.Exists(fullLink))
