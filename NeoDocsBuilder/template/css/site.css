@@ -441,9 +441,12 @@ h6:before {
   position: fixed;
   right: 0;
   bottom: 3rem;
-  padding: 1rem;
-  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.3rem;
   background-color: #f0f0f0;
+}
+.lightbulb i {
+  cursor: pointer;
 }
 .anchorjs-link {
   font-weight: 400;
@@ -931,4 +934,13 @@ h6:before {
 }
 .theme-dark .version-bar select:focus {
   box-shadow: 0 0 3px #00e599;
+}
+.theme-dark .modal-content {
+  background-color: #232323;
+}
+.theme-dark .modal-header {
+  border-bottom-color: #1E1E1E;
+}
+.theme-dark .modal-footer {
+  border-top-color: #1E1E1E;
 }

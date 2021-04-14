@@ -91,13 +91,13 @@
                 <div class="pr-1">
                     <div class="row my-5">
                         <div class="col-6">
-                            <a class="btn btn-outline-info" id="prevPage" style="display: none">
+                            <a class="btn btn-light" id="prevPage" style="display: none">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                 <span></span>
                             </a>
                         </div>
                         <div class="col-6">
-                            <a class="btn btn-outline-info" id="nextPage" style="display: none">
+                            <a class="btn btn-light" id="nextPage" style="display: none">
                                 <span></span>
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
                             </a>
@@ -114,8 +114,37 @@
             </div>
         </div>
     </div>
-    <div class="lightbulb" title="Turn On/Off" onclick="turnOff()">
-        <i class="far fa-lightbulb"></i>
+    <div class="lightbulb">
+        <i class="far fa-lightbulb mx-2" onclick="turnOff()" title="Turn On/Off"></i>
+        <i class="fas fa-comment-alt mx-2" data-toggle="modal" title="Feedback" data-target="#feedbackModal"></i>
+    </div>
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Send feedback for this current document</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea type="text" rows="5" class="form-control" placeholder="Enter feedback here" id="message"></textarea>
+                    <div id="feedbackspan" class="text-success"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" onclick="submitfeedback()">Send feedback</button>
+                </div>
+
+                <script>
+                    function submitfeedback() {
+                        console.log(location.href);
+                        $.post("/feedback/index", { message: $('#message').val(), url: "'" + location.href + "'" }, function (result) {
+                            $("#feedbackspan").text(result);
+                        });
+                    }
+                </script>
+            </div>
+        </div>
     </div>
     <footer>
         <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">

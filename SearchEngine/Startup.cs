@@ -21,6 +21,7 @@ namespace SearchEngine
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MessageSenderOptions>(Configuration);
             services.AddControllersWithViews();
         }
 

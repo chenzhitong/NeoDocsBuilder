@@ -1,9 +1,11 @@
 ﻿//显示主题
 if (localStorage.getItem("theme") === "dark") {
     $("html").addClass("theme-dark");
+    $(".btn-light").removeClass("btn-light").addClass("btn-dark");
 }
 else {
     $("html").removeClass("theme-dark");
+    $(".btn-dark").removeClass("btn-dark").addClass("btn-light");
 }
 //为中文和英文之间添加空格
 text_replace(".with-space");
@@ -125,10 +127,12 @@ function turnOff() {
     if (localStorage.getItem("theme") !== "dark") {
         $("html").addClass("theme-dark");
         localStorage.setItem("theme", "dark");
+        $(".btn-light").removeClass("btn-light").addClass("btn-dark");
     }
     else {
         $("html").removeClass("theme-dark");
         localStorage.setItem("theme", "light");
+        $(".btn-dark").removeClass("btn-dark").addClass("btn-light");
     }
 }
 

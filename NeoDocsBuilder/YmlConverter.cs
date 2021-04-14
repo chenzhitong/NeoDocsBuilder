@@ -13,7 +13,7 @@ namespace NeoDocsBuilder
             var navend = "\r\n</nav>";
             var paragraph = "\r\n<p></p>";
             var catalog = nav;
-            Link a = new Link();
+            Link a = new();
             var lastDepth = 0;
             foreach (var line in yml)
             {
@@ -86,7 +86,7 @@ namespace NeoDocsBuilder
         }
         public static int linkCount = 0;
         public static int errorLinkCount = 0;
-        public static StringBuilder errorLog = new StringBuilder();
+        public static StringBuilder errorLog = new();
         private static void LinkCheck(string file, string pathBase, string link)
         {
             var fullLink = $"{pathBase}{link.TrimStart('/').Replace("v2/", "").Replace("/", "\\")}";
