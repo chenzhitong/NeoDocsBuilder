@@ -23,6 +23,7 @@ namespace NeoDocsBuilder
                 AllMdFiles.Clear();
                 GetAllMdFiles(item.Origin);
 
+
                 Console.WriteLine("Copy template files……");
                 Files.CopyDirectory(item.Template, item.WebRoot); //复制模板到网站根目录，包括 CSS、JS、字体、图片等，不包含 .md .json .yml
 
@@ -31,6 +32,13 @@ namespace NeoDocsBuilder
 
                 Console.WriteLine("Build catalog……");
                 var catalog = YmlConverter.ToHtml(item.Catalog, Path.GetFullPath(Config.ConfigFile).Replace(Config.ConfigFile, ""));
+                foreach (var md in AllMdFiles)
+                {
+                    if (!catalog.Contains(md.Replace("\\", "/").Replace(".md", ".html")) && !md.Contains("framework"))
+                    {
+                        YmlConverter.ErrorLogs.Add($"The file is not in the catalog: {md}");
+                    }
+                }
                 BuildMarkDown(catalog, item); //对 MarkDown 文件夹进行解析、编译以及样式处理
             }
             var t2 = DateTime.Now;
@@ -38,16 +46,16 @@ namespace NeoDocsBuilder
 
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            if (!string.IsNullOrEmpty(MdConverter.errorLog.ToString()))
+            if (!string.IsNullOrEmpty(MdConverter.ErrorLogs.ToString()))
             {
-                Console.WriteLine(MdConverter.errorLog.ToString());
-                Console.WriteLine($"Content Error Link: {MdConverter.errorLinkCount}/{MdConverter.linkCount}");
+                Console.WriteLine(string.Join("\r\n", MdConverter.ErrorLogs.ToArray()));
+                Console.WriteLine($"Content Error Link: {MdConverter.ErrorLogs.Count}");
             }
 
-            if (!string.IsNullOrEmpty(YmlConverter.errorLog.ToString()))
+            if (!string.IsNullOrEmpty(YmlConverter.ErrorLogs.ToString()))
             {
-                Console.WriteLine(YmlConverter.errorLog.ToString());
-                Console.WriteLine($"Catalog Error Link: {YmlConverter.errorLinkCount}/{YmlConverter.linkCount}");
+                Console.WriteLine(string.Join("\r\n", YmlConverter.ErrorLogs.ToArray()));
+                Console.WriteLine($"Catalog Error Link: {YmlConverter.ErrorLogs.Count}");
             }
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -59,11 +67,27 @@ namespace NeoDocsBuilder
             {
                 Console.WriteLine(e.Message);
             }
-            Console.WriteLine("Press any key to continue...");
-            //Console.ReadKey();
+            Console.WriteLine("Press 'Enter' key in 3 seconds to pause...");
+            Thread t = new(new ThreadStart(ConsolePause));
+            t.Start();
+            var t3 = DateTime.Now;
+            while (true)
+            {
+                if ((DateTime.Now - t3).TotalSeconds > 3 && !isPause)
+                    Environment.Exit(0);
+                Thread.Sleep(100);
+            }
         }
 
-        static readonly List<string> AllMdFiles = new List<string>();
+        static bool isPause;
+
+        private static void ConsolePause()
+        {
+            if (Console.ReadKey().Key == ConsoleKey.Enter)
+                isPause = true;
+        }
+
+        static readonly List<string> AllMdFiles = new();
 
         /// <summary>
         /// 获得当前目录下所有文件列表
@@ -92,6 +116,7 @@ namespace NeoDocsBuilder
                 var git = Path.Combine(config.Git, relativeToOrigin);
                 Build(newFile, catalog, content, title, sideNav, git, config.Template, collapse);
             });
+
         }
 
         /// <summary>
@@ -103,7 +128,7 @@ namespace NeoDocsBuilder
         static (string title, string content, string sideNav) Convert(string file, bool collapse)
         {
             var anchroPoint = new List<string>();
-            MarkdownDocument document = new MarkdownDocument();
+            MarkdownDocument document = new();
             document.Parse(File.ReadAllText(file).Replace("\\|", "&#124;"));
             //文章标题（首个标题的文本）
             string title = null;
@@ -124,11 +149,9 @@ namespace NeoDocsBuilder
                 {
                     //将标题转为不加锚点的 HTML 以求 InnerText
                     html = item.ToHtml(file, string.Empty);
-                    XmlDocument xml = new XmlDocument();
+                    XmlDocument xml = new();
                     xml.LoadXml(html);
                     headerText = xml.InnerText;
-
-                    
 
                     //区分同一篇文章中的重复锚点
                     var itemId = headerText.ToId(0);
@@ -147,10 +170,9 @@ namespace NeoDocsBuilder
 
                     title ??= headerText;
                     sideNav += $"\r\n<a class='ml-{(header.HeaderLevel - 2) * 2}{(header.HeaderLevel == 1 ? " d-none" : "")} my-1 nav-link with-space' href='{itemId.ToAnchorPoint(anchroPointCount)}'>{headerText}</a>";
-
                     lastHeaderLevel = header.HeaderLevel;
                 }
-                html = item.ToHtml(file, headerText, collapse ? $"collapse{anchroPointCount}" : anchroPointCount.ToString());
+                html = item.ToHtml(file, headerText, collapse, anchroPointCount);
 
                 #region collapse
                 //如果 collapse 为 true，则将 h2 下面的所有内容用 <div></div> 包裹起来
@@ -200,7 +222,7 @@ namespace NeoDocsBuilder
         {
             try
             {
-                using StreamWriter sw = new StreamWriter(path);
+                using StreamWriter sw = new(path);
                 sw.WriteLine(File.ReadAllText(Path.Combine(template, "template.html"))
                 .Replace("{title}", title)
                 .Replace("{git}", git)

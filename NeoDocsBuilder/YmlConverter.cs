@@ -1,6 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace NeoDocsBuilder
 {
@@ -84,22 +83,19 @@ namespace NeoDocsBuilder
             }
             return sum / 2;
         }
-        public static int linkCount = 0;
-        public static int errorLinkCount = 0;
-        public static StringBuilder errorLog = new();
+
+        public static readonly List<string> ErrorLogs = new();
         private static void LinkCheck(string file, string pathBase, string link)
         {
             var fullLink = $"{pathBase}{link.TrimStart('/').Replace("v2/", "").Replace("/", "\\")}";
             if (Path.GetExtension(fullLink) != ".md") return;
-            linkCount++;
             if (File.Exists(fullLink))
             {
                 return;
             }
             else
             {
-                errorLog.Append($"\r\nError link: {file} ({link})");
-                errorLinkCount++;
+                ErrorLogs.Add($"Error link: {file} ({link})");
                 return;
             }
         }

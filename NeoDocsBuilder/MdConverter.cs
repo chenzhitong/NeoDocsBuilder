@@ -2,10 +2,9 @@
 using Microsoft.Toolkit.Parsers.Markdown.Blocks;
 using Microsoft.Toolkit.Parsers.Markdown.Inlines;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
 using static System.Web.HttpUtility;
 
@@ -18,7 +17,7 @@ namespace NeoDocsBuilder
         /// </summary>
         /// <param name="block">MarkDown 块级元素</param>
         /// <returns>HTML</returns>
-        public static string ToHtml(this MarkdownBlock block, string file, string innerText, string args = null)
+        public static string ToHtml(this MarkdownBlock block, string file, string innerText, bool isCollapse = false, int? anchroPointCount = null)
         {
             var result = string.Empty;
             switch (block.Type)
@@ -31,8 +30,7 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;
-                    var _class = !string.IsNullOrEmpty(args) && args.StartsWith("collapse") && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
-                    int.TryParse(args, out int anchroPointCount);
+                    var _class = isCollapse && header.HeaderLevel == 2 ? " class='h2-collapse'" : "";
                     result += $"\r\n<h{header.HeaderLevel} id='{innerText.ToId(anchroPointCount)}'{_class}><span class='with-space bd-content-title'>";
                     header.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
                     result += $"<a class='anchorjs-link' href='{innerText.ToAnchorPoint(anchroPointCount)}' aria-label='Anchor' data-anchorjs-icon='#'></a></span></h{header.HeaderLevel}>";
@@ -83,21 +81,13 @@ namespace NeoDocsBuilder
                         if (i == 0)
                         {
                             var type = blockQuote.Blocks[0].ToString().ToUpper().Trim();
-                            string style;
-                            switch (type)
+                            string style = type switch
                             {
-                                case "[!NOTE]":
-                                case "[!INFO]":
-                                case "[!TIP]":
-                                    style = " bd-callout-info"; break;
-                                case "[!WARNING]":
-                                    style = " bd-callout-warning"; break;
-                                case "[!IMPORTANT]":
-                                case "[!DANGER]":
-                                case "[!CAUTION]":
-                                    style = " bd-callout-danger"; break;
-                                default: style = ""; break;
-                            }
+                                "[!NOTE]" or "[!INFO]" or "[!TIP]" => " bd-callout-info",
+                                "[!WARNING]" => " bd-callout-warning",
+                                "[!IMPORTANT]" or "[!DANGER]" or "[!CAUTION]" => " bd-callout-danger",
+                                _ => "",
+                            };
                             if (!string.IsNullOrEmpty(style))
                             {
                                 result += $"\r\n<blockquote class='bd-callout{style} with-space'>";
@@ -273,12 +263,12 @@ namespace NeoDocsBuilder
             };
         }
 
-        public static string ToAnchorPoint(this string input, int count) => $"#{input.ToId(count)}";
+        public static string ToAnchorPoint(this string input, int? count) => $"#{input.ToId(count)}";
 
-        public static string ToId(this string input, int count)
+        public static string ToId(this string input, int? count)
         {
             var id = input.Trim();
-            if (count > 0)
+            if (count != null && count > 0)
             {
                 id = $"{id}-{count}";
             }
@@ -289,25 +279,20 @@ namespace NeoDocsBuilder
 
         public static bool IsExternalLink(this string link) => link.StartsWith("http");
 
-        public static int linkCount = 0;
-        public static int errorLinkCount = 0;
-        public static StringBuilder errorLog = new StringBuilder();
+        public static readonly List<string> ErrorLogs = new();
         private static void LinkCheck(string pathBase, string link)
         {
+            
             var fullPath = Path.GetFullPath(pathBase);
-            if (!link.StartsWith("/"))
-                link = "../" + link;
-            var fullLink = Path.GetFullPath(link, fullPath);
+            var fullLink = Path.GetFullPath(!link.StartsWith("/") ? "../" + link : link, fullPath);
             if (Path.GetExtension(fullLink) != ".md") return;
-            linkCount++;
             if (File.Exists(fullLink))
             {
                 return;
             }
             else
             {
-                errorLog.Append($"\r\nError link: {pathBase} ({link})");
-                errorLinkCount++;
+                ErrorLogs.Add($"Error link: {pathBase} ({link})");
                 return;
             }
         }

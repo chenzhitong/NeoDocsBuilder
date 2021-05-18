@@ -6,7 +6,7 @@ namespace NeoDocsBuilder
 {
     public static class Config
     {
-        public static readonly List<ConfigItem> ConfigList = new List<ConfigItem>();
+        public static readonly List<ConfigItem> ConfigList = new();
         private static string _configFile;
         public static string ConfigFile
         {
