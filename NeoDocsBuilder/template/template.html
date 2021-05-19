@@ -34,52 +34,58 @@
     <link href="/css/site.min.css?v=20200401" rel="stylesheet" />
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
-    <nav class="navbar fixed-top navbar-expand-lg py-1 px-3 px-sm-4 px-md-5">
-        <a class="navbar-brand" href="https://neo.org">
-            <img class="logo" src="/img/logo.svg" alt="NEO Logo" />
-            <img class="logo-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/docs/index.html">Documentation</a>
-                </li>
-                <li class="nav-item" style="margin-right: 100px">
-                    <a class="nav-link" href="/faq/index.html">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0 d-none">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="https://neo.org">
+                <img class="logo d-light" src="/img/logo.svg" alt="NEO Logo" />
+                <img class="logo d-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/docs/index.html">Documentation</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 100px">
+                        <a class="nav-link" href="/faq/index.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="nav-link d-light fas fa-sun" onclick="turnOff()" title="Turn On/Off"></i>
+                        <i class="nav-link d-dark fas fa-moon" onclick="turnOff()" title="Turn On/Off"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 d-none">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </div>
     </nav>
-    <div class="container-fluid" style="margin-top: 55px">
+    <div class="bg-left"></div>
+    <div class="container">
         <div class="row d-flex">
-            <div class="d-none d-md-block catalog py-2 py-md-5 pl-md-3">
-                <div class="version-bar">
-                    <div>Version</div>
-                    <select id="version">
-                        <option value="">Neo (N3)</option>
-                        <option value="/v2">Neo Legacy</option>
-                    </select>
-                </div>
-                <div class="search-bar">
-                    <span class="search-de">X</span>
-                    <input id="sInput" placeholder="search" />
-                    <div class="search-re">
-                        <ul id="sResult"></ul>
+            <div class="d-none d-md-block col-md-3 pl-md-3">
+                <div class="catalog">
+                    <div class="version-bar">
+                        <a class="d-block" href="">Neo (N3)</a>
+                        <a class="d-block" href="/v2">Neo Legacy</a>
                     </div>
+                    <div class="search-bar">
+                        <span class="search-de">X</span>
+                        <input id="sInput" placeholder="search" />
+                        <div class="search-re">
+                            <ul id="sResult"></ul>
+                        </div>
+                    </div>
+                    {catalog}
                 </div>
-                {catalog}
             </div>
-            <main class="p-3 p-sm-4 p-md-5">
+            <main class="col-12 col-md-6 p-3 px-sm-4 px-md-5">
                 <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
                 {body}
                 <div class="pr-1">
@@ -99,7 +105,7 @@
                     </div>
                 </div>
             </main>
-            <div class="d-none d-lg-block side-nav py-2 py-md-5">
+            <div class="d-none d-lg-block col-md-3 side-nav">
                 <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
                 <div class="side-nav-text">In this article</div>
                 <div id="navbar-sidenav">

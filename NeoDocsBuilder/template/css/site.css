@@ -1,13 +1,18 @@
 ﻿html {
-  font-size: 87.5%;
+  font-size: 16px;
 }
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   color: #333;
-  background-color: #fff;
+  background-color: #f7f7f7;
   font-family: Segoe UI, SegoeUI, Segoe WP, Helvetica Neue, Helvetica, Tahoma, Arial, sans-serif, PingFang SC, 'Segoe UI', Tahoma, "Microsoft YaHei", arial, sans-serif;
+}
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1440px;
+  }
 }
 a {
   text-decoration: none;
@@ -22,16 +27,31 @@ a:hover {
   color: #333;
   background-color: rgba(0, 0, 0, 0.075);
 }
-nav .logo,
-nav .logo-dark {
+.d-light {
+  display: block;
+}
+.d-dark {
+  display: none;
+}
+nav.navbar {
+  color: #003;
+  background-color: #fff;
+  padding: 1rem 0;
+}
+nav .logo {
   width: 5.7rem;
 }
-nav .logo-dark {
-  display: none;
+.bg-left {
+  background-color: #fff;
+  width: 50%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: -1;
 }
 .navbar,
 footer > div {
-  background-color: #f8f9fa;
+  background-color: #fff;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -46,44 +66,20 @@ footer > div {
 .navbar-toggler i,
 .navbar-toggler:focus i,
 .navbar-toggler:active i {
-  color: rgba(0, 0, 0, 0.5);
+  color: #003;
 }
 .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5);
+  color: #003;
+  line-height: 2;
   padding-left: 1em !important;
   padding-right: 1em !important;
 }
-.navbar-nav .nav-link.disabled {
-  color: rgba(0, 0, 0, 0.3);
-}
-.navbar-nav .nav-link.active {
-  color: rgba(0, 0, 0, 0.9);
-  border-bottom: 1px solid #00af92;
-}
 .catalog {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  position: fixed;
-  left: 0;
-  width: 18%;
-  height: calc(100vh - 4rem);
-  top: 2rem;
-  padding-left: 0 !important;
-  overflow-x: hidden;
-  overflow-y: auto;
+  background-color: #fff;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-@media only screen and (max-width: 992px) {
-  .catalog {
-    width: 25%;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .catalog {
-    width: 100%;
-  }
 }
 .catalog a,
 .catalog span {
@@ -130,9 +126,7 @@ footer > div {
   height: auto;
 }
 main {
-  position: relative;
-  left: 18%;
-  width: 64%;
+  background-color: #f7f7f7;
   word-break: break-word;
 }
 main .img-fluid {
@@ -156,11 +150,6 @@ main .img-fluid {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 .side-nav {
-  position: fixed;
-  height: calc(100vh - 4rem);
-  top: 4rem;
-  width: 18%;
-  right: 0;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-user-select: none;
@@ -340,6 +329,7 @@ h5,
 h6 {
   line-height: 2;
   pointer-events: none;
+  color: #003;
 }
 h1:before,
 h2:before,
@@ -551,7 +541,7 @@ h6:before {
   right: 15px;
   padding: 4px 8px;
   margin: 1px;
-  background: #fff;
+  background: #f7f7f7;
 }
 .search-bar .search-de:hover {
   color: #333;
@@ -575,14 +565,14 @@ h6:before {
   width: calc(100% - 20px);
   box-shadow: 0 0 8px #CCCCCC;
   box-shadow: 0 0 8px #88888866;
-  background: #fff;
+  background: #f7f7f7;
   overflow-y: auto;
   display: none;
   z-index: 3;
 }
 .search-bar .search-re ul {
   padding-left: 0;
-  background: #fff;
+  background: #f7f7f7;
   margin-bottom: 0;
 }
 .search-bar .search-re ul > li {
@@ -631,25 +621,6 @@ h6:before {
   border-radius: 5px;
   background: transparent;
 }
-.version-bar {
-  padding-left: 10px !important;
-  padding: 1rem 10px;
-  border-radius: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  color: #00af92;
-  background: #fff;
-}
-.version-bar select {
-  margin-top: 3px;
-  border: 1px solid #00af92;
-  padding: 5px 4px;
-  width: 100%;
-  background: #fff;
-}
-.version-bar select:focus {
-  box-shadow: 0 0 3px #00af92;
-  outline: none;
-}
 #prevPage,
 #nextPage {
   width: 100%;
@@ -658,47 +629,52 @@ h6:before {
   color: #dcdcdc;
   background-color: #1E1E1E;
 }
-.theme-dark nav .logo {
+.theme-dark .d-light {
   display: none;
 }
-.theme-dark nav .logo-dark {
+.theme-dark .d-dark {
   display: block;
+}
+.theme-dark nav .navbar {
+  color: #fff;
+  background-color: #000;
 }
 .theme-dark .navbar,
 .theme-dark footer > div {
-  background-color: #232323;
+  background-color: #000;
 }
 .theme-dark .navbar-toggler,
 .theme-dark .navbar-toggler:focus,
 .theme-dark .navbar-toggler:active {
-  outline: none;
   border-color: #444;
 }
 .theme-dark .navbar-toggler i,
 .theme-dark .navbar-toggler:focus i,
 .theme-dark .navbar-toggler:active i {
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 .theme-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
-.theme-dark .navbar-nav .nav-link.disabled {
-  color: rgba(255, 255, 255, 0.3);
+.theme-dark .bg-left {
+  background-color: #000;
 }
-.theme-dark .navbar-nav .nav-link.active {
-  color: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #00e599;
+.theme-dark .catalog {
+  background-color: #000;
 }
 .theme-dark .catalog a,
 .theme-dark .catalog span {
   color: #dcdcdc;
+}
+.theme-dark main {
+  background-color: #1E1E1E;
 }
 .theme-dark .side-nav .nav-pills .nav-link.active {
   color: #dcdcdc;
   background-color: #333;
   border-left: 0.2rem solid #00e599;
 }
-.theme-dark .side-nav-text {
+.theme-dark .side-logotext {
   border-bottom: 1px solid #333;
 }
 .theme-dark .catalog a:hover,
@@ -740,6 +716,14 @@ h6:before {
 }
 .theme-dark .h2-collapse span:first-child:hover {
   color: #00e599;
+}
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark h5,
+.theme-dark h6 {
+  color: #fff;
 }
 .theme-dark .bd-callout {
   border-left: 1px solid #444;
@@ -923,20 +907,8 @@ h6:before {
 .theme-dark .search-bar .search-re::-webkit-scrollbar-track {
   background: transparent;
 }
-.theme-dark .version-bar {
-  color: #dcdcdc;
-  background: #1E1E1E;
-}
-.theme-dark .version-bar select {
-  border: 1px solid #00e599;
-  color: #dcdcdc;
-  background: #1E1E1E;
-}
-.theme-dark .version-bar select:focus {
-  box-shadow: 0 0 3px #00e599;
-}
 .theme-dark .modal-content {
-  background-color: #232323;
+  background-color: #000;
 }
 .theme-dark .modal-header {
   border-bottom-color: #1E1E1E;

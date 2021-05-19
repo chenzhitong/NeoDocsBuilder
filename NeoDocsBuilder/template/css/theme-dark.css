@@ -2,47 +2,52 @@
   color: #dcdcdc;
   background-color: #1E1E1E;
 }
-.theme-dark nav .logo {
+.theme-dark .d-light {
   display: none;
 }
-.theme-dark nav .logo-dark {
+.theme-dark .d-dark {
   display: block;
+}
+.theme-dark nav .navbar {
+  color: #fff;
+  background-color: #000;
 }
 .theme-dark .navbar,
 .theme-dark footer > div {
-  background-color: #232323;
+  background-color: #000;
 }
 .theme-dark .navbar-toggler,
 .theme-dark .navbar-toggler:focus,
 .theme-dark .navbar-toggler:active {
-  outline: none;
   border-color: #444;
 }
 .theme-dark .navbar-toggler i,
 .theme-dark .navbar-toggler:focus i,
 .theme-dark .navbar-toggler:active i {
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
 .theme-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
 }
-.theme-dark .navbar-nav .nav-link.disabled {
-  color: rgba(255, 255, 255, 0.3);
+.theme-dark .bg-left {
+  background-color: #000;
 }
-.theme-dark .navbar-nav .nav-link.active {
-  color: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #00e599;
+.theme-dark .catalog {
+  background-color: #000;
 }
 .theme-dark .catalog a,
 .theme-dark .catalog span {
   color: #dcdcdc;
+}
+.theme-dark main {
+  background-color: #1E1E1E;
 }
 .theme-dark .side-nav .nav-pills .nav-link.active {
   color: #dcdcdc;
   background-color: #333;
   border-left: 0.2rem solid #00e599;
 }
-.theme-dark .side-nav-text {
+.theme-dark .side-logotext {
   border-bottom: 1px solid #333;
 }
 .theme-dark .catalog a:hover,
@@ -84,6 +89,14 @@
 }
 .theme-dark .h2-collapse span:first-child:hover {
   color: #00e599;
+}
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark h5,
+.theme-dark h6 {
+  color: #fff;
 }
 .theme-dark .bd-callout {
   border-left: 1px solid #444;
@@ -267,20 +280,8 @@
 .theme-dark .search-bar .search-re::-webkit-scrollbar-track {
   background: transparent;
 }
-.theme-dark .version-bar {
-  color: #dcdcdc;
-  background: #1E1E1E;
-}
-.theme-dark .version-bar select {
-  border: 1px solid #00e599;
-  color: #dcdcdc;
-  background: #1E1E1E;
-}
-.theme-dark .version-bar select:focus {
-  box-shadow: 0 0 3px #00e599;
-}
 .theme-dark .modal-content {
-  background-color: #232323;
+  background-color: #000;
 }
 .theme-dark .modal-header {
   border-bottom-color: #1E1E1E;

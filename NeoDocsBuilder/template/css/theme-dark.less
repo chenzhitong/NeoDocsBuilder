@@ -1,7 +1,9 @@
 ﻿@dark-link: #00e599;
 @dark-link-hover: lighten(@dark-link, 20%);
 @dark-text: #dcdcdc;
+@dark-logotext: #fff;
 @dark-background: #1E1E1E;
+@dark-background2: #000;
 @dark-code-bg: #232323;
 @dark-catalog-hover: #333;
 @dark-text-info: #5bc0de;
@@ -10,10 +12,6 @@
 @dark-text-info-bg: #222728;
 @dark-text-warning-bg: #27261c;
 @dark-text-danger-bg: #292524;
-@dark-nav-bg: #232323;
-@dark-nav-text: rgba(255,255,255,.5);
-@dark-nav-text-active: rgba(255,255,255,.9);
-@dark-nav-text-disabled: rgba(255,255,255,.3);
 @dark-table-border: #444;
 @dark-table-thead-bg: rgba(255,255,255,.04);
 
@@ -23,46 +21,51 @@
         background-color: @dark-background;
     }
 
-    nav .logo {
+    .d-light {
         display: none;
     }
 
-    nav .logo-dark {
+    .d-dark {
         display: block;
     }
 
+    nav .navbar {
+        color: @dark-logotext;
+        background-color: @dark-background2;
+    }
+
     .navbar, footer > div {
-        background-color: @dark-nav-bg;
+        background-color: @dark-background2;
     }
 
     .navbar-toggler, .navbar-toggler:focus, .navbar-toggler:active {
-        outline: none;
         border-color: @dark-table-border;
 
         i {
-            color: @dark-nav-text;
+            color: @dark-logotext;
         }
     }
 
     .navbar-nav {
         .nav-link {
-            color: @dark-nav-text;
-        }
-
-        .nav-link.disabled {
-            color: @dark-nav-text-disabled;
-        }
-
-        .nav-link.active {
-            color: @dark-nav-text-active;
-            border-bottom: 1px solid @dark-link;
+            color: @dark-logotext;
         }
     }
 
+    .bg-left {
+        background-color: @dark-background2;
+    }
+
     .catalog {
+        background-color: @dark-background2;
+
         a, span {
             color: @dark-text;
         }
+    }
+
+    main {
+        background-color: @dark-background;
     }
 
     .side-nav {
@@ -73,7 +76,7 @@
         }
     }
 
-    .side-nav-text {
+    .side-logotext {
         border-bottom: 1px solid @dark-catalog-hover;
     }
 
@@ -129,6 +132,10 @@
         span:first-child:hover {
             color: @dark-link;
         }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: @dark-logotext;
     }
 
     .bd-callout {
@@ -342,23 +349,8 @@
         }
     }
 
-    .version-bar {
-        color: @dark-text;
-        background: @dark-background;
-
-        select {
-            border: 1px solid @dark-link;
-            color: @dark-text;
-            background: @dark-background;
-
-            &:focus {
-                box-shadow: 0 0 3px @dark-link;
-            }
-        }
-    }
-
     .modal-content {
-        background-color: @dark-nav-bg;
+        background-color: @dark-background2;
     }
 
     .modal-header {
