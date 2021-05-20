@@ -33,10 +33,13 @@ a:hover {
 .d-dark {
   display: none;
 }
+nav .navbar-brand {
+  padding: 0;
+}
 nav.navbar {
   color: #003;
   background-color: #fff;
-  padding: 1rem 0;
+  padding: 14px 0;
 }
 nav .logo {
   width: 5.7rem;
@@ -74,16 +77,34 @@ footer > div {
   padding-left: 1em !important;
   padding-right: 1em !important;
 }
+.version-bar {
+  padding: 22px 0;
+}
+.version-bar a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+}
+.version-bar a.n3 {
+  color: #003;
+}
 .catalog {
   background-color: #fff;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  position: sticky;
+  top: 76px;
 }
-.catalog a,
-.catalog span {
+.catalog nav a,
+.catalog nav span {
   color: #333;
+}
+.catalog > nav > a,
+.catalog > nav > span {
+  color: #003;
+  font-weight: 700;
 }
 .catalog .nav-pills .nav-link {
   border-radius: 0;
@@ -102,6 +123,10 @@ footer > div {
   margin-right: 0.3rem;
   margin-left: -0.6rem;
   transition: transform 0.5s;
+  float: right;
+  color: #b7bec3;
+  font-size: 10px;
+  line-height: 2;
 }
 .catalog .expand i {
   transform: rotate(90deg);
@@ -109,11 +134,11 @@ footer > div {
 .catalog a,
 .catalog span {
   cursor: pointer;
-  padding: 0.2em 1em;
+  padding: 0.2em 0;
 }
 .catalog > nav {
   margin-bottom: 3rem;
-  margin-left: 10px !important;
+  margin-left: 0 !important;
 }
 .catalog > nav nav {
   display: none;
@@ -156,16 +181,11 @@ main .img-fluid {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  position: sticky;
+  top: 76px;
 }
 .side-nav > div {
   margin-bottom: 3rem;
-}
-.side-nav .nav-pills .nav-link.active {
-  border-radius: 0;
-  padding-left: 0.8rem;
-  color: #333;
-  background-color: #f0f0f0;
-  border-left: 0.2rem solid #00af92;
 }
 .side-nav nav {
   width: 100%;
@@ -182,8 +202,7 @@ main .img-fluid {
 }
 .side-nav a:not(.contribution-link) {
   display: block;
-  padding-top: 0.15em;
-  padding-bottom: 0.15em;
+  padding: 0.15em 0;
   color: #777;
   font-size: 0.9rem;
   border-radius: 0;
@@ -197,12 +216,11 @@ main .img-fluid {
 .catalog span:hover,
 .side-nav a:not(.contribution-link):hover {
   color: #00af92;
-  background-color: #f0f0f0;
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #00af92;
+  color: #00af92;
+  background-color: transparent;
 }
 footer {
   display: none;
@@ -530,7 +548,7 @@ h6:before {
 }
 .search-bar {
   position: relative;
-  padding: 1rem 10px;
+  padding: 6px 0;
 }
 .search-bar:hover .search-re {
   display: block;
@@ -539,9 +557,10 @@ h6:before {
   color: #00af92;
   position: absolute;
   right: 15px;
-  padding: 4px 8px;
+  padding: 1px 8px;
   margin: 1px;
-  background: #f7f7f7;
+  /*        background: @light-background;
+*/
 }
 .search-bar .search-de:hover {
   color: #333;
@@ -550,7 +569,6 @@ h6:before {
   width: 100%;
   padding-left: 10px;
   border: 1px solid #00af92;
-  padding: 5px 8px;
 }
 .search-bar #sInput:focus {
   box-shadow: 0 0 3px #00af92;
@@ -659,20 +677,28 @@ h6:before {
 .theme-dark .bg-left {
   background-color: #000;
 }
+.theme-dark .version-bar a {
+  color: #dcdcdc;
+}
+.theme-dark .version-bar a.n3 {
+  color: #fff;
+}
 .theme-dark .catalog {
   background-color: #000;
 }
-.theme-dark .catalog a,
-.theme-dark .catalog span {
+.theme-dark .catalog nav a,
+.theme-dark .catalog nav span {
   color: #dcdcdc;
+}
+.theme-dark .catalog > nav > a,
+.theme-dark .catalog > nav > span {
+  color: #fff;
+}
+.theme-dark .catalog i {
+  color: #474e43;
 }
 .theme-dark main {
   background-color: #1E1E1E;
-}
-.theme-dark .side-nav .nav-pills .nav-link.active {
-  color: #dcdcdc;
-  background-color: #333;
-  border-left: 0.2rem solid #00e599;
 }
 .theme-dark .side-logotext {
   border-bottom: 1px solid #333;
@@ -682,7 +708,7 @@ h6:before {
 .theme-dark .catalog span:hover,
 .theme-dark .side-nav a:not(.contribution-link):hover {
   color: #00e599;
-  background-color: #333;
+  background-color: transparent;
 }
 .theme-dark footer ul > :nth-child(n+2):before {
   border-left: 1px solid #444;
@@ -869,7 +895,8 @@ h6:before {
 }
 .theme-dark .search-bar .search-de {
   color: #00e599;
-  background: #1E1E1E;
+  /*            background: @dark-background;
+*/
 }
 .theme-dark .search-bar .search-de:hover {
   color: #00ffaa;

@@ -34,7 +34,7 @@
     <link href="/css/site.min.css?v=20200401" rel="stylesheet" />
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar fixed-top navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="https://neo.org">
                 <img class="logo d-light" src="/img/logo.svg" alt="NEO Logo" />
@@ -51,6 +51,15 @@
                     <li class="nav-item" style="margin-right: 100px">
                         <a class="nav-link" href="/faq/index.html">FAQ</a>
                     </li>
+                    <li>
+                        <div class="search-bar">
+                            <span class="search-de">X</span>
+                            <input id="sInput" placeholder="search" />
+                            <div class="search-re">
+                                <ul id="sResult"></ul>
+                            </div>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <i class="nav-link d-light fas fa-sun" onclick="turnOff()" title="Turn On/Off"></i>
                         <i class="nav-link d-dark fas fa-moon" onclick="turnOff()" title="Turn On/Off"></i>
@@ -59,28 +68,17 @@
                         <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0 d-none">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
     <div class="bg-left"></div>
-    <div class="container">
+    <div class="container" style="margin-top: 76px">
         <div class="row d-flex">
             <div class="d-none d-md-block col-md-3 pl-md-3">
                 <div class="catalog">
                     <div class="version-bar">
-                        <a class="d-block" href="">Neo (N3)</a>
-                        <a class="d-block" href="/v2">Neo Legacy</a>
-                    </div>
-                    <div class="search-bar">
-                        <span class="search-de">X</span>
-                        <input id="sInput" placeholder="search" />
-                        <div class="search-re">
-                            <ul id="sResult"></ul>
-                        </div>
+                        <a class="my-1 d-block n3" href="">Neo (N3)</a>
+                        <a class="my-1 d-block" href="/v2">Neo Legacy</a>
                     </div>
                     {catalog}
                 </div>
@@ -105,11 +103,13 @@
                     </div>
                 </div>
             </main>
-            <div class="d-none d-lg-block col-md-3 side-nav">
-                <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
-                <div class="side-nav-text">In this article</div>
-                <div id="navbar-sidenav">
-                    {sideNav}
+            <div class="d-none d-lg-block col-md-3">
+                <div class="side-nav">
+                    <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
+                    <div class="side-nav-text">In this article</div>
+                    <div id="navbar-sidenav">
+                        {sideNav}
+                    </div>
                 </div>
             </div>
         </div>

@@ -32,20 +32,28 @@
 .theme-dark .bg-left {
   background-color: #000;
 }
+.theme-dark .version-bar a {
+  color: #dcdcdc;
+}
+.theme-dark .version-bar a.n3 {
+  color: #fff;
+}
 .theme-dark .catalog {
   background-color: #000;
 }
-.theme-dark .catalog a,
-.theme-dark .catalog span {
+.theme-dark .catalog nav a,
+.theme-dark .catalog nav span {
   color: #dcdcdc;
+}
+.theme-dark .catalog > nav > a,
+.theme-dark .catalog > nav > span {
+  color: #fff;
+}
+.theme-dark .catalog i {
+  color: #474e43;
 }
 .theme-dark main {
   background-color: #1E1E1E;
-}
-.theme-dark .side-nav .nav-pills .nav-link.active {
-  color: #dcdcdc;
-  background-color: #333;
-  border-left: 0.2rem solid #00e599;
 }
 .theme-dark .side-logotext {
   border-bottom: 1px solid #333;
@@ -55,7 +63,7 @@
 .theme-dark .catalog span:hover,
 .theme-dark .side-nav a:not(.contribution-link):hover {
   color: #00e599;
-  background-color: #333;
+  background-color: transparent;
 }
 .theme-dark footer ul > :nth-child(n+2):before {
   border-left: 1px solid #444;
@@ -242,7 +250,8 @@
 }
 .theme-dark .search-bar .search-de {
   color: #00e599;
-  background: #1E1E1E;
+  /*            background: @dark-background;
+*/
 }
 .theme-dark .search-bar .search-de:hover {
   color: #00ffaa;

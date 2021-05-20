@@ -1,4 +1,5 @@
 ﻿@dark-link: #00e599;
+@dark-border: #474e43;
 @dark-link-hover: lighten(@dark-link, 20%);
 @dark-text: #dcdcdc;
 @dark-logotext: #fff;
@@ -56,24 +57,38 @@
         background-color: @dark-background2;
     }
 
+    .version-bar {
+        a {
+            color: @dark-text;
+
+            &.n3 {
+                color: @dark-logotext;
+            }
+        }
+    }
+
     .catalog {
         background-color: @dark-background2;
 
-        a, span {
-            color: @dark-text;
+        nav {
+            a, span {
+                color: @dark-text;
+            }
+        }
+
+        & > nav {
+            & > a, & > span {
+                color: @dark-logotext;
+            }
+        }
+
+        i {
+            color: @dark-border;
         }
     }
 
     main {
         background-color: @dark-background;
-    }
-
-    .side-nav {
-        .nav-pills .nav-link.active {
-            color: @dark-text;
-            background-color: @dark-catalog-hover;
-            border-left: 0.2rem solid @dark-link;
-        }
     }
 
     .side-logotext {
@@ -85,7 +100,7 @@
     .catalog span:hover,
     .side-nav a:not(.contribution-link):hover {
         color: @dark-link;
-        background-color: @dark-catalog-hover;
+        background-color: transparent;
     }
 
     footer {
@@ -296,8 +311,8 @@
 
         .search-de {
             color: @dark-link;
-            background: @dark-background;
-
+            /*            background: @dark-background;
+*/
             &:hover {
                 color: #00ffaa;
             }
