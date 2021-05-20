@@ -35,7 +35,7 @@
 </head>
 <body data-spy="scroll" data-target="#navbar-sidenav">
     <nav class="navbar fixed-top navbar-expand-lg">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="https://neo.org">
                 <img class="logo d-light" src="/img/logo.svg" alt="NEO Logo" />
                 <img class="logo d-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/docs/index.html">Documentation</a>
                     </li>
-                    <li class="nav-item" style="margin-right: 100px">
+                    <li class="nav-item">
                         <a class="nav-link" href="/faq/index.html">FAQ</a>
                     </li>
                     <li>
@@ -72,9 +72,9 @@
         </div>
     </nav>
     <div class="bg-left"></div>
-    <div class="container" style="margin-top: 76px">
+    <div class="container-fluid" style="margin-top: 76px">
         <div class="row d-flex">
-            <div class="d-none d-md-block col-md-3 pl-md-3">
+            <div class="d-none d-md-block col-md-3 col-xl-2">
                 <div class="catalog">
                     <div class="version-bar">
                         <a class="my-1 d-block n3" href="">Neo (N3)</a>
@@ -83,7 +83,7 @@
                     {catalog}
                 </div>
             </div>
-            <main class="col-12 col-md-6 p-3 px-sm-4 px-md-5">
+            <main class="col-12 col-md-9 col-xl-8 p-3 px-sm-4 px-md-5">
                 <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
                 {body}
                 <div class="pr-1">
@@ -103,9 +103,10 @@
                     </div>
                 </div>
             </main>
-            <div class="d-none d-lg-block col-md-3">
+            <div class="d-none d-lg-block col-lg-3 col-xl-2">
                 <div class="side-nav">
                     <a href="{git}" class="contribution-link d-block">Improve this Doc</a>
+                    <a class="contribution-link d-block" data-toggle="modal" title="Feedback" data-target="#feedbackModal">Send feedback</a>
                     <div class="side-nav-text">In this article</div>
                     <div id="navbar-sidenav">
                         {sideNav}
@@ -113,10 +114,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="lightbulb">
-        <i class="far fa-lightbulb mx-2" onclick="turnOff()" title="Turn On/Off"></i>
-        <i class="fas fa-comment-alt mx-2" data-toggle="modal" title="Feedback" data-target="#feedbackModal"></i>
     </div>
     <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -146,16 +143,14 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
-            <ul class="d-none d-md-block">
-                <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
-                <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
-                <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
-            </ul>
-            <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
-            <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
-        </div>
+    <footer class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
+        <ul class="d-none d-md-block">
+            <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+            <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
+        </ul>
+        <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
+        <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
     </footer>
     <script src="https://neo3.azureedge.net/lib/jquery/jquery.min.js"></script>
     <script src="https://neo3.azureedge.net/lib/popper.js/popper.min.js"></script>

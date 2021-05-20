@@ -4,10 +4,6 @@
     "inputFile": "template/css/site.less"
   },
   {
-    "outputFile": "template/css/theme-dark.css",
-    "inputFile": "template/css/theme-dark.less"
-  },
-  {
     "outputFile": "template/js/site.min.js",
     "inputFile": "template/js/site.js"
   }

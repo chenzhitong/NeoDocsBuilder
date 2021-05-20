@@ -5,7 +5,7 @@
 @light-logotext: #003;
 @light-background: #f7f7f7;
 @light-background2: #fff;
-@light-code-bg: #f8f9fa;
+@light-code-bg: #edeeef;
 @light-catalog-hover: #f0f0f0;
 @light-text-info: #5bc0de;
 @light-text-warning: #f0ad4e;
@@ -29,10 +29,8 @@ body {
     font-family: Segoe UI,SegoeUI,Segoe WP,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif,PingFang SC,'Segoe UI',Tahoma, "Microsoft YaHei",arial, sans-serif;
 }
 
-.container {
-    @media (min-width:1600px) {
-        max-width: 1440px
-    }
+.container-fluid {
+    max-width: 1170px
 }
 
 a {
@@ -65,8 +63,6 @@ nav {
     }
 
     &.navbar {
-        color: @light-logotext;
-        background-color: @light-background2;
         padding: 14px 0;
     }
 
@@ -84,7 +80,7 @@ nav {
     z-index: -1;
 }
 
-.navbar, footer > div {
+.navbar, footer {
     background-color: @light-background2;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -107,11 +103,14 @@ nav {
         line-height: 2;
         padding-left: 1em !important;
         padding-right: 1em !important;
+        font-weight: 700;
     }
 }
 
 .version-bar {
-    padding: 22px 0;
+    padding: 21px 0;
+    border-bottom: 1px solid rgba(128,128,128,.2);
+    margin-bottom: 1rem;
 
     a {
         color: @light-text;
@@ -206,16 +205,6 @@ main {
     .img-fluid {
         background: #fff;
     }
-
-    @media only screen and (max-width: 992px) {
-        left: 25%;
-        width: 75%;
-    }
-
-    @media only screen and (max-width: 768px) {
-        left: 0;
-        width: 100%;
-    }
 }
 
 .highlight {
@@ -248,10 +237,7 @@ main {
     }
 
     .side-nav-text {
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-        font-weight: bold;
-        border-bottom: 1px solid @light-catalog-hover;
+
     }
 
     a:not(.contribution-link) {
@@ -280,15 +266,6 @@ main {
 }
 
 footer {
-    display: none;
-
-    & > div {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-
     ul {
         list-style: none;
         padding: 0;
@@ -328,6 +305,7 @@ footer {
 
 main {
     letter-spacing: .03em;
+    min-height: calc(100vh - 116px);
 }
 
 .highlight {
@@ -353,9 +331,9 @@ main {
 }
 
 h1 {
-    padding-bottom: .8rem;
+    padding-bottom: 1.2rem;
     margin-bottom: 1.2rem;
-    border-bottom: 1px solid @light-catalog-hover;
+    border-bottom: 1px solid rgba(128,128,128,.2);
 }
 
 h2, h3, h4, h5, h6 {
@@ -526,19 +504,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.lightbulb {
-    position: fixed;
-    right: 0;
-    bottom: 3rem;
-    padding: .5rem;
-    font-size: 1.3rem;
-    background-color: @light-catalog-hover;
-
-    i {
-        cursor: pointer;
-    }
-}
-
 .anchorjs-link {
     font-weight: 400;
     color: fade(@light-link, 20%);
@@ -643,6 +608,7 @@ h1, h2, h3, h4, h5, h6 {
 .search-bar {
     position: relative;
     padding: 6px 0;
+    width: 230px;
 
     &:hover {
         .search-re {
@@ -653,11 +619,9 @@ h1, h2, h3, h4, h5, h6 {
     .search-de {
         color: @light-link;
         position: absolute;
-        right: 15px;
+        right: 0;
         padding: 1px 8px;
         margin: 1px;
-        /*        background: @light-background;
-*/
         &:hover {
             color: #333;
         }
@@ -690,6 +654,8 @@ h1, h2, h3, h4, h5, h6 {
         overflow-y: auto;
         display: none;
         z-index: 3;
+        padding: 0 1rem;
+        width: 100%;
 
         ul {
             padding-left: 0;

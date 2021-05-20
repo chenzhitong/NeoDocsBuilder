@@ -110,18 +110,6 @@ $(function () {
     $(".bd-callout-danger h4").prepend("<i class='fas fa-exclamation-triangle'></i>");
 });
 
-//滚动到底部显示页脚
-function showFooter() {
-    if ($(document).height() - ($(window).scrollTop() + $(window).height()) < 1) {
-        $("footer").attr("style", "display:flex");
-    }
-    else {
-        $("footer").attr("style", "display:none");
-    }
-}
-setTimeout(showFooter, 1000);
-$(window).scroll(showFooter);
-
 //关灯/开灯
 function turnOff() {
     if (localStorage.getItem("theme") !== "dark") {

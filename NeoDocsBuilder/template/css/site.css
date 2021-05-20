@@ -9,10 +9,8 @@ body {
   background-color: #f7f7f7;
   font-family: Segoe UI, SegoeUI, Segoe WP, Helvetica Neue, Helvetica, Tahoma, Arial, sans-serif, PingFang SC, 'Segoe UI', Tahoma, "Microsoft YaHei", arial, sans-serif;
 }
-@media (min-width: 1600px) {
-  .container {
-    max-width: 1440px;
-  }
+.container-fluid {
+  max-width: 1170px;
 }
 a {
   text-decoration: none;
@@ -37,8 +35,6 @@ nav .navbar-brand {
   padding: 0;
 }
 nav.navbar {
-  color: #003;
-  background-color: #fff;
   padding: 14px 0;
 }
 nav .logo {
@@ -53,7 +49,7 @@ nav .logo {
   z-index: -1;
 }
 .navbar,
-footer > div {
+footer {
   background-color: #fff;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -76,9 +72,12 @@ footer > div {
   line-height: 2;
   padding-left: 1em !important;
   padding-right: 1em !important;
+  font-weight: 700;
 }
 .version-bar {
-  padding: 22px 0;
+  padding: 21px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  margin-bottom: 1rem;
 }
 .version-bar a {
   color: #333;
@@ -157,18 +156,6 @@ main {
 main .img-fluid {
   background: #fff;
 }
-@media only screen and (max-width: 992px) {
-  main {
-    left: 25%;
-    width: 75%;
-  }
-}
-@media only screen and (max-width: 768px) {
-  main {
-    left: 0;
-    width: 100%;
-  }
-}
 .highlight {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -194,12 +181,6 @@ main .img-fluid {
   margin-top: 0.85rem;
   margin-bottom: 1rem;
 }
-.side-nav .side-nav-text {
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-  border-bottom: 1px solid #f0f0f0;
-}
 .side-nav a:not(.contribution-link) {
   display: block;
   padding: 0.15em 0;
@@ -221,15 +202,6 @@ main .img-fluid {
 .nav-pills .show > .nav-link {
   color: #00af92;
   background-color: transparent;
-}
-footer {
-  display: none;
-}
-footer > div {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 footer ul {
   list-style: none;
@@ -262,13 +234,14 @@ footer a:hover {
 }
 main {
   letter-spacing: 0.03em;
+  min-height: calc(100vh - 116px);
 }
 .highlight {
   position: relative;
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  background-color: #f8f9fa;
+  background-color: #edeeef;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 .highlight pre {
@@ -285,9 +258,9 @@ main {
   }
 }
 h1 {
-  padding-bottom: 0.8rem;
+  padding-bottom: 1.2rem;
   margin-bottom: 1.2rem;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 h2,
 h3,
@@ -318,7 +291,7 @@ li {
   display: none;
   border-radius: 0.25rem;
   margin-bottom: 1em;
-  background-color: #f8f9fa;
+  background-color: #edeeef;
 }
 .div-collapse p:last-child {
   margin-bottom: 0;
@@ -445,17 +418,6 @@ h6:before {
   color: #fff;
   background-color: #00af92;
 }
-.lightbulb {
-  position: fixed;
-  right: 0;
-  bottom: 3rem;
-  padding: 0.5rem;
-  font-size: 1.3rem;
-  background-color: #f0f0f0;
-}
-.lightbulb i {
-  cursor: pointer;
-}
 .anchorjs-link {
   font-weight: 400;
   color: rgba(0, 175, 146, 0.2);
@@ -480,7 +442,7 @@ h6:before {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #f8f9fa;
+  background: #edeeef;
   color: black;
 }
 .hljs-comment,
@@ -549,6 +511,7 @@ h6:before {
 .search-bar {
   position: relative;
   padding: 6px 0;
+  width: 230px;
 }
 .search-bar:hover .search-re {
   display: block;
@@ -556,11 +519,9 @@ h6:before {
 .search-bar .search-de {
   color: #00af92;
   position: absolute;
-  right: 15px;
+  right: 0;
   padding: 1px 8px;
   margin: 1px;
-  /*        background: @light-background;
-*/
 }
 .search-bar .search-de:hover {
   color: #333;
@@ -587,6 +548,8 @@ h6:before {
   overflow-y: auto;
   display: none;
   z-index: 3;
+  padding: 0 1rem;
+  width: 100%;
 }
 .search-bar .search-re ul {
   padding-left: 0;
@@ -658,7 +621,7 @@ h6:before {
   background-color: #000;
 }
 .theme-dark .navbar,
-.theme-dark footer > div {
+.theme-dark footer {
   background-color: #000;
 }
 .theme-dark .navbar-toggler,
