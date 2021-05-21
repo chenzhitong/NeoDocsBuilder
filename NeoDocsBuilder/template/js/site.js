@@ -105,9 +105,10 @@ function showCatalog() {
 }
 //为块引用添加图标
 $(function () {
-    $(".bd-callout-info h4").prepend("<i class='fas fa-info-circle'></i>");
-    $(".bd-callout-warning h4").prepend("<i class='fas fa-exclamation-circle'></i>");
-    $(".bd-callout-danger h4").prepend("<i class='fas fa-exclamation-triangle'></i>");
+    $(".bd-callout-info").prepend("<img src='/img/info.svg'/>");
+    $(".bd-callout-warning").prepend("<img src='/img/warning.svg'/>");
+    $(".bd-callout-danger").prepend("<img src='/img/danger.svg'/>");
+    $(".bd-callout").not(".bd-callout-info").not(".bd-callout-warning").not(".bd-callout-danger").prepend("<img src='/img/callout.svg'/>");
 });
 
 //关灯/开灯

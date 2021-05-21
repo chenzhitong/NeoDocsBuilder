@@ -1,20 +1,14 @@
 ﻿@dark-link: #00e599;
 @dark-border: #474e43;
-@dark-link-hover: lighten(@dark-link, 20%);
 @dark-text: #dcdcdc;
 @dark-logotext: #fff;
 @dark-background: #1E1E1E;
-@dark-background2: #000;
-@dark-code-bg: #232323;
+@dark-background2: #101010;
 @dark-catalog-hover: #333;
-@dark-text-info: #5bc0de;
-@dark-text-warning: #f0ad4e;
-@dark-text-danger: #d9534f;
-@dark-text-info-bg: #222728;
-@dark-text-warning-bg: #27261c;
-@dark-text-danger-bg: #292524;
-@dark-table-border: #444;
-@dark-table-thead-bg: rgba(255,255,255,.04);
+@dark-text-info: #1890FF;
+@dark-text-warning: #FAAD14;
+@dark-text-danger: #FF4D4F;
+@dark-code-bg: #101010;
 
 .theme-dark {
     body {
@@ -40,7 +34,7 @@
     }
 
     .navbar-toggler, .navbar-toggler:focus, .navbar-toggler:active {
-        border-color: @dark-table-border;
+        border-color: @dark-border;
 
         i {
             color: @dark-logotext;
@@ -105,14 +99,14 @@
 
     footer {
         ul > :nth-child(n+2):before {
-            border-left: 1px solid @dark-table-border;
+            border-left: 1px solid @dark-border;
         }
 
         a {
             color: @dark-link;
 
             &:hover {
-                color: @dark-link-hover;
+                color: @dark-link;
             }
         }
     }
@@ -125,18 +119,13 @@
         border-bottom: 1px solid @dark-catalog-hover;
     }
 
-    table.table {
-        border-bottom: 1px solid @dark-table-border;
+    code {
         color: @dark-text;
-
-        thead th {
-            background-color: @dark-table-thead-bg;
-            border-bottom: 2px solid @dark-table-border;
-        }
+        background-color: @dark-code-bg;
     }
 
-    .table td, .table th {
-        border-top: 1px solid @dark-table-border;
+    table.table {
+        color: @dark-text;
     }
 
     .div-collapse {
@@ -149,39 +138,26 @@
         }
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6, th {
         color: @dark-logotext;
     }
 
     .bd-callout {
-        border-left: 1px solid @dark-table-border;
+        border-left: 3px solid @dark-border;
+        background-color: @dark-background2;
     }
 
     .bd-callout-info {
         border-left-color: @dark-text-info;
-        background-color: @dark-text-info-bg;
-
-        h4 {
-            color: @dark-text-info;
-        }
     }
 
     .bd-callout-warning {
         border-left-color: @dark-text-warning;
-        background-color: @dark-text-warning-bg;
-
-        h4 {
-            color: @dark-text-warning;
-        }
     }
 
     .bd-callout-danger {
         border-left-color: @dark-text-danger;
-        background-color: @dark-text-danger-bg;
-
-        h4 {
-            color: @dark-text-danger;
-        }
+        background-color: @dark-background2;
     }
 
     .btn-clipboard {
@@ -199,7 +175,7 @@
         color: fade(@dark-link, 20%);
 
         &:hover {
-            color: @dark-link-hover;
+            color: @dark-link;
         }
     }
 
@@ -207,7 +183,7 @@
         color: @dark-link;
 
         &:hover {
-            color: @dark-link-hover;
+            color: @dark-link;
         }
     }
 

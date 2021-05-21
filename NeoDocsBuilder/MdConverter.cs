@@ -106,7 +106,7 @@ namespace NeoDocsBuilder
                     result += "\r\n</blockquote>";
                     break;
                 case MarkdownBlockType.Table:
-                    result += "\r\n<figure class='with-space'><table class='table table-hover'>";
+                    result += "\r\n<figure class='with-space'><table class='table'>";
                     var table = block as TableBlock;
                     for (int i = 0; i < table.Rows.Count; i++)
                     {
