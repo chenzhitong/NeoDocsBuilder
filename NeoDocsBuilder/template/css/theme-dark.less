@@ -1,4 +1,4 @@
-﻿@dark-link: #00e599;
+﻿@dark-link: #00AF92;
 @dark-border: #474e43;
 @dark-text: #dcdcdc;
 @dark-logotext: #fff;
@@ -89,12 +89,24 @@
         border-bottom: 1px solid @dark-catalog-hover;
     }
 
+    .side-nav {
+        border-left: 1px solid @dark-border;
+    }
+
+    .contribution-link {
+        border: 1px solid @dark-logotext;
+        color: @dark-logotext;
+
+        i {
+            color: @dark-logotext;
+        }
+    }
+
     .catalog a:hover,
     .catalog a.active,
     .catalog span:hover,
     .side-nav a:not(.contribution-link):hover {
         color: @dark-link;
-        background-color: transparent;
     }
 
     footer {
@@ -283,24 +295,25 @@
     }
     //docs search bar
     .search-bar {
-        border-bottom: 1px solid rgba(0,0,0,.1);
+        .fa-search {
+            color: @dark-logotext;
+        }
 
         .search-de {
-            color: @dark-link;
-            /*            background: @dark-background;
-*/
+            color: @dark-logotext;
+
             &:hover {
-                color: #00ffaa;
+                color: @dark-text;
             }
         }
 
         #sInput {
-            border: 1px solid @dark-link;
+            border: 1px solid @dark-border;
             background: @dark-background;
             color: @dark-text;
 
             &:focus {
-                box-shadow: 0 0 5px @dark-link;
+                box-shadow: 0 0 5px @dark-border;
             }
         }
 
@@ -350,5 +363,39 @@
 
     .modal-footer {
         border-top-color: @dark-background;
+    }
+
+    #prevPage {
+        border: 1px solid @dark-border;
+        background-color: @dark-background2;
+
+        i {
+            color: @dark-logotext;
+        }
+
+        div {
+            color: @dark-border;
+        }
+
+        .prevText {
+            color: @dark-logotext;
+        }
+    }
+
+    #nextPage {
+        border: 1px solid @dark-border;
+        background-color: @dark-background2;
+
+        div {
+            color: @dark-border;
+        }
+
+        i {
+            color: @dark-logotext;
+        }
+
+        .nextText {
+            color: @dark-logotext;
+        }
     }
 }

@@ -51,8 +51,8 @@ window.onload = function () {
         if ($(allLinks[i]).attr("href") == pathName) {
             $("#prevPage").show();
             $("#nextPage").show();
-            $("#prevPage span").text($(allLinks[i - 1]).text());
-            $("#nextPage span").text($(allLinks[i + 1]).text());
+            $("#prevPage .prevText").text($(allLinks[i - 1]).text());
+            $("#nextPage .nextText").text($(allLinks[i + 1]).text());
             $("#prevPage").attr("href", $(allLinks[i - 1]).attr("href"));
             $("#nextPage").attr("href", $(allLinks[i + 1]).attr("href"));
             console.log(allLinks[i + 1]);

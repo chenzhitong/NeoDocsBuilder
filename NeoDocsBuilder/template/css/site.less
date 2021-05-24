@@ -1,4 +1,4 @@
-﻿@light-link: #00af92;
+﻿@light-link: #00AF92;
 @light-border: #b7bec3;
 @light-text: #333;
 @light-logotext: #003;
@@ -376,7 +376,7 @@ main {
 
     .anchorjs-link {
         font-weight: 400;
-        color: fade(@light-link, 20%);
+        color: @light-link;
         transition: color .15s ease-in-out,opacity .15s ease-in-out;
         opacity: 0;
         -webkit-font-smoothing: antialiased;
@@ -428,23 +428,27 @@ main {
     -ms-user-select: none;
     user-select: none;
     position: sticky;
-    top: 76px;
-
-    & > div {
-        margin-bottom: 3rem;
-    }
+    top: 135px;
+    border-left: 1px solid @light-border;
+    padding-left: 1rem;
 
     nav {
         width: 100%;
     }
 
     .contribution-link {
-        margin-top: .85rem;
+        margin-top: 0;
         margin-bottom: 1rem;
-    }
+        border: 1px solid @light-logotext;
+        padding: 5px 12px;
+        color: @light-logotext;
+        text-decoration: none;
+        cursor: pointer;
 
-    .side-nav-text {
-
+        i {
+            color: @light-logotext;
+            margin-right: 6px;
+        }
     }
 
     a:not(.contribution-link) {
@@ -465,6 +469,7 @@ main {
 .catalog span:hover,
 .side-nav a:not(.contribution-link):hover {
     color: @light-link;
+    font-weight: 700;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -601,7 +606,7 @@ footer {
     }
 
     .fa-search {
-        color: @light-link;
+        color: @light-logotext;
         position: absolute;
         left: 0;
         padding: 5px;
@@ -609,7 +614,7 @@ footer {
     }
 
     .search-de {
-        color: @light-link;
+        color: @light-logotext;
         position: absolute;
         right: 0;
         padding: 1px 8px;
@@ -623,10 +628,10 @@ footer {
     #sInput {
         width: 100%;
         padding-left: 2rem;
-        border: 1px solid @light-link;
+        border: 1px solid @light-border;
 
         &:focus {
-            box-shadow: 0 0 3px @light-link;
+            box-shadow: 0 0 3px @light-border;
             outline: none;
         }
 
@@ -716,8 +721,62 @@ footer {
     }
 }
 
-#prevPage, #nextPage {
+#prevPage {
     width: 100%;
+    position: relative;
+    border: 1px solid @light-border;
+    text-align: right;
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    background-color: @light-background2;
+    i {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        margin-top: -8px;
+        color: @light-logotext;
+    }
+
+    div {
+        color: @light-border;
+        font-size: 10px;
+    }
+
+    .prevText {
+        font-weight: 700;
+        font-size: 14px;
+        color: @light-logotext;
+    }
+}
+#nextPage {
+    width: 100%;
+    position: relative;
+    border: 1px solid @light-border;
+    text-align: left;
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    background-color: @light-background2;
+
+    div {
+        color: @light-border;
+        font-size: 10px;
+    }
+
+    i {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        margin-top: -8px;
+        color: @light-logotext;
+    }
+
+    .nextText {
+        font-weight: 700;
+        font-size: 14px;
+        color: @light-logotext;
+    }
 }
 
 .table-hover tbody tr:hover {
