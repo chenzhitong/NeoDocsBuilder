@@ -75,7 +75,7 @@
     <div class="bg-left"></div>
     <div class="container-fluid" style="margin-top: 76px">
         <div class="row d-flex">
-            <div class="d-none d-md-block col-md-3 col-xl-2" id="catalog_div">
+            <div class="col-12 col-md-3" id="catalog_div">
                 <div class="catalog">
                     <div class="version-bar">
                         <a class="my-1 d-block n3" href="">Neo (N3)</a>
@@ -84,8 +84,8 @@
                     {catalog}
                 </div>
             </div>
-            <main class="col-12 col-md-9 col-xl-8 p-3 px-sm-4 px-md-5">
-                <a class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+            <main class="col-12 col-md-9 col-xl-7 p-3 px-sm-4 px-md-5">
+                <a id="catalogToggle" class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
                 {body}
                 <div class="pr-1">
                     <div class="row my-5">

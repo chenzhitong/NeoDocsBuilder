@@ -20,7 +20,9 @@ body {
   font-family: NunitoSans, PingFang SC, "Microsoft YaHei", arial, sans-serif;
 }
 .container-fluid {
-  max-width: 1170px;
+  max-width: 1350px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }
 a {
   text-decoration: none;
@@ -42,6 +44,9 @@ nav .navbar-brand {
 }
 nav.navbar {
   padding: 14px 0;
+}
+nav .navbar-toggler {
+  padding: 12.4px;
 }
 nav .logo {
   width: 5.7rem;
@@ -93,6 +98,9 @@ footer {
 .version-bar a.n3 {
   color: #003;
 }
+#catalog_div {
+  background-color: #fff;
+}
 .catalog {
   background-color: #fff;
   -webkit-user-select: none;
@@ -101,6 +109,16 @@ footer {
   user-select: none;
   position: sticky;
   top: 76px;
+}
+@media (max-width: 768px) {
+  .catalog {
+    display: none;
+  }
+  .catalog.show {
+    display: block !important;
+    position: static;
+    height: auto;
+  }
 }
 .catalog nav a,
 .catalog nav span {
@@ -139,7 +157,7 @@ footer {
 .catalog a,
 .catalog span {
   cursor: pointer;
-  padding: 0.2em 0;
+  padding: 0.3em 0;
 }
 .catalog > nav {
   margin-bottom: 3rem;
@@ -149,11 +167,6 @@ footer {
   display: none;
   overflow: hidden;
   max-width: 100%;
-}
-.catalog.show {
-  display: block !important;
-  position: static;
-  height: auto;
 }
 main {
   background-color: #f7f7f7;
@@ -387,6 +400,7 @@ main .highlight pre {
   top: 135px;
   border-left: 1px solid #b7bec3;
   padding-left: 1rem;
+  margin-left: -1rem;
 }
 .side-nav nav {
   width: 100%;
@@ -399,6 +413,7 @@ main .highlight pre {
   color: #003;
   text-decoration: none;
   cursor: pointer;
+  width: 90%;
 }
 .side-nav .contribution-link i {
   color: #003;
@@ -528,8 +543,8 @@ footer a:hover {
 }
 .search-bar {
   position: relative;
-  padding: 10px 0;
-  width: 230px;
+  padding: 10px 1rem;
+  width: 270px;
 }
 .search-bar:hover .search-re {
   display: block;
@@ -537,14 +552,14 @@ footer a:hover {
 .search-bar .fa-search {
   color: #003;
   position: absolute;
-  left: 0;
+  left: 1rem;
   padding: 5px;
   margin: 1px;
 }
 .search-bar .search-de {
   color: #003;
   position: absolute;
-  right: 0;
+  right: 1rem;
   padding: 1px 8px;
   margin: 1px;
 }
@@ -722,6 +737,9 @@ footer a:hover {
 }
 .theme-dark .version-bar a.n3 {
   color: #fff;
+}
+.theme-dark #catalog_div {
+  background-color: #101010;
 }
 .theme-dark .catalog {
   background-color: #101010;

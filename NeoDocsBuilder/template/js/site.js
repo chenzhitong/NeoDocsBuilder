@@ -45,7 +45,7 @@ window.onload = function () {
     $(link).addClass("active");
     $(link).parents("nav").show();
     $(link).parents().prev().addClass('expand');
-    //
+    //上一页下一页
     var allLinks = $(".catalog a");
     for (var i = 1; i < allLinks.length - 1; i++) {
         if ($(allLinks[i]).attr("href") == pathName) {
@@ -195,7 +195,7 @@ function searchBar() {
         }
     });
 }
-
+//版本切换
 $("#version").change(function () {
     var savelang = localStorage.getItem("lang");
     var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
@@ -216,3 +216,54 @@ $(function () {
         $("#version").val("");
     }
 });
+
+//Only for Neo docs
+$("#sInput2").bind({
+    focus: function () {
+        searchBar();
+    },
+    keyup: function (e) {
+        clearTimeout();
+        if (e.which == 13) {
+            searchBar();
+        }
+        setTimeout(searchBar, 300);
+    },
+    paste: function () {
+        searchBar();
+    }
+});
+
+$(".search-de2").click(function () {
+    $("#sInput2").val("");
+    $("#sResult2").html("");
+})
+
+var url = window.location.origin;
+
+function searchBar() {
+    var k = $("#sInput2").val();
+    var l = localStorage.getItem("lang") || navigator.language || "en-us";
+    if (!k) $("#sResult2").html("");
+    $.ajax({
+        type: "GET",
+        url: url + "/?k=" + encodeURIComponent(k) + "&l=" + encodeURIComponent(l),
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = ""
+
+            if (data.length == 0) {
+                html += "<li><a><span> No results found. </span></a></li > ";
+            }
+            data.forEach(v => {
+                html += "<li><a href=" + v.Link + "><strong>" + v.Title + "</strong><br />";
+                html += "<span>" + v.Line + "</span></a></li>";
+            });
+            $("#sResult2").html(html);
+        },
+        fail: function () {
+            alert("fail");
+        }
+    });
+}
