@@ -253,12 +253,16 @@ main th:before {
   height: 4rem;
   margin-top: -4rem;
 }
+main a > code {
+  color: inherit !important;
+}
 main code {
   font-size: 1rem;
   color: #333;
   background-color: #fff;
   padding: 1px 0.25rem;
   font-family: inherit;
+  word-break: keep-all;
 }
 main table.table {
   border-bottom: 1px solid #b7bec3;

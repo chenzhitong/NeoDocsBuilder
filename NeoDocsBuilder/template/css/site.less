@@ -288,13 +288,16 @@ main {
             margin-top: -4rem;
         }
     }
-
+    a > code{
+        color: inherit !important;
+    }
     code {
         font-size: 1rem;
         color: @light-text;
         background-color: @light-code-bg;
         padding: 1px .25rem;
         font-family: inherit;
+        word-break: keep-all;
     }
 
     table.table {
