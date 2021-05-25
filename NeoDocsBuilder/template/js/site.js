@@ -211,31 +211,29 @@ $(function () {
     }
 });
 
-//Only for Neo docs
+//Only for Neo docs homepage
 $("#sInput2").bind({
     focus: function () {
-        searchBar();
+        searchBar2();
     },
     keyup: function (e) {
         clearTimeout();
         if (e.which == 13) {
-            searchBar();
+            searchBar2();
         }
-        setTimeout(searchBar, 300);
+        setTimeout(searchBar2, 300);
     },
     paste: function () {
-        searchBar();
+        searchBar2();
     }
 });
-
+//Only for Neo docs homepage
 $(".search-de2").click(function () {
     $("#sInput2").val("");
     $("#sResult2").html("");
 })
-
-var url = window.location.origin;
-
-function searchBar() {
+//Only for Neo docs homepage
+function searchBar2() {
     var k = $("#sInput2").val();
     var l = localStorage.getItem("lang") || navigator.language || "en-us";
     if (!k) $("#sResult2").html("");
