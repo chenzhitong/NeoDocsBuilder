@@ -58,12 +58,6 @@ window.onload = function () {
             console.log(allLinks[i + 1]);
         }
     }
-    //导航栏高亮
-    var href = pathName.replace("/v2", "").split('/')[1];
-    $(".navbar-nav .nav-link").each(function () {
-        if ($(this).attr("href").indexOf(href) > 0)
-            $(this).addClass("active");
-    });
 };
 
 //懒加载
