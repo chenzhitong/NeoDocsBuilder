@@ -585,7 +585,8 @@ footer a:hover {
   padding: 10px 1rem;
   width: 180px;
 }
-.search-bar:hover .search-re {
+.search-bar:hover .search-re,
+.search-bar:hover .search-de {
   display: block;
 }
 .search-bar .fa-search {
@@ -602,6 +603,7 @@ footer a:hover {
   right: 1rem;
   padding: 1px 8px;
   margin: 1px;
+  cursor: pointer;
 }
 .search-bar .search-de:hover {
   color: #333;

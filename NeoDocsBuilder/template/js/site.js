@@ -162,13 +162,11 @@ $("#sInput").bind({
 $(".search-de").click(function () {
     $("#sInput").val("");
     $("#sResult").html("");
-    $(".search-de").hide();
 })
 
 var url = window.location.origin;
 
 function searchBar() {
-    $(".search-de").show();
     var k = $("#sInput").val();
     var l = localStorage.getItem("lang") || navigator.language || "en-us";
     if (!k) $("#sResult").html("");
@@ -232,11 +230,9 @@ $("#sInput2").bind({
 $(".search-de2").click(function () {
     $("#sInput2").val("");
     $("#sResult2").html("");
-    $(".search-de2").hide();
 })
 //Only for Neo docs homepage
 function searchBar2() {
-    $(".search-de2").show();
     var k = $("#sInput2").val();
     var l = localStorage.getItem("lang") || navigator.language || "en-us";
     if (!k) $("#sResult2").html("");
