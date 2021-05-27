@@ -1,6 +1,6 @@
 ﻿@light-link: #00AF92;
-@light-border: #b7bec3;
-@light-text: #333;
+@light-border: #d4d4d4;
+@light-text: #636363;
 @light-logotext: #003;
 @light-background: #f7f7f7;
 @light-background2: #fff;
@@ -8,8 +8,7 @@
 @light-text-info: #1890FF;
 @light-text-warning: #FAAD14;
 @light-text-danger: #FF4D4F;
-@light-code-bg: #fff;
-
+@light-code-bg: #fbfbfb;
 
 @font-face {
     font-family: 'NunitoSans';
@@ -68,13 +67,19 @@ nav {
 
     &.navbar {
         padding: 14px 0;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
     }
 
-    .navbar-toggler{
+    .navbar-toggler {
         padding: 12.4px;
     }
+
     .logo {
         width: 5.7rem;
+    }
+
+    .nav-item i {
+        font-size: 16px;
     }
 }
 
@@ -120,19 +125,21 @@ nav {
     margin-bottom: 1rem;
 
     a {
-        color: @light-text;
+        color: @light-logotext;
 
-        &.n3 {
-            color: @light-logotext;
+        &.active {
+            color: @light-link;
         }
 
         text-decoration: none;
         font-weight: 700;
     }
 }
+
 #catalog_div {
     background-color: @light-background2;
 }
+
 .catalog {
     background-color: @light-background2;
     -webkit-user-select: none;
@@ -172,14 +179,6 @@ nav {
         overflow: hidden;
     }
 
-    span::before {
-        content: attr(data-icon);
-        display: inline-block;
-        width: 1rem;
-        margin-left: -1rem;
-        color: gray;
-    }
-
     i {
         margin-right: .3rem;
         margin-left: -.6rem;
@@ -196,7 +195,7 @@ nav {
 
     a, span {
         cursor: pointer;
-        padding: .3em 0;
+        padding: .3rem 1rem;
     }
 
     & > nav {
@@ -208,6 +207,11 @@ nav {
         display: none;
         overflow: hidden;
         max-width: 100%;
+    }
+
+    .nav-pills .show > .nav-link {
+        color: @light-link;
+        background-color: transparent;
     }
 }
 
@@ -234,7 +238,7 @@ main {
     h2 {
         font-size: 2rem;
         line-height: 1.2;
-        margin: 0.7em 0 0.2em;
+        margin: 2em 0 0.2em;
         padding: 0 0 .75rem;
         font-weight: 700;
         border-bottom: 1px solid rgba(128,128,128,.2);
@@ -263,7 +267,7 @@ main {
 
     p, ul, ol {
         font-size: 1rem;
-        line-height: 2;
+        line-height: 1.5;
         margin: 1.5em 0 1.5em;
         font-weight: 400;
     }
@@ -288,20 +292,42 @@ main {
             margin-top: -4rem;
         }
     }
-    a > code{
+
+    a > code {
         color: inherit !important;
     }
-    code {
+
+    p code {
         font-size: 1rem;
         color: @light-text;
-        background-color: @light-code-bg;
+        background-color: rgba(0, 0, 0, 0.07);
         padding: 1px .25rem;
         font-family: inherit;
         word-break: keep-all;
     }
 
+    figure code.hljs {
+        max-height: 228px;
+        overflow: scroll;
+        padding: 53px 32px 0;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        &::-webkit-scrollbar-track {
+            border-radius: 5px;
+            background: transparent;
+        }
+    }
+
     table.table {
-        border-bottom: 1px solid @light-border;
         color: @light-text;
 
         thead th {
@@ -309,11 +335,12 @@ main {
             border-bottom: none;
             border-top: none;
             min-width: 105px;
+            border-bottom: 1px solid rgba(128, 128, 128, .4);
         }
 
         td {
             vertical-align: middle;
-            border-top: 1px solid @light-border;
+            border-bottom: 1px solid rgba(128, 128, 128, .2);
         }
     }
 
@@ -378,17 +405,16 @@ main {
         margin-bottom: 0;
     }
 
-    .btn-clipboard, .btn-clipboard:focus {
+    .btn-clipboard, .btn-showall {
         position: absolute;
         top: .5rem;
-        right: .5rem;
         z-index: 10;
         display: block;
         padding: .25rem .5rem;
         font-size: 75%;
         color: #818a91;
-        background-color: transparent;
-        border: 0;
+        background-color: @light-background;
+        border: 1px solid @light-border;
         outline: none;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -397,8 +423,17 @@ main {
 
         &:hover {
             color: #fff;
-            background-color: @light-link;
+            background-color: @light-logotext;
+            border: 1px solid @light-logotext;
         }
+    }
+
+    .btn-clipboard {
+        right: 1rem;
+    }
+
+    .btn-showall {
+        right: 4.5rem;
     }
 
     .anchorjs-link {
@@ -427,10 +462,8 @@ main {
     .highlight {
         margin-top: 1rem;
         margin-bottom: 1rem;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
         position: relative;
-        padding: 1rem;
-        background-color: @light-code-bg;
+        padding: 0;
 
         pre {
             padding: 0;
@@ -439,10 +472,6 @@ main {
             background-color: transparent;
             border: 0;
             font-size: 1rem;
-        }
-
-        @media (min-width: 576px) {
-            padding: 1.5rem;
         }
     }
 }
@@ -457,22 +486,35 @@ main {
     position: sticky;
     top: 135px;
     border-left: 1px solid @light-border;
-    padding-left: 1rem;
-    margin-left: -1rem;
+    padding-left: 10px;
+    margin-left: -10px;
 
     nav {
         width: 100%;
     }
 
+    .side-nav-text {
+        margin-left: 10px;
+    }
+
     .contribution-link {
-        margin-top: 0;
-        margin-bottom: 1rem;
+        margin: 0 .5rem 1rem .7rem;
         border: 1px solid @light-logotext;
         padding: 5px 12px;
         color: @light-logotext;
         text-decoration: none;
         cursor: pointer;
-        width: 90%;
+        width: 156px;
+        font-size: 14px;
+
+        &:hover {
+            color: @light-background2;
+            background-color: @light-logotext;
+
+            i {
+                color: @light-background2;
+            }
+        }
 
         i {
             color: @light-logotext;
@@ -482,31 +524,40 @@ main {
 
     a:not(.contribution-link) {
         display: block;
-        padding: .15em 0;
-        color: #777;
+        padding: 2px 10px;
+        color: rgba(128, 128, 128, .8);
         font-size: .9rem;
         border-radius: 0;
         overflow-x: hidden;
         text-overflow: ellipsis;
         width: 100%;
         white-space: nowrap;
+        text-decoration: none;
+
+        &.active {
+            color: @light-link;
+            background-color: transparent;
+            border-left: 3px solid @light-link;
+            padding-left: 7px;
+        }
     }
 }
 
-.catalog a:hover,
-.catalog a.active,
-.catalog span:hover,
-.side-nav a:not(.contribution-link):hover {
+.catalog .nav-pills .nav-link.active {
     color: @light-link;
+    background-color: transparent;
     font-weight: 700;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: @light-link;
-    background-color: transparent;
+.catalog a:hover,
+.catalog span:hover,
+.side-nav a:not(.contribution-link):hover {
+    background: rgba(128, 128, 128, 0.1);
 }
 
 footer {
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+
     ul {
         list-style: none;
         padding: 0;
@@ -626,7 +677,7 @@ footer {
 .search-bar {
     position: relative;
     padding: 10px 1rem;
-    width: 270px;
+    width: 180px;
 
     &:hover {
         .search-re {
@@ -643,6 +694,7 @@ footer {
     }
 
     .search-de {
+        display: none;
         color: @light-logotext;
         position: absolute;
         right: 1rem;
@@ -656,7 +708,8 @@ footer {
 
     #sInput {
         width: 100%;
-        padding-left: 2rem;
+        font-size: 14px;
+        padding-left: 1.6rem;
         border: 1px solid @light-border;
 
         &:focus {
@@ -673,42 +726,41 @@ footer {
 
     .search-re {
         position: absolute;
-        max-height: 500px;
-        width: calc( 100% - 20px );
-        box-shadow: 0 0 8px #CCCCCC;
-        box-shadow: 0 0 8px #88888866;
-        background: @light-background;
+        max-height: 560px;
+        width: 280px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+        background: @light-background2;
         overflow-y: auto;
         display: none;
         z-index: 3;
-        padding: 0 1rem;
         width: 100%;
 
         ul {
             padding-left: 0;
-            background: @light-background;
+            background: @light-background2;
             margin-bottom: 0;
 
             & > li {
                 list-style: none;
-                border-top: 1px solid #CCCCCC;
-                border-top: 1px solid #88888866;
 
                 a {
                     display: inline-block;
                     width: 100%;
                     padding-bottom: 6px;
+                    padding: 0 1rem;
 
                     &:hover {
-                        color: @light-link !important;
+                        background-color: @light-background;
                     }
                 }
 
                 strong {
                     display: inline-block;
-                    padding-top: 5px;
+                    padding-bottom: .75rem;
+                    margin: .75rem 0;
                     font-size: 1.1rem;
-                    color: @light-link;
+                    color: @light-logotext;
+                    border-bottom: 1px solid rgba(128, 128, 128, .2);
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -718,9 +770,10 @@ footer {
 
                 span {
                     display: inline-block;
-                    padding: 0;
-                    color: rgba(50, 50, 50, 0.70);
-                    line-height: 1.6;
+                    padding: 0 0 .75rem;
+                    color: rgba(0, 0, 0, 0.6);
+                    line-height: 1.5;
+                    font-size: 14px;
                     word-break: break-all;
                 }
 
@@ -730,8 +783,6 @@ footer {
                 }
             }
         }
-
-
 
         &::-webkit-scrollbar {
             width: 8px;
@@ -750,18 +801,17 @@ footer {
     }
 }
 
-#prevPage {
+#prevPage, #nextPage {
     width: 100%;
     position: relative;
     border: 1px solid @light-border;
-    text-align: right;
     display: block;
     padding: .5rem 1rem;
     text-decoration: none;
     background-color: @light-background2;
+
     i {
         position: absolute;
-        left: 1rem;
         top: 50%;
         margin-top: -8px;
         color: @light-logotext;
@@ -772,39 +822,40 @@ footer {
         font-size: 10px;
     }
 
-    .prevText {
+    .prevText, .nextText {
         font-weight: 700;
         font-size: 14px;
         color: @light-logotext;
+    }
+
+    &:hover {
+        border: 1px solid @light-link;
+
+        i {
+            color: @light-link;
+        }
+
+        div {
+            color: fade(@light-link, 40%);
+        }
+
+        .prevText, .nextText {
+            color: @light-link;
+        }
     }
 }
-#nextPage {
-    width: 100%;
-    position: relative;
-    border: 1px solid @light-border;
-    text-align: left;
-    display: block;
-    padding: .5rem 1rem;
-    text-decoration: none;
-    background-color: @light-background2;
 
-    div {
-        color: @light-border;
-        font-size: 10px;
-    }
-
+#prevPage {
+    text-align: right;
     i {
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        margin-top: -8px;
-        color: @light-logotext;
+        left: 1rem;
     }
+}
 
-    .nextText {
-        font-weight: 700;
-        font-size: 14px;
-        color: @light-logotext;
+#nextPage {
+    text-align: left;
+    i {
+        right: 1rem;
     }
 }
 
@@ -812,4 +863,5 @@ footer {
     color: @light-text;
     background-color: rgba(0,0,0,.075);
 }
+
 @import "theme-dark.less";

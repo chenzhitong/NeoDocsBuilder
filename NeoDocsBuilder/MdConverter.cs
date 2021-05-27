@@ -26,7 +26,7 @@ namespace NeoDocsBuilder
                     var code = block as CodeBlock;
                     var lang = string.IsNullOrEmpty(code.CodeLanguage) ? "" : $" class='{code.CodeLanguage.ToHlJs()}' lang='{HtmlEncode(code.CodeLanguage.ToHlJs())}'";
                     var encode = HtmlEncode(code.Text);
-                    result += $"\r\n<figure class='highlight'>\r\n<button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{encode}'>Copy</button><pre><code{lang}>{encode}\r\n</code></pre>\r\n</figure>";
+                    result += $"\r\n<figure class='highlight'>\r\n<button type='button' class='btn-showall' onclick='showAll(this)'>Show all</button><button type='button' class='btn-clipboard' data-original-title='Copy to clipboard' data-clipboard-action='copy' data-toggle='tooltip' data-placement='top' title='Copy to clipboard' data-clipboard-text='{encode}'>Copy</button><pre><code{lang}>{encode}\r\n</code></pre>\r\n</figure>";
                     break;
                 case MarkdownBlockType.Header:
                     var header = block as HeaderBlock;

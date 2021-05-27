@@ -55,7 +55,6 @@ window.onload = function () {
             $("#nextPage .nextText").text($(allLinks[i + 1]).text());
             $("#prevPage").attr("href", $(allLinks[i - 1]).attr("href"));
             $("#nextPage").attr("href", $(allLinks[i + 1]).attr("href"));
-            console.log(allLinks[i + 1]);
         }
     }
 };
@@ -118,7 +117,11 @@ function turnOff() {
         $(".btn-dark").removeClass("btn-dark").addClass("btn-light");
     }
 }
-
+$("#navbar-sidenav .nav-link").each(function () {
+    if ($(this).next("nav").length > 0) {
+        $(this).removeClass("nav-link")
+    }
+});
 //Google Analyse
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
@@ -159,11 +162,13 @@ $("#sInput").bind({
 $(".search-de").click(function () {
     $("#sInput").val("");
     $("#sResult").html("");
+    $(".search-de").hide();
 })
 
 var url = window.location.origin;
 
 function searchBar() {
+    $(".search-de").show();
     var k = $("#sInput").val();
     var l = localStorage.getItem("lang") || navigator.language || "en-us";
     if (!k) $("#sResult").html("");
@@ -190,26 +195,22 @@ function searchBar() {
     });
 }
 //版本切换
-$("#version").change(function () {
-    var savelang = localStorage.getItem("lang");
-    var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
-    if (lang != 'zh-cn') lang = 'en-us';
-    var v = $(this).children('option:selected').val();
-
-    location.href = v + "/docs/" + lang + "/index.html";
-});
 $(function () {
     if (location.href.indexOf("/v2/") > 0) {
-        $("#version").val("/v2");
+        $(".n2").addClass("active");
         $(".navbar-nav .nav-link").each(function () {
             if ($(this).attr("href").indexOf(".html") > 0)
                 $(this).attr("href", "/v2" + $(this).attr("href"));
         });
     }
     else {
-        $("#version").val("");
+        $(".n3").addClass("active");
     }
 });
+
+function showAll(obj) {
+    $(obj).parent().find("code").css("max-height", "initial");
+}
 
 //Only for Neo docs homepage
 $("#sInput2").bind({
@@ -231,9 +232,11 @@ $("#sInput2").bind({
 $(".search-de2").click(function () {
     $("#sInput2").val("");
     $("#sResult2").html("");
+    $(".search-de2").hide();
 })
 //Only for Neo docs homepage
 function searchBar2() {
+    $(".search-de2").show();
     var k = $("#sInput2").val();
     var l = localStorage.getItem("lang") || navigator.language || "en-us";
     if (!k) $("#sResult2").html("");

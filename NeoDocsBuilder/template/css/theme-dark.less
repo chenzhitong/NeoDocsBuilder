@@ -1,6 +1,6 @@
 ﻿@dark-link: #00AF92;
 @dark-border: #474e43;
-@dark-text: #dcdcdc;
+@dark-text: #9d9d9d;
 @dark-logotext: #fff;
 @dark-background: #1E1E1E;
 @dark-background2: #101010;
@@ -8,7 +8,7 @@
 @dark-text-info: #1890FF;
 @dark-text-warning: #FAAD14;
 @dark-text-danger: #FF4D4F;
-@dark-code-bg: #101010;
+@dark-code-bg: #2e2e2e;
 
 .theme-dark {
     body {
@@ -53,10 +53,10 @@
 
     .version-bar {
         a {
-            color: @dark-text;
+            color: @dark-logotext;
 
             &.n3 {
-                color: @dark-logotext;
+                color: @dark-link;
             }
         }
     }
@@ -101,16 +101,18 @@
         border: 1px solid @dark-logotext;
         color: @dark-logotext;
 
+        &:hover {
+            color: @dark-background2;
+            background-color: @dark-logotext;
+
+            i {
+                color: @dark-background2;
+            }
+        }
+
         i {
             color: @dark-logotext;
         }
-    }
-
-    .catalog a:hover,
-    .catalog a.active,
-    .catalog span:hover,
-    .side-nav a:not(.contribution-link):hover {
-        color: @dark-link;
     }
 
     footer {
@@ -135,9 +137,19 @@
         border-bottom: 1px solid @dark-catalog-hover;
     }
 
-    code {
+    p code {
         color: @dark-text;
-        background-color: @dark-code-bg;
+        background-color: rgba(255, 255, 255, 0.07);
+    }
+
+    figure code.hljs {
+        max-height: 228px;
+        overflow: scroll;
+        padding: 53px 32px 0;
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+        }
     }
 
     table.table {
@@ -176,10 +188,14 @@
         background-color: @dark-background2;
     }
 
-    .btn-clipboard {
+    .btn-clipboard, .btn-showall {
+        background-color: @dark-background;
+        border: 1px solid @dark-border;
+
         &:hover {
-            color: #fff;
-            background-color: @dark-link;
+            color: #000;
+            background-color: @dark-logotext;
+            border: 1px solid @dark-logotext;
         }
     }
 
@@ -322,33 +338,31 @@
         }
 
         .search-re {
-            box-shadow: 0 0 8px #000;
+            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.08);
             background: @dark-background;
 
             ul {
                 background: @dark-background;
 
                 & > li {
-                    border-top: 1px solid #111;
-
                     a {
                         &:hover {
-                            color: @dark-link !important;
+                            background-color: @dark-background;
                         }
                     }
 
                     strong {
-                        color: @dark-link;
+                        color: @dark-logotext;
                     }
 
                     span {
-                        color: #BBBBBB;
+                        color: rgba(255, 255, 255, 0.6);
                     }
                 }
             }
 
             &::-webkit-scrollbar-thumb {
-                background: rgba(200, 200, 200, 0.15);
+                background: rgba(255, 255, 255, 0.15);
             }
 
             &::-webkit-scrollbar-track {
