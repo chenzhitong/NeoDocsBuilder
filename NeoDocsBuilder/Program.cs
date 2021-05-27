@@ -116,7 +116,6 @@ namespace NeoDocsBuilder
                 var git = Path.Combine(config.Git, relativeToOrigin);
                 Build(newFile, catalog, content, title, sideNav, git, config.Template, collapse);
             });
-
         }
 
         /// <summary>

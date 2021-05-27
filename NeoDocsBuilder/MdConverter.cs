@@ -210,7 +210,7 @@ namespace NeoDocsBuilder
                     result += "</sup>";
                     break;
                 case MarkdownInlineType.TextRun:
-                    var reg = new Regex("<(p|img|br|b|i|br|a|link|table|strong|tr|td|th|tbody|em|u|s|del|kbd)(\\W+|(\\s+.*?/?>))", RegexOptions.IgnoreCase);
+                    var reg = new Regex("\\s*</?(div|p|img|br|b|i|br|a|link|table|strong|tr|td|th|tbody|em|u|s|del|kbd)(\\W+|(\\s+.*?/?>))", RegexOptions.IgnoreCase);
                     var textRun = (inline as TextRunInline).ToString().Trim().Replace("&#124;", "|");
                     if (reg.IsMatch(textRun))
                         result += textRun;
