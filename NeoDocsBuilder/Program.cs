@@ -15,30 +15,28 @@ namespace NeoDocsBuilder
         static void Main(string[] args)
         {
             var t1 = DateTime.Now;
-            Config.ConfigFile = args.Length > 1 ? args[0] : "config.json"; //设置配置文件
+            Config.ConfigFile = "config.json"; //设置配置文件
 
             foreach (var item in Config.ConfigList)
             {
-                Console.WriteLine("Beginning……");
                 AllMdFiles.Clear();
                 GetAllMdFiles(item.Origin);
 
-
+                //复制模板到网站根目录，包括 CSS、JS、字体、图片等，不包含 .md .json .yml
                 Console.WriteLine("Copy template files……");
-                Files.CopyDirectory(item.Template, item.WebRoot); //复制模板到网站根目录，包括 CSS、JS、字体、图片等，不包含 .md .json .yml
+                Files.CopyDirectory("template", "wwwroot");
 
+                //复制源文件夹中的资源文件到输出目录，包括图片等，不包含 .md .json .yml
                 Console.WriteLine("Copy source files……");
-                Files.CopyDirectory(item.Origin, item.Destination); //复制源文件夹中的资源文件到输出目录，包括图片等，不包含 .md .json .yml
+                Files.CopyDirectory(item.Origin, item.Destination);
 
                 Console.WriteLine("Build catalog……");
-                var catalog = YmlConverter.ToHtml(item.Catalog, Path.GetFullPath(Config.ConfigFile).Replace(Config.ConfigFile, ""));
-                foreach (var md in AllMdFiles)
+                var catalog = YmlConverter.ToHtml(Path.Combine(item.Origin, "toc.yml"), Path.GetFullPath(Config.ConfigFile).Replace(Config.ConfigFile, ""));
+                AllMdFiles.ForEach(md =>
                 {
-                    if (!catalog.Contains(md.Replace("\\", "/").Replace(".md", ".html")) && !md.Contains("framework"))
-                    {
+                    if (!catalog.Contains(md.Replace("\\", "/").Replace(".md", ".html")))
                         YmlConverter.ErrorLogs.Add($"The file is not in the catalog: {md}");
-                    }
-                }
+                });
                 BuildMarkDown(catalog, item); //对 MarkDown 文件夹进行解析、编译以及样式处理
             }
             var t2 = DateTime.Now;
@@ -59,14 +57,8 @@ namespace NeoDocsBuilder
             }
             Console.ForegroundColor = ConsoleColor.White;
 
-            try
-            {
-                File.WriteAllText("log.txt", $"{DateTime.Now}");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            try { File.WriteAllText("log.txt", $"{DateTime.Now}"); } catch (Exception) { }
+
             Console.WriteLine("Press 'Enter' key in 3 seconds to pause...");
             Thread t = new(new ThreadStart(ConsolePause));
             t.Start();
@@ -114,7 +106,7 @@ namespace NeoDocsBuilder
                 //生成后的文件路径
                 var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
                 var git = Path.Combine(config.Git, relativeToOrigin);
-                Build(newFile, catalog, content, title, sideNav, git, config.Template, collapse);
+                Build(newFile, catalog, content, title, sideNav, git, collapse);
             });
         }
 
@@ -214,15 +206,13 @@ namespace NeoDocsBuilder
         /// <param name="content">正文（HTML）</param>
         /// <param name="title">标题（TXT）</param>
         /// <param name="sideNav">文章内的目录（HTML）</param>
-        /// <param name="depth">该文件相对于根目录（Origin）的层级深度</param>
-        /// <param name="template">HTML 模板的文件名</param>
         /// <param name="collapse">是否对内容进行折叠</param>
-        static void Build(string path, string catalog, string content, string title, string sideNav, string git, string template, bool collapse)
+        static void Build(string path, string catalog, string content, string title, string sideNav, string git, bool collapse)
         {
             try
             {
                 using StreamWriter sw = new(path);
-                sw.WriteLine(File.ReadAllText(Path.Combine(template, "template.html"))
+                sw.WriteLine(File.ReadAllText("template/template.html")
                 .Replace("{title}", title)
                 .Replace("{git}", git)
                 .Replace("{sideNav}", sideNav)
@@ -231,7 +221,7 @@ namespace NeoDocsBuilder
                 .Replace("_collapse", collapse.ToString().ToLower()));
                 Console.WriteLine($"build: {path}");
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
