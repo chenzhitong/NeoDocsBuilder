@@ -29,7 +29,7 @@
 
     <link href="https://neo3.azureedge.net/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://neo3.azureedge.net/lib/animate.css/animate.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css">
     <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
     <link href="/css/site.min.css?v=20210530" rel="stylesheet" />
 </head>
@@ -50,6 +50,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/faq/index.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tutorials/index.html">Tutorial</a>
                     </li>
                     <li>
                         <div class="search-bar">
@@ -74,6 +77,16 @@
     </nav>
     <div class="bg-left"></div>
     <div class="container-fluid" style="margin-top: 76px">
+        <div class="row">
+            <div class="col">
+                <div id="browser" class="alert alert-warning alert-dismissible fade show mt-3" role="alert" style="display:none;">
+                    The browser version you are using is too low, we suggest you upgrade your browser.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="row d-flex">
             <div class="col-12 col-md-3" id="catalog_div">
                 <div class="catalog">
@@ -159,11 +172,12 @@
     <script src="https://neo3.azureedge.net/lib/popper.js/popper.min.js"></script>
     <script src="https://neo3.azureedge.net/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://neo3.azureedge.net/js/jquery.lazyload.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
     <script src="https://neo3.azureedge.net/js/text-autospace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
     <script src="/js/site.min.js?v=20210530"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jutils-src"></script>
     <script>
         //适用于FAQ的根据标题展开收缩
         if (_collapse) {
@@ -172,6 +186,29 @@
                 $(e.target).parents("h2").next().toggle("fast");
             });
         }
+    </script>
+    <script>
+        $(function () {
+            var notSupport = false;
+            try {
+                var browser = jutils.getBrowserInfo()
+                var name = browser.name;
+                var version = browser.version.split('.')[0];
+                console.log(name + " " + version);
+                if (name == 'IE' ||
+                    name == 'Opera' ||
+                    name == 'Edge' && version < 91 ||
+                    name == 'Chrome' && version < 91 ||
+                    name == 'Safari' && version < 8)
+                    notSupport = true;
+            }
+            catch (err) {
+                notSupport = true;
+            }
+            if (notSupport) {
+                $("#browser").show();
+            }
+        })
     </script>
 </body>
 </html>

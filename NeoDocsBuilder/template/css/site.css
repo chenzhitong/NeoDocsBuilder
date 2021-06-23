@@ -113,6 +113,20 @@ footer {
   user-select: none;
   position: sticky;
   top: 76px;
+  max-height: calc(100vh - 77px);
+  overflow-y: auto;
+}
+.catalog::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.catalog::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.15);
+}
+.catalog::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: transparent;
 }
 @media (max-width: 768px) {
   .catalog {
@@ -794,6 +808,12 @@ footer a:hover {
 }
 .theme-dark .catalog {
   background-color: #101010;
+}
+.theme-dark .catalog::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+.theme-dark .catalog::-webkit-scrollbar-track {
+  background: transparent;
 }
 .theme-dark .catalog nav a,
 .theme-dark .catalog nav span {

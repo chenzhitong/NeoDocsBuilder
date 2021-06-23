@@ -10,7 +10,9 @@ else {
 //为中文和英文之间添加空格
 text_replace(".with-space");
 //代码高亮
-hljs.initHighlightingOnLoad();
+$(function () {
+    hljs.initHighlightingOnLoad();
+});
 //目录展开和折叠
 $(function () {
     $(".catalog nav span").click(function () {
@@ -181,7 +183,7 @@ function searchBar() {
             if (data.length == 0) {
                 html += "<li><a><span> No results found. </span></a></li > ";
             }
-            data.forEach(v => {
+            data.forEach(function (v) {
                 html += "<li><a href=" + v.Link + "><strong>" + v.Title + "</strong><br />";
                 html += "<span>" + v.Line + "</span></a></li>";
             });
@@ -247,7 +249,7 @@ function searchBar2() {
             if (data.length == 0) {
                 html += "<li><a><span> No results found. </span></a></li > ";
             }
-            data.forEach(v => {
+            data.forEach(function(v) {
                 html += "<li><a href=" + v.Link + "><strong>" + v.Title + "</strong><br />";
                 html += "<span>" + v.Line + "</span></a></li>";
             });
