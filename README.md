@@ -30,6 +30,10 @@ NeoDocsBuilder —— 一个超牛逼的 MarkDown 转网站的工具，包括解
 | 多主题切换                       | 已完成 | 支持自定义主题，如深色模式                                   |                                        |
 | 反馈建议                         | 已完成 | 用户可以提交对文档的反馈                                     |                                        |
 
+## 浏览器支持
+
+https://caniuse.com/?search=sticky
+
 ## 运行
 
 安装 [.NET Core Runtime](https://dotnet.microsoft.com/download)
