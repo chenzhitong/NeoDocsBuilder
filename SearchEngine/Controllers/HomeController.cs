@@ -34,7 +34,9 @@ namespace SearchEngine.Controllers
                 Title = p.FirstOrDefault().Title }).ToList();
 
             if (!string.IsNullOrEmpty(l))
-                result = result.Where(p => p.Link.Contains(l, StringComparison.OrdinalIgnoreCase)).ToList();
+            {
+                result = result.Where(p => p.Link.Contains(l == "zh" ? "zh" : "en", StringComparison.OrdinalIgnoreCase)).ToList();
+            }
 
             return Content(JsonConvert.SerializeObject(result.Take(20)), "application/json");
         }
