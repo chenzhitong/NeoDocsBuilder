@@ -31,12 +31,9 @@ namespace NeoDocsBuilder
                 Files.CopyDirectory(item.Origin, item.Destination);
 
                 Console.WriteLine("Build catalog……");
-                var catalog = YmlConverter.ToHtml(Path.Combine(item.Origin, "toc.yml"), Path.GetFullPath(Config.ConfigFile).Replace(Config.ConfigFile, ""));
-                AllMdFiles.ForEach(md =>
-                {
-                    if (!catalog.Contains(md.Replace("\\", "/").Replace(".md", ".html")))
-                        YmlConverter.ErrorLogs.Add($"The file is not in the catalog: {md}");
-                });
+                var catalog = CatalogGenerator.ConvertFromCatalogJson(item.Origin);
+                //Console.WriteLine(catalog);
+
                 BuildMarkDown(catalog, item); //对 MarkDown 文件夹进行解析、编译以及样式处理
             }
             var t2 = DateTime.Now;
@@ -50,16 +47,8 @@ namespace NeoDocsBuilder
                 Console.WriteLine($"Content Error Link: {MdConverter.ErrorLogs.Count}");
             }
 
-            if (!string.IsNullOrEmpty(YmlConverter.ErrorLogs.ToString()))
-            {
-                Console.WriteLine(string.Join("\r\n", YmlConverter.ErrorLogs.ToArray()));
-                Console.WriteLine($"Catalog Error Link: {YmlConverter.ErrorLogs.Count}");
-            }
             Console.ForegroundColor = ConsoleColor.White;
 
-            try { File.WriteAllText("log.txt", $"{DateTime.Now}"); } catch (Exception) { }
-
-            Console.WriteLine("Press 'Enter' key in 3 seconds to pause...");
             Thread t = new(new ThreadStart(ConsolePause));
             t.Start();
             var t3 = DateTime.Now;
@@ -75,6 +64,7 @@ namespace NeoDocsBuilder
 
         private static void ConsolePause()
         {
+            Console.WriteLine("Press 'Enter' key in 3 seconds to pause...");
             if (Console.ReadKey().Key == ConsoleKey.Enter)
                 isPause = true;
         }
@@ -97,7 +87,18 @@ namespace NeoDocsBuilder
         /// <param name="config">配置文件</param>
         static void BuildMarkDown(string catalog, ConfigItem config)
         {
-            Parallel.ForEach(AllMdFiles, file =>
+            //Parallel.ForEach(AllMdFiles, file =>
+            //{
+            //    var relativeToOrigin = Path.GetRelativePath(config.Origin, file);
+            //    //在配置文件中该文档是否根二级标题自动折叠
+            //    var collapse = config.FolderJson != null && config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(relativeToOrigin, StringComparison.OrdinalIgnoreCase));
+            //    var (title, content, sideNav) = Convert(file, collapse);
+            //    //生成后的文件路径
+            //    var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
+            //    var git = Path.Combine(config.Git, relativeToOrigin);
+            //    Build(newFile, catalog, content, title, sideNav, git, collapse);
+            //});
+            foreach (var file in AllMdFiles)
             {
                 var relativeToOrigin = Path.GetRelativePath(config.Origin, file);
                 //在配置文件中该文档是否根二级标题自动折叠
@@ -107,7 +108,7 @@ namespace NeoDocsBuilder
                 var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
                 var git = Path.Combine(config.Git, relativeToOrigin);
                 Build(newFile, catalog, content, title, sideNav, git, collapse);
-            });
+            }
         }
 
         /// <summary>

@@ -13,9 +13,12 @@
 <body>
     <script>
         var savelang = localStorage.getItem("lang");
-        var lang = !!savelang ? savelang : (navigator.language || navigator.browserLanguage).toLowerCase();
-        if (lang != 'zh-cn') lang = 'en-us';
-        location.href = "/docs/" + lang + "/index.html";
+        if (lang = 'zh')
+            location.href = "/zh/docs/index.html";
+        else {
+            lang = '';
+            location.href = "/docs/index.html";
+        }
     </script>
 </body>
 

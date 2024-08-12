@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,6 +34,7 @@
     <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
     <link href="/css/site.min.css?v=20210623" rel="stylesheet" />
 </head>
+
 <body data-spy="scroll" data-target="#navbar-sidenav">
     <nav class="navbar fixed-top navbar-expand-lg">
         <div class="container-fluid">
@@ -40,7 +42,8 @@
                 <img class="logo d-light" src="/img/logo.svg" alt="NEO Logo" />
                 <img class="logo d-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -49,10 +52,7 @@
                         <a class="nav-link" href="/docs/index.html">Documentation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/faq/index.html">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tutorials/index.html">Tutorial</a>
+                        <a class="nav-link" href="/docs/faq/basic.html">FAQ</a>
                     </li>
                     <li>
                         <div class="search-bar">
@@ -69,7 +69,8 @@
                         <i class="nav-link d-dark fas fa-moon" onclick="turnOff()" title="Turn On/Off"></i>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-inline-block" href="javascript:" onclick="language('en-us')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh-cn')">中文</a>
+                        <a class="nav-link d-inline-block" href="javascript:" onclick="language('')">EN</a>|<a
+                            class="nav-link d-inline-block" href="javascript:" onclick="language('zh')">中文</a>
                     </li>
                 </ul>
             </div>
@@ -79,7 +80,8 @@
     <div class="container-fluid" style="margin-top: 76px">
         <div class="row">
             <div class="col">
-                <div id="browser" class="alert alert-warning alert-dismissible fade show mt-3" role="alert" style="display:none;">
+                <div id="browser" class="alert alert-warning alert-dismissible fade show mt-3" role="alert"
+                    style="display:none;">
                     The browser version you are using is too low, we suggest you upgrade your browser.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -88,30 +90,29 @@
             </div>
         </div>
         <div class="row d-flex">
-            <div class="col-12 col-md-3" id="catalog_div">
+            <div class="col-12 col-md-3 pt-4" id="catalog_div">
                 <div class="catalog">
-                    <div class="version-bar">
-                        <a class="my-1 d-block n3" href="/">Neo (N3)</a>
-                        <a class="my-1 d-block n2" href="/v2">Neo Legacy</a>
-                    </div>
                     {catalog}
                 </div>
             </div>
             <main class="col-12 col-md-9 col-xl-7 p-3 px-sm-4 px-md-5">
-                <a id="catalogToggle" class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide Table of Contents</a>
+                <a id="catalogToggle" class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide
+                    Table of Contents</a>
                 {body}
                 <div class="pr-1">
                     <div class="row my-5">
                         <div class="col-6">
                             <a id="prevPage" style="display: none">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                <div>Preveous<div class="prevText"></div></div>
+                                <div>Preveous<div class="prevText"></div>
+                                </div>
                             </a>
                         </div>
                         <div class="col-6">
                             <a id="nextPage" style="display: none">
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                <div>Next<div class="nextText"></div></div>
+                                <div>Next<div class="nextText"></div>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -122,7 +123,8 @@
                     <a href="{git}" class="contribution-link d-block">
                         <i class="fab fa-github"></i>Improve this Doc
                     </a>
-                    <a class="contribution-link d-block" data-toggle="modal" title="Feedback" data-target="#feedbackModal"><i class="fas fa-comment-dots"></i>Send feedback</a>
+                    <a class="contribution-link d-none" data-toggle="modal" title="Feedback"
+                        data-target="#feedbackModal"><i class="fas fa-comment-dots"></i>Send feedback</a>
                     <div class="side-nav-text"><strong>In this article</strong></div>
                     <div id="navbar-sidenav">
                         {sideNav}
@@ -131,7 +133,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -141,7 +144,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <textarea type="text" rows="5" class="form-control" placeholder="Enter feedback here" id="message"></textarea>
+                    <textarea type="text" rows="5" class="form-control" placeholder="Enter feedback here"
+                        id="message"></textarea>
                     <div id="feedbackspan" class="text-success"></div>
                 </div>
                 <div class="modal-footer">
@@ -161,12 +165,14 @@
     </div>
     <footer class="d-flex justify-content-between py-1 px-3 px-sm-4 px-md-5">
         <ul class="d-none d-md-block">
-            <li><a href="https://github.com/neo-project/docs" title="GitHub" target="_blank">GitHub</a></li>
-            <li><a href="https://github.com/neo-project/docs/issues" title="Issue" target="_blank">Issue</a></li>
+            <li><a href="https://github.com/neo-project/neo-dev-portal" title="GitHub" target="_blank">GitHub</a></li>
+            <li><a href="https://github.com/neo-project/neo-dev-portal/issues" title="Issue" target="_blank">Issue</a></li>
             <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
         </ul>
-        <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder" target="_blank">NeoDocsBuilder</a></p>
-        <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0" target="_blank">CC-BY-4.0</a> license. </p>
+        <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder"
+                target="_blank">NeoDocsBuilder</a></p>
+        <p>Licensed under <a href="https://github.com/neo-project/docs/neo-dev-portal/master/LICENSE" title="CC-BY-4.0"
+                target="_blank">CC-BY-4.0</a> license. </p>
     </footer>
     <script src="https://neo3.azureedge.net/lib/jquery/jquery.min.js"></script>
     <script src="https://neo3.azureedge.net/lib/popper.js/popper.min.js"></script>
@@ -176,7 +182,7 @@
     <script src="https://neo3.azureedge.net/js/text-autospace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130525731-2"></script>
-    <script src="/js/site.min.js?v=20210623"></script>
+    <script src="/js/site.js?v=20210623"></script>
     <script src="https://cdn.jsdelivr.net/npm/jutils-src"></script>
     <script>
         //适用于FAQ的根据标题展开收缩
@@ -211,4 +217,5 @@
         })
     </script>
 </body>
+
 </html>

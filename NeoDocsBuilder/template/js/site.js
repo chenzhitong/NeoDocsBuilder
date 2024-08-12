@@ -83,10 +83,14 @@ $(function () {
 });
 //语言切换
 function language(lang) {
-    var rgExp = /\/\w{2}-\w{2}\//;
     localStorage.setItem("lang", lang);
-    if (location.href.search(rgExp) >= 0) {
-        location.href = location.href.replace(rgExp, '/' + lang + '/');
+    if(lang == "zh")
+    {
+        location.href = location.href.replace(window.location.host, window.location.host + "/zh");
+    }
+    else
+    {
+        location.href = location.href.replace(window.location.host + "/zh", window.location.host);
     }
 }
 //工具提示

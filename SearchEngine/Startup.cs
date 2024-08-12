@@ -61,7 +61,7 @@ namespace SearchEngine
 
         public void LoadFiles(string path)
         {
-            if (!Directory.Exists(path) || path.Contains("bin") || path.Contains("obj") || path.Contains("wwwroot")) return;
+            if (!Directory.Exists(path) || path.Contains("bin") || path.Contains("obj") || path.Contains("neo-dev-portal") || path.Contains("wwwroot")) return;
             Directory.GetFiles(path).ToList().ForEach(p => { 
                 if (Path.GetExtension(p) == ".md") {
                     Sources.Pages.Add(new Page() { Lines = File.ReadAllLines(p), Link = p.Replace("\\", "/").Replace("//", "/").TrimStart('.').Replace(".md", ".html") });

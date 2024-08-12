@@ -8,15 +8,16 @@ namespace NeoDocsBuilder
     {
         public static readonly List<ConfigItem> ConfigList = new();
         private static string _configFile;
+
         public static string ConfigFile
         {
             get { return _configFile; }
             set { _configFile = value; Refresh(); }
         }
 
-         static void Refresh()
+        static void Refresh()
         {
-            var json = JObject.Parse(File.ReadAllText(ConfigFile))["ApplicationConfiguration"];
+            var json = JArray.Parse(File.ReadAllText(ConfigFile));
             ConfigList.Clear();
             foreach (var item in json)
             {

@@ -1,0 +1,7 @@
+[
+  {
+    "origin": "docs/n3",
+    "destination": "wwwroot\\docs\\n3",
+    "git": "https://github.com/neo-project/neo-dev-portal/tree/dev/docs/n3"
+  }
+]

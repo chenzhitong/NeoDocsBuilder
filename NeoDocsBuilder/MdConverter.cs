@@ -162,6 +162,10 @@ namespace NeoDocsBuilder
         public static string ToHtml(this MarkdownInline inline, string file)
         {
             var result = string.Empty;
+            var text1 = inline.ToString();
+            if (text1.StartsWith(":::note You must install the plugin"))
+            {
+            }
             switch (inline.Type)
             {
                 case MarkdownInlineType.Comment: result += inline; break;
@@ -210,12 +214,37 @@ namespace NeoDocsBuilder
                     result += "</sup>";
                     break;
                 case MarkdownInlineType.TextRun:
+                    var text = inline.ToString();
+                    if (text.StartsWith(":::"))
+                    {
+                        if (text.StartsWith(":::note ") || text.StartsWith(":::info "))
+                        {
+                            result += $"\r\n<blockquote class='bd-callout bd-callout-info with-space'>";
+                        }
+                        else if (text.StartsWith(":::warning "))
+                        {
+                            result += $"\r\n<blockquote class='bd-callout bd-callout-warning with-space'>";
+                        }
+                        else if (text.StartsWith(":::danger ") || text.StartsWith(":::important ") || text.StartsWith(":::caution "))
+                        {
+                            result += $"\r\n<blockquote class='bd-callout bd-callout-danger with-space'>";
+                        }
+                        else
+                        {
+                            result += "\r\n</blockquote>";
+                        }
+                    }
                     var reg = new Regex("\\s*</?(div|p|img|br|b|i|br|a|link|table|strong|tr|td|th|tbody|em|u|s|del|kbd)(\\W+|(\\s+.*?/?>))", RegexOptions.IgnoreCase);
-                    var textRun = (inline as TextRunInline).ToString().Trim().Replace("&#124;", "|");
+                    var textRun = (inline as TextRunInline).ToString().Trim().Replace("&#124;", "|").Replace(":::note ", "").Replace(":::info ", "")
+                        .Replace(":::warning ", "").Replace(":::danger ", "").Replace(":::important ", "").Replace(":::caution ", "").Replace(":::", "");
                     if (reg.IsMatch(textRun))
                         result += textRun;
                     else
                         result += $"{HtmlEncode(textRun)}";
+                    if (text.EndsWith(":::"))
+                    {
+                        result += "\r\n</blockquote>";
+                    }
                     break;
                 case MarkdownInlineType.RawHyperlink:
                     var hyperLink = inline as HyperlinkInline;
