@@ -87,18 +87,7 @@ namespace NeoDocsBuilder
         /// <param name="config">配置文件</param>
         static void BuildMarkDown(string catalog, ConfigItem config)
         {
-            //Parallel.ForEach(AllMdFiles, file =>
-            //{
-            //    var relativeToOrigin = Path.GetRelativePath(config.Origin, file);
-            //    //在配置文件中该文档是否根二级标题自动折叠
-            //    var collapse = config.FolderJson != null && config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(relativeToOrigin, StringComparison.OrdinalIgnoreCase));
-            //    var (title, content, sideNav) = Convert(file, collapse);
-            //    //生成后的文件路径
-            //    var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
-            //    var git = Path.Combine(config.Git, relativeToOrigin);
-            //    Build(newFile, catalog, content, title, sideNav, git, collapse);
-            //});
-            foreach (var file in AllMdFiles)
+            Parallel.ForEach(AllMdFiles, file =>
             {
                 var relativeToOrigin = Path.GetRelativePath(config.Origin, file);
                 //在配置文件中该文档是否根二级标题自动折叠
@@ -108,7 +97,18 @@ namespace NeoDocsBuilder
                 var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
                 var git = Path.Combine(config.Git, relativeToOrigin);
                 Build(newFile, catalog, content, title, sideNav, git, collapse);
-            }
+            });
+            //foreach (var file in AllMdFiles)
+            //{
+            //    var relativeToOrigin = Path.GetRelativePath(config.Origin, file);
+            //    //在配置文件中该文档是否根二级标题自动折叠
+            //    var collapse = config.FolderJson != null && config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(relativeToOrigin, StringComparison.OrdinalIgnoreCase));
+            //    var (title, content, sideNav) = Convert(file, collapse);
+            //    //生成后的文件路径
+            //    var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
+            //    var git = Path.Combine(config.Git, relativeToOrigin);
+            //    Build(newFile, catalog, content, title, sideNav, git, collapse);
+            //}
         }
 
         /// <summary>

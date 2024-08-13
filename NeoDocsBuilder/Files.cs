@@ -6,6 +6,8 @@ namespace NeoDocsBuilder
 {
     public static class Files
     {
+        static string[] blockList = [".md", ".json", ".yml"];
+
         public static void CopyDirectory(string sourceDirPath, string saveDirPath)
         {
             if (!Directory.Exists(saveDirPath))
@@ -13,12 +15,12 @@ namespace NeoDocsBuilder
             Directory.GetFiles(sourceDirPath).ToList().ForEach(p =>
             {
                 var extension = Path.GetExtension(p);
-                if (extension != ".md" && extension != ".json" && extension != ".yml")
+                if (!blockList.Contains(extension))
                     try
                     {
                         File.Copy(p, Path.Combine(saveDirPath, Path.GetFileName(p)), true);
                     }
-                    catch (System.Exception e)
+                    catch (Exception e)
                     {
                         Console.WriteLine(e.Message);
                     }

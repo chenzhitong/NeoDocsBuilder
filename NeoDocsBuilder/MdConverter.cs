@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Web;
 using static System.Web.HttpUtility;
 
 namespace NeoDocsBuilder
@@ -163,9 +164,6 @@ namespace NeoDocsBuilder
         {
             var result = string.Empty;
             var text1 = inline.ToString();
-            if (text1.StartsWith(":::note You must install the plugin"))
-            {
-            }
             switch (inline.Type)
             {
                 case MarkdownInlineType.Comment: result += inline; break;
@@ -217,15 +215,15 @@ namespace NeoDocsBuilder
                     var text = inline.ToString();
                     if (text.StartsWith(":::"))
                     {
-                        if (text.StartsWith(":::note ") || text.StartsWith(":::info "))
+                        if (text.StartsWith(":::note") || text.StartsWith(":::info"))
                         {
                             result += $"\r\n<blockquote class='bd-callout bd-callout-info with-space'>";
                         }
-                        else if (text.StartsWith(":::warning "))
+                        else if (text.StartsWith(":::warning"))
                         {
                             result += $"\r\n<blockquote class='bd-callout bd-callout-warning with-space'>";
                         }
-                        else if (text.StartsWith(":::danger ") || text.StartsWith(":::important ") || text.StartsWith(":::caution "))
+                        else if (text.StartsWith(":::danger") || text.StartsWith(":::important") || text.StartsWith(":::caution"))
                         {
                             result += $"\r\n<blockquote class='bd-callout bd-callout-danger with-space'>";
                         }
@@ -235,8 +233,8 @@ namespace NeoDocsBuilder
                         }
                     }
                     var reg = new Regex("\\s*</?(div|p|img|br|b|i|br|a|link|table|strong|tr|td|th|tbody|em|u|s|del|kbd)(\\W+|(\\s+.*?/?>))", RegexOptions.IgnoreCase);
-                    var textRun = (inline as TextRunInline).ToString().Trim().Replace("&#124;", "|").Replace(":::note ", "").Replace(":::info ", "")
-                        .Replace(":::warning ", "").Replace(":::danger ", "").Replace(":::important ", "").Replace(":::caution ", "").Replace(":::", "");
+                    var textRun = (inline as TextRunInline).ToString().Replace("&#124;", "|").Replace(":::note", "").Replace(":::info", "")
+                        .Replace(":::warning", "").Replace(":::danger", "").Replace(":::important", "").Replace(":::caution", "").Replace(":::", "").Trim();
                     if (reg.IsMatch(textRun))
                         result += textRun;
                     else
@@ -309,13 +307,14 @@ namespace NeoDocsBuilder
         public static bool IsExternalLink(this string link) => link.StartsWith("http");
 
         public static readonly List<string> ErrorLogs = new();
+
         private static void LinkCheck(string pathBase, string link)
         {
             
             var fullPath = Path.GetFullPath(pathBase);
             var fullLink = Path.GetFullPath(!link.StartsWith("/") ? "../" + link : link, fullPath);
             if (Path.GetExtension(fullLink) != ".md") return;
-            if (File.Exists(fullLink))
+            if (link.StartsWith("http") || File.Exists(UrlDecode(fullLink)))
             {
                 return;
             }

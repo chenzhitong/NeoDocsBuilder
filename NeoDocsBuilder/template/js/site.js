@@ -104,9 +104,9 @@ function showCatalog() {
 }
 //为块引用添加图标
 $(function () {
-    $(".bd-callout-info").prepend("<img src='/img/info.svg'/>");
-    $(".bd-callout-warning").prepend("<img src='/img/warning.svg'/>");
-    $(".bd-callout-danger").prepend("<img src='/img/danger.svg'/>");
+    $(".bd-callout-info").prepend("<img src='/img/info.svg' /> <p>NOTE</p>");
+    $(".bd-callout-warning").prepend("<img src='/img/warning.svg' /> <p>WARNING</p>");
+    $(".bd-callout-danger").prepend("<img src='/img/danger.svg' /> <p>DANGER</p>");
     $(".bd-callout").not(".bd-callout-info").not(".bd-callout-warning").not(".bd-callout-danger").prepend("<img src='/img/callout.svg'/>");
 });
 

@@ -59,15 +59,17 @@ namespace SearchEngine
             LoadFiles(".");
         }
 
+        static string[] blockList = ["bin", "debug", "release", "obj", "neo-dev-portal", "wwwroot"];
+
         public void LoadFiles(string path)
         {
-            if (!Directory.Exists(path) || path.Contains("bin") || path.Contains("obj") || path.Contains("neo-dev-portal") || path.Contains("wwwroot")) return;
+            if (!Directory.Exists(path) || blockList.Any(p => path.Contains(p, System.StringComparison.OrdinalIgnoreCase))) return;
             Directory.GetFiles(path).ToList().ForEach(p => { 
                 if (Path.GetExtension(p) == ".md") {
                     Sources.Pages.Add(new Page() { Lines = File.ReadAllLines(p), Link = p.Replace("\\", "/").Replace("//", "/").TrimStart('.').Replace(".md", ".html") });
                 }
             });
-            Directory.GetDirectories(path).ToList().ForEach(p => LoadFiles(p));
+            Directory.GetDirectories(path).ToList().ForEach(LoadFiles);
         }
     }
 }
