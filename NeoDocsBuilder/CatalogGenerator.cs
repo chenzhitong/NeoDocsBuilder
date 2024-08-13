@@ -34,39 +34,41 @@ namespace NeoDocsBuilder
 
         public static Flag YamlDeserialize(string path)
         {
-            string label = null;
+            path = path.ToLower();
+            var label = "";
             var position = 1000;
-            if (path.Contains("instructions.md"))
-            { 
-            }
-            foreach (var item in File.ReadAllLines(path).Skip(1).Take(10))
+            var lines = File.ReadAllLines(path).Skip(1).Take(10);
+            try
             {
-                if (item.StartsWith("sidebar_label"))
-                    label = item.Split(':')[1].Trim(' ').Trim('\'');
-                if (item.StartsWith("sidebar_position"))
-                    position = Convert.ToInt32(item.Split(':')[1].Trim(' ').Trim('\''));
-                if (item.StartsWith("---"))
-                    break;
-            }
-            if (string.IsNullOrEmpty(label))
-            {
-                MarkdownDocument document = new();
-                document.Parse(File.ReadAllText(path));
-                foreach (var item in document.Blocks)
+                //sidebar_label 优先
+                label = lines.FirstOrDefault(l => l.StartsWith("sidebar_label"))?.Split(':')[1].Trim(' ', '\'');
+                //标题其次
+                if (string.IsNullOrEmpty(label))
                 {
-                    if (item.Type == MarkdownBlockType.Header)
-                    {
-                        label = item.ToString();
-                        break;
-                    }
+                    var document = new MarkdownDocument();
+                    document.Parse(File.ReadAllText(path));
+                    label = document.Blocks.FirstOrDefault(p => p.Type == MarkdownBlockType.Header)?.ToString();
+                }
+                //文件名最次
+                if (string.IsNullOrEmpty(label))
+                {
+                    label = Path.GetFileNameWithoutExtension(path);
+                }
+                var sidebarPosition = lines.FirstOrDefault(l => l.StartsWith("sidebar_position"))?.Split(':')[1].Trim(' ', '\'');
+                if (!string.IsNullOrEmpty(sidebarPosition))
+                {
+                    position = Convert.ToInt32(sidebarPosition);
                 }
             }
-            label = string.IsNullOrEmpty(label) ? Path.GetFileNameWithoutExtension(path) : label;
+            catch (Exception)
+            {
+            }
             return new Flag { Label = label, Position = position, Link = path };
         }
 
         public static Flag CatalogDeserialize(string path)
         {
+            path = path.ToLower();
             var jsonPath = Path.Combine(path, "_category_.json");
             if (!File.Exists(jsonPath))
                 return new Flag { Label = Path.GetFileName(path), Position = 1000, Link = path };

@@ -49,14 +49,18 @@ window.onload = function () {
     $(link).parents().prev().addClass('expand');
     //上一页下一页
     var allLinks = $(".catalog a");
-    for (var i = 1; i < allLinks.length - 1; i++) {
+    for (var i = 0; i < allLinks.length; i++) {
         if ($(allLinks[i]).attr("href") == pathName) {
-            $("#prevPage").show();
-            $("#nextPage").show();
-            $("#prevPage .prevText").text($(allLinks[i - 1]).text());
-            $("#nextPage .nextText").text($(allLinks[i + 1]).text());
-            $("#prevPage").attr("href", $(allLinks[i - 1]).attr("href"));
-            $("#nextPage").attr("href", $(allLinks[i + 1]).attr("href"));
+            if (i != 0) {
+                $("#prevPage").show();
+                $("#prevPage .prevText").text($(allLinks[i - 1]).text());
+                $("#prevPage").attr("href", $(allLinks[i - 1]).attr("href"));
+            }
+            if (i != allLinks.length - 1) {
+                $("#nextPage").show();
+                $("#nextPage .nextText").text($(allLinks[i + 1]).text());
+                $("#nextPage").attr("href", $(allLinks[i + 1]).attr("href"));
+            }
         }
     }
 };
