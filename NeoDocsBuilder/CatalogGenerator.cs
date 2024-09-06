@@ -9,7 +9,7 @@ namespace NeoDocsBuilder
     internal class CatalogGenerator
     {
         static int depth = 0;
-        static string[] blockList = ["assets"];
+        static string[] blockList = ["asset, assets, image, images"];
 
         public static string ConvertFromCatalogJson(string path)
         {
