@@ -3,7 +3,7 @@
 @light-text: #222;
 @light-logotext: #003;
 @light-background: #fff;
-@light-background2: #f7f7f7;
+@light-background2: #fff;
 @light-catalog-hover: #f0f0f0;
 @light-text-info: #1890FF;
 @light-text-warning: #FAAD14;
@@ -36,7 +36,6 @@ body {
 }
 
 .container-fluid {
-    max-width: 1350px;
     padding-left: 15px !important;
     padding-right: 15px !important;
 }
@@ -346,6 +345,8 @@ main {
 
     table.table {
         color: @light-text;
+        overflow-x: auto;
+        display: block;
 
         thead th {
             background-color: transparent;
@@ -560,10 +561,15 @@ main {
     }
 }
 
-.catalog .nav-pills .nav-link.active {
+.catalog .nav-pills .active {
     color: @light-link;
-    background-color: transparent;
+    background-color: rgba(128, 128, 128, 0.1);
     font-weight: 700;
+}
+
+.catalog .nav-pills .nav-link > a, .catalog .nav-pills .nav-link > a.active {
+    background-color: transparent;
+    padding: 0;
 }
 
 .catalog a:hover,

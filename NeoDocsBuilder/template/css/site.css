@@ -16,11 +16,10 @@ body {
   height: 100%;
   margin: 0;
   color: #222;
-  background-color: #f7f7f7;
+  background-color: #fff;
   font-family: NunitoSans, PingFang SC, "Microsoft YaHei", arial, sans-serif;
 }
 .container-fluid {
-  max-width: 1350px;
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
@@ -56,7 +55,7 @@ nav .nav-item i {
   font-size: 16px;
 }
 .bg-left {
-  background-color: #f7f7f7;
+  background-color: #fff;
   width: 50%;
   height: 100vh;
   position: fixed;
@@ -65,7 +64,7 @@ nav .nav-item i {
 }
 .navbar,
 footer {
-  background-color: #f7f7f7;
+  background-color: #fff;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -103,10 +102,10 @@ footer {
   color: #00AF92;
 }
 #catalog_div {
-  background-color: #f7f7f7;
+  background-color: #fff;
 }
 .catalog {
-  background-color: #f7f7f7;
+  background-color: #fff;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -298,6 +297,8 @@ main figure code.hljs::-webkit-scrollbar-track {
 }
 main table.table {
   color: #222;
+  overflow-x: auto;
+  display: block;
 }
 main table.table thead th {
   background-color: transparent;
@@ -339,7 +340,7 @@ main .bd-callout {
   padding: 1rem 2rem 1rem 2.5rem;
   margin: 2.5rem 0 2.5rem;
   border-left: 3px solid #d4d4d4;
-  background-color: #f7f7f7;
+  background-color: #fff;
   position: relative;
 }
 main .bd-callout img {
@@ -454,11 +455,11 @@ main .highlight pre {
   font-size: 14px;
 }
 .side-nav .contribution-link:hover {
-  color: #f7f7f7;
+  color: #fff;
   background-color: #003;
 }
 .side-nav .contribution-link:hover i {
-  color: #f7f7f7;
+  color: #fff;
 }
 .side-nav .contribution-link i {
   color: #003;
@@ -482,10 +483,15 @@ main .highlight pre {
   border-left: 3px solid #00AF92;
   padding-left: 7px;
 }
-.catalog .nav-pills .nav-link.active {
+.catalog .nav-pills .active {
   color: #00AF92;
-  background-color: transparent;
+  background-color: rgba(128, 128, 128, 0.1);
   font-weight: 700;
+}
+.catalog .nav-pills .nav-link > a,
+.catalog .nav-pills .nav-link > a.active {
+  background-color: transparent;
+  padding: 0;
 }
 .catalog a:hover,
 .catalog span:hover,
@@ -640,7 +646,7 @@ footer a:hover {
   max-height: 560px;
   width: 280px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
-  background: #f7f7f7;
+  background: #fff;
   overflow-y: auto;
   display: none;
   z-index: 3;
@@ -648,7 +654,7 @@ footer a:hover {
 }
 .search-bar .search-re ul {
   padding-left: 0;
-  background: #f7f7f7;
+  background: #fff;
   margin-bottom: 0;
 }
 .search-bar .search-re ul > li {
@@ -707,7 +713,7 @@ footer a:hover {
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  background-color: #f7f7f7;
+  background-color: #fff;
 }
 #prevPage i,
 #nextPage i {

@@ -9,22 +9,35 @@ namespace NeoDocsBuilder
     internal class CatalogGenerator
     {
         static int depth = 0;
-        static string[] blockList = ["asset, assets, image, images"];
+        static string[] blockList = ["asset", "assets", "image", "images", ".vscode"];
 
         public static string ConvertFromCatalogJson(string path)
         {
-            var currentFlagList = Directory.GetDirectories(path).Where(p => !blockList.Contains(Path.GetFileName(p))).Select(CatalogDeserialize).Where(flag => flag != null)
-            .Concat(Directory.GetFiles(path, "*.md").Select(YamlDeserialize).Where(flag => flag != null))
-            .OrderBy(flag => flag.Position).ToList();
+            var currentFlagList = Directory.GetDirectories(path).Where(p => !blockList.Contains(Path.GetFileName(p))).Select(CatalogDeserialize)
+            .Concat(Directory.GetFiles(path, "*.md").Select(YamlDeserialize))
+            .OrderBy(flag => flag.Position).ThenBy(flag => flag.Link).ToList();
 
             var catalog = $"\r\n{new string(' ', depth * 2)}<nav class='nav nav-pills flex-column ml-3'>";
             depth++;
             catalog += string.Join("", currentFlagList.Select(item =>
             {
                 var space = new string(' ', depth * 2);
-                return item.Link.EndsWith("md")
-                    ? $"\r\n{space}<a class='ml-0 my-1 nav-link' href='/{item.Link.Replace("\\", "/").Replace(".md", ".html")}'>{item.Label}</a>"
-                    : $"\r\n{space}<span class='ml-0 my-1 nav-link'>{item.Label}<i class='fas fa-chevron-right'></i></span>" + ConvertFromCatalogJson(item.Link);
+                if (item.IsCategory)
+                {
+                    var indexmd = Path.Combine(item.Link, "index.md");
+                    if (File.Exists(indexmd))
+                    {
+                        return $"\r\n{space}<span class='ml-0 my-1 nav-link'><a  href='/{item.Link.Replace("\\", "/")}/index.html'>{item.Label}</a><i class='fas fa-chevron-right'></i></span>" + ConvertFromCatalogJson(item.Link);
+                    }
+                    else
+                    {
+                        return $"\r\n{space}<span class='ml-0 my-1 nav-link'>{item.Label}<i class='fas fa-chevron-right'></i></span>" + ConvertFromCatalogJson(item.Link);
+                    }
+                }
+                else
+                {
+                    return item.Link.EndsWith("index.md") ? "" : $"\r\n{space}<a class='ml-0 my-1 nav-link' href='/{item.Link.Replace("\\", "/").Replace(".md", ".html")}'>{item.Label}</a>";
+                }
             }));
 
             depth--;
@@ -34,9 +47,8 @@ namespace NeoDocsBuilder
 
         public static Flag YamlDeserialize(string path)
         {
-            path = path.ToLower();
             var label = "";
-            var position = 1000;
+            var position = path.EndsWith("index.md") ? -1 : 1000;
             var lines = File.ReadAllLines(path).Skip(1).Take(10);
             try
             {
@@ -47,7 +59,7 @@ namespace NeoDocsBuilder
                 {
                     var document = new MarkdownDocument();
                     document.Parse(File.ReadAllText(path));
-                    label = document.Blocks.FirstOrDefault(p => p.Type == MarkdownBlockType.Header)?.ToString();
+                    label = document.Blocks.FirstOrDefault(p => p.Type == MarkdownBlockType.Header).ToString();
                 }
                 //文件名最次
                 if (string.IsNullOrEmpty(label))
@@ -68,12 +80,11 @@ namespace NeoDocsBuilder
 
         public static Flag CatalogDeserialize(string path)
         {
-            path = path.ToLower();
             var jsonPath = Path.Combine(path, "_category_.json");
             if (!File.Exists(jsonPath))
-                return new Flag { Label = Path.GetFileName(path), Position = 1000, Link = path };
+                return new Flag { Label = Path.GetFileName(path), Position = 1000, Link = path, IsCategory = true };
             var json = JObject.Parse(File.ReadAllText(jsonPath));
-            return new Flag { Label = (string)json["label"], Position = (int)json["position"], Link = path };
+            return new Flag { Label = (string)json["label"], Position = (int)json["position"], Link = path, IsCategory = true };
         }
     }
 
@@ -84,5 +95,7 @@ namespace NeoDocsBuilder
         public int Position;
 
         public string Link;
+
+        public bool IsCategory;
     }
 }

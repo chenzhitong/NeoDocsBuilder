@@ -43,14 +43,26 @@ window.onload = function () {
         cachedOnload();
     }
     var pathName = decodeURI(location.pathname);
-    var link = $(".catalog").find("[href='" + pathName + "']")[0];
-    $(link).addClass("active");
-    $(link).parents("nav").show();
-    $(link).parents().prev().addClass('expand');
+    var allLinks = $(".catalog a");
+    var link = null;
+    // 遍历所有链接，找到与 pathName 匹配的链接
+    for (var i = 0; i < allLinks.length; i++) {
+        if ($(allLinks[i]).attr("href").toLowerCase() == pathName.toLowerCase()) {
+            link = allLinks[i];
+            break;
+        }
+    }
+    if (link) {
+        $(link).addClass("active");
+        $(link).parent("span").addClass("active");
+        $(link).parents("nav").show();
+        $(link).parent().next("nav").show();
+        $(link).parents().prev().addClass('expand');
+    }
     //上一页下一页
     var allLinks = $(".catalog a");
     for (var i = 0; i < allLinks.length; i++) {
-        if ($(allLinks[i]).attr("href") == pathName) {
+        if ($(allLinks[i]).attr("href").toLowerCase() == pathName.toLowerCase()) {
             if (i != 0) {
                 $("#prevPage").show();
                 $("#prevPage .prevText").text($(allLinks[i - 1]).text());
