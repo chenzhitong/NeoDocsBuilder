@@ -87,6 +87,8 @@ footer {
   padding-left: 1em !important;
   padding-right: 1em !important;
   font-weight: 700;
+  font-style: normal;
+  cursor: pointer;
 }
 .version-bar {
   padding: 21px 0;
@@ -809,6 +811,7 @@ footer a:hover {
 }
 .theme-dark .navbar-nav .nav-link {
   color: #fff;
+  font-style: normal;
 }
 .theme-dark .bg-left {
   background-color: #101010;
