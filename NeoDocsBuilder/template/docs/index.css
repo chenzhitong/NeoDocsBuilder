@@ -14,8 +14,8 @@ main .home-link{
    border: 1px solid rgba(41, 41, 41, 0.11);
    height: 100%;
    background-color: white;
-}
-main .home-link{
+   border-radius: .25rem;
+
    text-decoration: none;
 }
 main .home-link:hover{
@@ -45,19 +45,21 @@ main .home-link .p2{
 .theme-dark main .home-link{
    background-color: #101010;
 }
-.home-link img{
+.home-link i{
+   font-size: 1.8rem;
    vertical-align: top;
+   font-style: normal;
 }
 .div2{
    display: inline-block;
-   width: calc(100% - 45px);
+   width: calc(100% - 55px);
    margin-left: 10px;
 }
 
 .search-bar2{
     position: relative;
 }
-.fa-search{
+.emoji-search{
    position: absolute;
    left: 1rem;
    line-height: 2.5;
@@ -68,9 +70,6 @@ main .home-link .p2{
    line-height: 2.5;
    display: none;
    cursor: pointer;
-}
-#sInput2{
-   border-radius: 0;
 }
 #sResult2 {
    margin-top: 0;
@@ -151,11 +150,11 @@ main .home-link .p2{
    height: 8px;
  }
  .search-bar2 .search-re2::-webkit-scrollbar-thumb {
-   border-radius: 10px;
+   border-radius: .25rem;
    background: rgba(0, 0, 0, 0.15);
  }
  .search-bar2 .search-re2::-webkit-scrollbar-track {
-   border-radius: 5px;
+   border-radius: .25rem;
    background: transparent;
  }
  .theme-dark .search-bar2 .search-re2{

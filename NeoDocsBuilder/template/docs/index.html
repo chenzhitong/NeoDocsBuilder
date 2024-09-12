@@ -43,8 +43,8 @@
                 <img class="logo d-dark" src="/img/logo-dark.svg" alt="NEO Logo" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                🔍
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
@@ -69,8 +69,7 @@
                         <i class="nav-link d-dark fas fa-moon" onclick="turnOff()" title="Turn On/Off"></i>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-inline-block" href="javascript:" onclick="language('')">EN</a>|<a
-                            class="nav-link d-inline-block" href="javascript:" onclick="language('zh')">中文</a>
+                        <a class="nav-link d-inline-block" href="javascript:" onclick="language('')">EN</a>|<a class="nav-link d-inline-block" href="javascript:" onclick="language('zh')">中文</a>
                     </li>
                 </ul>
             </div>
@@ -81,7 +80,7 @@
         <div class="row">
             <div class="col">
                 <div id="browser" class="alert alert-warning alert-dismissible fade show mt-3" role="alert"
-                    style="display:none;">
+                     style="display:none;">
                     The browser version you are using is too low, we suggest you upgrade your browser.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -91,87 +90,118 @@
         </div>
         <div class="row d-flex">
             <main class="col-12 col-md-9 col-xl-7 p-3 px-sm-4 px-md-5">
-                <a id="catalogToggle" class="d-block d-md-none" href="javascript:" onclick="showCatalog()">Show / Hide
-                    Table of Contents</a>
+                <a id="catalogToggle" class="d-block d-md-none" href="javascript:" onclick="showCatalog()">
+                    Show / Hide
+                    Table of Contents
+                </a>
                 <p class='with-space'>
-                <div>
-                    <div class="text-center">
-                        <h1 class="m-0 p-0">Neo Documentation</h1>
-                        <p>Here is an exhaustive library of Neo technical documents, including development examples for
-                            your reference.</p>
-                        <div class="search-bar2 mt-5 mb-4"> <i class="fas fa-search"></i> <span
-                                class="search-de2">X</span> <input id="sInput2" type="text" class="form-control pl-5"
-                                placeholder="Search for help...">
-                            <div class="search-re2">
-                                <ul id="sResult2" class="p-0"></ul>
+                    <div>
+                        <div class="text-center">
+                            <h1 class="m-0 p-0">Neo Documentation</h1>
+                            <p>
+                                Here is an exhaustive library of Neo technical documents, including development examples for
+                                your reference.
+                            </p>
+                            <div class="search-bar2 mt-5 mb-4">
+                                <span class="emoji-search">🔍</span> <span class="search-de2">X</span>
+                                <input id="sInput2" type="text" class="form-control pl-5" placeholder="Search for help...">
+                                <div class="search-re2">
+                                    <ul id="sResult2" class="p-0"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 my-3 align-items-stretch">
+                                <a class="home-link p-4"
+                                   href="/docs/n3/gettingstarted/prerequisites.html">
+                                    <i>🛫</i>
+                                    <div class="div2">
+                                        <p class="m-0">Getting Started</p>
+                                        <p class="p2">
+                                            Start here to build and deploy a basic smart contract if you are a
+                                            beginner.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 my-3 align-items-stretch">
+                                <a class="home-link p-4"
+                                   href="/docs/n3/foundation/Blocks.html">
+                                    <i>🧬</i>
+                                    <div class="div2">
+                                        <p class="m-0">Neo Basics</p>
+                                        <p class="p2">Get a basic-level understanding of Neo core concepts.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 my-3 align-items-stretch">
+                                <a class="home-link p-4"
+                                   href="/docs/n3/node/introduction.html">
+                                    <i>📡</i>
+                                    <div class="div2">
+                                        <p class="m-0">Neo Node</p>
+                                        <p class="p2">Learn how to run a Neo node and manage your wallet.</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 my-3 align-items-stretch">
+                                <a class="home-link p-4"
+                                   href="/docs/n3/develop/network/testnet.html">
+                                    <i>🧑‍💻</i>
+                                    <div class="div2">
+                                        <p class="m-0">Developer Guide</p>
+                                        <p class="p2">
+                                            Dive into comprehensive guides of smart contract, dApp, development
+                                            tools, and more.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 my-3 align-items-stretch">
+                                <a class="home-link p-4"
+                                   href="/docs/n3/reference/rpc/api.html">
+                                    <i>📜</i>
+                                    <div class="div2">
+                                        <p class="m-0">Reference</p>
+                                        <p class="p2">
+                                            Consult development reference information such as APIs, frameworkd,
+                                            fees, and more.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-6 my-3 align-items-stretch">
+                                <a class="home-link p-4"
+                                   href="/docs/n3/exchange/general.html">
+                                    <i>🪙</i>
+                                    <div class="div2">
+                                        <p class="m-0">Support for Exchanges</p>
+                                        <p class="p2">
+                                            Learn how to integrate the Neo node with exchange if you are a
+                                            exchange developer.
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6 my-3 align-items-stretch"><a class="home-link p-4"
-                                href="/docs/n3/gettingstarted/prerequisites.html"> <img
-                                    src="/docs/n3/assets/section1.svg" />
-                                <div class="div2">
-                                    <p class="m-0">Getting Started</p>
-                                    <p class="p2">Start here to build and deploy a basic smart contract if you are a
-                                        beginner.</p>
-                                </div>
-                            </a></div>
-                        <div class="col-12 col-md-6 my-3 align-items-stretch"><a class="home-link p-4"
-                                href="/docs/n3/foundation/Blocks.html"> <img src="/docs/n3/assets/section2.svg" />
-                                <div class="div2">
-                                    <p class="m-0">Neo Basics</p>
-                                    <p class="p2">Get a basic-level understanding of Neo core concepts.</p>
-                                </div>
-                            </a></div>
-                        <div class="col-12 col-md-6 my-3 align-items-stretch"><a class="home-link p-4"
-                                href="/docs/n3/node/introduction.html"> <img src="/docs/n3/assets/section3.svg" />
-                                <div class="div2">
-                                    <p class="m-0">Neo Node</p>
-                                    <p class="p2">Learn how to run a Neo node and manage your wallet.</p>
-                                </div>
-                            </a></div>
-                        <div class="col-12 col-md-6 my-3 align-items-stretch"><a class="home-link p-4"
-                                href="/docs/n3/develop/network/testnet.html"> <img src="/docs/n3/assets/section4.svg" />
-                                <div class="div2">
-                                    <p class="m-0">Developer Guide</p>
-                                    <p class="p2">Dive into comprehensive guides of smart contract, dApp, development
-                                        tools, and more.</p>
-                                </div>
-                            </a></div>
-                        <div class="col-12 col-md-6 my-3 align-items-stretch"><a class="home-link p-4"
-                                href="/docs/n3/reference/rpc/api.html"> <img src="/docs/n3/assets/section5.svg" />
-                                <div class="div2">
-                                    <p class="m-0">Reference</p>
-                                    <p class="p2">Consult development reference information such as APIs, frameworkd,
-                                        fees, and more.</p>
-                                </div>
-                            </a></div>
-                        <div class="col-12 col-md-6 my-3 align-items-stretch"><a class="home-link p-4"
-                                href="/docs/n3/exchange/general.html"> <img src="/docs/n3/assets/section5.svg" />
-                                <div class="div2">
-                                    <p class="m-0">Support for Exchanges</p>
-                                    <p class="p2">Learn how to integrate the Neo node with exchange if you are a
-                                        exchange developer.</p>
-                                </div>
-                            </a></div>
-                    </div>
-                </div>
-                <link href="/docs/index.css" rel="stylesheet" />
+                    <link href="/docs/index.css" rel="stylesheet" />
                 </p>
                 <div class="pr-1">
                     <div class="row my-5">
                         <div class="col-6">
                             <a id="prevPage" style="display: none">
                                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                <div>Preveous<div class="prevText"></div>
+                                <div>
+                                    Preveous<div class="prevText"></div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-6">
                             <a id="nextPage" style="display: none">
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                <div>Next<div class="nextText"></div>
+                                <div>
+                                    Next<div class="nextText"></div>
                                 </div>
                             </a>
                         </div>
@@ -181,11 +211,11 @@
             <div class="d-none d-lg-block col-lg-3 col-xl-2 p-0" id="side_nav_div">
                 <div class="side-nav">
                     <a href="https://github.com/neo-project/docs/blob/master/docs/n3/index.md"
-                        class="contribution-link d-block">
+                       class="contribution-link d-block">
                         <i class="fab fa-github"></i>Improve this Doc
                     </a>
                     <a class="contribution-link d-none" data-toggle="modal" title="Feedback"
-                        data-target="#feedbackModal"><i class="fas fa-comment-dots"></i>Send feedback</a>
+                       data-target="#feedbackModal"><i class="fas fa-comment-dots"></i>Send feedback</a>
                     <div class="side-nav-text"><strong>In this article</strong></div>
                     <div id="navbar-sidenav">
 
@@ -195,7 +225,7 @@
         </div>
     </div>
     <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -206,7 +236,7 @@
                 </div>
                 <div class="modal-body">
                     <textarea type="text" rows="5" class="form-control" placeholder="Enter feedback here"
-                        id="message"></textarea>
+                              id="message"></textarea>
                     <div id="feedbackspan" class="text-success"></div>
                 </div>
                 <div class="modal-footer">
@@ -230,10 +260,14 @@
             <li><a href="https://github.com/neo-project/neo-dev-portal/issues" title="Issue" target="_blank">Issue</a></li>
             <li><a href="https://discord.io/neo" title="Discord" target="_blank">Discord</a></li>
         </ul>
-        <p>Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder"
-                target="_blank">NeoDocsBuilder</a></p>
-        <p>Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0"
-                target="_blank">CC-BY-4.0</a> license. </p>
+        <p>
+            Build by <a href="https://github.com/chenzhitong/NeoDocsBuilder" title="NeoDocsBuilder"
+                        target="_blank">NeoDocsBuilder</a>
+        </p>
+        <p>
+            Licensed under <a href="https://github.com/neo-project/docs/blob/master/LICENSE" title="CC-BY-4.0"
+                              target="_blank">CC-BY-4.0</a> license.
+        </p>
     </footer>
     <script src="https://neo-web.azureedge.net/lib/jquery/jquery.min.js"></script>
     <script src="https://neo-web.azureedge.net/lib/popper.js/popper.min.js"></script>

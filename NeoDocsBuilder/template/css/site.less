@@ -156,12 +156,12 @@ nav {
     }
 
     &::-webkit-scrollbar-thumb {
-        border-radius: 10px;
+        border-radius: .25rem;
         background: rgba(0, 0, 0, 0.15);
     }
 
     &::-webkit-scrollbar-track {
-        border-radius: 5px;
+        border-radius: .25rem;
         background: transparent;
     }
 
@@ -189,7 +189,6 @@ nav {
     }
 
     .nav-pills .nav-link {
-        border-radius: 0;
         width: 100%;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -201,8 +200,8 @@ nav {
         transition: transform .5s;
         float: right;
         color: @light-border;
-        font-size: 10px;
-        line-height: 2;
+        font-size: 16px;
+        line-height: 1.5;
     }
 
     .expand i {
@@ -320,12 +319,14 @@ main {
         padding: 1px .25rem;
         font-family: inherit;
         word-break: keep-all;
+        border-radius: .25rem;
     }
 
     figure code.hljs {
         max-height: 228px;
         overflow: scroll;
-        padding: 53px 32px 0;
+        padding: 36px 32px 0;
+        border-radius: .25rem;
 
         &::-webkit-scrollbar {
             width: 8px;
@@ -333,12 +334,12 @@ main {
         }
 
         &::-webkit-scrollbar-thumb {
-            border-radius: 10px;
+            border-radius: .25rem;
             background: rgba(0, 0, 0, 0.15);
         }
 
         &::-webkit-scrollbar-track {
-            border-radius: 5px;
+            border-radius: .25rem;
             background: transparent;
         }
     }
@@ -395,8 +396,9 @@ main {
     .bd-callout {
         padding: 1rem 2rem 1rem 2.5rem;
         margin: 2.5rem 0 2.5rem;
-        border-left: 3px solid @light-border;
-        background-color: @light-background2;
+        border: 1px solid @light-border;
+        border-left-width: .25rem;
+        border-radius: .25rem;
         position: relative;
 
         img {
@@ -438,6 +440,7 @@ main {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        border-radius: .25rem;
 
         &:hover {
             color: #fff;
@@ -488,7 +491,8 @@ main {
             margin-top: 0;
             margin-bottom: 0;
             background-color: transparent;
-            border: 0;
+            border: 1px solid @light-border;
+            border-radius: .25rem;
             font-size: 1rem;
         }
     }
@@ -515,6 +519,10 @@ main {
         margin-left: 10px;
     }
 
+    .nav-pills .nav-link {
+        border-radius: 0;
+    }
+
     .contribution-link {
         margin: 0 .5rem 1rem .7rem;
         border: 1px solid @light-logotext;
@@ -524,6 +532,7 @@ main {
         cursor: pointer;
         width: 156px;
         font-size: 14px;
+        border-radius: .25rem;
 
         &:hover {
             color: @light-background2;
@@ -545,7 +554,6 @@ main {
         padding: 2px 10px;
         color: rgba(128, 128, 128, .8);
         font-size: .9rem;
-        border-radius: 0;
         overflow-x: hidden;
         text-overflow: ellipsis;
         width: 100%;
@@ -555,8 +563,8 @@ main {
         &.active {
             color: @light-link;
             background-color: transparent;
-            border-left: 3px solid @light-link;
-            padding-left: 7px;
+/*            border-left: 3px solid @light-link;
+            padding-left: 7px;*/
         }
     }
 }
@@ -699,8 +707,8 @@ footer {
 //docs search bar
 .search-bar {
     position: relative;
-    padding: 10px 1rem;
-    width: 180px;
+    padding: 6px 1rem;
+    width: 240px;
 
     &:hover {
         .search-re, .search-de {
@@ -713,7 +721,7 @@ footer {
         position: absolute;
         left: 1rem;
         padding: 5px;
-        margin: 1px;
+        margin: 5px 2px;
     }
 
     .search-de {
@@ -735,9 +743,11 @@ footer {
         font-size: 14px;
         padding-left: 1.6rem;
         border: 1px solid @light-border;
+        background: rgba(128,128,128,.05);
 
         &:focus {
             box-shadow: 0 0 3px @light-border;
+            background: transparent;
             outline: none;
         }
 
@@ -814,12 +824,12 @@ footer {
         }
 
         &::-webkit-scrollbar-thumb {
-            border-radius: 10px;
+            border-radius: .25rem;
             background: rgba(0, 0, 0, 0.15);
         }
 
         &::-webkit-scrollbar-track {
-            border-radius: 5px;
+            border-radius: .25rem;
             background: transparent;
         }
     }
@@ -833,6 +843,7 @@ footer {
     padding: .5rem 1rem;
     text-decoration: none;
     background-color: @light-background2;
+    border-radius: .25rem;
 
     i {
         position: absolute;
