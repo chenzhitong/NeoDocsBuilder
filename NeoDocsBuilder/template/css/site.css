@@ -296,10 +296,11 @@ main figure code.hljs::-webkit-scrollbar-track {
   border-radius: 0.25rem;
   background: transparent;
 }
+main figure {
+  overflow: auto;
+}
 main table.table {
   color: #222;
-  overflow-x: auto;
-  display: block;
 }
 main table.table thead th {
   background-color: transparent;
@@ -616,12 +617,10 @@ footer a:hover {
 .search-bar:hover .search-de {
   display: block;
 }
-.search-bar .fa-search {
-  color: #003;
+.search-bar .emoji-search {
   position: absolute;
-  left: 1rem;
-  padding: 5px;
-  margin: 5px 2px;
+  left: 1.2rem;
+  line-height: 2.3;
 }
 .search-bar .search-de {
   display: none;
@@ -629,7 +628,7 @@ footer a:hover {
   position: absolute;
   right: 1rem;
   padding: 1px 8px;
-  margin: 1px;
+  margin: 5px;
   cursor: pointer;
 }
 .search-bar .search-de:hover {
@@ -638,7 +637,7 @@ footer a:hover {
 .search-bar #sInput {
   width: 100%;
   font-size: 14px;
-  padding-left: 1.6rem;
+  padding-left: 1.8rem;
   border: 1px solid #d4d4d4;
   background: rgba(128, 128, 128, 0.05);
 }
@@ -660,6 +659,7 @@ footer a:hover {
   display: none;
   z-index: 3;
   width: 100%;
+  border-radius: 0.25rem;
 }
 .search-bar .search-re ul {
   padding-left: 0;

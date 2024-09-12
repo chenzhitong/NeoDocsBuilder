@@ -344,10 +344,12 @@ main {
         }
     }
 
+    figure{
+        overflow: auto;
+    } 
+    
     table.table {
         color: @light-text;
-        overflow-x: auto;
-        display: block;
 
         thead th {
             background-color: transparent;
@@ -716,12 +718,10 @@ footer {
         }
     }
 
-    .fa-search {
-        color: @light-logotext;
+    .emoji-search {
         position: absolute;
-        left: 1rem;
-        padding: 5px;
-        margin: 5px 2px;
+        left: 1.2rem;
+        line-height: 2.3;
     }
 
     .search-de {
@@ -730,7 +730,7 @@ footer {
         position: absolute;
         right: 1rem;
         padding: 1px 8px;
-        margin: 1px;
+        margin: 5px;
         cursor: pointer;
 
         &:hover {
@@ -741,7 +741,7 @@ footer {
     #sInput {
         width: 100%;
         font-size: 14px;
-        padding-left: 1.6rem;
+        padding-left: 1.8rem;
         border: 1px solid @light-border;
         background: rgba(128,128,128,.05);
 
@@ -768,6 +768,7 @@ footer {
         display: none;
         z-index: 3;
         width: 100%;
+        border-radius: .25rem;
 
         ul {
             padding-left: 0;
