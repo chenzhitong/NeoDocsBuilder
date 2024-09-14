@@ -152,6 +152,7 @@ footer {
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+  position: relative;
 }
 .catalog i {
   margin-right: 0.3rem;
@@ -161,6 +162,18 @@ footer {
   color: #d4d4d4;
   font-size: 16px;
   line-height: 1.5;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  padding: 1px 11px;
+  border-radius: 0.25rem;
+  display: block;
+  width: 30px;
+  height: 25px;
+}
+.catalog i:hover {
+  background-color: #fbfbfb;
+  border: 1px solid #d4d4d4;
 }
 .catalog .expand i {
   transform: rotate(90deg);
@@ -168,7 +181,7 @@ footer {
 .catalog a,
 .catalog span {
   cursor: pointer;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 0 0.3rem 1rem;
 }
 .catalog > nav {
   margin-bottom: 3rem;
@@ -502,6 +515,7 @@ main .highlight pre {
 .catalog .nav-pills .nav-link > a.active {
   background-color: transparent;
   padding: 0;
+  display: block;
 }
 .catalog a:hover,
 .catalog span:hover,
@@ -844,6 +858,10 @@ footer a:hover {
 }
 .theme-dark .catalog i {
   color: #474e43;
+}
+.theme-dark .catalog i:hover {
+  background-color: #333;
+  border: 1px solid #474e43;
 }
 .theme-dark main {
   background-color: #1E1E1E;

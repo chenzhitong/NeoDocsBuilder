@@ -194,6 +194,7 @@ nav {
         width: 100%;
         text-overflow: ellipsis;
         overflow: hidden;
+        position: relative;
     }
 
     i {
@@ -204,6 +205,19 @@ nav {
         color: @light-border;
         font-size: 16px;
         line-height: 1.5;
+        position: absolute;
+        right: 0;
+        top: 5px;
+        padding: 1px 11px;
+        border-radius: .25rem;
+        display: block;
+        width: 30px;
+        height: 25px;
+
+        &:hover {
+            background-color: @light-code-bg;
+            border: 1px solid @light-border;
+        }
     }
 
     .expand i {
@@ -212,7 +226,7 @@ nav {
 
     a, span {
         cursor: pointer;
-        padding: .3rem 1rem;
+        padding: .3rem 0 .3rem 1rem;
     }
 
     & > nav {
@@ -582,6 +596,7 @@ main {
 .catalog .nav-pills .nav-link > a, .catalog .nav-pills .nav-link > a.active {
     background-color: transparent;
     padding: 0;
+    display: block;
 }
 
 .catalog a:hover,

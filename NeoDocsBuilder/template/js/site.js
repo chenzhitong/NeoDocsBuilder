@@ -57,6 +57,7 @@ window.onload = function () {
         $(link).parent("span").addClass("active");
         $(link).parents("nav").show();
         $(link).parent().next("nav").show();
+        $(link).parents("span").addClass('expand');
         $(link).parents().prev().addClass('expand');
     }
     //上一页下一页
