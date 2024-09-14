@@ -176,7 +176,9 @@ namespace NeoDocsBuilder
                 case MarkdownInlineType.Image:
                     var image = inline as ImageInline;
                     var imageTooltip = string.IsNullOrEmpty(image.Tooltip) ? "" : $" alt='{image.Tooltip}'";
-                    result += $"<img class='d-inline-block img-fluid' data-original='{image.Url.Split(' ')[0]}'{imageTooltip} referrerPolicy='no-referrer' />";
+                    var url = image.Url.Split(' ')[0];
+                    result += $"<img class='d-inline-block img-fluid' data-original='{url}'{imageTooltip} referrerPolicy='no-referrer' />";
+                    LinkCheck(file, url);
                     break;
                 case MarkdownInlineType.Italic:
                     result += "<em>";
@@ -310,7 +312,6 @@ namespace NeoDocsBuilder
 
         private static void LinkCheck(string pathBase, string link)
         {
-            
             var fullPath = Path.GetFullPath(pathBase);
             var fullLink = Path.GetFullPath(!link.StartsWith("/") ? "../" + link : link, fullPath);
             if (Path.GetExtension(fullLink) != ".md") return;

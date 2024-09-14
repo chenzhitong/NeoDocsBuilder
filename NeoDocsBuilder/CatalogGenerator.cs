@@ -27,7 +27,7 @@ namespace NeoDocsBuilder
                     var indexmd = Path.Combine(item.Link, "index.md");
                     if (File.Exists(indexmd))
                     {
-                        return $"\r\n{space}<span class='ml-0 my-1 nav-link'><a  href='/{item.Link.Replace("\\", "/")}/index.html'>{item.Label}</a><i class='fas fa-chevron-right'></i></span>" + ConvertFromCatalogJson(item.Link);
+                        return $"\r\n{space}<span class='ml-0 my-1 nav-link'><a href='/{item.Link.Replace("\\", "/")}/index.html'>{item.Label}</a><i class='fas fa-chevron-right'></i></span>" + ConvertFromCatalogJson(item.Link);
                     }
                     else
                     {
@@ -53,7 +53,7 @@ namespace NeoDocsBuilder
             try
             {
                 //sidebar_label 优先
-                label = lines.FirstOrDefault(l => l.StartsWith("sidebar_label"))?.Split(':')[1].Trim(' ', '\'');
+                label = lines.FirstOrDefault(l => l.StartsWith("sidebar_label"))?.Split(':')[1].Trim(' ', '\'', '"');
                 //标题其次
                 if (string.IsNullOrEmpty(label))
                 {
