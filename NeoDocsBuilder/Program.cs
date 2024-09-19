@@ -122,7 +122,6 @@ namespace NeoDocsBuilder
             var date = "";
             if (!string.IsNullOrEmpty(config.GitRepoPath))
             {
-                var gitFile = Path.Combine(config.GitRelativePath, Path.GetRelativePath(config.Origin, file));
                 date = Git.GetLastEditDateTime(config.GitRepoPath, file);
             }
             var anchroPoint = new List<string>();
