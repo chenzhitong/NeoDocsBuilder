@@ -1,7 +1,30 @@
 [
-  {
-    "origin": "docs/n3",
-    "destination": "wwwroot\\docs\\n3",
-    "git": "https://github.com/neo-project/neo-dev-portal/tree/dev/docs/n3"
-  }
+    {
+        "origin": "docs\\n3",
+        "destination": "wwwroot\\docs\\n3",
+        "git": "https://github.com/neo-project/neo-dev-portal/tree/dev/docs/n3",
+        "gitRelativePath": "D:\\1Code\\chen\\neo-dev-portal\\docs\\n3",
+        "gitRepoPath": "D:\\1Code\\chen\\neo-dev-portal"
+    },
+    {
+        "origin": "docs\\faq",
+        "destination": "wwwroot\\docs\\faq",
+        "git": "https://github.com/neo-project/neo-dev-portal/tree/dev/docs/faq",
+        "gitRelativePath": "D:\\1Code\\chen\\neo-dev-portal\\docs\\faq",
+        "gitRepoPath": "D:\\1Code\\chen\\neo-dev-portal"
+    },
+    {
+        "origin": "zh\\docs\\n3",
+        "destination": "wwwroot\\zh\\docs\\n3",
+        "git": "https://github.com/neo-project/neo-dev-portal/tree/dev/i18n/zh/docusaurus-plugin-content-docs/current/n3",
+        "gitRelativePath": "D:\\1Code\\chen\\neo-dev-portal\\i18n\\zh\\docusaurus-plugin-content-docs\\current\\n3",
+        "gitRepoPath": "D:\\1Code\\chen\\neo-dev-portal"
+    },
+    {
+        "origin": "zh\\docs\\faq",
+        "destination": "wwwroot\\zh\\docs\\faq",
+        "git": "https://github.com/neo-project/neo-dev-portal/tree/dev/i18n/zh/docusaurus-plugin-content-docs/current/faq",
+        "gitRelativePath": "D:\\1Code\\chen\\neo-dev-portal\\i18n\\zh\\docusaurus-plugin-content-docs\\current\\faq",
+        "gitRepoPath": "D:\\1Code\\chen\\neo-dev-portal"
+    }
 ]

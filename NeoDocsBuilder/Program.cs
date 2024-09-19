@@ -92,22 +92,22 @@ namespace NeoDocsBuilder
                 var relativeToOrigin = Path.GetRelativePath(config.Origin, file);
                 //在配置文件中该文档是否根二级标题自动折叠
                 var collapse = config.FolderJson != null && config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(relativeToOrigin, StringComparison.OrdinalIgnoreCase));
-                var (title, content, sideNav) = Convert(file, collapse);
+                var (title, content, sideNav, date) = Convert(file, collapse, config);
                 //生成后的文件路径
                 var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
                 var git = Path.Combine(config.Git, relativeToOrigin);
-                Build(newFile, catalog, content, title, sideNav, git, collapse);
+                Build(newFile, catalog, content, title, sideNav, git, collapse, date);
             });
             //foreach (var file in AllMdFiles)
             //{
             //    var relativeToOrigin = Path.GetRelativePath(config.Origin, file);
             //    //在配置文件中该文档是否根二级标题自动折叠
             //    var collapse = config.FolderJson != null && config.FolderJson["collapse"].ToList().Any(p => p.ToString().Equals(relativeToOrigin, StringComparison.OrdinalIgnoreCase));
-            //    var (title, content, sideNav) = Convert(file, collapse);
+            //    var (title, content, sideNav, date) = Convert(file, collapse, config);
             //    //生成后的文件路径
             //    var newFile = Path.Combine(config.Destination, relativeToOrigin.Replace(".md", ".html")).ToLower();
             //    var git = Path.Combine(config.Git, relativeToOrigin);
-            //    Build(newFile, catalog, content, title, sideNav, git, collapse);
+            //    Build(newFile, catalog, content, title, sideNav, git, collapse, date);
             //}
         }
 
@@ -117,8 +117,14 @@ namespace NeoDocsBuilder
         /// <param name="file">文件名</param>
         /// <param name="collapse">所有二级标题下面的内容自动折叠，点击二级标题后展开或收缩。True 表示启用</param>
         /// <returns>输出元组（标题，内容，文章内的目录）</returns>
-        static (string title, string content, string sideNav) Convert(string file, bool collapse)
+        static (string title, string content, string sideNav, string date) Convert(string file, bool collapse, ConfigItem config)
         {
+            var date = "";
+            if (!string.IsNullOrEmpty(config.GitRepoPath))
+            {
+                var gitFile = Path.Combine(config.GitRelativePath, Path.GetRelativePath(config.Origin, file));
+                date = Git.GetLastEditDateTime(config.GitRepoPath, file);
+            }
             var anchroPoint = new List<string>();
             MarkdownDocument document = new();
             document.Parse(File.ReadAllText(file).Replace("\\|", "&#124;"));
@@ -196,7 +202,7 @@ namespace NeoDocsBuilder
             {
                 sideNav += "\r\n</nav>";
             }
-            return (title?.Trim(), content?.Trim(), sideNav?.Trim());
+            return (title?.Trim(), content?.Trim(), sideNav?.Trim(), date);
         }
 
         /// <summary>
@@ -208,12 +214,14 @@ namespace NeoDocsBuilder
         /// <param name="title">标题（TXT）</param>
         /// <param name="sideNav">文章内的目录（HTML）</param>
         /// <param name="collapse">是否对内容进行折叠</param>
-        static void Build(string path, string catalog, string content, string title, string sideNav, string git, bool collapse)
+        static void Build(string path, string catalog, string content, string title, string sideNav, string git, bool collapse, string date)
         {
+            date = string.IsNullOrEmpty(date) ? date : $"<div class=\"date\"><i>Last modified: {date}</i></div>";
             try
             {
                 using StreamWriter sw = new(path);
                 sw.WriteLine(File.ReadAllText("template/template.html")
+                .Replace("{date}", date)
                 .Replace("{title}", title)
                 .Replace("{git}", git)
                 .Replace("{sideNav}", sideNav)

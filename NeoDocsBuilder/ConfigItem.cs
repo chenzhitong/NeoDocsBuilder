@@ -8,12 +8,16 @@ namespace NeoDocsBuilder
         public string Origin;
         public string Destination;
         public string Git;
+        public string GitRelativePath;
+        public string GitRepoPath;
         public JObject FolderJson;
         public ConfigItem(JToken json)
         {
             Origin = json["origin"].ToString();
             Destination = json["destination"].ToString();
             Git = json["git"].ToString();
+            GitRelativePath = json["gitRelativePath"]?.ToString();
+            GitRepoPath = json["gitRepoPath"]?.ToString();
             var jsonPath = Path.Combine(Origin, "folder.json");
             if (!File.Exists(jsonPath))
             {
