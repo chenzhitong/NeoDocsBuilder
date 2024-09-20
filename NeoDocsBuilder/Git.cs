@@ -12,7 +12,7 @@ namespace NeoDocsBuilder
             var psi = new ProcessStartInfo
             {
                 FileName = "git",
-                Arguments = $"log -1 --format=%cd -- \"{filePath}\"",
+                Arguments = $"log -1 --format=%cd --date=format:\"%Y-%m-%d\" -- \"{filePath}\"",
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
                 CreateNoWindow = true,

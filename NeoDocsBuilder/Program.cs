@@ -122,7 +122,9 @@ namespace NeoDocsBuilder
             var date = "";
             if (!string.IsNullOrEmpty(config.GitRepoPath))
             {
-                date = Git.GetLastEditDateTime(config.GitRepoPath, file);
+                var reletivePath = Path.GetRelativePath(config.Origin, file);
+                var filePath = Path.Combine(config.GitFilePath, reletivePath);
+                date = Git.GetLastEditDateTime(config.GitRepoPath, filePath);
             }
             var anchroPoint = new List<string>();
             MarkdownDocument document = new();
