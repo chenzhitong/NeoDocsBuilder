@@ -41,7 +41,7 @@ namespace NeoDocsBuilder
                     var linkReference = block as LinkReferenceBlock;
                     var url = linkReference.Url ?? "javascript:";
                     var tooltip = string.IsNullOrEmpty(linkReference.Tooltip) ? "" : $" title='{linkReference.Tooltip}'";
-                    if(url.IsExternalLink())
+                    if (url.IsExternalLink())
                         result += $" <a class='with-space' href='{url}' target='_blank'{tooltip}>{linkReference}</a> ";
                     else
                         result += $" <a class='with-space' href='{url.Replace(".md", ".html")}'{tooltip}>{linkReference}</a> ";
@@ -52,7 +52,8 @@ namespace NeoDocsBuilder
                     if (list.Style == ListStyle.Bulleted)
                     {
                         result += "\r\n<ul class='with-space'>";
-                        list.Items.ToList().ForEach(l => {
+                        list.Items.ToList().ForEach(l =>
+                        {
                             result += $"\r\n<li>";
                             l.Blocks.ToList().ForEach(p => result += p.ToHtml(file, string.Empty));
                             result += $"</li>";
@@ -62,7 +63,8 @@ namespace NeoDocsBuilder
                     if (list.Style == ListStyle.Numbered)
                     {
                         result += "\r\n<ol>";
-                        list.Items.ToList().ForEach(l => {
+                        list.Items.ToList().ForEach(l =>
+                        {
                             result += $"\r\n<li>";
                             l.Blocks.ToList().ForEach(p => result += p.ToHtml(file, string.Empty));
                             result += $"</li>";
@@ -146,7 +148,7 @@ namespace NeoDocsBuilder
                     result += "\r\n</tr>\r\n</tbody>";
                     result += "\r\n</table></figure>";
                     break;
-                case MarkdownBlockType.Root: 
+                case MarkdownBlockType.Root:
                 case MarkdownBlockType.ListItemBuilder:
                     //这两个是啥?
                     throw new NotImplementedException();
@@ -187,16 +189,26 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownInlineType.MarkdownLink:
                     var markdownLink = inline as MarkdownLinkInline;
-                    var markdownLinkUrl = markdownLink.Url ?? "javascript:";
-                    var markdownLinkTooltip = string.IsNullOrEmpty(markdownLink.Tooltip) ? "" : $" title='{markdownLink.Tooltip}'";
+                    if (markdownLink.Url != null)
+                    {
+                        var markdownLinkTooltip = string.IsNullOrEmpty(markdownLink.Tooltip) ? "" : $" title='{markdownLink.Tooltip}'";
 
-                    if (markdownLinkUrl.IsExternalLink())
-                        result += $" <a href='{markdownLinkUrl}' target='_blank'{markdownLinkTooltip}>";
+                        if (markdownLink.Url.IsExternalLink())
+                            result += $" <a href='{markdownLink.Url}' target='_blank'{markdownLinkTooltip}>";
+                        else
+                            result += $" <a href='{markdownLink.Url.Replace(".md", ".html")}'{markdownLinkTooltip}>";
+                        LinkCheck(file, markdownLink.Url);
+                        markdownLink.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
+                        result += "</a> ";
+                    }
                     else
-                        result += $" <a href='{markdownLinkUrl.Replace(".md", ".html")}'{markdownLinkTooltip}>";
-                    LinkCheck(file, markdownLinkUrl);
-                    markdownLink.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
-                    result += "</a> ";
+                    {
+                        result += "[";
+                        markdownLink.Inlines.ToList().ForEach(p => result += p.ToHtml(file));
+                        result += "]";
+
+                        result += $"[{ markdownLink.ReferenceId}]";
+                    }
                     break;
                 case MarkdownInlineType.Strikethrough:
                     result += "<del>";
@@ -248,7 +260,7 @@ namespace NeoDocsBuilder
                     break;
                 case MarkdownInlineType.RawHyperlink:
                     var hyperLink = inline as HyperlinkInline;
-                    var imgExName = new string[]{ "jpg", "jpeg", "png", "gif" };
+                    var imgExName = new string[] { "jpg", "jpeg", "png", "gif" };
                     if (imgExName.ToList().Any(p => hyperLink.Text.Contains(p)))
                     {
                         result += hyperLink.Text;
@@ -310,11 +322,29 @@ namespace NeoDocsBuilder
 
         public static readonly List<string> ErrorLogs = new();
 
+        private static string[] Allow = [".md", ".html", ".jpg", ".jpeg", ".gif", ".png"];
+
         private static void LinkCheck(string pathBase, string link)
         {
             var fullPath = Path.GetFullPath(pathBase);
             var fullLink = Path.GetFullPath(!link.StartsWith("/") ? "../" + link : link, fullPath);
-            if (Path.GetExtension(fullLink) != ".md") return;
+            var extension = Path.GetExtension(fullLink);
+            if (string.IsNullOrEmpty(extension) && !link.StartsWith("http") && !link.StartsWith("#"))
+            {
+                var newFullLink = fullLink.Contains("#") ? fullLink.Replace("#", ".md#") : fullLink + ".md";
+                if (File.Exists(newFullLink.Substring(0, newFullLink.IndexOf("#") >= 0 ? newFullLink.IndexOf("#") : newFullLink.Length)))
+                {
+                    var newLink = link.Contains("#") ? link.Replace("#", ".md#") : link + ".md";
+                    File.WriteAllText(pathBase, File.ReadAllText(pathBase).Replace(link, newLink));
+                    ErrorLogs.Add($"Error link: {pathBase} ({link}) 已自动修复");
+                }
+                else
+                {
+                    ErrorLogs.Add($"Error link: {pathBase} ({link})");
+                }
+                return;
+            }
+            if (Allow.All(p => p != Path.GetExtension(fullLink))) return;
             if (link.StartsWith("http") || File.Exists(UrlDecode(fullLink)))
             {
                 return;
