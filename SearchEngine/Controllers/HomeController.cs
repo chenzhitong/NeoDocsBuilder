@@ -33,11 +33,6 @@ namespace SearchEngine.Controllers
                 Line = p.FirstOrDefault().Line.Length > 50 ? p.FirstOrDefault().Line.Substring(0, 50) + "..." : p.FirstOrDefault().Line,
                 Title = p.FirstOrDefault().Title }).ToList();
 
-            if (!string.IsNullOrEmpty(l))
-            {
-                result = result.Where(p => p.Link.Contains(l == "zh" ? "zh" : "en", StringComparison.OrdinalIgnoreCase)).ToList();
-            }
-
             return Content(JsonConvert.SerializeObject(result.Take(20)), "application/json");
         }
     }
