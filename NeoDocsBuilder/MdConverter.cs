@@ -165,7 +165,6 @@ namespace NeoDocsBuilder
         public static string ToHtml(this MarkdownInline inline, string file)
         {
             var result = string.Empty;
-            var text1 = inline.ToString();
             switch (inline.Type)
             {
                 case MarkdownInlineType.Comment: result += inline; break;
@@ -183,9 +182,12 @@ namespace NeoDocsBuilder
                     LinkCheck(file, url);
                     break;
                 case MarkdownInlineType.Italic:
-                    result += "<em>";
+                    //针对错误的转换的hotfix
+                    var text1 = inline.ToString();
+                    var reg2 = new Regex("\\s*</?(div|p|img|br|b|i|br|a|link|table|strong|tr|td|th|tbody|em|u|s|del|kbd)(\\W+|(\\s+.*?/?>))", RegexOptions.IgnoreCase);
+                    result += reg2.IsMatch(text1) ? "_" : "<em>";
                     (inline as ItalicTextInline).Inlines.ToList().ForEach(p => result += p.ToHtml(file));
-                    result += "</em>";
+                    result += reg2.IsMatch(text1) ? "_" : "</em>";
                     break;
                 case MarkdownInlineType.MarkdownLink:
                     var markdownLink = inline as MarkdownLinkInline;
