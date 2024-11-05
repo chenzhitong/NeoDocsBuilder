@@ -30,6 +30,8 @@ namespace SearchEngine
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseMiddleware<RedirectHtmlMiddleware>();
+
             FileExtensionContentTypeProvider provider = new();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
             app.UseStaticFiles(new StaticFileOptions()
