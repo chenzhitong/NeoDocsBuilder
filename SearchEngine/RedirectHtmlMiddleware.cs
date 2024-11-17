@@ -16,7 +16,7 @@ namespace SearchEngine
         {
             var requestedPath = context.Request.Path.Value;
 
-             if (requestedPath.Contains("//") || requestedPath.StartsWith("//") || requestedPath.Contains("://"))
+             if (requestedPath.Contains("//"))
              {
                  context.Response.StatusCode = 400; 
                  return; // 终止请求处理
