@@ -16,6 +16,12 @@ namespace SearchEngine
         {
             var requestedPath = context.Request.Path.Value;
 
+            if (Uri.UnescapeDataString(requestedPath).Contains("//") || Uri.UnescapeDataString(requestedPath).Contains("﻿/\\"))
+             {
+                 context.Response.StatusCode = 400; 
+                 return; // 终止请求处理
+             }
+
             // 检查 URL 是否不以 .html 结尾且不以斜杠结尾
             if (!requestedPath.EndsWith(".html") && !requestedPath.EndsWith("/"))
             {
